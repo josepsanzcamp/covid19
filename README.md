@@ -2,9 +2,10 @@
 Aqui dejare algunos plots para mostrar los datos del MoMo y del INE
 
 # MoMo
-- https://www.isciii.es/QueHacemos/Servicios/VigilanciaSaludPublicaRENAVE/EnfermedadesTransmisibles/MoMo/Paginas/MoMo.aspx
-- https://momo.isciii.es/public/momo/dashboard/momo_dashboard.html
-- https://cnecovid.isciii.es/covid19/#documentación-y-datos => COVID-19
+- https://www.isciii.es/QueHacemos/Servicios/VigilanciaSaludPublicaRENAVE/EnfermedadesTransmisibles/MoMo/Paginas/MoMo.aspx => pagina principal de MoMo
+- https://momo.isciii.es/public/momo/dashboard/momo_dashboard.html => panel de control de MoMo
+- https://momo.isciii.es/public/momo/data => descarga directa del fichero csv con los datos de MoMo
+- https://cnecovid.isciii.es/covid19/ => COVID-19
 
 # INE
 - https://www.ine.es/buscar/searchResults.do?searchString=defunciones => Buscador desde donde he encontrado lo siguiente

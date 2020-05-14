@@ -24,8 +24,8 @@ function export_file($file,$data) {
 	file_put_contents($file,$data);
 }
 
-if(!file_exists("02001-ok.csv")) {
-	$data=import_file("02001.csv");
+if(!file_exists("middle/02001-ok.csv")) {
+	$data=import_file("input/ine/02001.csv");
 	$meses=array(
 		"Enero"=>"01",
 		"Febrero"=>"02",
@@ -50,11 +50,11 @@ if(!file_exists("02001-ok.csv")) {
 		unset($data[$key]);
 	}
 	sort($sumas);
-	export_file("02001-ok.csv",$sumas);
+	export_file("middle/02001-ok.csv",$sumas);
 }
 
-if(!file_exists("02001-ok2.csv")) {
-	$data=import_file("02001.csv");
+if(!file_exists("middle/02001-ok2.csv")) {
+	$data=import_file("input/ine/02001.csv");
 	$meses=array(
 		"Enero"=>"01",
 		"Febrero"=>"02",
@@ -98,11 +98,11 @@ if(!file_exists("02001-ok2.csv")) {
 		$val[0]=implode(";",$temp);
 		$sumas[$key]=$val;
 	}
-	export_file("02001-ok2.csv",$sumas);
+	export_file("middle/02001-ok2.csv",$sumas);
 }
 
-if(!file_exists("14819-ok.csv")) {
-	$data=import_file("14819.csv");
+if(!file_exists("middle/14819-ok.csv")) {
+	$data=import_file("input/ine/14819.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if(strtok($val[0]," ")=="001-102" && $val[1]=="Total") {
@@ -112,11 +112,11 @@ if(!file_exists("14819-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("14819-ok.csv",$sumas);
+	export_file("middle/14819-ok.csv",$sumas);
 }
 
-if(!file_exists("6545-ok.csv")) {
-	$data=import_file("6545.csv");
+if(!file_exists("middle/6545-ok.csv")) {
+	$data=import_file("input/ine/6545.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="Total" && $val[1]=="Total") {
@@ -126,11 +126,11 @@ if(!file_exists("6545-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("6545-ok.csv",$sumas);
+	export_file("middle/6545-ok.csv",$sumas);
 }
 
-if(!file_exists("6548-ok.csv")) {
-	$data=import_file("6548.csv");
+if(!file_exists("middle/6548-ok.csv")) {
+	$data=import_file("input/ine/6548.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="Total" && $val[1]=="Total") {
@@ -140,11 +140,11 @@ if(!file_exists("6548-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("6548-ok.csv",$sumas);
+	export_file("middle/6548-ok.csv",$sumas);
 }
 
-if(!file_exists("6561-ok.csv")) {
-	$data=import_file("6561.csv");
+if(!file_exists("middle/6561-ok.csv")) {
+	$data=import_file("input/ine/6561.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="Total") {
@@ -154,11 +154,11 @@ if(!file_exists("6561-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("6561-ok.csv",$sumas);
+	export_file("middle/6561-ok.csv",$sumas);
 }
 
-if(!file_exists("6562-ok.csv")) {
-	$data=import_file("6562.csv");
+if(!file_exists("middle/6562-ok.csv")) {
+	$data=import_file("input/ine/6562.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total" && $val[2]!="Total") {
@@ -168,11 +168,11 @@ if(!file_exists("6562-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("6562-ok.csv",$sumas);
+	export_file("middle/6562-ok.csv",$sumas);
 }
 
-if(!file_exists("6562-ok2.csv")) {
-	$data=import_file("6562.csv");
+if(!file_exists("middle/6562-ok2.csv")) {
+	$data=import_file("input/ine/6562.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total" && $val[2]!="Total") {
@@ -182,11 +182,11 @@ if(!file_exists("6562-ok2.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("6562-ok2.csv",$sumas);
+	export_file("middle/6562-ok2.csv",$sumas);
 }
 
-if(!file_exists("6566-ok.csv")) {
-	$data=import_file("6566.csv");
+if(!file_exists("middle/6566-ok.csv")) {
+	$data=import_file("input/ine/6566.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if(stripos($val[0],"defunci")!==false && stripos($val[1],"defunción")!==false) {
@@ -196,11 +196,11 @@ if(!file_exists("6566-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("6566-ok.csv",$sumas);
+	export_file("middle/6566-ok.csv",$sumas);
 }
 
-if(!file_exists("6580-ok.csv")) {
-	$data=import_file("6580.csv");
+if(!file_exists("middle/6580-ok.csv")) {
+	$data=import_file("input/ine/6580.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if(stripos($val[0],"defunci")!==false && stripos($val[1],"defunción")!==false) {
@@ -210,11 +210,11 @@ if(!file_exists("6580-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("6580-ok.csv",$sumas);
+	export_file("middle/6580-ok.csv",$sumas);
 }
 
-if(!file_exists("7947-ok.csv")) {
-	$data=import_file("7947.csv");
+if(!file_exists("middle/7947-ok.csv")) {
+	$data=import_file("input/ine/7947.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if(strtok($val[0]," ")=="001-102" && $val[1]=="Total" && $val[2]=="Todas las edades") {
@@ -224,11 +224,11 @@ if(!file_exists("7947-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("7947-ok.csv",$sumas);
+	export_file("middle/7947-ok.csv",$sumas);
 }
 
-if(!file_exists("data-ok.csv")) {
-	$data=import_file("data.csv");
+if(!file_exists("middle/data-ok.csv")) {
+	$data=import_file("input/momo/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -238,11 +238,11 @@ if(!file_exists("data-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("data-ok.csv",$sumas);
+	export_file("middle/data-ok.csv",$sumas);
 }
 
-if(!file_exists("data-ok2.csv")) {
-	$data=import_file("data.csv");
+if(!file_exists("middle/data-ok2.csv")) {
+	$data=import_file("input/momo/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -252,11 +252,11 @@ if(!file_exists("data-ok2.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("data-ok2.csv",$sumas);
+	export_file("middle/data-ok2.csv",$sumas);
 }
 
-if(!file_exists("data-ok3.csv")) {
-	$data=import_file("data.csv");
+if(!file_exists("middle/data-ok3.csv")) {
+	$data=import_file("input/momo/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -266,11 +266,11 @@ if(!file_exists("data-ok3.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("data-ok3.csv",$sumas);
+	export_file("middle/data-ok3.csv",$sumas);
 }
 
-if(!file_exists("data-ok4.csv")) {
-	$data=import_file("data.csv");
+if(!file_exists("middle/data-ok4.csv")) {
+	$data=import_file("input/momo/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -280,11 +280,11 @@ if(!file_exists("data-ok4.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("data-ok4.csv",$sumas);
+	export_file("middle/data-ok4.csv",$sumas);
 }
 
-if(!file_exists("data-ok5.csv")) {
-	$data=import_file("data.csv");
+if(!file_exists("middle/data-ok5.csv")) {
+	$data=import_file("input/momo/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]=="all") {
@@ -294,13 +294,137 @@ if(!file_exists("data-ok5.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("data-ok5.csv",$sumas);
+	export_file("middle/data-ok5.csv",$sumas);
 }
 
-if(!file_exists("plot1.png")) {
-	$momo=import_file("data-ok.csv");
-	$ine1=import_file("02001-ok.csv");
-	$ine2=import_file("14819-ok.csv");
+if(!file_exists("middle/data-ok6.csv")) {
+	$data=import_file("input/momo/data.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]!="all") {
+			$key2=substr($val[8],0,7).";".sprintf("%02d",$val[2])." ".$val[3].";".$val[6];
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			$sumas[$key2][1]+=str_replace(".","",$val[9]);
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/data-ok6.csv",$sumas);
+}
+
+if(!file_exists("middle/residencias.csv")) {
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[$val[2]]=$val[0]." ".$val[1];
+	}
+	$files=glob("input/csic/19_*.csv");
+	$sumas=array();
+	foreach($files as $file) {
+		$data=import_file($file);
+		foreach($data as $key=>$val) {
+			if($val[4]!="" && $val[7]!="" && $val[8]!="" && $val[8]!="Plazas") {
+				$publica=0;
+				$privada=0;
+				if(stripos($val[7],"pública")!==false) $publica=1;
+				if(stripos($val[7],"privada")!==false) $privada=1;
+				if($publica+$privada!=1) die("ERROR 1\n");
+				$tipo="";
+				if($publica) $tipo="Publica";
+				if($privada) $tipo="Privada";
+				$ccaa=$ccaas[substr($val[4],0,2)];
+				$key2=$ccaa.";Total";
+				if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0,0);
+				$sumas[$key2][1]++;
+				$sumas[$key2][2]+=str_replace(".","",$val[8]);
+				$key2=$ccaa.";".$tipo;
+				if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0,0);
+				$sumas[$key2][1]++;
+				$sumas[$key2][2]+=str_replace(".","",$val[8]);
+			}
+ 			unset($data[$key]);
+		}
+	}
+	array_unshift($sumas,array("CCAA","Tipo","Count","Plazas"));
+	export_file("middle/residencias.csv",$sumas);
+}
+
+if(!file_exists("middle/02002-ok.csv")) {
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".$val[1];
+	}
+	$data=import_file("input/ine/02002.csv");
+	$edades=array(
+		"0-4 años"=>1,
+		"5-9 años"=>1,
+		"10-14 años"=>1,
+		"15-19 años"=>1,
+		"20-24 años"=>1,
+		"25-29 años"=>1,
+		"30-34 años"=>1,
+		"35-39 años"=>1,
+		"40-44 años"=>1,
+		"45-49 años"=>1,
+		"50-54 años"=>1,
+		"55-59 años"=>1,
+		"60-64 años"=>1,
+		"65-69 años"=>2,
+		"70-74 años"=>2,
+		"75-79 años"=>3,
+		"80-84 años"=>3,
+		"85-89 años"=>3,
+		"90-94 años"=>3,
+		"95-99 años"=>3,
+		"100 años y más"=>3,
+	);
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]!="TOTAL ESPAÑA" && $val[1]!="TOTAL EDADES" && $val[2]=="TOTAL" && $val[3]=="Ambos sexos") {
+			$key2=$val[4].";".$ccaas[$val[0]].";".$edades[$val[1]];
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			$sumas[$key2][1]+=str_replace(".","",str_replace(".","",$val[5]));
+		}
+		unset($data[$key]);
+	}
+	$edades=array(3=>"mas_74",2=>"65_74",1=>"menos_65");
+	foreach($sumas as $key=>$val) {
+		$temp=explode(";",$val[0]);
+		$temp[2]=$edades[$temp[2]];
+		$val[0]=implode(";",$temp);
+		$sumas[$key]=$val;
+	}
+	export_file("middle/02002-ok.csv",$sumas);
+}
+
+if(!file_exists("middle/6548-ok2.csv")) {
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[$val[0]." ".$val[1]]=$val[0]." ".$val[1];
+	}
+	$data=import_file("input/ine/6548.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]!="Total" && $val[0]!="Extranjero" && $val[1]=="Total") {
+			$edad=intval($val[2]);
+			if($edad<65) $edad="menos_65";
+			elseif($edad>74) $edad="mas_74";
+			else $edad="65_74";
+			$key2=$ccaas[$val[0]].";".$edad.";".$val[3];
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			if($val[4]=="") $val[4]=0;
+			$sumas[$key2][1]+=str_replace(".","",$val[4]);
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/6548-ok2.csv",$sumas);
+}
+
+if(!file_exists("output/plot1.png")) {
+	$momo=import_file("middle/data-ok.csv");
+	$ine1=import_file("middle/02001-ok.csv");
+	$ine2=import_file("middle/14819-ok.csv");
 	$matrix=array();
 	$years=array(2020,2019,2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
@@ -342,11 +466,11 @@ if(!file_exists("plot1.png")) {
 		$matrix[$key]=array_merge(array($meses[$key]),$val);
 	}
 	array_unshift($matrix,array_merge(array("Mes"),$header));
-	export_file("plot1.csv",$matrix);
+	export_file("middle/plot1.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
-		"set output 'plot1.png'",
-		"set multiplot layout 2,1 title 'Defunciones por año y mes (sólo años donde algun mes ha superado los 40k muertos, los datos del 2020 son de MoMo y el resto son del INE)'",
+		"set output 'output/plot1.png'",
+		"set multiplot layout 2,1 title 'Defunciones por año y mes (sólo años donde algún mes ha superado los 40k muertos, los datos del 2020 son de MoMo y el resto son del INE)'",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -356,17 +480,17 @@ if(!file_exists("plot1.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set style histogram gap 3",
 		"set datafile separator ';'",
-		"plot [-0.5:5.5] 'plot1.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
-		"plot [5.5:11.5] 'plot1.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"plot [-0.5:5.5] 'middle/plot1.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"plot [5.5:11.5] 'middle/plot1.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
 		"unset multiplot",
 	))."\n";
-	file_put_contents("plot1.gnu",$gnuplot);
-	exec("gnuplot plot1.gnu");
+	file_put_contents("middle/plot1.gnu",$gnuplot);
+	exec("gnuplot middle/plot1.gnu");
 }
 
-if(!file_exists("plot2.png")) {
-	$momo=import_file("data-ok.csv");
-	$ine=import_file("02001-ok.csv");
+if(!file_exists("output/plot2.png")) {
+	$momo=import_file("middle/data-ok.csv");
+	$ine=import_file("middle/02001-ok.csv");
 	$matrix=array();
 	$years=array(2018,2019,2020);
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
@@ -405,10 +529,10 @@ if(!file_exists("plot2.png")) {
 		$matrix[$key]=array_merge(array($meses[$temp[1]]." ".$temp[0]),$val);
 	}
 	array_unshift($matrix,array_merge(array("Mes"),$header));
-	export_file("plot2.csv",$matrix);
+	export_file("middle/plot2.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
-		"set output 'plot2.png'",
+		"set output 'output/plot2.png'",
 		"set multiplot layout 2,1 title 'Defunciones por año y mes de MoMo y INE entre 2018 y 2020'",
 		"set rmargin 3",
 		"set grid",
@@ -419,16 +543,16 @@ if(!file_exists("plot2.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:14.5] 'plot2.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col",
-		"plot [14.5:29.5] 'plot2.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col",
+		"plot [-0.5:14.5] 'middle/plot2.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col",
+		"plot [14.5:29.5] 'middle/plot2.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col",
 		"unset multiplot",
 	))."\n";
-	file_put_contents("plot2.gnu",$gnuplot);
-	exec("gnuplot plot2.gnu");
+	file_put_contents("middle/plot2.gnu",$gnuplot);
+	exec("gnuplot middle/plot2.gnu");
 }
 
-if(!file_exists("plot3.png")) {
-	$momo=import_file("data-ok2.csv");
+if(!file_exists("output/plot3.png")) {
+	$momo=import_file("middle/data-ok2.csv");
 	foreach($momo as $key=>$val) {
 		list($year,$month,$day)=explode("-",$val[0]);
 		if($year==2020) {
@@ -437,10 +561,10 @@ if(!file_exists("plot3.png")) {
 			unset($momo[$key]);
 		}
 	}
-	export_file("plot3.csv",$momo);
+	export_file("middle/plot3.csv",$momo);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
-		"set output 'plot3.png'",
+		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
+		"set output 'output/plot3.png'",
 		"set multiplot layout 3,1 title 'Defunciones por dia obtenidos de MoMo para el 2020'",
 		"set rmargin 3",
 		"set grid",
@@ -453,18 +577,18 @@ if(!file_exists("plot3.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set xtics '2020-01-01',86400*7,'2020-07-01'",
-		"plot ['2020-01-01':'2020-03-01'] 'plot3.csv' using 1:2 w l ti ''",
-		"plot ['2020-03-01':'2020-05-01'] 'plot3.csv' using 1:2 w l ti ''",
-		"plot ['2020-05-01':'2020-07-01'] 'plot3.csv' using 1:2 w l ti ''",
+		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3.csv' using 1:2 w l ti ''",
+		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3.csv' using 1:2 w l ti ''",
+		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3.csv' using 1:2 w l ti ''",
 		"unset multiplot"
 	))."\n";
-	file_put_contents("plot3.gnu",$gnuplot);
-	exec("gnuplot plot3.gnu");
+	file_put_contents("middle/plot3.gnu",$gnuplot);
+	exec("gnuplot middle/plot3.gnu");
 }
 
-if(!file_exists("plot4.png")) {
-	$momo=import_file("data-ok3.csv");
-	$ine=import_file("02001-ok2.csv");
+if(!file_exists("output/plot4.png")) {
+	$momo=import_file("middle/data-ok3.csv");
+	$ine=import_file("middle/02001-ok2.csv");
 	$matrix=array();
 	$years=array(2020,2019,2018);
 	$edades=array("mas_74","65_74","menos_65");
@@ -518,11 +642,11 @@ if(!file_exists("plot4.png")) {
 		$header[$key]=$val;
 	}
 	array_unshift($matrix,array_merge(array("Mes"),$header));
-	export_file("plot4.csv",$matrix);
+	export_file("middle/plot4.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
-		"set output 'plot4.png'",
-		"set multiplot layout 2,1 title 'Defunciones por año, mes y edad (los datos del 2020 son de MoMo y el resto son del INE)'",
+		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
+		"set output 'output/plot4.png'",
+		"set multiplot layout 3,1 title 'Defunciones por año, mes y edad (los datos del 2020 son de MoMo y el resto son del INE)'",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -532,40 +656,25 @@ if(!file_exists("plot4.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:5.5] 'plot4.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col",
-		"plot [5.5:11.5] 'plot4.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col",
+		"plot [-0.5:11.5] 'middle/plot4.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"plot [-0.5:11.5] 'middle/plot4.csv' using 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col",
+		"plot [-0.5:11.5] 'middle/plot4.csv' using 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
-	file_put_contents("plot4.gnu",$gnuplot);
-	exec("gnuplot plot4.gnu");
+	file_put_contents("middle/plot4.gnu",$gnuplot);
+	exec("gnuplot middle/plot4.gnu");
 }
 
-if(!file_exists("plot5.png")) {
-	$momo=import_file("data-ok5.csv");
-	$ine=import_file("6562-ok2.csv");
+if(!file_exists("output/plot5.png")) {
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[$val[0]]=$val[0]." ".$val[1];
+	}
+	$momo=import_file("middle/data-ok5.csv");
+	$ine=import_file("middle/6562-ok2.csv");
 	$matrix=array();
 	$years=array(2020,2018,2017,2015,2014,2012,2009,2005,2000,1999);
-	$ccaas=array(
-		"01 Andalucía",
-		"02 Aragón",
-		"03 Asturias, Principado de",
-		"04 Balears, Illes",
-		"05 Canarias",
-		"06 Cantabria",
-		"07 Castilla y León",
-		"08 Castilla - La Mancha",
-		"09 Cataluña",
-		"10 Comunitat Valenciana",
-		"11 Extremadura",
-		"12 Galicia",
-		"13 Madrid, Comunidad de",
-		"14 Murcia, Región de",
-		"15 Navarra, Comunidad Foral de",
-		"16 País Vasco",
-		"17 Rioja, La",
-		"18 Ceuta",
-		"19 Melilla",
-	);
 	foreach($years as $year) {
 		foreach($ccaas as $ccaa) {
 			$matrix[$ccaa][$year]=0;
@@ -583,6 +692,20 @@ if(!file_exists("plot5.png")) {
 		if(!in_array($month,array(3,4))) continue;
 		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
 	}
+	$matrix["18 Ceuta + 19 Melilla"]=array(
+		$matrix["18 Ceuta"][2020]+$matrix["19 Melilla"][2020],
+		$matrix["18 Ceuta"][2018]+$matrix["19 Melilla"][2018],
+		$matrix["18 Ceuta"][2017]+$matrix["19 Melilla"][2017],
+		$matrix["18 Ceuta"][2015]+$matrix["19 Melilla"][2015],
+		$matrix["18 Ceuta"][2014]+$matrix["19 Melilla"][2014],
+		$matrix["18 Ceuta"][2012]+$matrix["19 Melilla"][2012],
+		$matrix["18 Ceuta"][2009]+$matrix["19 Melilla"][2009],
+		$matrix["18 Ceuta"][2005]+$matrix["19 Melilla"][2005],
+		$matrix["18 Ceuta"][2000]+$matrix["19 Melilla"][2000],
+		$matrix["18 Ceuta"][1999]+$matrix["19 Melilla"][1999],
+	);
+	unset($matrix["18 Ceuta"]);
+	unset($matrix["19 Melilla"]);
 	$ccaas=array(
 		"03 Asturias, Principado de"=>"03 Principado\\nAsturias",
 		"04 Balears, Illes"=>"04 Illes\\nBalears",
@@ -592,16 +715,17 @@ if(!file_exists("plot5.png")) {
 		"13 Madrid, Comunidad de"=>"13 Comunidad\\nde Madrid",
 		"14 Murcia, Región de"=>"14 Región de\\nMurcia",
 		"15 Navarra, Comunidad Foral de"=>"15 Comunidad\\nForal de\\nNavarra",
+		"18 Ceuta + 19 Melilla"=>"18 Ceuta\\n19 Melilla",
 	);
 	foreach($matrix as $key=>$val) {
 		$ccaa=isset($ccaas[$key])?$ccaas[$key]:$key;
 		$matrix[$key]=array_merge(array($ccaa),$val);
 	}
-	array_unshift($matrix,array_merge(array("Año"),$header));
-	export_file("plot5.csv",$matrix);
+	array_unshift($matrix,array_merge(array("CCAA"),$header));
+	export_file("middle/plot5.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
-		"set output 'plot5.png'",
+		"set output 'output/plot5.png'",
 		"set multiplot layout 2,1 title 'Defunciones por comunidad autónoma y año (acumulados por año de marzo y abril, los datos del 2020 son de MoMo y el resto son del INE)'",
 		"set rmargin 3",
 		"set grid",
@@ -612,12 +736,74 @@ if(!file_exists("plot5.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:9.5] 'plot5.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col",
-		"plot [9.5:19.5] 'plot5.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col",
+		"plot [-0.5:8.5] 'middle/plot5.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col",
+		"plot [8.5:17.5] 'middle/plot5.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
-	file_put_contents("plot5.gnu",$gnuplot);
-	exec("gnuplot plot5.gnu");
+	file_put_contents("middle/plot5.gnu",$gnuplot);
+	exec("gnuplot middle/plot5.gnu");
+}
+
+if(!file_exists("output/plot6.png")) {
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[$val[0]]=$val[0]." ".$val[1];
+	}
+	$resi=import_file("middle/residencias.csv");
+	$matrix=array();
+	$years=array("Publica","Privada","Total");
+	foreach($years as $year) {
+		foreach($ccaas as $ccaa) {
+			$matrix[$ccaa][$year]=0;
+		}
+	}
+	$header=array_keys(reset($matrix));
+	foreach($resi as $key=>$val) {
+		if(isset($matrix[$val[0]][$val[1]])) $matrix[$val[0]][$val[1]]+=$val[3];
+	}
+	$matrix["18 Ceuta + 19 Melilla"]=array(
+		$matrix["18 Ceuta"]["Publica"]+$matrix["19 Melilla"]["Publica"],
+		$matrix["18 Ceuta"]["Privada"]+$matrix["19 Melilla"]["Privada"],
+		$matrix["18 Ceuta"]["Total"]+$matrix["19 Melilla"]["Total"],
+	);
+	unset($matrix["18 Ceuta"]);
+	unset($matrix["19 Melilla"]);
+	$ccaas=array(
+		"03 Asturias, Principado de"=>"03 Principado\\nAsturias",
+		"04 Balears, Illes"=>"04 Illes\\nBalears",
+		"07 Castilla y León"=>"07 Castilla\\ny León",
+		"08 Castilla - La Mancha"=>"08 Castilla\\nLa Mancha",
+		"10 Comunitat Valenciana"=>"10 Comunitat\\nValenciana",
+		"13 Madrid, Comunidad de"=>"13 Comunidad\\nde Madrid",
+		"14 Murcia, Región de"=>"14 Región de\\nMurcia",
+		"15 Navarra, Comunidad Foral de"=>"15 Comunidad\\nForal de\\nNavarra",
+		"18 Ceuta + 19 Melilla"=>"18 Ceuta\\n19 Melilla",
+	);
+	foreach($matrix as $key=>$val) {
+		$ccaa=isset($ccaas[$key])?$ccaas[$key]:$key;
+		$matrix[$key]=array_merge(array($ccaa),$val);
+	}
+	array_unshift($matrix,array_merge(array("CCAA"),$header));
+	export_file("middle/plot6.csv",$matrix);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set output 'output/plot6.png'",
+		"set multiplot layout 1,1 title 'Oferta de plazas de residencias por tipo de titularidad y comunidad autónoma (datos obtenidos del CSIC del 2019)'",
+		"set rmargin 3",
+		"set grid",
+		"set auto x",
+		"set yrange [0:90000]",
+		"set style data histogram",
+		"set style fill solid border -1",
+		"set xtic rotate by -45 scale 0",
+		"set datafile separator ';'",
+		"set style histogram gap 3",
+		"plot [-0.5:17.5] 'middle/plot6.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"unset multiplot"
+	))."\n";
+	file_put_contents("middle/plot6.gnu",$gnuplot);
+	exec("gnuplot middle/plot6.gnu");
 }
 
 ?>

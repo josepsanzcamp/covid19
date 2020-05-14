@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'
 set output 'output/plot2.png'
-set multiplot layout 2,1 title 'Defunciones por año y mes de MoMo y INE entre 2018 y 2020'
+set multiplot layout 2,1 title 'Defunciones por año y mes del MoMo y INE entre 2018 y 2020'
 set rmargin 3
 set grid
 set auto x

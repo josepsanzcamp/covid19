@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'
 set output 'output/plot4.png'
-set multiplot layout 3,1 title 'Defunciones por año, mes y edad (los datos del 2020 son de MoMo y el resto son del INE)'
+set multiplot layout 3,1 title 'Defunciones por año, mes y edad (los datos del 2020 son del MoMo y el resto son del INE)'
 set rmargin 3
 set grid
 set auto x

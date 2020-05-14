@@ -470,7 +470,7 @@ if(!file_exists("output/plot1.png")) {
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot1.png'",
-		"set multiplot layout 2,1 title 'Defunciones por año y mes (sólo años donde algún mes ha superado los 40k muertos, los datos del 2020 son de MoMo y el resto son del INE)'",
+		"set multiplot layout 2,1 title 'Defunciones por año y mes (sólo años donde algún mes ha superado los 40k muertos, los datos del 2020 son del MoMo y el resto son del INE)'",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -533,7 +533,7 @@ if(!file_exists("output/plot2.png")) {
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot2.png'",
-		"set multiplot layout 2,1 title 'Defunciones por año y mes de MoMo y INE entre 2018 y 2020'",
+		"set multiplot layout 2,1 title 'Defunciones por año y mes del MoMo y INE entre 2018 y 2020'",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -565,7 +565,7 @@ if(!file_exists("output/plot3.png")) {
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot3.png'",
-		"set multiplot layout 3,1 title 'Defunciones por dia obtenidos de MoMo para el 2020'",
+		"set multiplot layout 3,1 title 'Defunciones por dia obtenidos del MoMo para el 2020'",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -646,7 +646,7 @@ if(!file_exists("output/plot4.png")) {
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot4.png'",
-		"set multiplot layout 3,1 title 'Defunciones por año, mes y edad (los datos del 2020 son de MoMo y el resto son del INE)'",
+		"set multiplot layout 3,1 title 'Defunciones por año, mes y edad (los datos del 2020 son del MoMo y el resto son del INE)'",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -726,7 +726,7 @@ if(!file_exists("output/plot5.png")) {
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot5.png'",
-		"set multiplot layout 2,1 title 'Defunciones por comunidad autónoma y año (acumulados por año de marzo y abril, los datos del 2020 son de MoMo y el resto son del INE)'",
+		"set multiplot layout 2,1 title 'Defunciones por comunidad autónoma y año (acumulados por año de marzo y abril, los datos del 2020 son del MoMo y el resto son del INE)'",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -789,7 +789,7 @@ if(!file_exists("output/plot6.png")) {
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot6.png'",
-		"set multiplot layout 1,1 title 'Oferta de plazas de residencias por tipo de titularidad y comunidad autónoma (datos obtenidos del CSIC del 2019)'",
+		"set multiplot layout 1,1 title 'Plazas de residencias por tipo y comunidad autónoma (datos obtenidos de envejecimientoenred.es, del CSIC del 2019)'",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -804,6 +804,65 @@ if(!file_exists("output/plot6.png")) {
 	))."\n";
 	file_put_contents("middle/plot6.gnu",$gnuplot);
 	exec("gnuplot middle/plot6.gnu");
+}
+
+if(!file_exists("output/plot7.png")) {
+	$bed=import_file("input/oecd/DP_LIVE_13052020195801818.csv");
+	$nurse=import_file("input/oecd/DP_LIVE_13052020195843630.csv");
+	$paises=array();
+	foreach($bed as $key=>$val) {
+		if($val[0]!="LOCATION") {
+			$paises[$val[0]]=$val[0];
+		}
+	}
+	foreach($nurse as $key=>$val) {
+		if($val[0]!="LOCATION") {
+			$paises[$val[0]]=$val[0];
+		}
+	}
+	$types=array("HOSPITALBED","NURSE");
+	$years=array(2016);
+	$matrix=array();
+	foreach($paises as $pais) {
+		foreach($types as $type) {
+			foreach($years as $year) {
+				$matrix[$pais][$type."-".$year]=0;
+			}
+		}
+	}
+	foreach($bed as $key=>$val) {
+		if($val[1]=="HOSPITALBED" && $val[2]=="TOT") {
+			if(isset($matrix[$val[0]][$val[1]."-".$val[5]])) $matrix[$val[0]][$val[1]."-".$val[5]]+=$val[6];
+		}
+	}
+	foreach($nurse as $key=>$val) {
+		if($val[1]=="NURSE" && $val[2]=="TOT") {
+			if(isset($matrix[$val[0]][$val[1]."-".$val[5]])) $matrix[$val[0]][$val[1]."-".$val[5]]=$val[6];
+		}
+	}
+	foreach($matrix as $key=>$val) {
+		$matrix[$key]=array_merge(array($key),$val);
+	}
+	array_unshift($matrix,array("Pais","% camas de hostital por cada 1000 habitantes","% enfermeras por cada 1000 habitantes"));
+	export_file("middle/plot7.csv",$matrix);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set output 'output/plot7.png'",
+		"set multiplot layout 1,1 title 'Relacion de camas de hospital y enfermeras por país en 2016 segun datos OECD'",
+		"set rmargin 3",
+		"set grid",
+		"set auto x",
+		"set auto y",
+		"set style data histogram",
+		"set style fill solid border -1",
+		"set xtic rotate by -45 scale 0",
+		"set datafile separator ';'",
+		"set style histogram gap 3",
+		"plot [-0.5:17.5] 'middle/plot7.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col",
+		"unset multiplot"
+	))."\n";
+	file_put_contents("middle/plot7.gnu",$gnuplot);
+	exec("gnuplot middle/plot7.gnu");
 }
 
 ?>

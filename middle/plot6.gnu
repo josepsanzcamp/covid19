@@ -10,5 +10,5 @@ set style fill solid border -1
 set xtic rotate by -45 scale 0
 set datafile separator ';'
 set style histogram gap 3
-plot [-0.5:17.5] 'middle/plot6.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
+plot 'middle/plot6.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
 unset multiplot

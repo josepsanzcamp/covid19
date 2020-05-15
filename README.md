@@ -40,4 +40,7 @@ Aqui dejare algunos plots para mostrar los datos del MoMo y del INE
 # Otros
 - https://maldita.es/maldita-te-explica/2020/04/30/datos-fallecimientos-registro-civil-defunciones-diarias-causa-muerte/
 - https://www.worldbank.org/
+- https://github.com/search?q=covid19
+- https://github.com/pomber/covid19
+- https://pomber.github.io/covid19/timeseries.json
 

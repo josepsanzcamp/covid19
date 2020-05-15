@@ -327,7 +327,7 @@ if(!file_exists("middle/residencias.csv")) {
 				$privada=0;
 				if(stripos($val[7],"pública")!==false) $publica=1;
 				if(stripos($val[7],"privada")!==false) $privada=1;
-				if($publica+$privada!=1) die("ERROR 1\n");
+				if($publica+$privada!=1) die("ERROR 1");
 				$tipo="";
 				if($publica) $tipo="Publica";
 				if($privada) $tipo="Privada";
@@ -799,7 +799,7 @@ if(!file_exists("output/plot6.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:17.5] 'middle/plot6.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"plot 'middle/plot6.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot6.gnu",$gnuplot);
@@ -807,48 +807,43 @@ if(!file_exists("output/plot6.png")) {
 }
 
 if(!file_exists("output/plot7.png")) {
+	$temp=import_file("input/oecd/code2country.csv");
+	$paises=array();
+	foreach($temp as $key=>$val) {
+		$paises[$val[0]]=$val[1];
+	}
 	$bed=import_file("input/oecd/DP_LIVE_13052020195801818.csv");
 	$nurse=import_file("input/oecd/DP_LIVE_13052020195843630.csv");
-	$paises=array();
-	foreach($bed as $key=>$val) {
-		if($val[0]!="LOCATION") {
-			$paises[$val[0]]=$val[0];
-		}
-	}
-	foreach($nurse as $key=>$val) {
-		if($val[0]!="LOCATION") {
-			$paises[$val[0]]=$val[0];
-		}
-	}
-	$types=array("HOSPITALBED","NURSE");
-	$years=array(2016);
 	$matrix=array();
-	foreach($paises as $pais) {
-		foreach($types as $type) {
-			foreach($years as $year) {
-				$matrix[$pais][$type."-".$year]=0;
-			}
-		}
-	}
 	foreach($bed as $key=>$val) {
-		if($val[1]=="HOSPITALBED" && $val[2]=="TOT") {
-			if(isset($matrix[$val[0]][$val[1]."-".$val[5]])) $matrix[$val[0]][$val[1]."-".$val[5]]+=$val[6];
+		if($val[1]=="HOSPITALBED" && $val[2]=="TOT" && $val[5]=="2016") {
+			if(isset($matrix[$val[0]])) die("ERROR 2");
+			$matrix[$val[0]]=$val[6];
 		}
 	}
-	foreach($nurse as $key=>$val) {
-		if($val[1]=="NURSE" && $val[2]=="TOT") {
-			if(isset($matrix[$val[0]][$val[1]."-".$val[5]])) $matrix[$val[0]][$val[1]."-".$val[5]]=$val[6];
-		}
-	}
+	arsort($matrix);
 	foreach($matrix as $key=>$val) {
-		$matrix[$key]=array_merge(array($key),$val);
+		$matrix[$key]=array($paises[$key],$val);
 	}
-	array_unshift($matrix,array("Pais","% camas de hostital por cada 1000 habitantes","% enfermeras por cada 1000 habitantes"));
-	export_file("middle/plot7.csv",$matrix);
+	array_unshift($matrix,array("Pais","% camas de hostital por cada 1000 habitantes"));
+	export_file("middle/plot7a.csv",$matrix);
+	$matrix=array();
+	foreach($nurse as $key=>$val) {
+		if($val[1]=="NURSE" && $val[2]=="TOT" && $val[5]=="2016") {
+			if(isset($matrix[$val[0]])) die("ERROR 3");
+			$matrix[$val[0]]=$val[6];
+		}
+	}
+	arsort($matrix);
+	foreach($matrix as $key=>$val) {
+		$matrix[$key]=array($paises[$key],$val);
+	}
+	array_unshift($matrix,array("Pais","% enfermeras por cada 1000 habitantes"));
+	export_file("middle/plot7b.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot7.png'",
-		"set multiplot layout 1,1 title 'Relacion de camas de hospital y enfermeras por país en 2016 segun datos OECD'",
+		"set multiplot layout 2,1 title 'Relacion de camas de hospital y enfermeras por país en 2016 segun datos OECD'",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -858,7 +853,8 @@ if(!file_exists("output/plot7.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:17.5] 'middle/plot7.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col",
+		"plot 'middle/plot7a.csv' using 2:xtic(1) ti col",
+		"plot 'middle/plot7b.csv' using 2:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot7.gnu",$gnuplot);

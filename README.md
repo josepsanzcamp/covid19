@@ -24,6 +24,10 @@ Aqui dejare algunos plots para mostrar los datos del MoMo y del INE
 - https://www.ine.es/jaxiT3/Tabla.htm?t=9687 => Población residente por fecha, sexo y edad
 - https://www.ine.es/dynt3/inebase/es/index.htm?type=pcaxis&path=/t20/e244/colectivos/p02/&file=pcaxis => Censos de Población y Viviendas 2011. Colectivos
 - https://www.ine.es/jaxi/Tabla.htm?path=/t20/e244/colectivos/p02/l0/&file=02005.px => Población en establecimientos colectivos por sexo, edad (grupos quinquenales) y tipo de establecimiento colectivo
+- https://www.ine.es/jaxi/Tabla.htm?path=/t20/e244/colectivos/p03/l0/&file=03001.px => Población en establecimientos colectivos por sexo y edad (año a año)
+- https://www.ine.es/jaxi/Tabla.htm?path=/t20/e244/colectivos/p01/l0/&file=01001.px => Población en establecimientos colectivos según comunidad autónoma y provincia, por tipo de establecimiento colectivo (agrupado) y sexo
+- https://www.ine.es/dyngs//INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177008&menu=resultados&idp=1254735573002 => Estadística de defunciones. Movimiento natural de la población
+- https://www.ine.es/dyngs//INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177004&menu=resultados&idp=1254735573002 => Tablas de mortalidad
 
 # CSIC
 - http://envejecimiento.csic.es/estadisticas/indicadores/residencias/index.html => Estadísticas sobre residencias
@@ -36,6 +40,8 @@ Aqui dejare algunos plots para mostrar los datos del MoMo y del INE
 - https://data.oecd.org/healtheqt/hospital-beds.htm => Hospital beds
 - https://data.oecd.org/healthres/nurses.htm => Nurses
 - https://stats.oecd.org/viewhtml.aspx?datasetcode=HEALTH_STAT&lang=en# => Para descargar la tabla de mortalidad por paises
+- https://www.oecd-ilibrary.org/social-issues-migration-health/population/indicator/english_d434f82b-en => Para descargar los datos de poblacion por paises
+
 
 # Otros
 - https://maldita.es/maldita-te-explica/2020/04/30/datos-fallecimientos-registro-civil-defunciones-diarias-causa-muerte/

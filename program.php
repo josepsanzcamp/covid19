@@ -227,8 +227,23 @@ if(!file_exists("middle/7947-ok.csv")) {
 	export_file("middle/7947-ok.csv",$sumas);
 }
 
+if(!file_exists("middle/data.csv")) {
+	$files=glob("input/momo/data.????????.csv");
+	sort($files);
+	$result=array();
+	foreach($files as $file) {
+		$data=import_file($file);
+		foreach($data as $key=>$val) {
+			$key2=implode("|",array_slice($val,0,9));
+			$result[$key2]=array_slice($val,0,10);
+			unset($data[$key]);
+		}
+	}
+	export_file("middle/data.csv",$result);
+}
+
 if(!file_exists("middle/data-ok.csv")) {
-	$data=import_file("input/momo/data.csv");
+	$data=import_file("middle/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -242,7 +257,7 @@ if(!file_exists("middle/data-ok.csv")) {
 }
 
 if(!file_exists("middle/data-ok2.csv")) {
-	$data=import_file("input/momo/data.csv");
+	$data=import_file("middle/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -256,7 +271,7 @@ if(!file_exists("middle/data-ok2.csv")) {
 }
 
 if(!file_exists("middle/data-ok3.csv")) {
-	$data=import_file("input/momo/data.csv");
+	$data=import_file("middle/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -270,7 +285,7 @@ if(!file_exists("middle/data-ok3.csv")) {
 }
 
 if(!file_exists("middle/data-ok4.csv")) {
-	$data=import_file("input/momo/data.csv");
+	$data=import_file("middle/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -284,7 +299,7 @@ if(!file_exists("middle/data-ok4.csv")) {
 }
 
 if(!file_exists("middle/data-ok5.csv")) {
-	$data=import_file("input/momo/data.csv");
+	$data=import_file("middle/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]=="all") {
@@ -298,7 +313,7 @@ if(!file_exists("middle/data-ok5.csv")) {
 }
 
 if(!file_exists("middle/data-ok6.csv")) {
-	$data=import_file("input/momo/data.csv");
+	$data=import_file("middle/data.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]!="all") {
@@ -419,6 +434,54 @@ if(!file_exists("middle/6548-ok2.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6548-ok2.csv",$sumas);
+}
+
+if(!file_exists("middle/02005-ok.csv")) {
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".$val[1];
+	}
+	$data=import_file("input/ine/02005.csv");
+	$edades=array(
+		"0-4"=>1,
+		"5-9"=>1,
+		"10-14"=>1,
+		"15-19"=>1,
+		"20-24"=>1,
+		"25-29"=>1,
+		"30-34"=>1,
+		"35-39"=>1,
+		"40-44"=>1,
+		"45-49"=>1,
+		"50-54"=>1,
+		"55-59"=>1,
+		"60-64"=>1,
+		"65-69"=>2,
+		"70-74"=>2,
+		"75-79"=>3,
+		"80-84"=>3,
+		"85-89"=>3,
+		"90-94"=>3,
+		"95-99"=>3,
+		"100 y más"=>3,
+	);
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]=="Ambos sexos" && $val[1]!="Total" && $val[2]=="Residencias de personas mayores") {
+			$key2=$edades[$val[1]];
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			if($val[3]=="..") $val[3]=0;
+			$sumas[$key2][1]+=str_replace(".","",str_replace(".","",$val[3]));
+		}
+		unset($data[$key]);
+	}
+	$edades=array(3=>"mas_74",2=>"65_74",1=>"menos_65");
+	foreach($sumas as $key=>$val) {
+		$val[0]=$edades[$val[0]];
+		$sumas[$key]=$val;
+	}
+	export_file("middle/02005-ok.csv",$sumas);
 }
 
 if(!file_exists("output/plot1.png")) {

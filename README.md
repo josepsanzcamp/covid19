@@ -1,5 +1,9 @@
 # covid19
-Aqui dejare algunos plots para mostrar los datos del MoMo y del INE
+Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y del OECD
+- Vigilancia de la Mortalidad Diaria (MoMo) => He sacado los datos de mortalidad del 2020
+- Instituto Nacional de Estadística (INE) => He sacado los datos de defunciones de los registros civiles
+- Envejecimiento en red (CSIC) => He sacado los listados de resicencias
+- Organisation for Economic Co-operation and Development (OECD) => He sacado datos de otros paises
 
 # MoMo
 - https://www.isciii.es/QueHacemos/Servicios/VigilanciaSaludPublicaRENAVE/EnfermedadesTransmisibles/MoMo/Paginas/MoMo.aspx => pagina principal de MoMo

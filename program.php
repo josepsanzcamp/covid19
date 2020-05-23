@@ -234,12 +234,18 @@ if(!file_exists("middle/data.csv")) {
 	foreach($files as $file) {
 		$data=import_file($file);
 		foreach($data as $key=>$val) {
-			$key2=implode("|",array_slice($val,0,9));
-			$result[$key2]=array_slice($val,0,10);
+			$key2=implode("|",array_slice($val,0,8));
+			$key3=$val[8];
+			$result[$key2][$key3]=array_slice($val,0,10);
 			unset($data[$key]);
 		}
 	}
-	export_file("middle/data.csv",$result);
+	$result2=array();
+	foreach($result as $key=>$val) {
+		$result2=array_merge($result2,array_values($val));
+		unset($result[$key]);
+	}
+	export_file("middle/data.csv",$result2);
 }
 
 if(!file_exists("middle/data-ok.csv")) {

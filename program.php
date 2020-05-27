@@ -1149,12 +1149,12 @@ if(!file_exists("index.${lang}.html")) {
 		"body { font-family:Arial,Helvetica,sans-serif; }",
 		"div { width:100%; max-width:1200px; margin: 0 auto; }",
 		"img { width:100%; border: 1px solid #000; }",
-		"h3,h4,h5 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; font-size:1em; }",
-		"h3 { clear:both; }",
-		"h4 { float:right; margin-left:1em; }",
-		"h3.ca,h4.ca { border:1px solid #0a0; background:#0a0; }",
-		"h3.es,h4.es,h5 { border:1px solid #a00; background:#a00; }",
-		"h3.en,h4.en { border:1px solid #00a; background:#00a; }",
+		"h3 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; font-size:1em; }",
+		"h3.norm { clear:both; }",
+		"h3.lang { float:right; margin-left:1em; }",
+		"h3.ca { border:1px solid #0a0; background:#0a0; }",
+		"h3.es,h3.warn { border:1px solid #a00; background:#a00; }",
+		"h3.en { border:1px solid #00a; background:#00a; }",
 		"a { color:#fff; }",
 		"</style>",
 		"</head>",
@@ -1163,12 +1163,12 @@ if(!file_exists("index.${lang}.html")) {
 	))."\n";
 	foreach(array("en","es","ca") as $temp) {
 		$html.=implode("\n",array(
-			"<h4 class='${temp}'><a href='index.${temp}.html'>".strtoupper($temp)."</a></h4>",
+			"<h3 class='lang ${temp}'><a href='index.${temp}.html'>".strtoupper($temp)."</a></h4>",
 		))."\n";
 	}
 	$html.=implode("\n",array(
-		"<h3 class='${lang}'>".$textos["header"][$lang]."</h3>",
-		"<h5>".$textos["fakes"][$lang]."</h5>",
+		"<h3 class='norm ${lang}'>".$textos["header"][$lang]."</h3>",
+		"<h3 class='warn'>".$textos["fakes"][$lang]."</h3>",
 	))."\n";
 	for($i=1;$i<=7;$i++) {
 		$html.=implode("\n",array(
@@ -1197,12 +1197,12 @@ if(!file_exists("index.html")) {
 		"body { font-family:Arial,Helvetica,sans-serif; }",
 		"div { width:100%; max-width:1200px; margin: 0 auto; }",
 		"img { width:100%; border: 1px solid #000; }",
-		"h3,h4,h5 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; font-size:1em; }",
-		"h3 { clear:both; }",
-		"h4 { float:right; margin-left:1em; }",
-		"h3.ca,h4.ca { border:1px solid #0a0; background:#0a0; }",
-		"h3.es,h4.es,h5 { border:1px solid #a00; background:#a00; }",
-		"h3.en,h4.en { border:1px solid #00a; background:#00a; }",
+		"h3 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; font-size:1em; }",
+		"h3.norm { clear:both; }",
+		"h3.lang { float:right; margin-left:1em; }",
+		"h3.ca { border:1px solid #0a0; background:#0a0; }",
+		"h3.es,h3.warn { border:1px solid #a00; background:#a00; }",
+		"h3.en { border:1px solid #00a; background:#00a; }",
 		"a { color:#fff; }",
 		"</style>",
 		"</head>",
@@ -1211,12 +1211,12 @@ if(!file_exists("index.html")) {
 	))."\n";
 	foreach(array("en","es","ca") as $lang) {
 		$html.=implode("\n",array(
-			"<h4 class='${lang}'><a href='index.${lang}.html'>".strtoupper($lang)."</a></h4>",
+			"<h3 class='lang ${lang}'><a href='index.${lang}.html'>".strtoupper($lang)."</a></h3>",
 		))."\n";
 	}
 	foreach(array("ca","es","en") as $lang) {
 		$html.=implode("\n",array(
-			"<h3 class='${lang}'><a href='index.${lang}.html'>".$textos["header"][$lang]."</a></h3>",
+			"<h3 class='norm ${lang}'><a href='index.${lang}.html'>".$textos["header"][$lang]."</a></h3>",
 			"<h3 class='${lang}'>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
 		))."\n";
 	}

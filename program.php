@@ -490,6 +490,86 @@ if(!file_exists("middle/02005-ok.csv")) {
 	export_file("middle/02005-ok.csv",$sumas);
 }
 
+if(!file_exists("middle/fake.csv")) {
+	$files=glob("input/momo/data.????????.csv");
+	sort($files);
+	$result=array();
+	foreach($files as $file) {
+		$data=import_file($file);
+		$temp=explode(".",$file);
+		$temp=$temp[1];
+		foreach($data as $key=>$val) {
+			$key2=implode("|",array_slice($val,0,8));
+			$key3=$val[8];
+			if($temp>=20200527 && in_array(substr($key3,0,7),array("2020-03","2020-04"))) continue;
+			$result[$key2][$key3]=array_slice($val,0,10);
+			unset($data[$key]);
+		}
+	}
+	$result2=array();
+	foreach($result as $key=>$val) {
+		$result2=array_merge($result2,array_values($val));
+		unset($result[$key]);
+	}
+	export_file("middle/fake.csv",$result2);
+}
+
+if(!file_exists("middle/fake-ok.csv")) {
+	$data=import_file("middle/fake.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
+			$key2=substr($val[8],0,7);
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			$sumas[$key2][1]+=str_replace(".","",$val[9]);
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/fake-ok.csv",$sumas);
+}
+
+if(!file_exists("middle/fake-ok2.csv")) {
+	$data=import_file("middle/fake.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
+			$key2=$val[8];
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			$sumas[$key2][1]+=str_replace(".","",$val[9]);
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/fake-ok2.csv",$sumas);
+}
+
+if(!file_exists("middle/fake-ok3.csv")) {
+	$data=import_file("middle/fake.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
+			$key2=substr($val[8],0,7).";".$val[6];
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			$sumas[$key2][1]+=str_replace(".","",$val[9]);
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/fake-ok3.csv",$sumas);
+}
+
+if(!file_exists("middle/fake-ok5.csv")) {
+	$data=import_file("middle/fake.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]=="all") {
+			$key2=substr($val[8],0,7).";".sprintf("%02d",$val[2])." ".$val[3];
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			$sumas[$key2][1]+=str_replace(".","",$val[9]);
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/fake-ok5.csv",$sumas);
+}
+
 $textos=array(
 	"header"=>array(
 		"ca"=>"Informació útil d'Espanya sobre l'impacte de covid-19: gràfics de defuncions per any, origen de les dades, acumulats diaris, per edat, per comunitat autònoma i més",
@@ -620,16 +700,22 @@ $textos=array(
 		"es"=>"% enfermeras por cada 1000 habitantes",
 		"en"=>"% nurses per 1000 inhabitants",
 	),
+	"fakes"=>array(
+		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció s'ha afegit la variable Fake que conté les dades de MoMo anteriors sense la correcció per als mesos de Març i Abril de l'any 2020",
+		"es"=>"Atención: el 27 de Mayo del 2020 se corrigieron los datos de MoMo, para poder observar esta corrección se ha añadido la variable Fake que contiene los datos de MoMo anteriores sin la corrección para los meses de Marzo y Abril del 2020",
+		"en"=>"Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction we have added the Fake variable that contains the previous MoMo data without the correction for the months of March and April 2020",
+	),
 );
 
 foreach(array("ca","es","en") as $lang) {
 
 if(!file_exists("output/plot1${lang}.png")) {
 	$momo=import_file("middle/data-ok.csv");
+	$fake=import_file("middle/fake-ok.csv");
 	$ine1=import_file("middle/02001-ok.csv");
 	$ine2=import_file("middle/14819-ok.csv");
 	$matrix=array();
-	$years=array(2020,2019,2018,2017,2015,2014,2012,2009,2005,2000,1999);
+	$years=array(2020,"Fake",2019,2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($years as $year) {
 		foreach($months as $month) {
@@ -641,6 +727,12 @@ if(!file_exists("output/plot1${lang}.png")) {
 	foreach($momo as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if($year!=2020) continue;
+		if(isset($matrix[$month][$year])) $matrix[$month][$year]=$val[1];
+	}
+	foreach($fake as $key=>$val) {
+		list($year,$month)=explode("-",$val[0]);
+		if($year!=2020) continue;
+		$year="Fake";
 		if(isset($matrix[$month][$year])) $matrix[$month][$year]=$val[1];
 	}
 	foreach($ine1 as $key=>$val) {
@@ -669,8 +761,8 @@ if(!file_exists("output/plot1${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set style histogram gap 3",
 		"set datafile separator ';'",
-		"plot [-0.5:5.5] 'middle/plot1${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
-		"plot [5.5:11.5] 'middle/plot1${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"plot [-0.5:5.5] 'middle/plot1${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"plot [5.5:11.5] 'middle/plot1${lang}.csv' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 		"unset multiplot",
 	))."\n";
 	file_put_contents("middle/plot1${lang}.gnu",$gnuplot);
@@ -679,6 +771,7 @@ if(!file_exists("output/plot1${lang}.png")) {
 
 if(!file_exists("output/plot2${lang}.png")) {
 	$momo=import_file("middle/data-ok.csv");
+	$fake=import_file("middle/fake-ok.csv");
 	$ine=import_file("middle/02001-ok.csv");
 	$matrix=array();
 	$years=array(2018,2019,2020);
@@ -687,6 +780,7 @@ if(!file_exists("output/plot2${lang}.png")) {
 		foreach($months as $month) {
 			$month=sprintf("%02d",$month);
 			$matrix[$year."-".$month]["MoMo"]="";
+			$matrix[$year."-".$month]["Fake"]="";
 			$matrix[$year."-".$month]["INE"]="";
 		}
 	}
@@ -694,6 +788,10 @@ if(!file_exists("output/plot2${lang}.png")) {
 	foreach($momo as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if(isset($matrix[$year."-".$month]["MoMo"])) $matrix[$year."-".$month]["MoMo"]=$val[1];
+	}
+	foreach($fake as $key=>$val) {
+		list($year,$month)=explode("-",$val[0]);
+		if(isset($matrix[$year."-".$month]["Fake"])) $matrix[$year."-".$month]["Fake"]=$val[1];
 	}
 	foreach($ine as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
@@ -718,8 +816,8 @@ if(!file_exists("output/plot2${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:14.5] 'middle/plot2${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col",
-		"plot [14.5:29.5] 'middle/plot2${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col",
+		"plot [-0.5:14.5] 'middle/plot2${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"plot [14.5:29.5] 'middle/plot2${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 		"unset multiplot",
 	))."\n";
 	file_put_contents("middle/plot2${lang}.gnu",$gnuplot);
@@ -728,14 +826,17 @@ if(!file_exists("output/plot2${lang}.png")) {
 
 if(!file_exists("output/plot3${lang}.png")) {
 	$momo=import_file("middle/data-ok2.csv");
+	$fake=import_file("middle/fake-ok2.csv");
 	foreach($momo as $key=>$val) {
 		list($year,$month,$day)=explode("-",$val[0]);
-		if($year==2020) {
-			// NOTHING TO DO
-		} else {
-			unset($momo[$key]);
-		}
+		if($year!=2020) unset($momo[$key]);
 	}
+	foreach($fake as $key=>$val) {
+		list($year,$month,$day)=explode("-",$val[0]);
+		if($year!=2020) continue;
+		if($momo[$key][0]==$val[0]) $momo[$key][2]=$val[1];
+	}
+	array_unshift($momo,array("Fecha","MoMo","Fake"));
 	export_file("middle/plot3${lang}.csv",$momo);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
@@ -752,9 +853,9 @@ if(!file_exists("output/plot3${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set xtics '2020-01-01',86400*7,'2020-07-01'",
-		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti ''",
-		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti ''",
-		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti ''",
+		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col",
+		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col",
+		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot3${lang}.gnu",$gnuplot);
@@ -763,9 +864,10 @@ if(!file_exists("output/plot3${lang}.png")) {
 
 if(!file_exists("output/plot4${lang}.png")) {
 	$momo=import_file("middle/data-ok3.csv");
+	$fake=import_file("middle/fake-ok3.csv");
 	$ine=import_file("middle/02001-ok2.csv");
 	$matrix=array();
-	$years=array(2020,2019,2018);
+	$years=array(2020,"Fake",2019,2018);
 	$edades=array("mas_74","65_74","menos_65");
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($edades as $edad) {
@@ -781,6 +883,13 @@ if(!file_exists("output/plot4${lang}.png")) {
 		list($year,$month)=explode("-",$val[0]);
 		if($year!=2020) continue;
 		$edad=$val[1];
+		if(isset($matrix[$month][$edad."-".$year])) $matrix[$month][$edad."-".$year]=$val[2];
+	}
+	foreach($fake as $key=>$val) {
+		list($year,$month)=explode("-",$val[0]);
+		if($year!=2020) continue;
+		$edad=$val[1];
+		$year="Fake";
 		if(isset($matrix[$month][$edad."-".$year])) $matrix[$month][$edad."-".$year]=$val[2];
 	}
 	foreach($ine as $key=>$val) {
@@ -812,9 +921,9 @@ if(!file_exists("output/plot4${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
-		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col",
-		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col",
+		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
+		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col",
+		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot4${lang}.gnu",$gnuplot);
@@ -828,9 +937,10 @@ if(!file_exists("output/plot5${lang}.png")) {
 		$ccaas[$val[0]]=$val[0]." ".$val[1];
 	}
 	$momo=import_file("middle/data-ok5.csv");
+	$fake=import_file("middle/fake-ok5.csv");
 	$ine=import_file("middle/6562-ok2.csv");
 	$matrix=array();
-	$years=array(2020,2018,2017,2015,2014,2012,2009,2005,2000,1999);
+	$years=array(2020,"Fake",2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	foreach($years as $year) {
 		foreach($ccaas as $ccaa) {
 			$matrix[$ccaa][$year]=0;
@@ -843,6 +953,13 @@ if(!file_exists("output/plot5${lang}.png")) {
 		if($year!=2020) continue;
 		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
 	}
+	foreach($fake as $key=>$val) {
+		list($year,$month)=explode("-",$val[0]);
+		if(!in_array($month,array(3,4))) continue;
+		if($year!=2020) continue;
+		$year="Fake";
+		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
+	}
 	foreach($ine as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if(!in_array($month,array(3,4))) continue;
@@ -850,6 +967,7 @@ if(!file_exists("output/plot5${lang}.png")) {
 	}
 	$matrix["18 Ceuta + 19 Melilla"]=array(
 		$matrix["18 Ceuta"][2020]+$matrix["19 Melilla"][2020],
+		$matrix["18 Ceuta"]["Fake"]+$matrix["19 Melilla"]["Fake"],
 		$matrix["18 Ceuta"][2018]+$matrix["19 Melilla"][2018],
 		$matrix["18 Ceuta"][2017]+$matrix["19 Melilla"][2017],
 		$matrix["18 Ceuta"][2015]+$matrix["19 Melilla"][2015],
@@ -880,9 +998,9 @@ if(!file_exists("output/plot5${lang}.png")) {
 	array_unshift($matrix,array_merge(array("CCAA"),$header));
 	export_file("middle/plot5${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
+		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot5${lang}.png'",
-		"set multiplot layout 2,1 title \"".$textos["plots"][5][$lang]."\"",
+		"set multiplot layout 3,1 title \"".$textos["plots"][5][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -892,8 +1010,9 @@ if(!file_exists("output/plot5${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:8.5] 'middle/plot5${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col",
-		"plot [8.5:17.5] 'middle/plot5${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col",
+		"plot [-0.5:5.5] 'middle/plot5${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"plot [5.5:11.5] 'middle/plot5${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"plot [11.5:17.5] 'middle/plot5${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot5${lang}.gnu",$gnuplot);
@@ -1030,9 +1149,12 @@ if(!file_exists("index.${lang}.html")) {
 		"body { font-family:Arial,Helvetica,sans-serif; }",
 		"div { width:100%; max-width:1200px; margin: 0 auto; }",
 		"img { width:100%; border: 1px solid #000; }",
-		"h3,h4 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; }",
+		"h3,h4,h5 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; font-size:1em; }",
 		"h3 { clear:both; }",
 		"h4 { float:right; margin-left:1em; }",
+		"h3.ca,h4.ca { border:1px solid #0a0; background:#0a0; }",
+		"h3.es,h4.es,h5 { border:1px solid #a00; background:#a00; }",
+		"h3.en,h4.en { border:1px solid #00a; background:#00a; }",
 		"a { color:#fff; }",
 		"</style>",
 		"</head>",
@@ -1041,11 +1163,12 @@ if(!file_exists("index.${lang}.html")) {
 	))."\n";
 	foreach(array("en","es","ca") as $temp) {
 		$html.=implode("\n",array(
-			"<h4><a href='index.${temp}.html'>".strtoupper($temp)."</a></h4>",
+			"<h4 class='${temp}'><a href='index.${temp}.html'>".strtoupper($temp)."</a></h4>",
 		))."\n";
 	}
 	$html.=implode("\n",array(
-		"<h3>".$textos["header"][$lang]."</h3>",
+		"<h3 class='${lang}'>".$textos["header"][$lang]."</h3>",
+		"<h5>".$textos["fakes"][$lang]."</h5>",
 	))."\n";
 	for($i=1;$i<=7;$i++) {
 		$html.=implode("\n",array(
@@ -1054,7 +1177,7 @@ if(!file_exists("index.${lang}.html")) {
 		))."\n";
 	}
 	$html.=implode("\n",array(
-		"<h3>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
+		"<h3 class='${lang}'>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
 		"</div>",
 		"</body>",
 		"</html>",
@@ -1074,9 +1197,12 @@ if(!file_exists("index.html")) {
 		"body { font-family:Arial,Helvetica,sans-serif; }",
 		"div { width:100%; max-width:1200px; margin: 0 auto; }",
 		"img { width:100%; border: 1px solid #000; }",
-		"h3,h4 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; }",
+		"h3,h4,h5 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; font-size:1em; }",
 		"h3 { clear:both; }",
 		"h4 { float:right; margin-left:1em; }",
+		"h3.ca,h4.ca { border:1px solid #0a0; background:#0a0; }",
+		"h3.es,h4.es,h5 { border:1px solid #a00; background:#a00; }",
+		"h3.en,h4.en { border:1px solid #00a; background:#00a; }",
 		"a { color:#fff; }",
 		"</style>",
 		"</head>",
@@ -1085,13 +1211,13 @@ if(!file_exists("index.html")) {
 	))."\n";
 	foreach(array("en","es","ca") as $lang) {
 		$html.=implode("\n",array(
-			"<h4><a href='index.${lang}.html'>".strtoupper($lang)."</a></h4>",
+			"<h4 class='${lang}'><a href='index.${lang}.html'>".strtoupper($lang)."</a></h4>",
 		))."\n";
 	}
 	foreach(array("ca","es","en") as $lang) {
 		$html.=implode("\n",array(
-			"<h3><a href='index.${lang}.html'>".$textos["header"][$lang]."</a></h3>",
-			"<h3>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
+			"<h3 class='${lang}'><a href='index.${lang}.html'>".$textos["header"][$lang]."</a></h3>",
+			"<h3 class='${lang}'>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
 		))."\n";
 	}
 	$html.=implode("\n",array(

@@ -12,7 +12,7 @@ set xrange ['2020-01-01':'2020-07-01']
 set xtic rotate by -45 scale 0
 set datafile separator ';'
 set xtics '2020-01-01',86400*7,'2020-07-01'
-plot ['2020-01-01':'2020-03-01'] 'middle/plot3en.csv' using 1:2 w l ti col
-plot ['2020-03-01':'2020-05-01'] 'middle/plot3en.csv' using 1:2 w l ti col, '' using 1:3 w l ti col
-plot ['2020-05-01':'2020-07-01'] 'middle/plot3en.csv' using 1:2 w l ti col
+plot ['2020-01-01':'2020-03-01'] 'middle/plot3en.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col
+plot ['2020-03-01':'2020-05-01'] 'middle/plot3en.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col
+plot ['2020-05-01':'2020-07-01'] 'middle/plot3en.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col
 unset multiplot

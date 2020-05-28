@@ -570,6 +570,66 @@ if(!file_exists("middle/fake-ok5.csv")) {
 	export_file("middle/fake-ok5.csv",$sumas);
 }
 
+if(!file_exists("middle/agregados-ok.csv")) {
+	$temp=import_file("input/renave/ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[$val[2]]=$val[0]." ".$val[1];
+	}
+	$data=import_file("input/renave/agregados.20200527.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if(strlen($val[0])==2) {
+			$ccaa=$ccaas[$val[0]];
+			$temp=explode("/",$val[1]);
+			$fecha=sprintf("%04d-%02d-%02d",$temp[2],$temp[1],$temp[0]);
+			if(!isset($sumas[$val[0]])) $sumas[$val[0]]=0;
+			$defun=intval($val[7])-$sumas[$val[0]];
+			$sumas[$val[0]]=intval($val[7]);
+			$data[$key]=array($ccaa,$fecha,$defun);
+		} else {
+			unset($data[$key]);
+		}
+	}
+	export_file("middle/agregados-ok.csv",$data);
+}
+
+if(!file_exists("middle/agregados-ok2.csv")) {
+	$data=import_file("middle/agregados-ok.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		$key2=$val[0].";".substr($val[1],0,7);
+		if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+		$sumas[$key2][1]+=$val[2];
+		unset($data[$key]);
+	}
+	export_file("middle/agregados-ok2.csv",$sumas);
+}
+
+if(!file_exists("middle/agregados-ok3.csv")) {
+	$data=import_file("middle/agregados-ok.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		$key2=$val[1];
+		if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+		$sumas[$key2][1]+=$val[2];
+		unset($data[$key]);
+	}
+	export_file("middle/agregados-ok3.csv",$sumas);
+}
+
+if(!file_exists("middle/agregados-ok4.csv")) {
+	$data=import_file("middle/agregados-ok.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		$key2=substr($val[1],0,7);
+		if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+		$sumas[$key2][1]+=$val[2];
+		unset($data[$key]);
+	}
+	export_file("middle/agregados-ok4.csv",$sumas);
+}
+
 $textos=array(
 	"header"=>array(
 		"ca"=>"Informació útil d'Espanya sobre l'impacte de covid-19: gràfics de defuncions per any, origen de les dades, acumulats diaris, per edat, per comunitat autònoma i més",
@@ -715,7 +775,7 @@ if(!file_exists("output/plot1${lang}.png")) {
 	$ine1=import_file("middle/02001-ok.csv");
 	$ine2=import_file("middle/14819-ok.csv");
 	$matrix=array();
-	$years=array(2020,"Fake",2019,2018,2017,2015,2014,2012,2009,2005,2000,1999);
+	$years=array("MoMo","Fake",2019,2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($years as $year) {
 		foreach($months as $month) {
@@ -727,6 +787,7 @@ if(!file_exists("output/plot1${lang}.png")) {
 	foreach($momo as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if($year!=2020) continue;
+		$year="MoMo";
 		if(isset($matrix[$month][$year])) $matrix[$month][$year]=$val[1];
 	}
 	foreach($fake as $key=>$val) {
@@ -762,7 +823,7 @@ if(!file_exists("output/plot1${lang}.png")) {
 		"set style histogram gap 3",
 		"set datafile separator ';'",
 		"plot [-0.5:5.5] 'middle/plot1${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
-		"plot [5.5:11.5] 'middle/plot1${lang}.csv' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"plot [5.5:11.5] 'middle/plot1${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 		"unset multiplot",
 	))."\n";
 	file_put_contents("middle/plot1${lang}.gnu",$gnuplot);
@@ -827,17 +888,26 @@ if(!file_exists("output/plot2${lang}.png")) {
 if(!file_exists("output/plot3${lang}.png")) {
 	$momo=import_file("middle/data-ok2.csv");
 	$fake=import_file("middle/fake-ok2.csv");
+	$renave=import_file("middle/agregados-ok3.csv");
+	$matrix=array();
+	for($i=strtotime("2020-01-01 12:00:00");$i<strtotime("2020-07-01");$i+=86400) {
+		$fecha=date("Y-m-d",$i);
+		$matrix[$fecha]=array($fecha,"","","");
+	}
 	foreach($momo as $key=>$val) {
-		list($year,$month,$day)=explode("-",$val[0]);
-		if($year!=2020) unset($momo[$key]);
+		if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=$val[1];
+		unset($momo[$key]);
 	}
 	foreach($fake as $key=>$val) {
-		list($year,$month,$day)=explode("-",$val[0]);
-		if($year!=2020) continue;
-		if($momo[$key][0]==$val[0]) $momo[$key][2]=$val[1];
+		if(isset($matrix[$val[0]])) $matrix[$val[0]][2]=$val[1];
+		unset($fake[$key]);
 	}
-	array_unshift($momo,array("Fecha","MoMo","Fake"));
-	export_file("middle/plot3${lang}.csv",$momo);
+	foreach($renave as $key=>$val) {
+		if(isset($matrix[$val[0]])) $matrix[$val[0]][3]=$val[1];
+		unset($renave[$key]);
+	}
+	array_unshift($matrix,array("Fecha","MoMo","Fake","Renave"));
+	export_file("middle/plot3${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot3${lang}.png'",
@@ -853,9 +923,9 @@ if(!file_exists("output/plot3${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set xtics '2020-01-01',86400*7,'2020-07-01'",
-		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col",
-		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col",
-		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col",
+		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col",
+		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col",
+		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot3${lang}.gnu",$gnuplot);
@@ -867,7 +937,7 @@ if(!file_exists("output/plot4${lang}.png")) {
 	$fake=import_file("middle/fake-ok3.csv");
 	$ine=import_file("middle/02001-ok2.csv");
 	$matrix=array();
-	$years=array(2020,"Fake",2019,2018);
+	$years=array("MoMo","Fake",2019,2018);
 	$edades=array("mas_74","65_74","menos_65");
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($edades as $edad) {
@@ -883,6 +953,7 @@ if(!file_exists("output/plot4${lang}.png")) {
 		list($year,$month)=explode("-",$val[0]);
 		if($year!=2020) continue;
 		$edad=$val[1];
+		$year="MoMo";
 		if(isset($matrix[$month][$edad."-".$year])) $matrix[$month][$edad."-".$year]=$val[2];
 	}
 	foreach($fake as $key=>$val) {
@@ -940,7 +1011,7 @@ if(!file_exists("output/plot5${lang}.png")) {
 	$fake=import_file("middle/fake-ok5.csv");
 	$ine=import_file("middle/6562-ok2.csv");
 	$matrix=array();
-	$years=array(2020,"Fake",2018,2017,2015,2014,2012,2009,2005,2000,1999);
+	$years=array("MoMo","Fake",2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	foreach($years as $year) {
 		foreach($ccaas as $ccaa) {
 			$matrix[$ccaa][$year]=0;
@@ -951,6 +1022,7 @@ if(!file_exists("output/plot5${lang}.png")) {
 		list($year,$month)=explode("-",$val[0]);
 		if(!in_array($month,array(3,4))) continue;
 		if($year!=2020) continue;
+		$year="MoMo";
 		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
 	}
 	foreach($fake as $key=>$val) {
@@ -966,7 +1038,7 @@ if(!file_exists("output/plot5${lang}.png")) {
 		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
 	}
 	$matrix["18 Ceuta + 19 Melilla"]=array(
-		$matrix["18 Ceuta"][2020]+$matrix["19 Melilla"][2020],
+		$matrix["18 Ceuta"]["MoMo"]+$matrix["19 Melilla"]["MoMo"],
 		$matrix["18 Ceuta"]["Fake"]+$matrix["19 Melilla"]["Fake"],
 		$matrix["18 Ceuta"][2018]+$matrix["19 Melilla"][2018],
 		$matrix["18 Ceuta"][2017]+$matrix["19 Melilla"][2017],

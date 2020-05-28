@@ -9,8 +9,9 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - https://www.isciii.es/QueHacemos/Servicios/VigilanciaSaludPublicaRENAVE/EnfermedadesTransmisibles/MoMo/Paginas/MoMo.aspx => pagina principal de MoMo
 - https://momo.isciii.es/public/momo/dashboard/momo_dashboard.html => panel de control de MoMo
 - https://momo.isciii.es/public/momo/data => descarga directa del fichero csv con los datos de MoMo
-- https://cnecovid.isciii.es/covid19/ => COVID-19
 - wget -O data.$(date +"%Y%m%d").csv https://momo.isciii.es/public/momo/data
+- https://cnecovid.isciii.es/covid19/ => COVID-19
+- wget -O agregados.$(date +"%Y%m%d").csv https://cnecovid.isciii.es/covid19/resources/agregados.csv
 
 # INE
 - https://www.ine.es/buscar/searchResults.do?searchString=defunciones => Buscador desde donde he encontrado lo siguiente

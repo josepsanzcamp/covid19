@@ -898,7 +898,7 @@ if(!file_exists("output/plot3${lang}.png")) {
 	$matrix=array();
 	for($i=strtotime("2020-01-01 12:00:00");$i<strtotime("2020-07-01");$i+=86400) {
 		$fecha=date("Y-m-d",$i);
-		$matrix[$fecha]=array($fecha,"","","","","");
+		$matrix[$fecha]=array($fecha,"","","","","","");
 	}
 	foreach($momo as $key=>$val) {
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=$val[1];
@@ -911,6 +911,7 @@ if(!file_exists("output/plot3${lang}.png")) {
 	foreach($renave as $key=>$val) {
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][3]=$val[1];
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][4]=$matrix[$val[0]][1]-$val[1];
+		if(isset($matrix[$val[0]])) $matrix[$val[0]][5]=$matrix[$val[0]][2]-$val[1];
 		unset($renave[$key]);
 	}
 	foreach($otros as $key=>$val) {
@@ -918,10 +919,10 @@ if(!file_exists("output/plot3${lang}.png")) {
 		if($year!=2018) continue;
 		$media=round($val[1]/365,0);
 		foreach($matrix as $key2=>$val2) {
-			$matrix[$key2][5]=$media;
+			$matrix[$key2][6]=$media;
 		}
 	}
-	array_unshift($matrix,array("Fecha","MoMo","Fake","Renave","MoMo-Renave",2018));
+	array_unshift($matrix,array("Fecha","MoMo","Fake","Renave","MoMo-Renave","Fake-Renave",2018));
 	export_file("middle/plot3${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
@@ -938,9 +939,9 @@ if(!file_exists("output/plot3${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set xtics '2020-01-01',86400*7,'2020-07-01'",
-		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:6 w l ti col",
-		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col, '' using 1:5 w l ti col, '' using 1:6 w l ti col",
-		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col, '' using 1:5 w l ti col, '' using 1:6 w l ti col",
+		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:7 w l ti col",
+		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col, '' using 1:5 w l ti col, '' using 1:6 w l ti col, '' using 1:7 w l ti col",
+		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col, '' using 1:5 w l ti col, '' using 1:6 w l ti col, '' using 1:7 w l ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot3${lang}.gnu",$gnuplot);

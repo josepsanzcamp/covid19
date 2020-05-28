@@ -646,9 +646,9 @@ $textos=array(
 			"es"=>"Defunciones por año y mes del MoMo y INE entre 2018 y 2020",
 			"en"=>"Deaths by year and month of the MoMo and INE between 2018 and 2020",
 		),array(
-			"ca"=>"Defuncions per dia obtinguts del MoMo per al 2020",
-			"es"=>"Defunciones por dia obtenidos del MoMo para el 2020",
-			"en"=>"Deaths per day obtained from the MoMo by 2020",
+			"ca"=>"Defuncions per dia obtinguts del MoMo per al 2020, per dia del Renave, el promig del 2018 i la diferencia entre MoMo i Renave",
+			"es"=>"Defunciones por dia obtenidos del MoMo para el 2020, por dia del Renave, el promedio del 2018 i la diferencia entre MoMo i Renave",
+			"en"=>"Deaths per day obtained from the MoMo by 2020, per day from the Renave, the 2018 average and the difference between MoMo and Renave",
 		),array(
 			"ca"=>"Defuncions per any, mes i edat (les dades de l'any 2020 són del MoMo i la resta són del INE)",
 			"es"=>"Defunciones por año, mes y edad (los datos del 2020 son del MoMo y el resto son del INE)",
@@ -764,6 +764,11 @@ $textos=array(
 		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció s'ha afegit la variable Fake que conté les dades de MoMo anteriors sense la correcció per als mesos de Març i Abril de l'any 2020",
 		"es"=>"Atención: el 27 de Mayo del 2020 se corrigieron los datos de MoMo, para poder observar esta corrección se ha añadido la variable Fake que contiene los datos de MoMo anteriores sin la corrección para los meses de Marzo y Abril del 2020",
 		"en"=>"Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction we have added the Fake variable that contains the previous MoMo data without the correction for the months of March and April 2020",
+	),
+	"escala"=>array(
+		"ca"=>"Atenció: aquesta gràfica te l'escala diferent que la gràfica anterior del mateix grup",
+		"es"=>"Atención: esta gráfica tiene la escala diferente que la gráfica anterior del mismo grupo",
+		"en"=>"Atencion: this plot has a different scale related to the previous plot of the same group",
 	),
 );
 
@@ -889,10 +894,11 @@ if(!file_exists("output/plot3${lang}.png")) {
 	$momo=import_file("middle/data-ok2.csv");
 	$fake=import_file("middle/fake-ok2.csv");
 	$renave=import_file("middle/agregados-ok3.csv");
+	$otros=import_file("middle/7947-ok.csv");
 	$matrix=array();
 	for($i=strtotime("2020-01-01 12:00:00");$i<strtotime("2020-07-01");$i+=86400) {
 		$fecha=date("Y-m-d",$i);
-		$matrix[$fecha]=array($fecha,"","","");
+		$matrix[$fecha]=array($fecha,"","","","","");
 	}
 	foreach($momo as $key=>$val) {
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=$val[1];
@@ -904,9 +910,18 @@ if(!file_exists("output/plot3${lang}.png")) {
 	}
 	foreach($renave as $key=>$val) {
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][3]=$val[1];
+		if(isset($matrix[$val[0]])) $matrix[$val[0]][4]=$matrix[$val[0]][1]-$val[1];
 		unset($renave[$key]);
 	}
-	array_unshift($matrix,array("Fecha","MoMo","Fake","Renave"));
+	foreach($otros as $key=>$val) {
+		$year=$val[0];
+		if($year!=2018) continue;
+		$media=round($val[1]/365,0);
+		foreach($matrix as $key2=>$val2) {
+			$matrix[$key2][5]=$media;
+		}
+	}
+	array_unshift($matrix,array("Fecha","MoMo","Fake","Renave","MoMo-Renave",2018));
 	export_file("middle/plot3${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
@@ -923,9 +938,9 @@ if(!file_exists("output/plot3${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set xtics '2020-01-01',86400*7,'2020-07-01'",
-		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col",
-		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col",
-		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col",
+		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:6 w l ti col",
+		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col, '' using 1:5 w l ti col, '' using 1:6 w l ti col",
+		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col, '' using 1:5 w l ti col, '' using 1:6 w l ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot3${lang}.gnu",$gnuplot);
@@ -993,6 +1008,8 @@ if(!file_exists("output/plot4${lang}.png")) {
 		"set datafile separator ';'",
 		"set style histogram gap 3",
 		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
+		"set yrange [0:20000]",
+		"set label 1 \"".$textos["escala"][$lang]."\" at 5.5,17500 c tc lt 1",
 		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col",
 		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 		"unset multiplot"
@@ -1143,7 +1160,7 @@ if(!file_exists("output/plot6${lang}.png")) {
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
-		"set yrange [0:90000]",
+		"set auto y",
 		"set style data histogram",
 		"set style fill solid border -1",
 		"set xtic rotate by -45 scale 0",

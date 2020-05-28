@@ -4,7 +4,7 @@ set multiplot layout 1,1 title "Places de residències per tipus i comunitat aut
 set rmargin 3
 set grid
 set auto x
-set yrange [0:90000]
+set auto y
 set style data histogram
 set style fill solid border -1
 set xtic rotate by -45 scale 0

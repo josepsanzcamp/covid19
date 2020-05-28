@@ -11,6 +11,8 @@ set xtic rotate by -45 scale 0
 set datafile separator ';'
 set style histogram gap 3
 plot [-0.5:11.5] 'middle/plot4en.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col
+set yrange [0:20000]
+set label 1 "Atencion: this plot has a different scale related to the previous plot of the same group" at 5.5,17500 c tc lt 1
 plot [-0.5:11.5] 'middle/plot4en.csv' using 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col
 plot [-0.5:11.5] 'middle/plot4en.csv' using 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col
 unset multiplot

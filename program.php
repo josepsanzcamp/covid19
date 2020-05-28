@@ -1262,6 +1262,7 @@ if(!file_exists("index.${lang}.html")) {
 	))."\n";
 	for($i=1;$i<=7;$i++) {
 		$html.=implode("\n",array(
+			"<a name='plot${i}'></a>",
 			"<h3>".$textos["plots"][$i][$lang]."</h3>",
 			"<img src='output/plot${i}${lang}.png'/>",
 		))."\n";

@@ -762,9 +762,9 @@ $textos=array(
 		"en"=>"% nurses per 1000 inhabitants",
 	),
 	"momoold"=>array(
-		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció faig servir MoMoOld per les dades anteriors a la correcció dels mesos de Març i Abril de l'any 2020 i MoMoNew per les darreres dades oficials",
-		"es"=>"Atención: el 27 de mayo del año 2020 se corrigieron los datos del MoMo, para poder observar esta corrección, utilizo MoMoOld para los datos anteriores a la corrección de los meses de Marzo y Abril del 2020 y MoMoNew para los últimos datos oficiales",
-		"en"=>"Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction, I'm using MoMoOld to see the previously data to the correction for the months of March and April 2020 and MoMoNew to see the latest oficial data",
+		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció, he anomenat MoMoOld a les dades anteriors a la correcció i MoMoNew a les darreres dades oficials",
+		"es"=>"Atención: el 27 de mayo del año 2020 se corrigieron los datos del MoMo, para poder observar esta corrección, he llamado MoMoOld a los datos anteriores a la corrección y MoMoNew a los últimos datos oficiales",
+		"en"=>"Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction, I have used MoMoOld for the previously data to the correction and MoMoNew for the latest oficial data",
 	),
 	"escala"=>array(
 		"ca"=>"Atenció: aquesta gràfica te l'escala diferent que la gràfica anterior del mateix grup",

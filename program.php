@@ -762,7 +762,7 @@ $textos=array(
 	),
 	"momoold"=>array(
 		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció faig servir MoMoOld per les dades anteriors a la correcció dels mesos de Març i Abril de l'any 2020 i MoMoNew per les darreres dades oficials",
-		"es"=>"Atención: el 27 de mayo del año 2020 se corrigieron los tados del MoMo, para poder observar esta corrección, utilizo MoMoOld para los datos anteriores a la corrección de los meses de Marzo y Abril del 2020 y MoMoNew para los últimos datos oficiales",
+		"es"=>"Atención: el 27 de mayo del año 2020 se corrigieron los datos del MoMo, para poder observar esta corrección, utilizo MoMoOld para los datos anteriores a la corrección de los meses de Marzo y Abril del 2020 y MoMoNew para los últimos datos oficiales",
 		"en"=>"Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction, I'm using MoMoOld to see the previously data to the correction for the months of March and April 2020 and MoMoNew to see the latest oficial data",
 	),
 	"escala"=>array(
@@ -939,9 +939,9 @@ if(!file_exists("output/plot3${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set xtics '2020-01-01',86400*7,'2020-07-01'",
-		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:7 w l ti col",
-		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col, '' using 1:5 w l ti col, '' using 1:6 w l ti col, '' using 1:7 w l ti col",
-		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w l ti col, '' using 1:3 w l ti col, '' using 1:4 w l ti col, '' using 1:5 w l ti col, '' using 1:6 w l ti col, '' using 1:7 w l ti col",
+		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w lp ti col, '' using 1:7 w lp ti col",
+		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w lp ti col, '' using 1:3 w lp ti col, '' using 1:4 w lp ti col, '' using 1:5 w lp ti col, '' using 1:6 w lp ti col, '' using 1:7 w lp ti col",
+		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w lp ti col, '' using 1:3 w lp ti col, '' using 1:4 w lp ti col, '' using 1:5 w lp ti col, '' using 1:6 w lp ti col, '' using 1:7 w lp ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot3${lang}.gnu",$gnuplot);

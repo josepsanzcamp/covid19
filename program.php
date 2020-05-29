@@ -493,15 +493,16 @@ if(!file_exists("middle/02005-ok.csv")) {
 if(!file_exists("middle/momoold.csv")) {
 	$files=glob("input/momo/data.????????.csv");
 	sort($files);
+	foreach($files as $key=>$val) {
+		$temp=explode(".",$val);
+		if($temp[1]>=20200527) unset($files[$key]);
+	}
 	$result=array();
 	foreach($files as $file) {
 		$data=import_file($file);
-		$temp=explode(".",$file);
-		$temp=$temp[1];
 		foreach($data as $key=>$val) {
 			$key2=implode("|",array_slice($val,0,8));
 			$key3=$val[8];
-			if($temp>=20200527 && in_array(substr($key3,0,7),array("2020-03","2020-04"))) continue;
 			$result[$key2][$key3]=array_slice($val,0,10);
 			unset($data[$key]);
 		}

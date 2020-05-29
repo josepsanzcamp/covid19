@@ -227,7 +227,7 @@ if(!file_exists("middle/7947-ok.csv")) {
 	export_file("middle/7947-ok.csv",$sumas);
 }
 
-if(!file_exists("middle/data.csv")) {
+if(!file_exists("middle/momonew.csv")) {
 	$files=glob("input/momo/data.????????.csv");
 	sort($files);
 	$result=array();
@@ -245,11 +245,11 @@ if(!file_exists("middle/data.csv")) {
 		$result2=array_merge($result2,array_values($val));
 		unset($result[$key]);
 	}
-	export_file("middle/data.csv",$result2);
+	export_file("middle/momonew.csv",$result2);
 }
 
-if(!file_exists("middle/data-ok.csv")) {
-	$data=import_file("middle/data.csv");
+if(!file_exists("middle/momonew-ok.csv")) {
+	$data=import_file("middle/momonew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -259,11 +259,11 @@ if(!file_exists("middle/data-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/data-ok.csv",$sumas);
+	export_file("middle/momonew-ok.csv",$sumas);
 }
 
-if(!file_exists("middle/data-ok2.csv")) {
-	$data=import_file("middle/data.csv");
+if(!file_exists("middle/momonew-ok2.csv")) {
+	$data=import_file("middle/momonew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -273,11 +273,11 @@ if(!file_exists("middle/data-ok2.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/data-ok2.csv",$sumas);
+	export_file("middle/momonew-ok2.csv",$sumas);
 }
 
-if(!file_exists("middle/data-ok3.csv")) {
-	$data=import_file("middle/data.csv");
+if(!file_exists("middle/momonew-ok3.csv")) {
+	$data=import_file("middle/momonew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -287,11 +287,11 @@ if(!file_exists("middle/data-ok3.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/data-ok3.csv",$sumas);
+	export_file("middle/momonew-ok3.csv",$sumas);
 }
 
-if(!file_exists("middle/data-ok4.csv")) {
-	$data=import_file("middle/data.csv");
+if(!file_exists("middle/momonew-ok4.csv")) {
+	$data=import_file("middle/momonew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -301,11 +301,11 @@ if(!file_exists("middle/data-ok4.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/data-ok4.csv",$sumas);
+	export_file("middle/momonew-ok4.csv",$sumas);
 }
 
-if(!file_exists("middle/data-ok5.csv")) {
-	$data=import_file("middle/data.csv");
+if(!file_exists("middle/momonew-ok5.csv")) {
+	$data=import_file("middle/momonew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]=="all") {
@@ -315,11 +315,11 @@ if(!file_exists("middle/data-ok5.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/data-ok5.csv",$sumas);
+	export_file("middle/momonew-ok5.csv",$sumas);
 }
 
-if(!file_exists("middle/data-ok6.csv")) {
-	$data=import_file("middle/data.csv");
+if(!file_exists("middle/momonew-ok6.csv")) {
+	$data=import_file("middle/momonew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]!="all") {
@@ -329,7 +329,7 @@ if(!file_exists("middle/data-ok6.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/data-ok6.csv",$sumas);
+	export_file("middle/momonew-ok6.csv",$sumas);
 }
 
 if(!file_exists("middle/residencias.csv")) {
@@ -490,7 +490,7 @@ if(!file_exists("middle/02005-ok.csv")) {
 	export_file("middle/02005-ok.csv",$sumas);
 }
 
-if(!file_exists("middle/fake.csv")) {
+if(!file_exists("middle/momoold.csv")) {
 	$files=glob("input/momo/data.????????.csv");
 	sort($files);
 	$result=array();
@@ -511,11 +511,11 @@ if(!file_exists("middle/fake.csv")) {
 		$result2=array_merge($result2,array_values($val));
 		unset($result[$key]);
 	}
-	export_file("middle/fake.csv",$result2);
+	export_file("middle/momoold.csv",$result2);
 }
 
-if(!file_exists("middle/fake-ok.csv")) {
-	$data=import_file("middle/fake.csv");
+if(!file_exists("middle/momoold-ok.csv")) {
+	$data=import_file("middle/momoold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -525,11 +525,11 @@ if(!file_exists("middle/fake-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/fake-ok.csv",$sumas);
+	export_file("middle/momoold-ok.csv",$sumas);
 }
 
-if(!file_exists("middle/fake-ok2.csv")) {
-	$data=import_file("middle/fake.csv");
+if(!file_exists("middle/momoold-ok2.csv")) {
+	$data=import_file("middle/momoold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -539,11 +539,11 @@ if(!file_exists("middle/fake-ok2.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/fake-ok2.csv",$sumas);
+	export_file("middle/momoold-ok2.csv",$sumas);
 }
 
-if(!file_exists("middle/fake-ok3.csv")) {
-	$data=import_file("middle/fake.csv");
+if(!file_exists("middle/momoold-ok3.csv")) {
+	$data=import_file("middle/momoold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -553,11 +553,11 @@ if(!file_exists("middle/fake-ok3.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/fake-ok3.csv",$sumas);
+	export_file("middle/momoold-ok3.csv",$sumas);
 }
 
-if(!file_exists("middle/fake-ok5.csv")) {
-	$data=import_file("middle/fake.csv");
+if(!file_exists("middle/momoold-ok5.csv")) {
+	$data=import_file("middle/momoold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]=="all") {
@@ -567,7 +567,7 @@ if(!file_exists("middle/fake-ok5.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/fake-ok5.csv",$sumas);
+	export_file("middle/momoold-ok5.csv",$sumas);
 }
 
 if(!file_exists("middle/agregados-ok.csv")) {
@@ -760,10 +760,10 @@ $textos=array(
 		"es"=>"% enfermeras por cada 1000 habitantes",
 		"en"=>"% nurses per 1000 inhabitants",
 	),
-	"fakes"=>array(
-		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció s'ha afegit la variable Fake que conté les dades de MoMo anteriors sense la correcció per als mesos de Març i Abril de l'any 2020",
-		"es"=>"Atención: el 27 de Mayo del 2020 se corrigieron los datos de MoMo, para poder observar esta corrección se ha añadido la variable Fake que contiene los datos de MoMo anteriores sin la corrección para los meses de Marzo y Abril del 2020",
-		"en"=>"Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction we have added the Fake variable that contains the previous MoMo data without the correction for the months of March and April 2020",
+	"momoold"=>array(
+		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció faig servir MoMoOld per les dades anteriors a la correcció dels mesos de Març i Abril de l'any 2020 i MoMoNew per les darreres dades oficials",
+		"es"=>"Atención: el 27 de mayo del año 2020 se corrigieron los tados del MoMo, para poder observar esta corrección, utilizo MoMoOld para los datos anteriores a la corrección de los meses de Marzo y Abril del 2020 y MoMoNew para los últimos datos oficiales",
+		"en"=>"Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction, I'm using MoMoOld to see the previously data to the correction for the months of March and April 2020 and MoMoNew to see the latest oficial data",
 	),
 	"escala"=>array(
 		"ca"=>"Atenció: aquesta gràfica te l'escala diferent que la gràfica anterior del mateix grup",
@@ -775,12 +775,12 @@ $textos=array(
 foreach(array("ca","es","en") as $lang) {
 
 if(!file_exists("output/plot1${lang}.png")) {
-	$momo=import_file("middle/data-ok.csv");
-	$fake=import_file("middle/fake-ok.csv");
+	$momoold=import_file("middle/momoold-ok.csv");
+	$momonew=import_file("middle/momonew-ok.csv");
 	$ine1=import_file("middle/02001-ok.csv");
 	$ine2=import_file("middle/14819-ok.csv");
 	$matrix=array();
-	$years=array("MoMo","Fake",2019,2018,2017,2015,2014,2012,2009,2005,2000,1999);
+	$years=array("MoMoOld","MoMoNew",2019,2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($years as $year) {
 		foreach($months as $month) {
@@ -789,16 +789,16 @@ if(!file_exists("output/plot1${lang}.png")) {
 		}
 	}
 	$header=array_keys(reset($matrix));
-	foreach($momo as $key=>$val) {
+	foreach($momoold as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if($year!=2020) continue;
-		$year="MoMo";
+		$year="MoMoOld";
 		if(isset($matrix[$month][$year])) $matrix[$month][$year]=$val[1];
 	}
-	foreach($fake as $key=>$val) {
+	foreach($momonew as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if($year!=2020) continue;
-		$year="Fake";
+		$year="MoMoNew";
 		if(isset($matrix[$month][$year])) $matrix[$month][$year]=$val[1];
 	}
 	foreach($ine1 as $key=>$val) {
@@ -836,8 +836,8 @@ if(!file_exists("output/plot1${lang}.png")) {
 }
 
 if(!file_exists("output/plot2${lang}.png")) {
-	$momo=import_file("middle/data-ok.csv");
-	$fake=import_file("middle/fake-ok.csv");
+	$momoold=import_file("middle/momoold-ok.csv");
+	$momonew=import_file("middle/momonew-ok.csv");
 	$ine=import_file("middle/02001-ok.csv");
 	$matrix=array();
 	$years=array(2018,2019,2020);
@@ -845,19 +845,19 @@ if(!file_exists("output/plot2${lang}.png")) {
 	foreach($years as $year) {
 		foreach($months as $month) {
 			$month=sprintf("%02d",$month);
-			$matrix[$year."-".$month]["MoMo"]="";
-			$matrix[$year."-".$month]["Fake"]="";
+			$matrix[$year."-".$month]["MoMoOld"]="";
+			$matrix[$year."-".$month]["MoMoNew"]="";
 			$matrix[$year."-".$month]["INE"]="";
 		}
 	}
 	$header=array_keys(reset($matrix));
-	foreach($momo as $key=>$val) {
+	foreach($momoold as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
-		if(isset($matrix[$year."-".$month]["MoMo"])) $matrix[$year."-".$month]["MoMo"]=$val[1];
+		if(isset($matrix[$year."-".$month]["MoMoOld"])) $matrix[$year."-".$month]["MoMoOld"]=$val[1];
 	}
-	foreach($fake as $key=>$val) {
+	foreach($momonew as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
-		if(isset($matrix[$year."-".$month]["Fake"])) $matrix[$year."-".$month]["Fake"]=$val[1];
+		if(isset($matrix[$year."-".$month]["MoMoNew"])) $matrix[$year."-".$month]["MoMoNew"]=$val[1];
 	}
 	foreach($ine as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
@@ -891,8 +891,8 @@ if(!file_exists("output/plot2${lang}.png")) {
 }
 
 if(!file_exists("output/plot3${lang}.png")) {
-	$momo=import_file("middle/data-ok2.csv");
-	$fake=import_file("middle/fake-ok2.csv");
+	$momoold=import_file("middle/momoold-ok2.csv");
+	$momonew=import_file("middle/momonew-ok2.csv");
 	$renave=import_file("middle/agregados-ok3.csv");
 	$otros=import_file("middle/7947-ok.csv");
 	$matrix=array();
@@ -900,13 +900,13 @@ if(!file_exists("output/plot3${lang}.png")) {
 		$fecha=date("Y-m-d",$i);
 		$matrix[$fecha]=array($fecha,"","","","","","");
 	}
-	foreach($momo as $key=>$val) {
+	foreach($momoold as $key=>$val) {
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=$val[1];
-		unset($momo[$key]);
+		unset($momoold[$key]);
 	}
-	foreach($fake as $key=>$val) {
+	foreach($momonew as $key=>$val) {
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][2]=$val[1];
-		unset($fake[$key]);
+		unset($momonew[$key]);
 	}
 	foreach($renave as $key=>$val) {
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][3]=$val[1];
@@ -922,7 +922,7 @@ if(!file_exists("output/plot3${lang}.png")) {
 			$matrix[$key2][6]=$media;
 		}
 	}
-	array_unshift($matrix,array("Fecha","MoMo","Fake","Renave","MoMo-Renave","Fake-Renave",2018));
+	array_unshift($matrix,array("Fecha","MoMoOld","MoMoNew","Renave","MoMoOld-Renave","MoMoNew-Renave",2018));
 	export_file("middle/plot3${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
@@ -949,11 +949,11 @@ if(!file_exists("output/plot3${lang}.png")) {
 }
 
 if(!file_exists("output/plot4${lang}.png")) {
-	$momo=import_file("middle/data-ok3.csv");
-	$fake=import_file("middle/fake-ok3.csv");
+	$momoold=import_file("middle/momoold-ok3.csv");
+	$momonew=import_file("middle/momonew-ok3.csv");
 	$ine=import_file("middle/02001-ok2.csv");
 	$matrix=array();
-	$years=array("MoMo","Fake",2019,2018);
+	$years=array("MoMoOld","MoMoNew",2019,2018);
 	$edades=array("mas_74","65_74","menos_65");
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($edades as $edad) {
@@ -965,18 +965,18 @@ if(!file_exists("output/plot4${lang}.png")) {
 		}
 	}
 	$header=array_keys(reset($matrix));
-	foreach($momo as $key=>$val) {
+	foreach($momoold as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if($year!=2020) continue;
 		$edad=$val[1];
-		$year="MoMo";
+		$year="MoMoOld";
 		if(isset($matrix[$month][$edad."-".$year])) $matrix[$month][$edad."-".$year]=$val[2];
 	}
-	foreach($fake as $key=>$val) {
+	foreach($momonew as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if($year!=2020) continue;
 		$edad=$val[1];
-		$year="Fake";
+		$year="MoMoNew";
 		if(isset($matrix[$month][$edad."-".$year])) $matrix[$month][$edad."-".$year]=$val[2];
 	}
 	foreach($ine as $key=>$val) {
@@ -1025,29 +1025,29 @@ if(!file_exists("output/plot5${lang}.png")) {
 	foreach($temp as $key=>$val) {
 		$ccaas[$val[0]]=$val[0]." ".$val[1];
 	}
-	$momo=import_file("middle/data-ok5.csv");
-	$fake=import_file("middle/fake-ok5.csv");
+	$momoold=import_file("middle/momoold-ok5.csv");
+	$momonew=import_file("middle/momonew-ok5.csv");
 	$ine=import_file("middle/6562-ok2.csv");
 	$matrix=array();
-	$years=array("MoMo","Fake",2018,2017,2015,2014,2012,2009,2005,2000,1999);
+	$years=array("MoMoOld","MoMoNew",2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	foreach($years as $year) {
 		foreach($ccaas as $ccaa) {
 			$matrix[$ccaa][$year]=0;
 		}
 	}
 	$header=array_keys(reset($matrix));
-	foreach($momo as $key=>$val) {
+	foreach($momoold as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if(!in_array($month,array(3,4))) continue;
 		if($year!=2020) continue;
-		$year="MoMo";
+		$year="MoMoOld";
 		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
 	}
-	foreach($fake as $key=>$val) {
+	foreach($momonew as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if(!in_array($month,array(3,4))) continue;
 		if($year!=2020) continue;
-		$year="Fake";
+		$year="MoMoNew";
 		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
 	}
 	foreach($ine as $key=>$val) {
@@ -1056,8 +1056,8 @@ if(!file_exists("output/plot5${lang}.png")) {
 		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
 	}
 	$matrix["18 Ceuta + 19 Melilla"]=array(
-		$matrix["18 Ceuta"]["MoMo"]+$matrix["19 Melilla"]["MoMo"],
-		$matrix["18 Ceuta"]["Fake"]+$matrix["19 Melilla"]["Fake"],
+		$matrix["18 Ceuta"]["MoMoOld"]+$matrix["19 Melilla"]["MoMoOld"],
+		$matrix["18 Ceuta"]["MoMoNew"]+$matrix["19 Melilla"]["MoMoNew"],
 		$matrix["18 Ceuta"][2018]+$matrix["19 Melilla"][2018],
 		$matrix["18 Ceuta"][2017]+$matrix["19 Melilla"][2017],
 		$matrix["18 Ceuta"][2015]+$matrix["19 Melilla"][2015],
@@ -1258,7 +1258,7 @@ if(!file_exists("index.${lang}.html")) {
 	}
 	$html.=implode("\n",array(
 		"<h3 class='norm ${lang}'>".$textos["header"][$lang]."</h3>",
-		"<h3 class='warn'>".$textos["fakes"][$lang]."</h3>",
+		"<h3 class='warn'>".$textos["momoold"][$lang]."</h3>",
 	))."\n";
 	for($i=1;$i<=7;$i++) {
 		$html.=implode("\n",array(

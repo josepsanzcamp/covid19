@@ -1274,6 +1274,20 @@ if(!file_exists("output/plot8${lang}.png")) {
 		if($matrix[$val[1]][$val[0]]!="") die("ERROR 6");
 		$matrix[$val[1]][$val[0]]=$val[2];
 	}
+	$diff0=array_values(array_slice($axis0,0,-1));
+	$diff1=array_values(array_slice($axis0,1));
+	foreach($diff0 as $key=>$val) {
+		$val2=$diff1[$key];
+		$key2=$val2." - ".$val;
+		$axis0[]=$key2;
+		foreach($matrix as $key3=>$val3) {
+			if(is_numeric($val3[$val2]) && is_numeric($val3[$val])) {
+				$matrix[$key3][$key2]=$val3[$val2]-$val3[$val];
+			} else {
+				$matrix[$key3][$key2]="";
+			}
+		}
+	}
 	foreach($matrix as $key=>$val) {
 		$temp=explode("-",$key);
 		$matrix[$key][$key]=$textos["meses"][$lang][$temp[1]]." ".$temp[0];
@@ -1281,9 +1295,9 @@ if(!file_exists("output/plot8${lang}.png")) {
 	array_unshift($matrix,array_merge(array("Mes"),$axis0));
 	export_file("middle/plot8${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
+		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot8${lang}.png'",
-		"set multiplot layout 2,1 title \"".$textos["plots"][8][$lang]."\"",
+		"set multiplot layout 3,1 title \"".$textos["plots"][8][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1295,6 +1309,9 @@ if(!file_exists("output/plot8${lang}.png")) {
 		"set style histogram gap 3",
 		"plot [-0.5:13.5] 'middle/plot8${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
 		"plot [13.5:27.5] 'middle/plot8${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
+		"set label 1 \"".$textos["escala"][$lang]."\" at 12,1750 c tc lt 1",
+		"set yrange [0:2000]",
+		"plot [1.5:22.5] 'middle/plot8${lang}.csv' using 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col",
 		"unset multiplot",
 	))."\n";
 	file_put_contents("middle/plot8${lang}.gnu",$gnuplot);

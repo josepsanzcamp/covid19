@@ -631,6 +631,27 @@ if(!file_exists("middle/agregados-ok4.csv")) {
 	export_file("middle/agregados-ok4.csv",$sumas);
 }
 
+if(!file_exists("middle/dataall.csv")) {
+	$files=glob("input/momo/data.????????.csv");
+	sort($files);
+	$sumas=array();
+	foreach($files as $file) {
+		$data=import_file($file);
+		$temp=explode(".",$file);
+		$temp=str_split($temp[1],2);
+		$fecha=$temp[0].$temp[1]."-".$temp[2]."-".$temp[3];
+		foreach($data as $key=>$val) {
+			if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
+				$key2=$fecha.";".substr($val[8],0,7);
+				if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+				$sumas[$key2][1]+=str_replace(".","",$val[9]);
+			}
+			unset($data[$key]);
+		}
+	}
+	export_file("middle/dataall.csv",$sumas);
+}
+
 $textos=array(
 	"header"=>array(
 		"ca"=>"Informació útil d'Espanya sobre l'impacte de covid-19: gràfics de defuncions per any, origen de les dades, acumulats diaris, per edat, per comunitat autònoma i més",
@@ -666,6 +687,10 @@ $textos=array(
 			"ca"=>"Relació de llits de hospital i infermeres per país en 2016 segons dades OECD",
 			"es"=>"Relación de camas de hospital y enfermeras por país en 2016 segun datos OECD",
 			"en"=>"Relation of hospital beds and nurses by country in 2016 according to OECD data",
+		),array(
+			"ca"=>"Defuncions per any i mes del MoMo segons la data de descarrega del fitxer de dades",
+			"es"=>"Defunciones por año i mes del MoMo según la fecha de descarga del fichero de datos",
+			"en"=>"Deaths by year and month of the MoMo related to the download date of the data file",
 		),
 	),
 	"footer"=>array(
@@ -1230,6 +1255,52 @@ if(!file_exists("output/plot7${lang}.png")) {
 	exec("gnuplot middle/plot7${lang}.gnu");
 }
 
+if(!file_exists("output/plot8${lang}.png")) {
+	$data=import_file("middle/dataall.csv");
+	$axis0=array();
+	$axis1=array();
+	foreach($data as $key=>$val) {
+		if(!isset($axis0[$val[0]])) $axis0[$val[0]]=$val[0];
+		if(!isset($axis1[$val[1]])) $axis1[$val[1]]=$val[1];
+	}
+	$matrix=array();
+	foreach($axis1 as $key=>$val) {
+		$matrix[$val][$val]=$val;
+		foreach($axis0 as $key2=>$val2) {
+			$matrix[$val][$val2]="";
+		}
+	}
+	foreach($data as $key=>$val) {
+		if($matrix[$val[1]][$val[0]]!="") die("ERROR 6");
+		$matrix[$val[1]][$val[0]]=$val[2];
+	}
+	foreach($matrix as $key=>$val) {
+		$temp=explode("-",$key);
+		$matrix[$key][$key]=$textos["meses"][$lang][$temp[1]]." ".$temp[0];
+	}
+	array_unshift($matrix,array_merge(array("Mes"),$axis0));
+	export_file("middle/plot8${lang}.csv",$matrix);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'",
+		"set output 'output/plot8${lang}.png'",
+		"set multiplot layout 2,1 title \"".$textos["plots"][8][$lang]."\"",
+		"set rmargin 3",
+		"set grid",
+		"set auto x",
+		"set yrange [0:60000]",
+		"set style data histogram",
+		"set style fill solid border -1",
+		"set xtic rotate by -45 scale 0",
+		"set datafile separator ';'",
+		"set style histogram gap 3",
+		"plot [-0.5:13.5] 'middle/plot8${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
+		"plot [13.5:27.5] 'middle/plot8${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
+		"unset multiplot",
+	))."\n";
+	file_put_contents("middle/plot8${lang}.gnu",$gnuplot);
+	exec("gnuplot middle/plot8${lang}.gnu");
+}
+
 if(!file_exists("index.${lang}.html")) {
 	$html=implode("\n",array(
 		"<!DOCTYPE html>",
@@ -1261,11 +1332,11 @@ if(!file_exists("index.${lang}.html")) {
 		"<h3 class='norm ${lang}'>".$textos["header"][$lang]."</h3>",
 		"<h3 class='warn'>".$textos["momoold"][$lang]."</h3>",
 	))."\n";
-	for($i=1;$i<=7;$i++) {
+	foreach($textos["plots"] as $key=>$val) {
 		$html.=implode("\n",array(
-			"<a name='plot${i}'></a>",
-			"<h3>".$textos["plots"][$i][$lang]."</h3>",
-			"<img src='output/plot${i}${lang}.png'/>",
+			"<a name='plot${key}'></a>",
+			"<h3>".$val[$lang]."</h3>",
+			"<img src='output/plot${key}${lang}.png'/>",
 		))."\n";
 	}
 	$html.=implode("\n",array(

@@ -227,7 +227,7 @@ if(!file_exists("middle/7947-ok.csv")) {
 	export_file("middle/7947-ok.csv",$sumas);
 }
 
-if(!file_exists("middle/momonew.csv")) {
+if(!file_exists("middle/datanew.csv")) {
 	$files=glob("input/momo/data.????????.csv");
 	sort($files);
 	$result=array();
@@ -245,11 +245,11 @@ if(!file_exists("middle/momonew.csv")) {
 		$result2=array_merge($result2,array_values($val));
 		unset($result[$key]);
 	}
-	export_file("middle/momonew.csv",$result2);
+	export_file("middle/datanew.csv",$result2);
 }
 
-if(!file_exists("middle/momonew-ok.csv")) {
-	$data=import_file("middle/momonew.csv");
+if(!file_exists("middle/datanew-ok.csv")) {
+	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -259,11 +259,11 @@ if(!file_exists("middle/momonew-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momonew-ok.csv",$sumas);
+	export_file("middle/datanew-ok.csv",$sumas);
 }
 
-if(!file_exists("middle/momonew-ok2.csv")) {
-	$data=import_file("middle/momonew.csv");
+if(!file_exists("middle/datanew-ok2.csv")) {
+	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -273,11 +273,11 @@ if(!file_exists("middle/momonew-ok2.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momonew-ok2.csv",$sumas);
+	export_file("middle/datanew-ok2.csv",$sumas);
 }
 
-if(!file_exists("middle/momonew-ok3.csv")) {
-	$data=import_file("middle/momonew.csv");
+if(!file_exists("middle/datanew-ok3.csv")) {
+	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -287,11 +287,11 @@ if(!file_exists("middle/momonew-ok3.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momonew-ok3.csv",$sumas);
+	export_file("middle/datanew-ok3.csv",$sumas);
 }
 
-if(!file_exists("middle/momonew-ok4.csv")) {
-	$data=import_file("middle/momonew.csv");
+if(!file_exists("middle/datanew-ok4.csv")) {
+	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -301,11 +301,11 @@ if(!file_exists("middle/momonew-ok4.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momonew-ok4.csv",$sumas);
+	export_file("middle/datanew-ok4.csv",$sumas);
 }
 
-if(!file_exists("middle/momonew-ok5.csv")) {
-	$data=import_file("middle/momonew.csv");
+if(!file_exists("middle/datanew-ok5.csv")) {
+	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]=="all") {
@@ -315,11 +315,11 @@ if(!file_exists("middle/momonew-ok5.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momonew-ok5.csv",$sumas);
+	export_file("middle/datanew-ok5.csv",$sumas);
 }
 
-if(!file_exists("middle/momonew-ok6.csv")) {
-	$data=import_file("middle/momonew.csv");
+if(!file_exists("middle/datanew-ok6.csv")) {
+	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]!="all") {
@@ -329,7 +329,7 @@ if(!file_exists("middle/momonew-ok6.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momonew-ok6.csv",$sumas);
+	export_file("middle/datanew-ok6.csv",$sumas);
 }
 
 if(!file_exists("middle/residencias.csv")) {
@@ -490,7 +490,7 @@ if(!file_exists("middle/02005-ok.csv")) {
 	export_file("middle/02005-ok.csv",$sumas);
 }
 
-if(!file_exists("middle/momoold.csv")) {
+if(!file_exists("middle/dataold.csv")) {
 	$files=glob("input/momo/data.????????.csv");
 	sort($files);
 	foreach($files as $key=>$val) {
@@ -512,11 +512,11 @@ if(!file_exists("middle/momoold.csv")) {
 		$result2=array_merge($result2,array_values($val));
 		unset($result[$key]);
 	}
-	export_file("middle/momoold.csv",$result2);
+	export_file("middle/dataold.csv",$result2);
 }
 
-if(!file_exists("middle/momoold-ok.csv")) {
-	$data=import_file("middle/momoold.csv");
+if(!file_exists("middle/dataold-ok.csv")) {
+	$data=import_file("middle/dataold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -526,11 +526,11 @@ if(!file_exists("middle/momoold-ok.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momoold-ok.csv",$sumas);
+	export_file("middle/dataold-ok.csv",$sumas);
 }
 
-if(!file_exists("middle/momoold-ok2.csv")) {
-	$data=import_file("middle/momoold.csv");
+if(!file_exists("middle/dataold-ok2.csv")) {
+	$data=import_file("middle/dataold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
@@ -540,11 +540,11 @@ if(!file_exists("middle/momoold-ok2.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momoold-ok2.csv",$sumas);
+	export_file("middle/dataold-ok2.csv",$sumas);
 }
 
-if(!file_exists("middle/momoold-ok3.csv")) {
-	$data=import_file("middle/momoold.csv");
+if(!file_exists("middle/dataold-ok3.csv")) {
+	$data=import_file("middle/dataold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
@@ -554,11 +554,11 @@ if(!file_exists("middle/momoold-ok3.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momoold-ok3.csv",$sumas);
+	export_file("middle/dataold-ok3.csv",$sumas);
 }
 
-if(!file_exists("middle/momoold-ok5.csv")) {
-	$data=import_file("middle/momoold.csv");
+if(!file_exists("middle/dataold-ok5.csv")) {
+	$data=import_file("middle/dataold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]=="all") {
@@ -568,7 +568,7 @@ if(!file_exists("middle/momoold-ok5.csv")) {
 		}
 		unset($data[$key]);
 	}
-	export_file("middle/momoold-ok5.csv",$sumas);
+	export_file("middle/dataold-ok5.csv",$sumas);
 }
 
 if(!file_exists("middle/agregados-ok.csv")) {
@@ -776,8 +776,8 @@ $textos=array(
 foreach(array("ca","es","en") as $lang) {
 
 if(!file_exists("output/plot1${lang}.png")) {
-	$momoold=import_file("middle/momoold-ok.csv");
-	$momonew=import_file("middle/momonew-ok.csv");
+	$momoold=import_file("middle/dataold-ok.csv");
+	$momonew=import_file("middle/datanew-ok.csv");
 	$ine1=import_file("middle/02001-ok.csv");
 	$ine2=import_file("middle/14819-ok.csv");
 	$matrix=array();
@@ -837,8 +837,8 @@ if(!file_exists("output/plot1${lang}.png")) {
 }
 
 if(!file_exists("output/plot2${lang}.png")) {
-	$momoold=import_file("middle/momoold-ok.csv");
-	$momonew=import_file("middle/momonew-ok.csv");
+	$momoold=import_file("middle/dataold-ok.csv");
+	$momonew=import_file("middle/datanew-ok.csv");
 	$ine=import_file("middle/02001-ok.csv");
 	$matrix=array();
 	$years=array(2018,2019,2020);
@@ -892,8 +892,8 @@ if(!file_exists("output/plot2${lang}.png")) {
 }
 
 if(!file_exists("output/plot3${lang}.png")) {
-	$momoold=import_file("middle/momoold-ok2.csv");
-	$momonew=import_file("middle/momonew-ok2.csv");
+	$momoold=import_file("middle/dataold-ok2.csv");
+	$momonew=import_file("middle/datanew-ok2.csv");
 	$renave=import_file("middle/agregados-ok3.csv");
 	$otros=import_file("middle/7947-ok.csv");
 	$matrix=array();
@@ -950,8 +950,8 @@ if(!file_exists("output/plot3${lang}.png")) {
 }
 
 if(!file_exists("output/plot4${lang}.png")) {
-	$momoold=import_file("middle/momoold-ok3.csv");
-	$momonew=import_file("middle/momonew-ok3.csv");
+	$momoold=import_file("middle/dataold-ok3.csv");
+	$momonew=import_file("middle/datanew-ok3.csv");
 	$ine=import_file("middle/02001-ok2.csv");
 	$matrix=array();
 	$years=array("MoMoOld","MoMoNew",2019,2018);
@@ -1026,8 +1026,8 @@ if(!file_exists("output/plot5${lang}.png")) {
 	foreach($temp as $key=>$val) {
 		$ccaas[$val[0]]=$val[0]." ".$val[1];
 	}
-	$momoold=import_file("middle/momoold-ok5.csv");
-	$momonew=import_file("middle/momonew-ok5.csv");
+	$momoold=import_file("middle/dataold-ok5.csv");
+	$momonew=import_file("middle/datanew-ok5.csv");
 	$ine=import_file("middle/6562-ok2.csv");
 	$matrix=array();
 	$years=array("MoMoOld","MoMoNew",2018,2017,2015,2014,2012,2009,2005,2000,1999);

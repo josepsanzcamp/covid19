@@ -853,8 +853,8 @@ if(!file_exists("output/plot1${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set style histogram gap 3",
 		"set datafile separator ';'",
-		"plot [-0.5:5.5] 'middle/plot1${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
-		"plot [5.5:11.5] 'middle/plot1${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"plot [-0.5:5.5] 'middle/plot1${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"plot [5.5:11.5] 'middle/plot1${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 		"unset multiplot",
 	))."\n";
 	file_put_contents("middle/plot1${lang}.gnu",$gnuplot);
@@ -908,8 +908,8 @@ if(!file_exists("output/plot2${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:14.5] 'middle/plot2${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
-		"plot [14.5:29.5] 'middle/plot2${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"plot [-0.5:14.5] 'middle/plot2${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"plot [14.5:29.5] 'middle/plot2${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 		"unset multiplot",
 	))."\n";
 	file_put_contents("middle/plot2${lang}.gnu",$gnuplot);
@@ -965,9 +965,9 @@ if(!file_exists("output/plot3${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set xtics '2020-01-01',86400*7,'2020-07-01'",
-		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' using 1:2 w lp ti col, '' using 1:7 w lp ti col",
-		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' using 1:2 w lp ti col, '' using 1:3 w lp ti col, '' using 1:4 w lp ti col, '' using 1:5 w lp ti col, '' using 1:6 w lp ti col, '' using 1:7 w lp ti col",
-		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' using 1:2 w lp ti col, '' using 1:3 w lp ti col, '' using 1:4 w lp ti col, '' using 1:5 w lp ti col, '' using 1:6 w lp ti col, '' using 1:7 w lp ti col",
+		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' u 1:2 w lp ti col, '' u 1:7 w lp ti col",
+		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col",
+		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot3${lang}.gnu",$gnuplot);
@@ -1034,11 +1034,11 @@ if(!file_exists("output/plot4${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
+		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
 		"set yrange [0:20000]",
 		"set label 1 \"".$textos["escala"][$lang]."\" at 5.5,17500 c tc lt 1",
-		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col",
-		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' using 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col",
+		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot4${lang}.gnu",$gnuplot);
@@ -1126,9 +1126,9 @@ if(!file_exists("output/plot5${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:5.5] 'middle/plot5${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
-		"plot [5.5:11.5] 'middle/plot5${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
-		"plot [11.5:17.5] 'middle/plot5${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"plot [-0.5:5.5] 'middle/plot5${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"plot [5.5:11.5] 'middle/plot5${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"plot [11.5:17.5] 'middle/plot5${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot5${lang}.gnu",$gnuplot);
@@ -1193,7 +1193,7 @@ if(!file_exists("output/plot6${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot 'middle/plot6${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"plot 'middle/plot6${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot6${lang}.gnu",$gnuplot);
@@ -1247,8 +1247,8 @@ if(!file_exists("output/plot7${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot 'middle/plot7${lang}1.csv' using 2:xtic(1) ti col",
-		"plot 'middle/plot7${lang}2.csv' using 2:xtic(1) ti col",
+		"plot 'middle/plot7${lang}1.csv' u 2:xtic(1) ti col",
+		"plot 'middle/plot7${lang}2.csv' u 2:xtic(1) ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot7${lang}.gnu",$gnuplot);
@@ -1276,10 +1276,11 @@ if(!file_exists("output/plot8${lang}.png")) {
 	}
 	$diff0=array_values(array_slice($axis0,0,-1));
 	$diff1=array_values(array_slice($axis0,1));
+	$axis2=array();
 	foreach($diff0 as $key=>$val) {
 		$val2=$diff1[$key];
 		$key2=$val2." - ".$val;
-		$axis0[]=$key2;
+		$axis2[]=$key2;
 		foreach($matrix as $key3=>$val3) {
 			if(is_numeric($val3[$val2]) && is_numeric($val3[$val])) {
 				$matrix[$key3][$key2]=$val3[$val2]-$val3[$val];
@@ -1292,8 +1293,20 @@ if(!file_exists("output/plot8${lang}.png")) {
 		$temp=explode("-",$key);
 		$matrix[$key][$key]=$textos["meses"][$lang][$temp[1]]." ".$temp[0];
 	}
-	array_unshift($matrix,array_merge(array("Mes"),$axis0));
+	array_unshift($matrix,array_merge(array("Mes"),$axis0,$axis2));
 	export_file("middle/plot8${lang}.csv",$matrix);
+	$cols2plot1=array();
+	for($i=0;$i<count($axis0);$i++) {
+		$col=$i+2;
+		$cols2plot1[]="u ${col}:xtic(1) ti col";
+	}
+	$cols2plot1=implode(", '' ",$cols2plot1);
+	$cols2plot2=array();
+	for($i=0;$i<count($axis2);$i++) {
+		$col=$i+2+count($axis0);
+		$cols2plot2[]="u ${col}:xtic(1) ti col";
+	}
+	$cols2plot2=implode(", '' ",$cols2plot2);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'",
 		"set output 'output/plot8${lang}.png'",
@@ -1307,11 +1320,11 @@ if(!file_exists("output/plot8${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"plot [-0.5:13.5] 'middle/plot8${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
-		"plot [13.5:27.5] 'middle/plot8${lang}.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
+		"plot [-0.5:13.5] 'middle/plot8${lang}.csv' ${cols2plot1}",
+		"plot [13.5:27.5] 'middle/plot8${lang}.csv' ${cols2plot1}",
 		"set label 1 \"".$textos["escala"][$lang]."\" at 12,1750 c tc lt 1",
 		"set yrange [0:2000]",
-		"plot [1.5:22.5] 'middle/plot8${lang}.csv' using 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col",
+		"plot [1.5:22.5] 'middle/plot8${lang}.csv' ${cols2plot2}",
 		"unset multiplot",
 	))."\n";
 	file_put_contents("middle/plot8${lang}.gnu",$gnuplot);

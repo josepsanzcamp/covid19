@@ -10,9 +10,9 @@ set style fill solid border -1
 set xtic rotate by -45 scale 0
 set datafile separator ';'
 set style histogram gap 3
-plot [-0.5:13.5] 'middle/plot8es.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col
-plot [13.5:27.5] 'middle/plot8es.csv' using 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col
+plot [-0.5:13.5] 'middle/plot8es.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col
+plot [13.5:27.5] 'middle/plot8es.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col
 set label 1 "Atención: esta gráfica tiene la escala diferente que la gráfica anterior del mismo grupo" at 12,1750 c tc lt 1
 set yrange [0:2000]
-plot [1.5:22.5] 'middle/plot8es.csv' using 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col
+plot [1.5:22.5] 'middle/plot8es.csv' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col
 unset multiplot

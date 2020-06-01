@@ -12,7 +12,7 @@ set xrange ['2020-01-01':'2020-07-01']
 set xtic rotate by -45 scale 0
 set datafile separator ';'
 set xtics '2020-01-01',86400*7,'2020-07-01'
-plot ['2020-01-01':'2020-03-01'] 'middle/plot3es.csv' u 1:2 w lp ti col, '' u 1:7 w lp ti col
-plot ['2020-03-01':'2020-05-01'] 'middle/plot3es.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col
-plot ['2020-05-01':'2020-07-01'] 'middle/plot3es.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col
+plot ['2020-01-01':'2020-03-01'] 'middle/plot3es.csv' u 1:2 w lp ti col, '' u 1:7 w lp lc 9 pt 6 ti col
+plot ['2020-03-01':'2020-05-01'] 'middle/plot3es.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp lc 7 ti col, '' u 1:7 w lp lc 9 ti col
+plot ['2020-05-01':'2020-07-01'] 'middle/plot3es.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp lc 7 ti col, '' u 1:7 w lp lc 9 ti col
 unset multiplot

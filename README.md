@@ -48,6 +48,10 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - https://stats.oecd.org/viewhtml.aspx?datasetcode=HEALTH_STAT&lang=en# => Para descargar la tabla de mortalidad por paises
 - https://www.oecd-ilibrary.org/social-issues-migration-health/population/indicator/english_d434f82b-en => Para descargar los datos de poblacion por paises
 
+# EuroMoMo
+- https://www.euromomo.eu/graphs-and-maps => Datos de modtalidad de europa
+- wget https://www.euromomo.eu/component---src-templates-graphs-and-maps-js-cee79ce741871ab0f098.js => Fichero JavaScript que contiene los datos en un JSON
+- https://www.euromomo.eu/how-it-works/what-is-a-z-score => Importante para entender como vienen los datos normalizados
 
 # Otros
 - https://maldita.es/maldita-te-explica/2020/04/30/datos-fallecimientos-registro-civil-defunciones-diarias-causa-muerte/

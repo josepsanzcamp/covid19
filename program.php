@@ -652,6 +652,47 @@ if(!file_exists("middle/dataall.csv")) {
 	export_file("middle/dataall.csv",$sumas);
 }
 
+if(!file_exists("middle/euromomo.csv")) {
+	$buffer=file_get_contents("input/euromomo/component---src-templates-graphs-and-maps-js-cee79ce741871ab0f098.js");
+	$pos=strrpos($buffer,"JSON.parse");
+	if($pos===false) die("ERROR 5");
+	$pos=strpos($buffer,"{",$pos);
+	if($pos===false) die("ERROR 6");
+	$pos2=strpos($buffer,"}')",$pos);
+	$buffer=substr($buffer,$pos,$pos2-$pos+1);
+	//~ echo $buffer."\n";
+	$json=json_decode($buffer,true);
+	//~ print_r($json);
+	//~ die();
+	$weeks=$json["weeks"];
+	$matrix=array();
+	foreach($json["pooled"] as $key=>$val) {
+		foreach($val as $key2=>$val2) {
+			$group=$val2["group"];
+			unset($val2["group"]);
+			foreach($val2 as $key3=>$val3) {
+				foreach($val3 as $key4=>$val4) {
+					$matrix[]=array("pooled","",$group,$key3,$weeks[$key4],$val4);
+				}
+			}
+		}
+	}
+	foreach($json["countries"] as $key=>$val) {
+		$country=$val["country"];
+		unset($val["country"]);
+		foreach($val["groups"] as $key2=>$val2) {
+			$group=$val2["group"];
+			unset($val2["group"]);
+			foreach($val2 as $key3=>$val3) {
+				foreach($val3 as $key4=>$val4) {
+					$matrix[]=array("countries",$country,$group,$key3,$weeks[$key4],$val4);
+				}
+			}
+		}
+	}
+	export_file("middle/euromomo.csv",$matrix);
+}
+
 $textos=array(
 	"header"=>array(
 		"ca"=>"Informació útil d'Espanya sobre l'impacte de covid-19: gràfics de defuncions per any, origen de les dades, acumulats diaris, per edat, per comunitat autònoma i més",
@@ -688,9 +729,13 @@ $textos=array(
 			"es"=>"Relación de camas de hospital y enfermeras por país en 2016 segun datos OECD",
 			"en"=>"Relation of hospital beds and nurses by country in 2016 according to OECD data",
 		),array(
-			"ca"=>"Defuncions per any i mes del MoMo segons la data de descarrega del fitxer de dades",
-			"es"=>"Defunciones por año i mes del MoMo según la fecha de descarga del fichero de datos",
-			"en"=>"Deaths by year and month of the MoMo related to the download date of the data file",
+			"ca"=>"Defuncions per any i mes del MoMo segons la data de descarrega del fitxer de dades i diferencia entre cada fitxer",
+			"es"=>"Defunciones por año i mes del MoMo según la fecha de descarga del fichero de datos y diferencia entre cada fichero",
+			"en"=>"Deaths by year and month of the MoMo related to the download date of the data file and difference between each file",
+		),array(
+			"ca"=>"Defuncions per setmana del any y per pais obtingudes del EuroMoMo (el valor que es mostra es el zscore)",
+			"es"=>"Defunciones por semana del año y por país obtenidas del EuroMoMo (el valor que se muestra es el zscore)",
+			"en"=>"Deaths by week of year and by country obtained from the EuroMoMo (the value used to plot is the zscore) ",
 		),
 	),
 	"footer"=>array(
@@ -965,9 +1010,9 @@ if(!file_exists("output/plot3${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set xtics '2020-01-01',86400*7,'2020-07-01'",
-		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' u 1:2 w lp ti col, '' u 1:7 w lp ti col",
-		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col",
-		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col",
+		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' u 1:2 w lp ti col, '' u 1:7 w lp lc 9 pt 6 ti col",
+		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp lc 7 ti col, '' u 1:7 w lp lc 9 ti col",
+		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp lc 7 ti col, '' u 1:7 w lp lc 9 ti col",
 		"unset multiplot"
 	))."\n";
 	file_put_contents("middle/plot3${lang}.gnu",$gnuplot);
@@ -1271,7 +1316,7 @@ if(!file_exists("output/plot8${lang}.png")) {
 		}
 	}
 	foreach($data as $key=>$val) {
-		if($matrix[$val[1]][$val[0]]!="") die("ERROR 6");
+		if($matrix[$val[1]][$val[0]]!="") die("ERROR 4");
 		$matrix[$val[1]][$val[0]]=$val[2];
 	}
 	$diff0=array_values(array_slice($axis0,0,-1));
@@ -1279,7 +1324,7 @@ if(!file_exists("output/plot8${lang}.png")) {
 	$axis2=array();
 	foreach($diff0 as $key=>$val) {
 		$val2=$diff1[$key];
-		$key2=$val2." - ".$val;
+		$key2=$val." - ".$val2;
 		$axis2[]=$key2;
 		foreach($matrix as $key3=>$val3) {
 			if(is_numeric($val3[$val2]) && is_numeric($val3[$val])) {
@@ -1322,13 +1367,74 @@ if(!file_exists("output/plot8${lang}.png")) {
 		"set style histogram gap 3",
 		"plot [-0.5:13.5] 'middle/plot8${lang}.csv' ${cols2plot1}",
 		"plot [13.5:27.5] 'middle/plot8${lang}.csv' ${cols2plot1}",
-		"set label 1 \"".$textos["escala"][$lang]."\" at 12,1750 c tc lt 1",
-		"set yrange [0:2000]",
-		"plot [1.5:22.5] 'middle/plot8${lang}.csv' ${cols2plot2}",
+		"set label 1 \"".$textos["escala"][$lang]."\" at 12,9000 c tc lt 1",
+		"set yrange [0:10000]",
+		"plot [0.5:24.5] 'middle/plot8${lang}.csv' ${cols2plot2}",
 		"unset multiplot",
 	))."\n";
 	file_put_contents("middle/plot8${lang}.gnu",$gnuplot);
 	exec("gnuplot middle/plot8${lang}.gnu");
+}
+
+if(!file_exists("output/plot9${lang}.png")) {
+	$data=import_file("middle/euromomo.csv");
+	$paises=array();
+	$fechas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
+			$paises[$val[1]]=$val[1];
+			$fechas[$val[4]]=$val[4];
+		}
+	}
+	$matrix=array();
+	foreach($fechas as $fecha) {
+		foreach($paises as $pais) {
+			$matrix[$fecha][$pais]="";
+		}
+	}
+	$header=array_keys(reset($matrix));
+	foreach($data as $key=>$val) {
+		if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
+			if(!isset($matrix[$val[4]][$val[1]])) die("ERROR 7");
+			$matrix[$val[4]][$val[1]]=$val[5];
+		}
+	}
+	foreach($matrix as $key=>$val) {
+		$key2=date("Y-m-d",strtotime(str_replace("-","W",$key)));
+		$matrix[$key]=array_merge(array($key2),$val);
+	}
+	array_unshift($matrix,array_merge(array("Fecha"),$header));
+	export_file("middle/plot9${lang}.csv",$matrix);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,".(600*count($header))." enhanced font 'Segoe UI,10'",
+		"set output 'output/plot9${lang}.png'",
+		"set multiplot layout ".count($header).",1 title \"".$textos["plots"][9][$lang]."\"",
+		"set rmargin 3",
+		"set grid",
+		"set auto x",
+		"set yrange [-10:50]",
+		"set xdata time",
+		"set timefmt '%Y-%m-%d'",
+		"set format x '%Y-%m-%d'",
+		"set xrange ['2015-01-01':'2020-07-01']",
+		"set xtic rotate by -45 scale 0",
+		"set datafile separator ';'",
+		"set xtics '2015-01-01',86400*7.1*13,'2020-07-01'",
+	))."\n";
+	$colores=array(1,3,4,7,8,9);
+	for($i=0;$i<count($header);$i++) {
+		$col=$i+2;
+		$color=$colores[$i%count($colores)];
+		$estilo=$i+1;
+		$gnuplot.=implode("\n",array(
+			"plot 'middle/plot9${lang}.csv' u 1:${col} w lp lc ${color} pt ${estilo} ti col",
+		))."\n";
+	}
+	$gnuplot.=implode("\n",array(
+		"unset multiplot",
+	))."\n";
+	file_put_contents("middle/plot9${lang}.gnu",$gnuplot);
+	exec("gnuplot middle/plot9${lang}.gnu");
 }
 
 if(!file_exists("index.${lang}.html")) {

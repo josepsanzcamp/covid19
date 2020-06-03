@@ -631,7 +631,7 @@ if(!file_exists("middle/agregados-ok4.csv")) {
 	export_file("middle/agregados-ok4.csv",$sumas);
 }
 
-if(!file_exists("middle/dataall.csv")) {
+if(!file_exists("middle/datanew-ok7.csv")) {
 	$files=glob("input/momo/data.????????.csv");
 	sort($files);
 	$sumas=array();
@@ -649,7 +649,7 @@ if(!file_exists("middle/dataall.csv")) {
 			unset($data[$key]);
 		}
 	}
-	export_file("middle/dataall.csv",$sumas);
+	export_file("middle/datanew-ok7.csv",$sumas);
 }
 
 if(!file_exists("middle/euromomo.csv")) {
@@ -1364,7 +1364,7 @@ if(!file_exists("output/plot7${lang}.png")) {
 }
 
 if(!file_exists("output/plot8${lang}.png")) {
-	$data=import_file("middle/dataall.csv");
+	$data=import_file("middle/datanew-ok7.csv");
 	$axis0=array();
 	$axis1=array();
 	foreach($data as $key=>$val) {

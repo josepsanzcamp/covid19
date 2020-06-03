@@ -653,7 +653,9 @@ if(!file_exists("middle/dataall.csv")) {
 }
 
 if(!file_exists("middle/euromomo.csv")) {
-	$buffer=file_get_contents("input/euromomo/component---src-templates-graphs-and-maps-js-cee79ce741871ab0f098.js");
+	$files=glob("input/euromomo/component.????????.js");
+	rsort($files);
+	$buffer=file_get_contents($files[0]);
 	$pos=strrpos($buffer,"JSON.parse");
 	if($pos===false) die("ERROR 5");
 	$pos=strpos($buffer,"{",$pos);

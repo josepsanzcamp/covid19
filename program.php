@@ -660,10 +660,7 @@ if(!file_exists("middle/euromomo.csv")) {
 	if($pos===false) die("ERROR 6");
 	$pos2=strpos($buffer,"}')",$pos);
 	$buffer=substr($buffer,$pos,$pos2-$pos+1);
-	//~ echo $buffer."\n";
 	$json=json_decode($buffer,true);
-	//~ print_r($json);
-	//~ die();
 	$weeks=$json["weeks"];
 	$matrix=array();
 	foreach($json["pooled"] as $key=>$val) {
@@ -691,6 +688,70 @@ if(!file_exists("middle/euromomo.csv")) {
 		}
 	}
 	export_file("middle/euromomo.csv",$matrix);
+}
+
+if(!file_exists("middle/euromomo-ok.csv")) {
+	$data=import_file("middle/euromomo.csv");
+	$momoold=import_file("middle/dataold-ok2.csv");
+	$momonew=import_file("middle/datanew-ok2.csv");
+	$fechas=array();
+	$columnas=array();
+	foreach($data as $key=>$val) {
+		if($val[2]!="Total") unset($data[$key]);
+	}
+	foreach($data as $key=>$val) {
+		$fechas[$val[4]]=$val[4];
+		if($val[0]=="pooled") $columnas[$val[3]]=$val[3];
+		if($val[0]=="countries") $columnas[$val[1]]=$val[1];
+	}
+	$columnas["MoMoOld"]="MoMoOld";
+	$columnas["MoMoNew"]="MoMoNew";
+	$matrix=array(array_merge(array(""),$columnas));
+	foreach($fechas as $key=>$val) {
+		$matrix[$val][$val]=$val;
+		foreach($columnas as $key2=>$val2) {
+			$matrix[$val][$val2]="";
+		}
+	}
+	foreach($data as $key=>$val) {
+		if($val[0]=="pooled") {
+			if(!isset($matrix[$val[4]][$val[3]])) die("ERROR 7");
+			$matrix[$val[4]][$val[3]]=$val[5];
+		}
+		if($val[0]=="countries") {
+			if(!isset($matrix[$val[4]][$val[1]])) die("ERROR 8");
+			$matrix[$val[4]][$val[1]]=$val[5];
+		}
+	}
+	$sumas=array();
+	foreach($momoold as $key=>$val) {
+		$key2="MoMoOld";
+		$key3=date("o-W",strtotime($val[0]));
+		if(isset($fechas[$key3])) {
+			$key4=$key2."-".$key3;
+			if(!isset($sumas[$key4])) $sumas[$key4]=array($key2,$key3,0);
+			$sumas[$key4][2]+=$val[1];
+		}
+	}
+	foreach($momonew as $key=>$val) {
+		$key2="MoMoNew";
+		$key3=date("o-W",strtotime($val[0]));
+		if(isset($fechas[$key3])) {
+			$key4=$key2."-".$key3;
+			if(!isset($sumas[$key4])) $sumas[$key4]=array($key2,$key3,0);
+			$sumas[$key4][2]+=$val[1];
+		}
+	}
+	foreach($sumas as $key=>$val) {
+		if(!isset($matrix[$val[1]][$val[0]])) die("ERROR 9");
+		$matrix[$val[1]][$val[0]]=$val[2];
+	}
+	foreach($matrix as $key=>$val) {
+		if(isset($fechas[$key]) && implode("",$val)==$key) {
+			unset($matrix[$key]);
+		}
+	}
+	export_file("middle/euromomo-ok.csv",$matrix);
 }
 
 $textos=array(

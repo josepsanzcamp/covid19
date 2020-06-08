@@ -577,7 +577,9 @@ if(!file_exists("middle/agregados-ok.csv")) {
 	foreach($temp as $key=>$val) {
 		$ccaas[$val[2]]=$val[0]." ".$val[1];
 	}
-	$data=import_file("input/renave/agregados.20200527.csv");
+	$files=glob("input/renave/agregados.????????.csv");
+	rsort($files);
+	$data=import_file($files[0]);
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if(strlen($val[0])==2) {

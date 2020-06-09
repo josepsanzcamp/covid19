@@ -800,7 +800,15 @@ $textos=array(
 		),array(
 			"ca"=>"Defuncions per setmana del any y per pais obtingudes del EuroMoMo (el valor que es mostra es el zscore)",
 			"es"=>"Defunciones por semana del año y por país obtenidas del EuroMoMo (el valor que se muestra es el zscore)",
-			"en"=>"Deaths by week of year and by country obtained from the EuroMoMo (the value used to plot is the zscore) ",
+			"en"=>"Deaths by week of year and by country obtained from the EuroMoMo (the value used to plot is the zscore)",
+		),array(
+			"ca"=>"Defuncions per dia obtinguts del Statistics Sweden",
+			"es"=>"Defunciones por dia obtenidos del Statistics Sweden",
+			"en"=>"Deaths by day obtained from Statistics Sweden",
+		),array(
+			"ca"=>"Defuncions per dia obtinguts del Statistics Norway",
+			"es"=>"Defunciones por dia obtenidos del Statistics Norway",
+			"en"=>"Deaths by day obtained from Statistics Norway",
 		),
 	),
 	"footer"=>array(
@@ -1444,36 +1452,42 @@ if(!file_exists("output/plot8${lang}.png")) {
 if(!file_exists("output/plot9${lang}.png")) {
 	$data=import_file("middle/euromomo.csv");
 	$paises=array();
-	$fechas=array();
+	$años=array();
+	$semanas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
 			$paises[$val[1]]=$val[1];
-			$fechas[$val[4]]=$val[4];
+			$temp=explode("-",$val[4]);
+			$años[$temp[0]]=$temp[0];
+			$semanas[$temp[1]]=$temp[1];
 		}
 	}
 	$matrix=array();
-	foreach($fechas as $fecha) {
+	foreach($semanas as $semana) {
 		foreach($paises as $pais) {
-			$matrix[$fecha][$pais]="";
+			foreach($años as $año) {
+				$matrix[$semana][$pais."-".$año]="";
+			}
 		}
 	}
 	$header=array_keys(reset($matrix));
 	foreach($data as $key=>$val) {
 		if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
-			if(!isset($matrix[$val[4]][$val[1]])) die("ERROR 7");
-			$matrix[$val[4]][$val[1]]=$val[5];
+			$temp=explode("-",$val[4]);
+			if(!isset($matrix[$temp[1]][$val[1]."-".$temp[0]])) die("ERROR 7");
+			$matrix[$temp[1]][$val[1]."-".$temp[0]]=$val[5];
 		}
 	}
 	foreach($matrix as $key=>$val) {
-		$key2=date("Y-m-d",strtotime(str_replace("-","W",$key)));
+		$key2=date("Y-m-d",strtotime("2020W".$key)+86400*2);
 		$matrix[$key]=array_merge(array($key2),$val);
 	}
 	array_unshift($matrix,array_merge(array("Fecha"),$header));
 	export_file("middle/plot9${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,".(600*count($header))." enhanced font 'Segoe UI,10'",
+		"set terminal pngcairo size 1200,".(600*count($paises))." enhanced font 'Segoe UI,10'",
 		"set output 'output/plot9${lang}.png'",
-		"set multiplot layout ".count($header).",1 title \"".$textos["plots"][9][$lang]."\"",
+		"set multiplot layout ".count($paises).",1 title \"".$textos["plots"][9][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1481,18 +1495,20 @@ if(!file_exists("output/plot9${lang}.png")) {
 		"set xdata time",
 		"set timefmt '%Y-%m-%d'",
 		"set format x '%Y-%m-%d'",
-		"set xrange ['2015-01-01':'2020-07-01']",
+		"set xrange ['2020-01-01':'2021-01-01']",
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
-		"set xtics '2015-01-01',86400*7.1*13,'2020-07-01'",
+		"set xtics '2020-01-01',86400*30,'2021-01-01'",
 	))."\n";
-	$colores=array(1,3,4,7,8,9);
-	for($i=0;$i<count($header);$i++) {
-		$col=$i+2;
-		$color=$colores[$i%count($colores)];
-		$estilo=$i+1;
+	for($i=0;$i<count($paises);$i++) {
+		$col2=$i*count($años)+2;
+		$col3=$i*count($años)+3;
+		$col4=$i*count($años)+4;
+		$col5=$i*count($años)+5;
+		$col6=$i*count($años)+6;
+		$col7=$i*count($años)+7;
 		$gnuplot.=implode("\n",array(
-			"plot 'middle/plot9${lang}.csv' u 1:${col} w lp lc ${color} pt ${estilo} ti col",
+			"plot 'middle/plot9${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
 		))."\n";
 	}
 	$gnuplot.=implode("\n",array(
@@ -1500,6 +1516,96 @@ if(!file_exists("output/plot9${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot9${lang}.gnu",$gnuplot);
 	exec("gnuplot middle/plot9${lang}.gnu");
+}
+
+if(!file_exists("output/plot10${lang}.png")) {
+	$sweden=import_file("input/sweden/tabell1.csv");
+	$months=array(
+		"januari"=>1,
+		"februari"=>2,
+		"mars"=>3,
+		"april"=>4,
+		"maj"=>5,
+		"juni"=>6,
+		"juli"=>7,
+		"augusti"=>8,
+		"september"=>9,
+		"oktober"=>10,
+		"november"=>11,
+		"december"=>12,
+	);
+	$header=array_shift($sweden);
+	foreach($sweden as $key=>$val) {
+		$temp=explode(" ",$val[0]." 2020");
+		$temp[1]=$months[$temp[1]];
+		$val[0]=sprintf("%04d-%02d-%02d",$temp[2],$temp[1],$temp[0]);
+		foreach($val as $key2=>$val2) if($val2=="0") $val[$key2]="";
+		$sweden[$key]=$val;
+	}
+	array_unshift($sweden,$header);
+	export_file("middle/plot10${lang}.csv",$sweden);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set output 'output/plot10${lang}.png'",
+		"set multiplot layout 1,1 title \"".$textos["plots"][10][$lang]."\"",
+		"set rmargin 3",
+		"set grid",
+		"set auto x",
+		"set yrange [0:500]",
+		"set xdata time",
+		"set timefmt '%Y-%m-%d'",
+		"set format x '%Y-%m-%d'",
+		"set xrange ['2020-01-01':'2021-01-01']",
+		"set xtic rotate by -45 scale 0",
+		"set datafile separator ';'",
+		"set xtics '2020-01-01',86400*30,'2021-01-01'",
+		"plot 'middle/plot10${lang}.csv' u 1:2 w l ti col,'' u 1:3 w l ti col,'' u 1:4 w l ti col,'' u 1:5 w l ti col,'' u 1:6 w l ti col,'' u 1:7 w l lc 7 ti col",
+		"unset multiplot"
+	))."\n";
+	file_put_contents("middle/plot10${lang}.gnu",$gnuplot);
+	exec("gnuplot middle/plot10${lang}.gnu");
+}
+
+if(!file_exists("output/plot11${lang}.png")) {
+	$norway=import_file("input/norway/07995.csv");
+	foreach($norway as $key=>$val) {
+		unset($val[0]);
+		for($i=2;$i<=16;$i++) unset($val[$i]);
+		$norway[$key]=$val;
+	}
+	$header=array_shift($norway);
+	foreach($header as $key=>$val) {
+		$val=str_replace("Deaths ","",$val);
+		$header[$key]=$val;
+	}
+	foreach($norway as $key=>$val) {
+		$val[1]=sprintf("%02d",str_replace("Week ","",$val[1]));
+		$val[1]=date("Y-m-d",strtotime("2020W".$val[1])+86400*2);
+		foreach($val as $key2=>$val2) if($val2=="0") $val[$key2]="";
+		$norway[$key]=$val;
+	}
+	array_unshift($norway,$header);
+	export_file("middle/plot11${lang}.csv",$norway);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set output 'output/plot11${lang}.png'",
+		"set multiplot layout 1,1 title \"".$textos["plots"][11][$lang]."\"",
+		"set rmargin 3",
+		"set grid",
+		"set auto x",
+		"set yrange [0:1500]",
+		"set xdata time",
+		"set timefmt '%Y-%m-%d'",
+		"set format x '%Y-%m-%d'",
+		"set xrange ['2020-01-01':'2021-01-01']",
+		"set xtic rotate by -45 scale 0",
+		"set datafile separator ';'",
+		"set xtics '2020-01-01',86400*30,'2021-01-01'",
+		"plot 'middle/plot11${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp lc 7 ti col",
+		"unset multiplot"
+	))."\n";
+	file_put_contents("middle/plot11${lang}.gnu",$gnuplot);
+	exec("gnuplot middle/plot11${lang}.gnu");
 }
 
 if(!file_exists("index.${lang}.html")) {

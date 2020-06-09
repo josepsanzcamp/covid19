@@ -52,6 +52,12 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - https://www.euromomo.eu/graphs-and-maps => Datos de modtalidad de europa
 - wget https://www.euromomo.eu/component---src-templates-graphs-and-maps-js-cee79ce741871ab0f098.js => Fichero JavaScript que contiene los datos en un JSON
 - https://www.euromomo.eu/how-it-works/what-is-a-z-score => Importante para entender como vienen los datos normalizados
+- https://magnet.xataka.com/en-diez-minutos/exceso-177-000-muertes-que-dicen-datos-momo-coronavirus-europa => Interpretacion de EuroMoMo
+- https://www.destatis.de/EN/Press/2020/05/PE20_179_12621.html => Noticia en la Oficina Federal de Estadística de Alemánia
+- https://www.scb.se/en/About-us/news-and-press-releases/highest-mortality-this-millennium-noted-in-sweden/ => Statistics Sweden
+- https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/population-composition/population-statistics/pong/tables-and-graphs/preliminary-statistics-on-deaths/
+- https://www.ssb.no/en/statbank/list/dode/ => Statistics Norway
+- https://www.ssb.no/en/statbank/table/07995/ => 07995: Deaths, by sex, age and week. Preliminary figures 2000 - 2020
 
 # Otros
 - https://maldita.es/maldita-te-explica/2020/04/30/datos-fallecimientos-registro-civil-defunciones-diarias-causa-muerte/

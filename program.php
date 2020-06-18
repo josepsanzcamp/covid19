@@ -1519,7 +1519,9 @@ if(!file_exists("output/plot9${lang}.png")) {
 }
 
 if(!file_exists("output/plot10${lang}.png")) {
-	$sweden=import_file("input/sweden/tabell1.csv");
+	$files=glob("input/sweden/*.csv");
+	rsort($files);
+	$sweden=import_file($files[0]);
 	$months=array(
 		"januari"=>1,
 		"februari"=>2,
@@ -1567,7 +1569,9 @@ if(!file_exists("output/plot10${lang}.png")) {
 }
 
 if(!file_exists("output/plot11${lang}.png")) {
-	$norway=import_file("input/norway/07995.csv");
+	$files=glob("input/norway/*.csv");
+	rsort($files);
+	$norway=import_file($files[0]);
 	foreach($norway as $key=>$val) {
 		unset($val[0]);
 		for($i=2;$i<=16;$i++) unset($val[$i]);

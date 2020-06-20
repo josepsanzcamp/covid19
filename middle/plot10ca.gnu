@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
 set output 'output/plot10ca.png'
-set multiplot layout 1,1 title "Defuncions per dia obtinguts del Statistics Sweden"
+set multiplot layout 1,1 title "10. Defuncions per dia obtinguts del Statistics Sweden"
 set rmargin 3
 set grid
 set auto x

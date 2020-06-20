@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'
 set output 'output/plot8en.png'
-set multiplot layout 3,1 title "Deaths by year and month of the MoMo related to the download date of the data file and difference between each file"
+set multiplot layout 3,1 title "8. Deaths by year and month of the MoMo related to the download date of the data file and difference between each file"
 set rmargin 3
 set grid
 set auto x

@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'
 set output 'output/plot5ca.png'
-set multiplot layout 3,1 title "Defuncions per comunitat autònoma i any (acumulats per any de març i abril, les dades de l'any 2020 són del MoMo i la resta són del INE)"
+set multiplot layout 3,1 title "5. Defuncions per comunitat autònoma i any (acumulats per any de març i abril, les dades de l'any 2020 són del MoMo i la resta són del INE)"
 set rmargin 3
 set grid
 set auto x

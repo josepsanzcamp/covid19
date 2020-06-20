@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
 set output 'output/plot6ca.png'
-set multiplot layout 1,1 title "Places de residències per tipus i comunitat autònoma (dades obtingudes de envejecimientoenred.es, del CSIC del 2019)"
+set multiplot layout 1,1 title "6. Places de residències per tipus i comunitat autònoma (dades obtingudes de envejecimientoenred.es, del CSIC del 2019)"
 set rmargin 3
 set grid
 set auto x

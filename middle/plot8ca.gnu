@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'
 set output 'output/plot8ca.png'
-set multiplot layout 3,1 title "Defuncions per any i mes del MoMo segons la data de descarrega del fitxer de dades i diferencia entre cada fitxer"
+set multiplot layout 3,1 title "8. Defuncions per any i mes del MoMo segons la data de descarrega del fitxer de dades i diferencia entre cada fitxer"
 set rmargin 3
 set grid
 set auto x

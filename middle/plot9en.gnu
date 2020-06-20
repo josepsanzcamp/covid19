@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,14400 enhanced font 'Segoe UI,10'
 set output 'output/plot9en.png'
-set multiplot layout 24,1 title "Deaths by week of year and by country obtained from the EuroMoMo (the value used to plot is the zscore)"
+set multiplot layout 24,1 title "9. Deaths by week of year and by country obtained from the EuroMoMo (the value used to plot is the zscore)"
 set rmargin 3
 set grid
 set auto x

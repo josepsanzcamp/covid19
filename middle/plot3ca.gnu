@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'
 set output 'output/plot3ca.png'
-set multiplot layout 3,1 title "Defuncions per dia obtinguts del MoMo per al 2020, per dia del Renave, el promig del 2018 i la diferencia entre MoMo i Renave"
+set multiplot layout 3,1 title "3. Defuncions per dia obtinguts del MoMo per al 2020, per dia del Renave, el promig del 2018 i la diferencia entre MoMo i Renave"
 set rmargin 3
 set grid
 set auto x

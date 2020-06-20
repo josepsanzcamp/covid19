@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'
 set output 'output/plot7en.png'
-set multiplot layout 2,1 title "Relation of hospital beds and nurses by country in 2016 according to OECD data"
+set multiplot layout 2,1 title "7. Relation of hospital beds and nurses by country in 2016 according to OECD data"
 set rmargin 3
 set grid
 set auto x

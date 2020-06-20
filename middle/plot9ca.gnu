@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,14400 enhanced font 'Segoe UI,10'
 set output 'output/plot9ca.png'
-set multiplot layout 24,1 title "Defuncions per setmana del any y per pais obtingudes del EuroMoMo (el valor que es mostra es el zscore)"
+set multiplot layout 24,1 title "9. Defuncions per setmana del any y per pais obtingudes del EuroMoMo (el valor que es mostra es el zscore)"
 set rmargin 3
 set grid
 set auto x

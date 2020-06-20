@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
 set output 'output/plot10en.png'
-set multiplot layout 1,1 title "Deaths by day obtained from Statistics Sweden"
+set multiplot layout 1,1 title "10. Deaths by day obtained from Statistics Sweden"
 set rmargin 3
 set grid
 set auto x

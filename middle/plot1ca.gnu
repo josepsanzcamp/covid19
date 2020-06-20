@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'
 set output 'output/plot1ca.png'
-set multiplot layout 2,1 title "Defuncions per any i mes (només anys on algun mes ha superat els 40k morts, les dades de l'any 2020 són del MoMo i la resta són del INE)"
+set multiplot layout 2,1 title "1. Defuncions per any i mes (només anys on algun mes ha superat els 40k morts, les dades de l'any 2020 són del MoMo i la resta són del INE)"
 set rmargin 3
 set grid
 set auto x

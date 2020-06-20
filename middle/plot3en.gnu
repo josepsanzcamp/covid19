@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'
 set output 'output/plot3en.png'
-set multiplot layout 3,1 title "Deaths per day obtained from the MoMo by 2020, per day from the Renave, the 2018 average and the difference between MoMo and Renave"
+set multiplot layout 3,1 title "3. Deaths per day obtained from the MoMo by 2020, per day from the Renave, the 2018 average and the difference between MoMo and Renave"
 set rmargin 3
 set grid
 set auto x

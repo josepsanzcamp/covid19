@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'
 set output 'output/plot2en.png'
-set multiplot layout 2,1 title "Deaths by year and month of the MoMo and INE between 2018 and 2020"
+set multiplot layout 2,1 title "2. Deaths by year and month of the MoMo and INE between 2018 and 2020"
 set rmargin 3
 set grid
 set auto x

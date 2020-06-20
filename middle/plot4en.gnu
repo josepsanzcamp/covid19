@@ -1,6 +1,6 @@
 set terminal pngcairo size 1200,1800 enhanced font 'Segoe UI,10'
 set output 'output/plot4en.png'
-set multiplot layout 3,1 title "Deaths by year, month and age (2020 data are from MoMo and the rest are from INE)"
+set multiplot layout 3,1 title "4. Deaths by year, month and age (2020 data are from MoMo and the rest are from INE)"
 set rmargin 3
 set grid
 set auto x

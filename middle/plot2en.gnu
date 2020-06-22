@@ -1,6 +1,5 @@
-set terminal pngcairo size 1200,1200 enhanced font 'Segoe UI,10'
-set output 'output/plot2en.png'
-set multiplot layout 2,1 title "2. Deaths by year and month of the MoMo and INE between 2018 and 2020"
+set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set title "2. Deaths by year and month of the MoMo and INE between 2018 and 2020"
 set rmargin 3
 set grid
 set auto x
@@ -10,6 +9,7 @@ set style fill solid border -1
 set xtic rotate by -45 scale 0
 set datafile separator ';'
 set style histogram gap 3
+set output 'output/plot2en1.png'
 plot [-0.5:14.5] 'middle/plot2en.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
+set output 'output/plot2en2.png'
 plot [14.5:29.5] 'middle/plot2en.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
-unset multiplot

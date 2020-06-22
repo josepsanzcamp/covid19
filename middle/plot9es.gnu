@@ -1,6 +1,5 @@
-set terminal pngcairo size 1200,14400 enhanced font 'Segoe UI,10'
-set output 'output/plot9es.png'
-set multiplot layout 24,1 title "9. Defunciones por semana del año y por país obtenidas del EuroMoMo (el valor que se muestra es el zscore)"
+set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set title "9. Defunciones por semana del año y por país obtenidas del EuroMoMo (el valor que se muestra es el zscore)"
 set rmargin 3
 set grid
 set auto x
@@ -12,28 +11,52 @@ set xrange ['2020-01-01':'2021-01-01']
 set xtic rotate by -45 scale 0
 set datafile separator ';'
 set xtics '2020-01-01',86400*30,'2021-01-01'
+set output 'output/plot9es01.png'
 plot 'middle/plot9es.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp lc 7 ti col
+set output 'output/plot9es02.png'
 plot 'middle/plot9es.csv' u 1:8 w lp ti col,'' u 1:9 w lp ti col,'' u 1:10 w lp ti col,'' u 1:11 w lp ti col,'' u 1:12 w lp ti col,'' u 1:13 w lp lc 7 ti col
+set output 'output/plot9es03.png'
 plot 'middle/plot9es.csv' u 1:14 w lp ti col,'' u 1:15 w lp ti col,'' u 1:16 w lp ti col,'' u 1:17 w lp ti col,'' u 1:18 w lp ti col,'' u 1:19 w lp lc 7 ti col
+set output 'output/plot9es04.png'
 plot 'middle/plot9es.csv' u 1:20 w lp ti col,'' u 1:21 w lp ti col,'' u 1:22 w lp ti col,'' u 1:23 w lp ti col,'' u 1:24 w lp ti col,'' u 1:25 w lp lc 7 ti col
+set output 'output/plot9es05.png'
 plot 'middle/plot9es.csv' u 1:26 w lp ti col,'' u 1:27 w lp ti col,'' u 1:28 w lp ti col,'' u 1:29 w lp ti col,'' u 1:30 w lp ti col,'' u 1:31 w lp lc 7 ti col
+set output 'output/plot9es06.png'
 plot 'middle/plot9es.csv' u 1:32 w lp ti col,'' u 1:33 w lp ti col,'' u 1:34 w lp ti col,'' u 1:35 w lp ti col,'' u 1:36 w lp ti col,'' u 1:37 w lp lc 7 ti col
+set output 'output/plot9es07.png'
 plot 'middle/plot9es.csv' u 1:38 w lp ti col,'' u 1:39 w lp ti col,'' u 1:40 w lp ti col,'' u 1:41 w lp ti col,'' u 1:42 w lp ti col,'' u 1:43 w lp lc 7 ti col
+set output 'output/plot9es08.png'
 plot 'middle/plot9es.csv' u 1:44 w lp ti col,'' u 1:45 w lp ti col,'' u 1:46 w lp ti col,'' u 1:47 w lp ti col,'' u 1:48 w lp ti col,'' u 1:49 w lp lc 7 ti col
+set output 'output/plot9es09.png'
 plot 'middle/plot9es.csv' u 1:50 w lp ti col,'' u 1:51 w lp ti col,'' u 1:52 w lp ti col,'' u 1:53 w lp ti col,'' u 1:54 w lp ti col,'' u 1:55 w lp lc 7 ti col
+set output 'output/plot9es10.png'
 plot 'middle/plot9es.csv' u 1:56 w lp ti col,'' u 1:57 w lp ti col,'' u 1:58 w lp ti col,'' u 1:59 w lp ti col,'' u 1:60 w lp ti col,'' u 1:61 w lp lc 7 ti col
+set output 'output/plot9es11.png'
 plot 'middle/plot9es.csv' u 1:62 w lp ti col,'' u 1:63 w lp ti col,'' u 1:64 w lp ti col,'' u 1:65 w lp ti col,'' u 1:66 w lp ti col,'' u 1:67 w lp lc 7 ti col
+set output 'output/plot9es12.png'
 plot 'middle/plot9es.csv' u 1:68 w lp ti col,'' u 1:69 w lp ti col,'' u 1:70 w lp ti col,'' u 1:71 w lp ti col,'' u 1:72 w lp ti col,'' u 1:73 w lp lc 7 ti col
+set output 'output/plot9es13.png'
 plot 'middle/plot9es.csv' u 1:74 w lp ti col,'' u 1:75 w lp ti col,'' u 1:76 w lp ti col,'' u 1:77 w lp ti col,'' u 1:78 w lp ti col,'' u 1:79 w lp lc 7 ti col
+set output 'output/plot9es14.png'
 plot 'middle/plot9es.csv' u 1:80 w lp ti col,'' u 1:81 w lp ti col,'' u 1:82 w lp ti col,'' u 1:83 w lp ti col,'' u 1:84 w lp ti col,'' u 1:85 w lp lc 7 ti col
+set output 'output/plot9es15.png'
 plot 'middle/plot9es.csv' u 1:86 w lp ti col,'' u 1:87 w lp ti col,'' u 1:88 w lp ti col,'' u 1:89 w lp ti col,'' u 1:90 w lp ti col,'' u 1:91 w lp lc 7 ti col
+set output 'output/plot9es16.png'
 plot 'middle/plot9es.csv' u 1:92 w lp ti col,'' u 1:93 w lp ti col,'' u 1:94 w lp ti col,'' u 1:95 w lp ti col,'' u 1:96 w lp ti col,'' u 1:97 w lp lc 7 ti col
+set output 'output/plot9es17.png'
 plot 'middle/plot9es.csv' u 1:98 w lp ti col,'' u 1:99 w lp ti col,'' u 1:100 w lp ti col,'' u 1:101 w lp ti col,'' u 1:102 w lp ti col,'' u 1:103 w lp lc 7 ti col
+set output 'output/plot9es18.png'
 plot 'middle/plot9es.csv' u 1:104 w lp ti col,'' u 1:105 w lp ti col,'' u 1:106 w lp ti col,'' u 1:107 w lp ti col,'' u 1:108 w lp ti col,'' u 1:109 w lp lc 7 ti col
+set output 'output/plot9es19.png'
 plot 'middle/plot9es.csv' u 1:110 w lp ti col,'' u 1:111 w lp ti col,'' u 1:112 w lp ti col,'' u 1:113 w lp ti col,'' u 1:114 w lp ti col,'' u 1:115 w lp lc 7 ti col
+set output 'output/plot9es20.png'
 plot 'middle/plot9es.csv' u 1:116 w lp ti col,'' u 1:117 w lp ti col,'' u 1:118 w lp ti col,'' u 1:119 w lp ti col,'' u 1:120 w lp ti col,'' u 1:121 w lp lc 7 ti col
+set output 'output/plot9es21.png'
 plot 'middle/plot9es.csv' u 1:122 w lp ti col,'' u 1:123 w lp ti col,'' u 1:124 w lp ti col,'' u 1:125 w lp ti col,'' u 1:126 w lp ti col,'' u 1:127 w lp lc 7 ti col
+set output 'output/plot9es22.png'
 plot 'middle/plot9es.csv' u 1:128 w lp ti col,'' u 1:129 w lp ti col,'' u 1:130 w lp ti col,'' u 1:131 w lp ti col,'' u 1:132 w lp ti col,'' u 1:133 w lp lc 7 ti col
+set output 'output/plot9es23.png'
 plot 'middle/plot9es.csv' u 1:134 w lp ti col,'' u 1:135 w lp ti col,'' u 1:136 w lp ti col,'' u 1:137 w lp ti col,'' u 1:138 w lp ti col,'' u 1:139 w lp lc 7 ti col
+set output 'output/plot9es24.png'
 plot 'middle/plot9es.csv' u 1:140 w lp ti col,'' u 1:141 w lp ti col,'' u 1:142 w lp ti col,'' u 1:143 w lp ti col,'' u 1:144 w lp ti col,'' u 1:145 w lp lc 7 ti col
-unset multiplot
+

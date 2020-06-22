@@ -1452,7 +1452,7 @@ if(!file_exists("output/plot8${lang}1.png")) {
 	exec("gnuplot middle/plot8${lang}.gnu");
 }
 
-if(!file_exists("output/plot9${lang}1.png")) {
+if(!file_exists("output/plot9${lang}01.png")) {
 	$data=import_file("middle/euromomo.csv");
 	$paises=array();
 	$años=array();
@@ -1622,13 +1622,11 @@ if(!file_exists("index.${lang}.html")) {
 		"<style>",
 		"body { font-family:Arial,Helvetica,sans-serif; }",
 		"div { width:100%; max-width:1200px; margin: 0 auto; }",
-		"img { width:100%; border: 1px solid #000; }",
-		"h3 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; font-size:1em; }",
+		"img { width:100%; }",
+		"h3 { text-align: center; padding:1em; background:#2c3e50; color:#fff; font-size:1em; }",
 		"h3.norm { clear:both; }",
 		"h3.lang { float:right; margin-left:1em; }",
-		"h3.ca { border:1px solid #0a0; background:#0a0; }",
-		"h3.es,h3.warn { border:1px solid #a00; background:#a00; }",
-		"h3.en { border:1px solid #00a; background:#00a; }",
+		"h3.warn { background:#ea4335; }",
 		"a { color:#fff; }",
 		"</style>",
 		"</head>",
@@ -1637,11 +1635,11 @@ if(!file_exists("index.${lang}.html")) {
 	))."\n";
 	foreach(array("en","es","ca") as $temp) {
 		$html.=implode("\n",array(
-			"<h3 class='lang ${temp}'><a href='index.${temp}.html'>".strtoupper($temp)."</a></h4>",
+			"<h3 class='lang'><a href='index.${temp}.html'>".strtoupper($temp)."</a></h4>",
 		))."\n";
 	}
 	$html.=implode("\n",array(
-		"<h3 class='norm ${lang}'>".$textos["header"][$lang]."</h3>",
+		"<h3 class='norm'>".$textos["header"][$lang]."</h3>",
 		"<h3 class='warn'>".$textos["momoold"][$lang]."</h3>",
 	))."\n";
 	foreach($textos["plots"] as $key=>$val) {
@@ -1658,7 +1656,7 @@ if(!file_exists("index.${lang}.html")) {
 
 	}
 	$html.=implode("\n",array(
-		"<h3 class='${lang}'>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
+		"<h3>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
 		"</div>",
 		"</body>",
 		"</html>",
@@ -1677,13 +1675,11 @@ if(!file_exists("index.html")) {
 		"<style>",
 		"body { font-family:Arial,Helvetica,sans-serif; }",
 		"div { width:100%; max-width:1200px; margin: 0 auto; }",
-		"img { width:100%; border: 1px solid #000; }",
-		"h3 { text-align: center; border: 1px solid #000; padding:1em; background:#000; color:#fff; font-size:1em; }",
+		"img { width:100%; }",
+		"h3 { text-align: center; padding:1em; background:#2c3e50; color:#fff; font-size:1em; }",
 		"h3.norm { clear:both; }",
 		"h3.lang { float:right; margin-left:1em; }",
-		"h3.ca { border:1px solid #0a0; background:#0a0; }",
-		"h3.es,h3.warn { border:1px solid #a00; background:#a00; }",
-		"h3.en { border:1px solid #00a; background:#00a; }",
+		"h3.warn { background:#ea4335; }",
 		"a { color:#fff; }",
 		"</style>",
 		"</head>",
@@ -1692,13 +1688,13 @@ if(!file_exists("index.html")) {
 	))."\n";
 	foreach(array("en","es","ca") as $lang) {
 		$html.=implode("\n",array(
-			"<h3 class='lang ${lang}'><a href='index.${lang}.html'>".strtoupper($lang)."</a></h3>",
+			"<h3 class='lang'><a href='index.${lang}.html'>".strtoupper($lang)."</a></h3>",
 		))."\n";
 	}
 	foreach(array("ca","es","en") as $lang) {
 		$html.=implode("\n",array(
-			"<h3 class='norm ${lang}'><a href='index.${lang}.html'>".$textos["header"][$lang]."</a></h3>",
-			"<h3 class='${lang}'>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
+			"<h3 class='norm'><a href='index.${lang}.html'>".$textos["header"][$lang]."</a></h3>",
+			"<h3>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
 		))."\n";
 	}
 	$html.=implode("\n",array(

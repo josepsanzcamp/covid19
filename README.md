@@ -51,6 +51,7 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 # EuroMoMo
 - https://www.euromomo.eu/graphs-and-maps => Datos de modtalidad de europa
 - wget https://www.euromomo.eu/component---src-templates-graphs-and-maps-js-cee79ce741871ab0f098.js => Fichero JavaScript que contiene los datos en un JSON
+- wget -O component.$(date +"%Y%m%d").js https://www.euromomo.eu$(wget -q -O - https://www.euromomo.eu/graphs-and-maps | tr '"' '\n' | grep /component---src-templates-graphs-and-maps-js | head -1)
 - https://www.euromomo.eu/how-it-works/what-is-a-z-score => Importante para entender como vienen los datos normalizados
 - https://magnet.xataka.com/en-diez-minutos/exceso-177-000-muertes-que-dicen-datos-momo-coronavirus-europa => Interpretacion de EuroMoMo
 - https://www.destatis.de/EN/Press/2020/05/PE20_179_12621.html => Noticia en la Oficina Federal de Estadística de Alemánia

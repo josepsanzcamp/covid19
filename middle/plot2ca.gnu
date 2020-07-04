@@ -10,6 +10,8 @@ set xtic rotate by -45 scale 0
 set datafile separator ';'
 set style histogram gap 3
 set output 'output/plot2ca1.png'
-plot [-0.5:14.5] 'middle/plot2ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
+plot [-0.5:11.5] 'middle/plot2ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
 set output 'output/plot2ca2.png'
-plot [14.5:29.5] 'middle/plot2ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
+plot [11.5:23.5] 'middle/plot2ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
+set output 'output/plot2ca3.png'
+plot [23.5:35.5] 'middle/plot2ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col

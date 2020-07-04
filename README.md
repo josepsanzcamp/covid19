@@ -12,6 +12,7 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - wget -O data.$(date +"%Y%m%d").csv https://momo.isciii.es/public/momo/data
 - https://cnecovid.isciii.es/covid19/ => COVID-19
 - wget -O agregados.$(date +"%Y%m%d").csv https://cnecovid.isciii.es/covid19/resources/agregados.csv
+- wget -O datos_ccaas.$(date +"%Y%m%d").csv https://cnecovid.isciii.es/covid19/resources/datos_ccaas.csv
 
 # INE
 - https://www.ine.es/buscar/searchResults.do?searchString=defunciones => Buscador desde donde he encontrado lo siguiente

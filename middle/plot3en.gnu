@@ -1,5 +1,5 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
-set title "3. Deaths per day obtained from the MoMo by 2020 and the 2018 average"
+set title "3. Deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average"
 set rmargin 3
 set grid
 set auto x
@@ -12,10 +12,10 @@ set xtic rotate by -45 scale 0
 set datafile separator ';'
 set xtics '2020-01-01',86400*7,'2020-07-01'
 set output 'output/plot3en1.png'
-plot ['2020-01-01':'2020-03-01'] 'middle/plot3en.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w l lc 9 ti col
+plot ['2020-01-01':'2020-03-01'] 'middle/plot3en.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:6 w l lc 9 ti col
 set output 'output/plot3en2.png'
-plot ['2020-03-01':'2020-05-01'] 'middle/plot3en.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w l lc 9 ti col
+plot ['2020-03-01':'2020-05-01'] 'middle/plot3en.csv' u 1:2 w lp lc 1 pt 1 ti col, '' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:6 w l lc 9 ti col
 set output 'output/plot3en3.png'
-plot ['2020-05-01':'2020-07-01'] 'middle/plot3en.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w l lc 9 ti col
+plot ['2020-05-01':'2020-07-01'] 'middle/plot3en.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col
 set output 'output/plot3en4.png'
-plot ['2020-07-01':'2020-09-01'] 'middle/plot3en.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w l lc 9 ti col
+plot ['2020-07-01':'2020-09-01'] 'middle/plot3en.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col

@@ -747,6 +747,10 @@ $textos=array(
 			"ca"=>"11. Defuncions per dia obtinguts del Statistics Norway",
 			"es"=>"11. Defunciones por dia obtenidos del Statistics Norway",
 			"en"=>"11. Deaths by day obtained from Statistics Norway",
+		),array(
+			"ca"=>"12. Defuncions per dia obtinguts del MoMo",
+			"es"=>"12. Defunciones por dia obtenidos del MoMo",
+			"en"=>"12. Deaths per day obtained from the MoMo",
 		),
 	),
 	"footer"=>array(
@@ -1556,6 +1560,50 @@ if(!file_exists("output/plot11${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot11${lang}.gnu",$gnuplot);
 	exec("gnuplot middle/plot11${lang}.gnu");
+}
+
+if(!file_exists("output/plot12${lang}.png")) {
+	$momonew=import_file("middle/datanew-ok2.csv");
+	$matrix=array();
+	for($i=strtotime("2020-01-01 12:00:00");$i<=strtotime("2021-01-01 12:00:00");$i+=86400) {
+		$fecha=date("Y-m-d",$i);
+		$i=strtotime($fecha." 12:00:00");
+		$matrix[$fecha]=array($fecha,"","","");
+	}
+	foreach($momonew as $key=>$val) {
+		$year=strtok($val[0],"-");
+		if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=$val[1];
+		if($year==2019) {
+			$val[0]=str_replace(2019,2020,$val[0]);
+			if(isset($matrix[$val[0]])) $matrix[$val[0]][2]=$val[1];
+		}
+		if($year==2018) {
+			$val[0]=str_replace(2018,2020,$val[0]);
+			if(isset($matrix[$val[0]])) $matrix[$val[0]][3]=$val[1];
+		}
+		unset($momonew[$key]);
+	}
+	array_unshift($matrix,array("Fecha","2020","2019","2018"));
+	export_file("middle/plot12${lang}.csv",$matrix);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set title \"".$textos["plots"][12][$lang]."\"",
+		"set rmargin 3",
+		"set grid",
+		"set auto x",
+		"set yrange [0:3000]",
+		"set xdata time",
+		"set timefmt '%Y-%m-%d'",
+		"set format x '%Y-%m-%d'",
+		"set xrange ['2020-01-01':'2021-01-01']",
+		"set xtic rotate by -45 scale 0",
+		"set datafile separator ';'",
+		"set xtics '2020-01-01',86400*30,'2021-01-01'",
+		"set output 'output/plot12${lang}.png'",
+		"plot 'middle/plot12${lang}.csv' u 1:4 w l ti col,'' u 1:3 w l ti col,'' u 1:2 w l ti col",
+	))."\n";
+	file_put_contents("middle/plot12${lang}.gnu",$gnuplot);
+	exec("gnuplot middle/plot12${lang}.gnu");
 }
 
 if(!file_exists("index.${lang}.html")) {

@@ -17,3 +17,5 @@ set output 'output/plot3ca2.png'
 plot ['2020-03-01':'2020-05-01'] 'middle/plot3ca.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w l lc 9 ti col
 set output 'output/plot3ca3.png'
 plot ['2020-05-01':'2020-07-01'] 'middle/plot3ca.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w l lc 9 ti col
+set output 'output/plot3ca4.png'
+plot ['2020-07-01':'2020-09-01'] 'middle/plot3ca.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w l lc 9 ti col

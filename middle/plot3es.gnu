@@ -7,10 +7,10 @@ set yrange [0:3000]
 set xdata time
 set timefmt '%Y-%m-%d'
 set format x '%Y-%m-%d'
-set xrange ['2020-01-01':'2020-07-01']
+set xrange ['2020-01-01':'2020-09-01']
 set xtic rotate by -45 scale 0
 set datafile separator ';'
-set xtics '2020-01-01',86400*7,'2020-07-01'
+set xtics '2020-01-01',86400*7,'2020-09-01'
 set output 'output/plot3es1.png'
 plot ['2020-01-01':'2020-03-01'] 'middle/plot3es.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:6 w l lc 9 ti col
 set output 'output/plot3es2.png'

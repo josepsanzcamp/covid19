@@ -24,7 +24,27 @@ function export_file($file,$data) {
 	file_put_contents($file,$data);
 }
 
+function console_debug($file="") {
+	static $start;
+	if($file!="") {
+		echo "Building ${file} ... ";
+		$start=microtime(true);
+		ob_start();
+	} else {
+		$output=trim(ob_get_clean());
+		if(strpos($output,"warning: difficulty making room for xtic labels")!==false) $output="";
+		$used=microtime(true)-$start;
+		if($used>=1) $used=round($used,2)."sec";
+		elseif($used>=0.001) $used=round($used*1000,2)."msec";
+		elseif($used>=0.000001) $used=round($used*1000000,2)."usec";
+		if($output=="") echo "ok";
+		if($output!="") echo "ko";
+		echo " (${used})\n";
+	}
+}
+
 if(!file_exists("middle/02001-ok.csv")) {
+	console_debug("middle/02001-ok.csv");
 	$data=import_file("input/ine/02001.csv");
 	$meses=array(
 		"Enero"=>"01",
@@ -51,9 +71,11 @@ if(!file_exists("middle/02001-ok.csv")) {
 	}
 	sort($sumas);
 	export_file("middle/02001-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/02001-ok2.csv")) {
+	console_debug("middle/02001-ok2.csv");
 	$data=import_file("input/ine/02001.csv");
 	$meses=array(
 		"Enero"=>"01",
@@ -99,9 +121,11 @@ if(!file_exists("middle/02001-ok2.csv")) {
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02001-ok2.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/14819-ok.csv")) {
+	console_debug("middle/14819-ok.csv");
 	$data=import_file("input/ine/14819.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -113,9 +137,11 @@ if(!file_exists("middle/14819-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/14819-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/6545-ok.csv")) {
+	console_debug("middle/6545-ok.csv");
 	$data=import_file("input/ine/6545.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -127,9 +153,11 @@ if(!file_exists("middle/6545-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6545-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/6548-ok.csv")) {
+	console_debug("middle/6548-ok.csv");
 	$data=import_file("input/ine/6548.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -141,9 +169,11 @@ if(!file_exists("middle/6548-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6548-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/6561-ok.csv")) {
+	console_debug("middle/6561-ok.csv");
 	$data=import_file("input/ine/6561.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -155,9 +185,11 @@ if(!file_exists("middle/6561-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6561-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/6562-ok.csv")) {
+	console_debug("middle/6562-ok.csv");
 	$data=import_file("input/ine/6562.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -169,9 +201,11 @@ if(!file_exists("middle/6562-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6562-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/6562-ok2.csv")) {
+	console_debug("middle/6562-ok2.csv");
 	$data=import_file("input/ine/6562.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -183,9 +217,11 @@ if(!file_exists("middle/6562-ok2.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6562-ok2.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/6566-ok.csv")) {
+	console_debug("middle/6566-ok.csv");
 	$data=import_file("input/ine/6566.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -197,9 +233,11 @@ if(!file_exists("middle/6566-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6566-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/6580-ok.csv")) {
+	console_debug("middle/6580-ok.csv");
 	$data=import_file("input/ine/6580.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -211,9 +249,11 @@ if(!file_exists("middle/6580-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6580-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/7947-ok.csv")) {
+	console_debug("middle/7947-ok.csv");
 	$data=import_file("input/ine/7947.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -225,9 +265,11 @@ if(!file_exists("middle/7947-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/7947-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/datanew.csv")) {
+	console_debug("middle/datanew.csv");
 	$files=glob("input/momo/data.????????.csv");
 	sort($files);
 	$result=array();
@@ -246,9 +288,11 @@ if(!file_exists("middle/datanew.csv")) {
 		unset($result[$key]);
 	}
 	export_file("middle/datanew.csv",$result2);
+	console_debug();
 }
 
 if(!file_exists("middle/datanew-ok.csv")) {
+	console_debug("middle/datanew-ok.csv");
 	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -260,9 +304,11 @@ if(!file_exists("middle/datanew-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/datanew-ok2.csv")) {
+	console_debug("middle/datanew-ok2.csv");
 	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -274,9 +320,11 @@ if(!file_exists("middle/datanew-ok2.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok2.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/datanew-ok3.csv")) {
+	console_debug("middle/datanew-ok3.csv");
 	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -288,9 +336,11 @@ if(!file_exists("middle/datanew-ok3.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok3.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/datanew-ok4.csv")) {
+	console_debug("middle/datanew-ok4.csv");
 	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -302,9 +352,11 @@ if(!file_exists("middle/datanew-ok4.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok4.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/datanew-ok5.csv")) {
+	console_debug("middle/datanew-ok5.csv");
 	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -316,9 +368,11 @@ if(!file_exists("middle/datanew-ok5.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok5.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/datanew-ok6.csv")) {
+	console_debug("middle/datanew-ok6.csv");
 	$data=import_file("middle/datanew.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -330,9 +384,11 @@ if(!file_exists("middle/datanew-ok6.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok6.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/residencias.csv")) {
+	console_debug("middle/residencias.csv");
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
@@ -367,9 +423,11 @@ if(!file_exists("middle/residencias.csv")) {
 	}
 	array_unshift($sumas,array("CCAA","Tipo","Count","Plazas"));
 	export_file("middle/residencias.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/02002-ok.csv")) {
+	console_debug("middle/02002-ok.csv");
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
@@ -416,9 +474,11 @@ if(!file_exists("middle/02002-ok.csv")) {
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02002-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/6548-ok2.csv")) {
+	console_debug("middle/6548-ok2.csv");
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
@@ -440,9 +500,11 @@ if(!file_exists("middle/6548-ok2.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6548-ok2.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/02005-ok.csv")) {
+	console_debug("middle/02005-ok.csv");
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
@@ -488,9 +550,11 @@ if(!file_exists("middle/02005-ok.csv")) {
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02005-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/dataold.csv")) {
+	console_debug("middle/dataold.csv");
 	$files=glob("input/momo/data.????????.csv");
 	sort($files);
 	foreach($files as $key=>$val) {
@@ -513,9 +577,11 @@ if(!file_exists("middle/dataold.csv")) {
 		unset($result[$key]);
 	}
 	export_file("middle/dataold.csv",$result2);
+	console_debug();
 }
 
 if(!file_exists("middle/dataold-ok.csv")) {
+	console_debug("middle/dataold-ok.csv");
 	$data=import_file("middle/dataold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -527,9 +593,11 @@ if(!file_exists("middle/dataold-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/dataold-ok.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/dataold-ok2.csv")) {
+	console_debug("middle/dataold-ok2.csv");
 	$data=import_file("middle/dataold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -541,9 +609,11 @@ if(!file_exists("middle/dataold-ok2.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/dataold-ok2.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/dataold-ok3.csv")) {
+	console_debug("middle/dataold-ok3.csv");
 	$data=import_file("middle/dataold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -555,9 +625,11 @@ if(!file_exists("middle/dataold-ok3.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/dataold-ok3.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/dataold-ok5.csv")) {
+	console_debug("middle/dataold-ok5.csv");
 	$data=import_file("middle/dataold.csv");
 	$sumas=array();
 	foreach($data as $key=>$val) {
@@ -569,9 +641,11 @@ if(!file_exists("middle/dataold-ok5.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/dataold-ok5.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/datanew-ok7.csv")) {
+	console_debug("middle/datanew-ok7.csv");
 	$files=glob("input/momo/data.????????.csv");
 	sort($files);
 	$sumas=array();
@@ -590,9 +664,11 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 		}
 	}
 	export_file("middle/datanew-ok7.csv",$sumas);
+	console_debug();
 }
 
 if(!file_exists("middle/euromomo.csv")) {
+	console_debug("middle/euromomo.csv");
 	$files=glob("input/euromomo/component.????????.js");
 	rsort($files);
 	$buffer=file_get_contents($files[0]);
@@ -630,9 +706,11 @@ if(!file_exists("middle/euromomo.csv")) {
 		}
 	}
 	export_file("middle/euromomo.csv",$matrix);
+	console_debug();
 }
 
 if(!file_exists("middle/euromomo-ok.csv")) {
+	console_debug("middle/euromomo-ok.csv");
 	$data=import_file("middle/euromomo.csv");
 	$momoold=import_file("middle/dataold-ok2.csv");
 	$momonew=import_file("middle/datanew-ok2.csv");
@@ -694,6 +772,7 @@ if(!file_exists("middle/euromomo-ok.csv")) {
 		}
 	}
 	export_file("middle/euromomo-ok.csv",$matrix);
+	console_debug();
 }
 
 $textos=array(
@@ -861,6 +940,7 @@ $textos=array(
 foreach(array("ca","es","en") as $lang) {
 
 if(!file_exists("output/plot1${lang}1.png")) {
+	console_debug("output/plot1${lang}1.png");
 	$momoold=import_file("middle/dataold-ok.csv");
 	$momonew=import_file("middle/datanew-ok.csv");
 	$ine1=import_file("middle/02001-ok.csv");
@@ -918,10 +998,12 @@ if(!file_exists("output/plot1${lang}1.png")) {
 		"plot [5.5:11.5] 'middle/plot1${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot1${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot1${lang}.gnu");
+	passthru("gnuplot middle/plot1${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot2${lang}1.png")) {
+	console_debug("output/plot2${lang}1.png");
 	$momoold=import_file("middle/dataold-ok.csv");
 	$momonew=import_file("middle/datanew-ok.csv");
 	$ine=import_file("middle/02001-ok.csv");
@@ -975,10 +1057,12 @@ if(!file_exists("output/plot2${lang}1.png")) {
 		"plot [23.5:35.5] 'middle/plot2${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot2${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot2${lang}.gnu");
+	passthru("gnuplot middle/plot2${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot3${lang}1.png")) {
+	console_debug("output/plot3${lang}1.png");
 	$momoold=import_file("middle/dataold-ok2.csv");
 	$momonew=import_file("middle/datanew-ok2.csv");
 	$otros=import_file("middle/7947-ok.csv");
@@ -1039,10 +1123,12 @@ if(!file_exists("output/plot3${lang}1.png")) {
 		"plot ['2020-07-01':'2020-09-01'] 'middle/plot3${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col",
 	))."\n";
 	file_put_contents("middle/plot3${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot3${lang}.gnu");
+	passthru("gnuplot middle/plot3${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot4${lang}1.png")) {
+	console_debug("output/plot4${lang}1.png");
 	$momoold=import_file("middle/dataold-ok3.csv");
 	$momonew=import_file("middle/datanew-ok3.csv");
 	$ine=import_file("middle/02001-ok2.csv");
@@ -1111,10 +1197,12 @@ if(!file_exists("output/plot4${lang}1.png")) {
 		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot4${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot4${lang}.gnu");
+	passthru("gnuplot middle/plot4${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot5${lang}1.png")) {
+	console_debug("output/plot5${lang}1.png");
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
@@ -1202,10 +1290,12 @@ if(!file_exists("output/plot5${lang}1.png")) {
 		"plot [11.5:17.5] 'middle/plot5${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot5${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot5${lang}.gnu");
+	passthru("gnuplot middle/plot5${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot6${lang}.png")) {
+	console_debug("output/plot6${lang}.png");
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
@@ -1266,10 +1356,12 @@ if(!file_exists("output/plot6${lang}.png")) {
 		"plot 'middle/plot6${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot6${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot6${lang}.gnu");
+	passthru("gnuplot middle/plot6${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot7${lang}1.png")) {
+	console_debug("output/plot7${lang}1.png");
 	$temp=import_file("input/oecd/code2country.csv");
 	$paises=array();
 	foreach($temp as $key=>$val) {
@@ -1321,10 +1413,12 @@ if(!file_exists("output/plot7${lang}1.png")) {
 		"plot 'middle/plot7${lang}2.csv' u 2:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot7${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot7${lang}.gnu");
+	passthru("gnuplot middle/plot7${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot8${lang}1.png")) {
+	console_debug("output/plot8${lang}1.png");
 	$data=import_file("middle/datanew-ok7.csv");
 	$axis0=array();
 	$axis1=array();
@@ -1398,10 +1492,12 @@ if(!file_exists("output/plot8${lang}1.png")) {
 		"plot [0.5:24.5] 'middle/plot8${lang}.csv' ${cols2plot2}",
 	))."\n";
 	file_put_contents("middle/plot8${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot8${lang}.gnu");
+	passthru("gnuplot middle/plot8${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot9${lang}01.png")) {
+	console_debug("output/plot9${lang}01.png");
 	$data=import_file("middle/euromomo.csv");
 	$paises=array();
 	$años=array();
@@ -1467,10 +1563,12 @@ if(!file_exists("output/plot9${lang}01.png")) {
 	$gnuplot.=implode("\n",array(
 	))."\n";
 	file_put_contents("middle/plot9${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot9${lang}.gnu");
+	passthru("gnuplot middle/plot9${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot10${lang}.png")) {
+	console_debug("output/plot10${lang}.png");
 	$files=glob("input/sweden/*.csv");
 	rsort($files);
 	$sweden=import_file($files[0]);
@@ -1516,10 +1614,12 @@ if(!file_exists("output/plot10${lang}.png")) {
 		"plot 'middle/plot10${lang}.csv' u 1:2 w l ti col,'' u 1:3 w l ti col,'' u 1:4 w l ti col,'' u 1:5 w l ti col,'' u 1:6 w l ti col,'' u 1:7 w l lc 7 ti col",
 	))."\n";
 	file_put_contents("middle/plot10${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot10${lang}.gnu");
+	passthru("gnuplot middle/plot10${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot11${lang}.png")) {
+	console_debug("output/plot11${lang}.png");
 	$files=glob("input/norway/*.csv");
 	rsort($files);
 	$norway=import_file($files[0]);
@@ -1559,10 +1659,12 @@ if(!file_exists("output/plot11${lang}.png")) {
 		"plot 'middle/plot11${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp lc 7 ti col",
 	))."\n";
 	file_put_contents("middle/plot11${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot11${lang}.gnu");
+	passthru("gnuplot middle/plot11${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("output/plot12${lang}.png")) {
+	console_debug("output/plot12${lang}.png");
 	$momonew=import_file("middle/datanew-ok2.csv");
 	$matrix=array();
 	for($i=strtotime("2020-01-01 12:00:00");$i<=strtotime("2021-01-01 12:00:00");$i+=86400) {
@@ -1603,10 +1705,12 @@ if(!file_exists("output/plot12${lang}.png")) {
 		"plot 'middle/plot12${lang}.csv' u 1:4 w l ti col,'' u 1:3 w l ti col,'' u 1:2 w l ti col",
 	))."\n";
 	file_put_contents("middle/plot12${lang}.gnu",$gnuplot);
-	exec("gnuplot middle/plot12${lang}.gnu");
+	passthru("gnuplot middle/plot12${lang}.gnu 2>&1");
+	console_debug();
 }
 
 if(!file_exists("index.${lang}.html")) {
+	console_debug("index.${lang}.html");
 	$html=implode("\n",array(
 		"<!DOCTYPE html>",
 		"<html>",
@@ -1655,11 +1759,13 @@ if(!file_exists("index.${lang}.html")) {
 		"</html>",
 	))."\n";
 	file_put_contents("index.${lang}.html",$html);
+	console_debug();
 }
 
 }
 
 if(!file_exists("index.html")) {
+	console_debug("index.html");
 	$html=implode("\n",array(
 		"<!DOCTYPE html>",
 		"<html>",
@@ -1709,6 +1815,7 @@ if(!file_exists("index.html")) {
 		"</html>",
 	))."\n";
 	file_put_contents("index.html",$html);
+	console_debug();
 }
 
 ?>

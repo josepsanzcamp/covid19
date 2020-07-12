@@ -61,10 +61,3 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - https://www.ssb.no/en/statbank/list/dode/ => Statistics Norway
 - https://www.ssb.no/en/statbank/table/07995/ => 07995: Deaths, by sex, age and week. Preliminary figures 2000 - 2020
 
-# Otros
-- https://maldita.es/maldita-te-explica/2020/04/30/datos-fallecimientos-registro-civil-defunciones-diarias-causa-muerte/
-- https://www.worldbank.org/
-- https://github.com/search?q=covid19
-- https://github.com/pomber/covid19
-- https://pomber.github.io/covid19/timeseries.json
-

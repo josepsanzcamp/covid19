@@ -3,20 +3,9 @@
 ini_set("memory_limit","1024M");
 ini_set("max_execution_time","3600");
 
-function import_file_old($file) {
-	$data=file_get_contents($file,null,null,0,1000);
-	$data=explode("\n",$data);
-	$sep="";
-	if($sep=="" && strpos($data[0],";")!==false) $sep=";";
-	if($sep=="" && strpos($data[0],",")!==false) $sep=",";
-	$fd=fopen($file,"r");
-	$data=array();
-	while($row=fgetcsv($fd,0,$sep)) $data[]=$row;
-	fclose($fd);
-	return $data;
-}
-
 function import_file($file) {
+	$cache="cache/".md5_file($file);
+	if(file_exists($cache)) return unserialize(file_get_contents($cache));
 	$data=file($file,FILE_IGNORE_NEW_LINES);
 	$sep="";
 	if($sep=="" && strpos($data[0],";")!==false) $sep=";";
@@ -42,6 +31,7 @@ function import_file($file) {
 		}
 		$data[$key]=array_values($val);
 	}
+	file_put_contents($cache,serialize($data));
 	return $data;
 }
 

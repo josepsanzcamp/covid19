@@ -4,8 +4,6 @@ ini_set("memory_limit","1024M");
 ini_set("max_execution_time","3600");
 
 function import_file($file) {
-	$cache="cache/".md5_file($file).".gz";
-	if(file_exists($cache)) return unserialize(gzdecode(file_get_contents($cache)));
 	$data=file($file,FILE_IGNORE_NEW_LINES);
 	$sep="";
 	if($sep=="" && strpos($data[0],";")!==false) $sep=";";
@@ -31,7 +29,6 @@ function import_file($file) {
 		}
 		$data[$key]=array_values($val);
 	}
-	file_put_contents($cache,gzencode(serialize($data),1));
 	return $data;
 }
 

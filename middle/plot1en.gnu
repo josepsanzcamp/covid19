@@ -6,7 +6,6 @@ set auto x
 set yrange [0:60000]
 set style data histogram
 set style fill solid border -1
-set xtic rotate by -45 scale 0
 set style histogram gap 3
 set datafile separator ';'
 set output 'output/plot1en1.png'

@@ -6,9 +6,9 @@ set auto x
 set yrange [0:60000]
 set style data histogram
 set style fill solid border -1
-set xtic rotate by -45 scale 0
-set datafile separator ';'
 set style histogram gap 3
+set bmargin 3
+set datafile separator ';'
 set output 'output/plot2ca1.png'
 plot [-0.5:11.5] 'middle/plot2ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
 set output 'output/plot2ca2.png'

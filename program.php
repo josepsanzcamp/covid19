@@ -48,7 +48,6 @@ function console_debug($file="") {
 		ob_start();
 	} else {
 		$output=trim(ob_get_clean());
-		if(strpos($output,"warning: difficulty making room for xtic labels")!==false) $output="";
 		$used=microtime(true)-$start;
 		if($used>=1) $used=round($used,2)."sec";
 		elseif($used>=0.001) $used=round($used*1000,2)."msec";
@@ -695,20 +694,19 @@ if(!file_exists("middle/euromomo.csv")) {
 	$pos2=strpos($buffer,"}')",$pos);
 	$buffer=substr($buffer,$pos,$pos2-$pos+1);
 	$json=json_decode($buffer,true);
-	$weeks=$json["weeks"];
 	$matrix=array();
-	foreach($json["pooled"] as $key=>$val) {
+	$weeks=$json["pooled"]["weeks"];
+	foreach($json["pooled"]["groups"] as $key=>$val) {
+		$group=$val["group"];
+		unset($val["group"]);
 		foreach($val as $key2=>$val2) {
-			$group=$val2["group"];
-			unset($val2["group"]);
 			foreach($val2 as $key3=>$val3) {
-				foreach($val3 as $key4=>$val4) {
-					$matrix[]=array("pooled","",$group,$key3,$weeks[$key4],$val4);
-				}
+				$matrix[]=array("pooled","",$group,$key2,$weeks[$key3],$val3);
 			}
 		}
 	}
-	foreach($json["countries"] as $key=>$val) {
+	$weeks=$json["countries"]["weeks"];
+	foreach($json["countries"]["countries"] as $key=>$val) {
 		$country=$val["country"];
 		unset($val["country"]);
 		foreach($val["groups"] as $key2=>$val2) {
@@ -728,8 +726,6 @@ if(!file_exists("middle/euromomo.csv")) {
 if(!file_exists("middle/euromomo-ok.csv")) {
 	console_debug("middle/euromomo-ok.csv");
 	$data=import_file("middle/euromomo.csv");
-	$momoold=import_file("middle/dataold-ok2.csv");
-	$momonew=import_file("middle/datanew-ok2.csv");
 	$fechas=array();
 	$columnas=array();
 	foreach($data as $key=>$val) {
@@ -740,8 +736,7 @@ if(!file_exists("middle/euromomo-ok.csv")) {
 		if($val[0]=="pooled") $columnas[$val[3]]=$val[3];
 		if($val[0]=="countries") $columnas[$val[1]]=$val[1];
 	}
-	$columnas["MoMoOld"]="MoMoOld";
-	$columnas["MoMoNew"]="MoMoNew";
+	asort($fechas);
 	$matrix=array(array_merge(array(""),$columnas));
 	foreach($fechas as $key=>$val) {
 		$matrix[$val][$val]=$val;
@@ -758,29 +753,6 @@ if(!file_exists("middle/euromomo-ok.csv")) {
 			if(!isset($matrix[$val[4]][$val[1]])) die("ERROR 8");
 			$matrix[$val[4]][$val[1]]=$val[5];
 		}
-	}
-	$sumas=array();
-	foreach($momoold as $key=>$val) {
-		$key2="MoMoOld";
-		$key3=date("o-W",strtotime($val[0]));
-		if(isset($fechas[$key3])) {
-			$key4=$key2."-".$key3;
-			if(!isset($sumas[$key4])) $sumas[$key4]=array($key2,$key3,0);
-			$sumas[$key4][2]+=$val[1];
-		}
-	}
-	foreach($momonew as $key=>$val) {
-		$key2="MoMoNew";
-		$key3=date("o-W",strtotime($val[0]));
-		if(isset($fechas[$key3])) {
-			$key4=$key2."-".$key3;
-			if(!isset($sumas[$key4])) $sumas[$key4]=array($key2,$key3,0);
-			$sumas[$key4][2]+=$val[1];
-		}
-	}
-	foreach($sumas as $key=>$val) {
-		if(!isset($matrix[$val[1]][$val[0]])) die("ERROR 9");
-		$matrix[$val[1]][$val[0]]=$val[2];
 	}
 	foreach($matrix as $key=>$val) {
 		if(isset($fechas[$key]) && implode("",$val)==$key) {
@@ -1005,7 +977,6 @@ if(!file_exists("output/plot1${lang}1.png")) {
 		"set yrange [0:60000]",
 		"set style data histogram",
 		"set style fill solid border -1",
-		"set xtic rotate by -45 scale 0",
 		"set style histogram gap 3",
 		"set datafile separator ';'",
 		"set output 'output/plot1${lang}1.png'",
@@ -1049,7 +1020,7 @@ if(!file_exists("output/plot2${lang}1.png")) {
 	}
 	foreach($matrix as $key=>$val) {
 		$temp=explode("-",$key);
-		$matrix[$key]=array_merge(array($textos["meses"][$lang][$temp[1]]." ".$temp[0]),$val);
+		$matrix[$key]=array_merge(array($textos["meses"][$lang][$temp[1]]."\\n".$temp[0]),$val);
 	}
 	array_unshift($matrix,array_merge(array("Mes"),$header));
 	export_file("middle/plot2${lang}.csv",$matrix);
@@ -1062,9 +1033,9 @@ if(!file_exists("output/plot2${lang}1.png")) {
 		"set yrange [0:60000]",
 		"set style data histogram",
 		"set style fill solid border -1",
-		"set xtic rotate by -45 scale 0",
-		"set datafile separator ';'",
 		"set style histogram gap 3",
+		"set bmargin 3",
+		"set datafile separator ';'",
 		"set output 'output/plot2${lang}1.png'",
 		"plot [-0.5:11.5] 'middle/plot2${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 		"set output 'output/plot2${lang}2.png'",
@@ -1126,9 +1097,8 @@ if(!file_exists("output/plot3${lang}1.png")) {
 		"set timefmt '%Y-%m-%d'",
 		"set format x '%Y-%m-%d'",
 		"set xrange ['2020-01-01':'2020-09-01']",
-		"set xtic rotate by -45 scale 0",
+		"set xtics '2020-01-06',86400*7,'2020-09-01'",
 		"set datafile separator ';'",
-		"set xtics '2020-01-01',86400*7,'2020-09-01'",
 		"set output 'output/plot3${lang}1.png'",
 		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:6 w l lc 9 ti col",
 		"set output 'output/plot3${lang}2.png'",
@@ -1200,9 +1170,8 @@ if(!file_exists("output/plot4${lang}1.png")) {
 		"set yrange [0:60000]",
 		"set style data histogram",
 		"set style fill solid border -1",
-		"set xtic rotate by -45 scale 0",
-		"set datafile separator ';'",
 		"set style histogram gap 3",
+		"set datafile separator ';'",
 		"set output 'output/plot4${lang}1.png'",
 		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
 		"set yrange [0:20000]",
@@ -1276,8 +1245,8 @@ if(!file_exists("output/plot5${lang}1.png")) {
 		"08 Castilla - La Mancha"=>"08 Castilla\\nLa Mancha",
 		"10 Comunitat Valenciana"=>"10 Comunitat\\nValenciana",
 		"13 Madrid, Comunidad de"=>"13 Comunidad\\nde Madrid",
-		"14 Murcia, Región de"=>"14 Región de\\nMurcia",
-		"15 Navarra, Comunidad Foral de"=>"15 Comunidad\\nForal de\\nNavarra",
+		"14 Murcia, Región de"=>"14 Región\\nde Murcia",
+		"15 Navarra, Comunidad Foral de"=>"15 Comunidad\\nForal de Navarra",
 		"18 Ceuta + 19 Melilla"=>"18 Ceuta\\n19 Melilla",
 	);
 	foreach($matrix as $key=>$val) {
@@ -1295,9 +1264,9 @@ if(!file_exists("output/plot5${lang}1.png")) {
 		"set yrange [0:30000]",
 		"set style data histogram",
 		"set style fill solid border -1",
-		"set xtic rotate by -45 scale 0",
-		"set datafile separator ';'",
 		"set style histogram gap 3",
+		"set bmargin 3",
+		"set datafile separator ';'",
 		"set output 'output/plot5${lang}1.png'",
 		"plot [-0.5:5.5] 'middle/plot5${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
 		"set output 'output/plot5${lang}2.png'",
@@ -1343,8 +1312,8 @@ if(!file_exists("output/plot6${lang}.png")) {
 		"08 Castilla - La Mancha"=>"08 Castilla\\nLa Mancha",
 		"10 Comunitat Valenciana"=>"10 Comunitat\\nValenciana",
 		"13 Madrid, Comunidad de"=>"13 Comunidad\\nde Madrid",
-		"14 Murcia, Región de"=>"14 Región de\\nMurcia",
-		"15 Navarra, Comunidad Foral de"=>"15 Comunidad\\nForal de\\nNavarra",
+		"14 Murcia, Región de"=>"14 Región\\nde Murcia",
+		"15 Navarra, Comunidad Foral de"=>"15 Comunidad\\nForal de Navarra",
 		"18 Ceuta + 19 Melilla"=>"18 Ceuta\\n19 Melilla",
 	);
 	foreach($matrix as $key=>$val) {
@@ -1366,8 +1335,8 @@ if(!file_exists("output/plot6${lang}.png")) {
 		"set style data histogram",
 		"set style fill solid border -1",
 		"set xtic rotate by -45 scale 0",
-		"set datafile separator ';'",
 		"set style histogram gap 3",
+		"set datafile separator ';'",
 		"set output 'output/plot6${lang}.png'",
 		"plot 'middle/plot6${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 	))."\n";
@@ -1470,7 +1439,7 @@ if(!file_exists("output/plot8${lang}1.png")) {
 	}
 	foreach($matrix as $key=>$val) {
 		$temp=explode("-",$key);
-		$matrix[$key][$key]=$textos["meses"][$lang][$temp[1]]." ".$temp[0];
+		$matrix[$key][$key]=$textos["meses"][$lang][$temp[1]]."\\n".$temp[0];
 	}
 	array_unshift($matrix,array_merge(array("Mes"),$axis0,$axis2));
 	export_file("middle/plot8${lang}.csv",$matrix);
@@ -1495,15 +1464,17 @@ if(!file_exists("output/plot8${lang}1.png")) {
 		"set yrange [0:60000]",
 		"set style data histogram",
 		"set style fill solid border -1",
-		"set xtic rotate by -45 scale 0",
-		"set datafile separator ';'",
 		"set style histogram gap 3",
+		"set bmargin 3",
+		"set datafile separator ';'",
 		"set output 'output/plot8${lang}1.png'",
 		"plot [-0.5:13.5] 'middle/plot8${lang}.csv' ${cols2plot1}",
 		"set output 'output/plot8${lang}2.png'",
 		"plot [13.5:27.5] 'middle/plot8${lang}.csv' ${cols2plot1}",
 		"set label 1 \"".$textos["escala"][$lang]."\" at 12,9000 c tc lt 1",
 		"set yrange [0:10000]",
+		"set xtic rotate by -45 scale 0",
+		"unset bmargin",
 		"set output 'output/plot8${lang}3.png'",
 		"plot [0.5:24.5] 'middle/plot8${lang}.csv' ${cols2plot2}",
 	))."\n";
@@ -1546,6 +1517,13 @@ if(!file_exists("output/plot9${lang}01.png")) {
 		$key2=date("Y-m-d",strtotime("2020W".$key)+86400*2);
 		$matrix[$key]=array_merge(array($key2),$val);
 	}
+	foreach($header as $key=>$val) {
+		if(implode("",array_column($matrix,$val))=="") {
+			foreach($matrix as $key2=>$val2) {
+				$matrix[$key2][$val]=-100; // TRICK
+			}
+		}
+	}
 	array_unshift($matrix,array_merge(array("Fecha"),$header));
 	export_file("middle/plot9${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
@@ -1559,9 +1537,8 @@ if(!file_exists("output/plot9${lang}01.png")) {
 		"set timefmt '%Y-%m-%d'",
 		"set format x '%Y-%m-%d'",
 		"set xrange ['2020-01-01':'2021-01-01']",
-		"set xtic rotate by -45 scale 0",
+		"set xtics '2020-02-01',86400*30,'2020-12-01'",
 		"set datafile separator ';'",
-		"set xtics '2020-01-01',86400*30,'2021-01-01'",
 	))."\n";
 	for($i=0;$i<count($paises);$i++) {
 		$col2=$i*count($años)+2;
@@ -1623,9 +1600,8 @@ if(!file_exists("output/plot10${lang}.png")) {
 		"set timefmt '%Y-%m-%d'",
 		"set format x '%Y-%m-%d'",
 		"set xrange ['2020-01-01':'2021-01-01']",
-		"set xtic rotate by -45 scale 0",
+		"set xtics '2020-02-01',86400*30,'2020-12-01'",
 		"set datafile separator ';'",
-		"set xtics '2020-01-01',86400*30,'2021-01-01'",
 		"set output 'output/plot10${lang}.png'",
 		"plot 'middle/plot10${lang}.csv' u 1:2 w l ti col,'' u 1:3 w l ti col,'' u 1:4 w l ti col,'' u 1:5 w l ti col,'' u 1:6 w l ti col,'' u 1:7 w l lc 7 ti col",
 	))."\n";
@@ -1668,9 +1644,8 @@ if(!file_exists("output/plot11${lang}.png")) {
 		"set timefmt '%Y-%m-%d'",
 		"set format x '%Y-%m-%d'",
 		"set xrange ['2020-01-01':'2021-01-01']",
-		"set xtic rotate by -45 scale 0",
+		"set xtics '2020-02-01',86400*30,'2020-12-01'",
 		"set datafile separator ';'",
-		"set xtics '2020-01-01',86400*30,'2021-01-01'",
 		"set output 'output/plot11${lang}.png'",
 		"plot 'middle/plot11${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp lc 7 ti col",
 	))."\n";
@@ -1714,9 +1689,8 @@ if(!file_exists("output/plot12${lang}.png")) {
 		"set timefmt '%Y-%m-%d'",
 		"set format x '%Y-%m-%d'",
 		"set xrange ['2020-01-01':'2021-01-01']",
-		"set xtic rotate by -45 scale 0",
+		"set xtics '2020-02-01',86400*30,'2020-12-01'",
 		"set datafile separator ';'",
-		"set xtics '2020-01-01',86400*30,'2021-01-01'",
 		"set output 'output/plot12${lang}.png'",
 		"plot 'middle/plot12${lang}.csv' u 1:4 w l ti col,'' u 1:3 w l ti col,'' u 1:2 w l ti col",
 	))."\n";

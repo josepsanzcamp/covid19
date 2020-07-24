@@ -6,7 +6,7 @@ if [ "$1" == "all" ]; then
 fi
 
 if [ "$1" == "momo" ]; then
-	rm -f middle/datanew* output/plot[1,2,3,4,5,8]*
+	rm -f middle/datanew* output/plot0[1-5,8]* output/plot12*
 	time php program.php
 fi
 

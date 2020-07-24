@@ -770,51 +770,62 @@ $textos=array(
 		"en"=>"Useful Spain information about the covid-19 impact: Graphs of deaths by year, origin of the data, daily accumulated, by age, by autonomous community, and more",
 	),
 	"plots"=>array(
-		1=>array(
+		"01"=>array(
 			"ca"=>"1. Defuncions per any i mes (només anys on algun mes ha superat els 40k morts, les dades de l'any 2020 són del MoMo i la resta són del INE)",
 			"es"=>"1. Defunciones por año y mes (sólo años donde algún mes ha superado los 40k muertos, los datos del 2020 son del MoMo y el resto son del INE)",
 			"en"=>"1. Deaths by year and month (only years where some month has exceeded 40k deaths, 2020 data are from the MoMo and the rest are from the INE)",
-		),array(
+		),
+		"02"=>array(
 			"ca"=>"2. Defuncions per any i mes del MoMo i INE entre 2018 i 2020",
 			"es"=>"2. Defunciones por año y mes del MoMo y INE entre 2018 y 2020",
 			"en"=>"2. Deaths by year and month of the MoMo and INE between 2018 and 2020",
-		),array(
+		),
+		"03"=>array(
 			"ca"=>"3. Defuncions per dia obtinguts del MoMo per al 2020, 2019, 2018 i el promig del 2018",
 			"es"=>"3. Defunciones por dia obtenidos del MoMo para el 2020, 2019, 2018 y el promedio del 2018",
 			"en"=>"3. Deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average",
-		),array(
+		),
+		"04"=>array(
 			"ca"=>"4. Defuncions per any, mes i edat (les dades de l'any 2020 són del MoMo i la resta són del INE)",
 			"es"=>"4. Defunciones por año, mes y edad (los datos del 2020 son del MoMo y el resto son del INE)",
 			"en"=>"4. Deaths by year, month and age (2020 data are from MoMo and the rest are from INE)",
-		),array(
+		),
+		"05"=>array(
 			"ca"=>"5. Defuncions per comunitat autònoma i any (acumulats per any de març i abril, les dades de l'any 2020 són del MoMo i la resta són del INE)",
 			"es"=>"5. Defunciones por comunidad autónoma y año (acumulados por año de marzo y abril, los datos del 2020 son del MoMo y el resto son del INE)",
 			"en"=>"5. Deaths by autonomous community and year (accumulated by year of March and April, the data for 2020 are from the MoMo and the rest are from the INE)",
-		),array(
+		),
+		"06"=>array(
 			"ca"=>"6. Places de residències per tipus i comunitat autònoma (dades obtingudes de envejecimientoenred.es, del CSIC del 2019)",
 			"es"=>"6. Plazas de residencias por tipo y comunidad autónoma (datos obtenidos de envejecimientoenred.es, del CSIC del 2019)",
 			"en"=>"6. Places of residences by type and autonomous community (data obtained from envejecimientoenred.es, from the CSIC of 2019)",
-		),array(
+		),
+		"07"=>array(
 			"ca"=>"7. Relació de llits de hospital i infermeres per país en 2016 segons dades OECD",
 			"es"=>"7. Relación de camas de hospital y enfermeras por país en 2016 segun datos OECD",
 			"en"=>"7. Relation of hospital beds and nurses by country in 2016 according to OECD data",
-		),array(
+		),
+		"08"=>array(
 			"ca"=>"8. Defuncions per any i mes del MoMo segons la data de descarrega del fitxer de dades i diferencia entre cada fitxer",
 			"es"=>"8. Defunciones por año i mes del MoMo según la fecha de descarga del fichero de datos y diferencia entre cada fichero",
 			"en"=>"8. Deaths by year and month of the MoMo related to the download date of the data file and difference between each file",
-		),array(
+		),
+		"09"=>array(
 			"ca"=>"9. Defuncions per setmana del any y per pais obtingudes del EuroMoMo (el valor que es mostra es el zscore)",
 			"es"=>"9. Defunciones por semana del año y por país obtenidas del EuroMoMo (el valor que se muestra es el zscore)",
 			"en"=>"9. Deaths by week of year and by country obtained from the EuroMoMo (the value used to plot is the zscore)",
-		),array(
+		),
+		"10"=>array(
 			"ca"=>"10. Defuncions per dia obtinguts del Statistics Sweden",
 			"es"=>"10. Defunciones por dia obtenidos del Statistics Sweden",
 			"en"=>"10. Deaths by day obtained from Statistics Sweden",
-		),array(
+		),
+		"11"=>array(
 			"ca"=>"11. Defuncions per dia obtinguts del Statistics Norway",
 			"es"=>"11. Defunciones por dia obtenidos del Statistics Norway",
 			"en"=>"11. Deaths by day obtained from Statistics Norway",
-		),array(
+		),
+		"12"=>array(
 			"ca"=>"12. Defuncions per dia obtinguts del MoMo",
 			"es"=>"12. Defunciones por dia obtenidos del MoMo",
 			"en"=>"12. Deaths per day obtained from the MoMo",
@@ -927,8 +938,8 @@ $textos=array(
 
 foreach(array("ca","es","en") as $lang) {
 
-if(!file_exists("output/plot1${lang}1.png")) {
-	console_debug("output/plot1${lang}1.png");
+if(!file_exists("output/plot01${lang}1.png")) {
+	console_debug("output/plot01${lang}1.png");
 	$momoold=import_file("middle/dataold-ok.csv");
 	$momonew=import_file("middle/datanew-ok.csv");
 	$ine1=import_file("middle/02001-ok.csv");
@@ -967,10 +978,10 @@ if(!file_exists("output/plot1${lang}1.png")) {
 		$matrix[$key]=array_merge(array($textos["meses"][$lang][$key]),$val);
 	}
 	array_unshift($matrix,array_merge(array("Mes"),$header));
-	export_file("middle/plot1${lang}.csv",$matrix);
+	export_file("middle/plot01${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][1][$lang]."\"",
+		"set title \"".$textos["plots"]["01"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -979,18 +990,18 @@ if(!file_exists("output/plot1${lang}1.png")) {
 		"set style fill solid border -1",
 		"set style histogram gap 3",
 		"set datafile separator ';'",
-		"set output 'output/plot1${lang}1.png'",
-		"plot [-0.5:5.5] 'middle/plot1${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
-		"set output 'output/plot1${lang}2.png'",
-		"plot [5.5:11.5] 'middle/plot1${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"set output 'output/plot01${lang}1.png'",
+		"plot [-0.5:5.5] 'middle/plot01${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"set output 'output/plot01${lang}2.png'",
+		"plot [5.5:11.5] 'middle/plot01${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 	))."\n";
-	file_put_contents("middle/plot1${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot1${lang}.gnu 2>&1");
+	file_put_contents("middle/plot01${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot01${lang}.gnu 2>&1");
 	console_debug();
 }
 
-if(!file_exists("output/plot2${lang}1.png")) {
-	console_debug("output/plot2${lang}1.png");
+if(!file_exists("output/plot02${lang}1.png")) {
+	console_debug("output/plot02${lang}1.png");
 	$momoold=import_file("middle/dataold-ok.csv");
 	$momonew=import_file("middle/datanew-ok.csv");
 	$ine=import_file("middle/02001-ok.csv");
@@ -1023,10 +1034,10 @@ if(!file_exists("output/plot2${lang}1.png")) {
 		$matrix[$key]=array_merge(array($textos["meses"][$lang][$temp[1]]."\\n".$temp[0]),$val);
 	}
 	array_unshift($matrix,array_merge(array("Mes"),$header));
-	export_file("middle/plot2${lang}.csv",$matrix);
+	export_file("middle/plot02${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][2][$lang]."\"",
+		"set title \"".$textos["plots"]["02"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1036,20 +1047,20 @@ if(!file_exists("output/plot2${lang}1.png")) {
 		"set style histogram gap 3",
 		"set bmargin 3",
 		"set datafile separator ';'",
-		"set output 'output/plot2${lang}1.png'",
-		"plot [-0.5:11.5] 'middle/plot2${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
-		"set output 'output/plot2${lang}2.png'",
-		"plot [11.5:23.5] 'middle/plot2${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
-		"set output 'output/plot2${lang}3.png'",
-		"plot [23.5:35.5] 'middle/plot2${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"set output 'output/plot02${lang}1.png'",
+		"plot [-0.5:11.5] 'middle/plot02${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"set output 'output/plot02${lang}2.png'",
+		"plot [11.5:23.5] 'middle/plot02${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"set output 'output/plot02${lang}3.png'",
+		"plot [23.5:35.5] 'middle/plot02${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 	))."\n";
-	file_put_contents("middle/plot2${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot2${lang}.gnu 2>&1");
+	file_put_contents("middle/plot02${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot02${lang}.gnu 2>&1");
 	console_debug();
 }
 
-if(!file_exists("output/plot3${lang}1.png")) {
-	console_debug("output/plot3${lang}1.png");
+if(!file_exists("output/plot03${lang}1.png")) {
+	console_debug("output/plot03${lang}1.png");
 	$momoold=import_file("middle/dataold-ok2.csv");
 	$momonew=import_file("middle/datanew-ok2.csv");
 	$otros=import_file("middle/7947-ok.csv");
@@ -1085,10 +1096,10 @@ if(!file_exists("output/plot3${lang}1.png")) {
 		}
 	}
 	array_unshift($matrix,array("Fecha","MoMoOld","MoMoNew","MoMo2019","MoMo2018","INE2018"));
-	export_file("middle/plot3${lang}.csv",$matrix);
+	export_file("middle/plot03${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][3][$lang]."\"",
+		"set title \"".$textos["plots"]["03"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1099,22 +1110,22 @@ if(!file_exists("output/plot3${lang}1.png")) {
 		"set xrange ['2020-01-01':'2020-09-01']",
 		"set xtics '2020-01-06',86400*7,'2020-09-01'",
 		"set datafile separator ';'",
-		"set output 'output/plot3${lang}1.png'",
-		"plot ['2020-01-01':'2020-03-01'] 'middle/plot3${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:6 w l lc 9 ti col",
-		"set output 'output/plot3${lang}2.png'",
-		"plot ['2020-03-01':'2020-05-01'] 'middle/plot3${lang}.csv' u 1:2 w lp lc 1 pt 1 ti col, '' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:6 w l lc 9 ti col",
-		"set output 'output/plot3${lang}3.png'",
-		"plot ['2020-05-01':'2020-07-01'] 'middle/plot3${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col",
-		"set output 'output/plot3${lang}4.png'",
-		"plot ['2020-07-01':'2020-09-01'] 'middle/plot3${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col",
+		"set output 'output/plot03${lang}1.png'",
+		"plot ['2020-01-01':'2020-03-01'] 'middle/plot03${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:6 w l lc 9 ti col",
+		"set output 'output/plot03${lang}2.png'",
+		"plot ['2020-03-01':'2020-05-01'] 'middle/plot03${lang}.csv' u 1:2 w lp lc 1 pt 1 ti col, '' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:6 w l lc 9 ti col",
+		"set output 'output/plot03${lang}3.png'",
+		"plot ['2020-05-01':'2020-07-01'] 'middle/plot03${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col",
+		"set output 'output/plot03${lang}4.png'",
+		"plot ['2020-07-01':'2020-09-01'] 'middle/plot03${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col",
 	))."\n";
-	file_put_contents("middle/plot3${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot3${lang}.gnu 2>&1");
+	file_put_contents("middle/plot03${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot03${lang}.gnu 2>&1");
 	console_debug();
 }
 
-if(!file_exists("output/plot4${lang}1.png")) {
-	console_debug("output/plot4${lang}1.png");
+if(!file_exists("output/plot04${lang}1.png")) {
+	console_debug("output/plot04${lang}1.png");
 	$momoold=import_file("middle/dataold-ok3.csv");
 	$momonew=import_file("middle/datanew-ok3.csv");
 	$ine=import_file("middle/02001-ok2.csv");
@@ -1160,10 +1171,10 @@ if(!file_exists("output/plot4${lang}1.png")) {
 		$header[$key]=$val;
 	}
 	array_unshift($matrix,array_merge(array("Mes"),$header));
-	export_file("middle/plot4${lang}.csv",$matrix);
+	export_file("middle/plot04${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][4][$lang]."\"",
+		"set title \"".$textos["plots"]["04"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1172,22 +1183,22 @@ if(!file_exists("output/plot4${lang}1.png")) {
 		"set style fill solid border -1",
 		"set style histogram gap 3",
 		"set datafile separator ';'",
-		"set output 'output/plot4${lang}1.png'",
-		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
+		"set output 'output/plot04${lang}1.png'",
+		"plot [-0.5:11.5] 'middle/plot04${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
 		"set yrange [0:20000]",
 		"set label 1 \"".$textos["escala"][$lang]."\" at 5.5,17500 c tc lt 1",
-		"set output 'output/plot4${lang}2.png'",
-		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col",
-		"set output 'output/plot4${lang}3.png'",
-		"plot [-0.5:11.5] 'middle/plot4${lang}.csv' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"set output 'output/plot04${lang}2.png'",
+		"plot [-0.5:11.5] 'middle/plot04${lang}.csv' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col",
+		"set output 'output/plot04${lang}3.png'",
+		"plot [-0.5:11.5] 'middle/plot04${lang}.csv' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 	))."\n";
-	file_put_contents("middle/plot4${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot4${lang}.gnu 2>&1");
+	file_put_contents("middle/plot04${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot04${lang}.gnu 2>&1");
 	console_debug();
 }
 
-if(!file_exists("output/plot5${lang}1.png")) {
-	console_debug("output/plot5${lang}1.png");
+if(!file_exists("output/plot05${lang}1.png")) {
+	console_debug("output/plot05${lang}1.png");
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
@@ -1254,10 +1265,10 @@ if(!file_exists("output/plot5${lang}1.png")) {
 		$matrix[$key]=array_merge(array($ccaa),$val);
 	}
 	array_unshift($matrix,array_merge(array("CCAA"),$header));
-	export_file("middle/plot5${lang}.csv",$matrix);
+	export_file("middle/plot05${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][5][$lang]."\"",
+		"set title \"".$textos["plots"]["05"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1267,20 +1278,20 @@ if(!file_exists("output/plot5${lang}1.png")) {
 		"set style histogram gap 3",
 		"set bmargin 3",
 		"set datafile separator ';'",
-		"set output 'output/plot5${lang}1.png'",
-		"plot [-0.5:5.5] 'middle/plot5${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
-		"set output 'output/plot5${lang}2.png'",
-		"plot [5.5:11.5] 'middle/plot5${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
-		"set output 'output/plot5${lang}3.png'",
-		"plot [11.5:17.5] 'middle/plot5${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"set output 'output/plot05${lang}1.png'",
+		"plot [-0.5:5.5] 'middle/plot05${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"set output 'output/plot05${lang}2.png'",
+		"plot [5.5:11.5] 'middle/plot05${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
+		"set output 'output/plot05${lang}3.png'",
+		"plot [11.5:17.5] 'middle/plot05${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
 	))."\n";
-	file_put_contents("middle/plot5${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot5${lang}.gnu 2>&1");
+	file_put_contents("middle/plot05${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot05${lang}.gnu 2>&1");
 	console_debug();
 }
 
-if(!file_exists("output/plot6${lang}.png")) {
-	console_debug("output/plot6${lang}.png");
+if(!file_exists("output/plot06${lang}.png")) {
+	console_debug("output/plot06${lang}.png");
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
@@ -1324,10 +1335,10 @@ if(!file_exists("output/plot6${lang}.png")) {
 		$header[$key]=$textos["tipos"][$lang][$val];
 	}
 	array_unshift($matrix,array_merge(array("CCAA"),$header));
-	export_file("middle/plot6${lang}.csv",$matrix);
+	export_file("middle/plot06${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][6][$lang]."\"",
+		"set title \"".$textos["plots"]["06"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1337,16 +1348,16 @@ if(!file_exists("output/plot6${lang}.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set style histogram gap 3",
 		"set datafile separator ';'",
-		"set output 'output/plot6${lang}.png'",
-		"plot 'middle/plot6${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"set output 'output/plot06${lang}.png'",
+		"plot 'middle/plot06${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 	))."\n";
-	file_put_contents("middle/plot6${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot6${lang}.gnu 2>&1");
+	file_put_contents("middle/plot06${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot06${lang}.gnu 2>&1");
 	console_debug();
 }
 
-if(!file_exists("output/plot7${lang}1.png")) {
-	console_debug("output/plot7${lang}1.png");
+if(!file_exists("output/plot07${lang}1.png")) {
+	console_debug("output/plot07${lang}1.png");
 	$temp=import_file("input/oecd/code2country.csv");
 	$paises=array();
 	foreach($temp as $key=>$val) {
@@ -1366,7 +1377,7 @@ if(!file_exists("output/plot7${lang}1.png")) {
 		$matrix[$key]=array($paises[$key],$val);
 	}
 	array_unshift($matrix,array("Pais",$textos["hospitalbed"][$lang]));
-	export_file("middle/plot7${lang}1.csv",$matrix);
+	export_file("middle/plot07${lang}1.csv",$matrix);
 	$matrix=array();
 	foreach($nurse as $key=>$val) {
 		if($val[1]=="NURSE" && $val[2]=="TOT" && $val[5]=="2016") {
@@ -1379,10 +1390,10 @@ if(!file_exists("output/plot7${lang}1.png")) {
 		$matrix[$key]=array($paises[$key],$val);
 	}
 	array_unshift($matrix,array("Pais",$textos["nurse"][$lang]));
-	export_file("middle/plot7${lang}2.csv",$matrix);
+	export_file("middle/plot07${lang}2.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][7][$lang]."\"",
+		"set title \"".$textos["plots"]["07"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1392,18 +1403,18 @@ if(!file_exists("output/plot7${lang}1.png")) {
 		"set xtic rotate by -45 scale 0",
 		"set datafile separator ';'",
 		"set style histogram gap 3",
-		"set output 'output/plot7${lang}1.png'",
-		"plot 'middle/plot7${lang}1.csv' u 2:xtic(1) ti col",
-		"set output 'output/plot7${lang}2.png'",
-		"plot 'middle/plot7${lang}2.csv' u 2:xtic(1) ti col",
+		"set output 'output/plot07${lang}1.png'",
+		"plot 'middle/plot07${lang}1.csv' u 2:xtic(1) ti col",
+		"set output 'output/plot07${lang}2.png'",
+		"plot 'middle/plot07${lang}2.csv' u 2:xtic(1) ti col",
 	))."\n";
-	file_put_contents("middle/plot7${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot7${lang}.gnu 2>&1");
+	file_put_contents("middle/plot07${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot07${lang}.gnu 2>&1");
 	console_debug();
 }
 
-if(!file_exists("output/plot8${lang}1.png")) {
-	console_debug("output/plot8${lang}1.png");
+if(!file_exists("output/plot08${lang}1.png")) {
+	console_debug("output/plot08${lang}1.png");
 	$data=import_file("middle/datanew-ok7.csv");
 	$axis0=array();
 	$axis1=array();
@@ -1442,7 +1453,7 @@ if(!file_exists("output/plot8${lang}1.png")) {
 		$matrix[$key][$key]=$textos["meses"][$lang][$temp[1]]."\\n".$temp[0];
 	}
 	array_unshift($matrix,array_merge(array("Mes"),$axis0,$axis2));
-	export_file("middle/plot8${lang}.csv",$matrix);
+	export_file("middle/plot08${lang}.csv",$matrix);
 	$cols2plot1=array();
 	for($i=0;$i<count($axis0);$i++) {
 		$col=$i+2;
@@ -1457,7 +1468,7 @@ if(!file_exists("output/plot8${lang}1.png")) {
 	$cols2plot2=implode(", '' ",$cols2plot2);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][8][$lang]."\"",
+		"set title \"".$textos["plots"]["08"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1467,24 +1478,24 @@ if(!file_exists("output/plot8${lang}1.png")) {
 		"set style histogram gap 3",
 		"set bmargin 3",
 		"set datafile separator ';'",
-		"set output 'output/plot8${lang}1.png'",
-		"plot [-0.5:13.5] 'middle/plot8${lang}.csv' ${cols2plot1}",
-		"set output 'output/plot8${lang}2.png'",
-		"plot [13.5:27.5] 'middle/plot8${lang}.csv' ${cols2plot1}",
+		"set output 'output/plot08${lang}1.png'",
+		"plot [-0.5:13.5] 'middle/plot08${lang}.csv' ${cols2plot1}",
+		"set output 'output/plot08${lang}2.png'",
+		"plot [13.5:27.5] 'middle/plot08${lang}.csv' ${cols2plot1}",
 		"set label 1 \"".$textos["escala"][$lang]."\" at 12,9000 c tc lt 1",
 		"set yrange [0:10000]",
 		"set xtic rotate by -45 scale 0",
 		"unset bmargin",
-		"set output 'output/plot8${lang}3.png'",
-		"plot [0.5:24.5] 'middle/plot8${lang}.csv' ${cols2plot2}",
+		"set output 'output/plot08${lang}3.png'",
+		"plot [0.5:24.5] 'middle/plot08${lang}.csv' ${cols2plot2}",
 	))."\n";
-	file_put_contents("middle/plot8${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot8${lang}.gnu 2>&1");
+	file_put_contents("middle/plot08${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot08${lang}.gnu 2>&1");
 	console_debug();
 }
 
-if(!file_exists("output/plot9${lang}01.png")) {
-	console_debug("output/plot9${lang}01.png");
+if(!file_exists("output/plot09${lang}01.png")) {
+	console_debug("output/plot09${lang}01.png");
 	$data=import_file("middle/euromomo.csv");
 	$paises=array();
 	$años=array();
@@ -1525,10 +1536,10 @@ if(!file_exists("output/plot9${lang}01.png")) {
 		}
 	}
 	array_unshift($matrix,array_merge(array("Fecha"),$header));
-	export_file("middle/plot9${lang}.csv",$matrix);
+	export_file("middle/plot09${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][9][$lang]."\"",
+		"set title \"".$textos["plots"]["09"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1549,14 +1560,14 @@ if(!file_exists("output/plot9${lang}01.png")) {
 		$col7=$i*count($años)+7;
 		$j=sprintf("%02d",$i+1);
 		$gnuplot.=implode("\n",array(
-			"set output 'output/plot9${lang}${j}.png'",
-			"plot 'middle/plot9${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
+			"set output 'output/plot09${lang}${j}.png'",
+			"plot 'middle/plot09${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
 		))."\n";
 	}
 	$gnuplot.=implode("\n",array(
 	))."\n";
-	file_put_contents("middle/plot9${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot9${lang}.gnu 2>&1");
+	file_put_contents("middle/plot09${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot09${lang}.gnu 2>&1");
 	console_debug();
 }
 
@@ -1591,7 +1602,7 @@ if(!file_exists("output/plot10${lang}.png")) {
 	export_file("middle/plot10${lang}.csv",$sweden);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][10][$lang]."\"",
+		"set title \"".$textos["plots"]["10"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1635,7 +1646,7 @@ if(!file_exists("output/plot11${lang}.png")) {
 	export_file("middle/plot11${lang}.csv",$norway);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][11][$lang]."\"",
+		"set title \"".$textos["plots"]["11"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",
@@ -1680,7 +1691,7 @@ if(!file_exists("output/plot12${lang}.png")) {
 	export_file("middle/plot12${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"][12][$lang]."\"",
+		"set title \"".$textos["plots"]["12"][$lang]."\"",
 		"set rmargin 3",
 		"set grid",
 		"set auto x",

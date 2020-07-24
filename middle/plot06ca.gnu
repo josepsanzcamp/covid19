@@ -9,5 +9,5 @@ set style fill solid border -1
 set xtic rotate by -45 scale 0
 set style histogram gap 3
 set datafile separator ';'
-set output 'output/plot6ca.png'
-plot 'middle/plot6ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
+set output 'output/plot06ca.png'
+plot 'middle/plot06ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col

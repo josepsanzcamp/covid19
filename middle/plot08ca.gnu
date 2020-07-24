@@ -9,13 +9,13 @@ set style fill solid border -1
 set style histogram gap 3
 set bmargin 3
 set datafile separator ';'
-set output 'output/plot8ca1.png'
-plot [-0.5:13.5] 'middle/plot8ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col
-set output 'output/plot8ca2.png'
-plot [13.5:27.5] 'middle/plot8ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col
+set output 'output/plot08ca1.png'
+plot [-0.5:13.5] 'middle/plot08ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col
+set output 'output/plot08ca2.png'
+plot [13.5:27.5] 'middle/plot08ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col
 set label 1 "Atenció: aquesta gràfica te l'escala diferent que la gràfica anterior del mateix grup" at 12,9000 c tc lt 1
 set yrange [0:10000]
 set xtic rotate by -45 scale 0
 unset bmargin
-set output 'output/plot8ca3.png'
-plot [0.5:24.5] 'middle/plot8ca.csv' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col
+set output 'output/plot08ca3.png'
+plot [0.5:24.5] 'middle/plot08ca.csv' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col

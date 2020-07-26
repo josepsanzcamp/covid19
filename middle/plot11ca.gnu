@@ -1,5 +1,5 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
-set title "11. Defuncions per dia obtinguts del Statistics Norway"
+set title "11. Defuncions per setmana obtinguts del Statistics Norway"
 set rmargin 3
 set grid
 set auto x

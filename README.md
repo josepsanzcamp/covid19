@@ -60,4 +60,7 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/population-composition/population-statistics/pong/tables-and-graphs/preliminary-statistics-on-deaths/
 - https://www.ssb.no/en/statbank/list/dode/ => Statistics Norway
 - https://www.ssb.no/en/statbank/table/07995/ => 07995: Deaths, by sex, age and week. Preliminary figures 2000 - 2020
+- https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_base_dados
+- https://www.ine.pt/xportal/xmain?contexto=bd&bdtemas=00&bdfreetext=death&bdind_por_pagina=15&xpid=INE&xpgid=ine_base_dados&bdpagenumber=1
+- https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0010112&contexto=bd&selTab=tab2
 

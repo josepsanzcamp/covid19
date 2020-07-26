@@ -821,14 +821,19 @@ $textos=array(
 			"en"=>"10. Deaths by day obtained from Statistics Sweden",
 		),
 		"11"=>array(
-			"ca"=>"11. Defuncions per dia obtinguts del Statistics Norway",
-			"es"=>"11. Defunciones por dia obtenidos del Statistics Norway",
-			"en"=>"11. Deaths by day obtained from Statistics Norway",
+			"ca"=>"11. Defuncions per setmana obtinguts del Statistics Norway",
+			"es"=>"11. Defunciones por semana obtenidos del Statistics Norway",
+			"en"=>"11. Deaths by week obtained from Statistics Norway",
 		),
 		"12"=>array(
 			"ca"=>"12. Defuncions per dia obtinguts del MoMo",
 			"es"=>"12. Defunciones por dia obtenidos del MoMo",
 			"en"=>"12. Deaths per day obtained from the MoMo",
+		),
+		"13"=>array(
+			"ca"=>"13. Defuncions per setmana obtinguts del Statistics Portugal",
+			"es"=>"13. Defunciones por semana obtenidos del Statistics Portugal",
+			"en"=>"13. Deaths by week obtained from Statistics Portugal",
 		),
 	),
 	"footer"=>array(
@@ -1707,6 +1712,68 @@ if(!file_exists("output/plot12${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot12${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot12${lang}.gnu 2>&1");
+	console_debug();
+}
+
+if(!file_exists("output/plot13${lang}.png")) {
+	console_debug("output/plot13${lang}.png");
+	$files=glob("input/portugal/*.csv");
+	rsort($files);
+	$portugal=import_file($files[0]);
+	foreach($portugal as $key=>$val) {
+		if(strpos($val[0]," Week ")!==false && $val[1]=="Total" && $val[2]=="T") {
+			$temp=explode(" ",$val[0]);
+			$week=sprintf("%02d",intval($temp[0]));
+			$val=array(
+				date("Y-m-d",strtotime("2020W".$week)+86400*2),
+				$temp[2],
+				intval($val[3]),
+			);
+			$portugal[$key]=$val;
+		} else {
+			unset($portugal[$key]);
+		}
+	}
+	$fechas=array();
+	$años=array();
+	foreach($portugal as $key=>$val) {
+		$fechas[$val[0]]=$val[0];
+		$años[$val[1]]=$val[1];
+	}
+	asort($fechas);
+	asort($años);
+	$matrix=array();
+	foreach($fechas as $fecha) {
+		foreach($años as $año) {
+			$matrix[$fecha][$año]="";
+		}
+	}
+	foreach($portugal as $key=>$val) {
+		$matrix[$val[0]][$val[1]]=$val[2];
+	}
+	foreach($matrix as $key=>$val) {
+		$matrix[$key]=array_merge(array($key),$val);
+	}
+	array_unshift($matrix,array_merge(array("Fecha"),$años));
+	export_file("middle/plot13${lang}.csv",$matrix);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set title \"".$textos["plots"]["13"][$lang]."\"",
+		"set rmargin 3",
+		"set grid",
+		"set auto x",
+		"set yrange [0:3500]",
+		"set xdata time",
+		"set timefmt '%Y-%m-%d'",
+		"set format x '%Y-%m-%d'",
+		"set xrange ['2020-01-01':'2021-01-01']",
+		"set xtics '2020-02-01',86400*30,'2020-12-01'",
+		"set datafile separator ';'",
+		"set output 'output/plot13${lang}.png'",
+		"plot 'middle/plot13${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col",
+	))."\n";
+	file_put_contents("middle/plot13${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot13${lang}.gnu 2>&1");
 	console_debug();
 }
 

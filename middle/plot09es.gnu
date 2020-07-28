@@ -1,7 +1,10 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
 set title "9. Defunciones por semana del año y por país obtenidas del EuroMoMo (el valor que se muestra es el zscore)"
-set rmargin 3
 set grid
+set tmargin 3
+set rmargin 6
+set bmargin 3
+set lmargin 6
 set auto x
 set yrange [-10:50]
 set xdata time
@@ -9,6 +12,8 @@ set timefmt '%Y-%m-%d'
 set format x '%Y-%m-%d'
 set xrange ['2020-01-01':'2021-01-01']
 set xtics '2020-02-01',86400*30,'2020-12-01'
+set ytic center rotate by 90
+set ytics 0,10,40
 set datafile separator ';'
 set output 'output/plot09es01.png'
 plot 'middle/plot09es.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp lc 7 ti col

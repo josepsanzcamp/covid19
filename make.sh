@@ -11,7 +11,22 @@ if [ "$1" == "momo" ]; then
 fi
 
 if [ "$1" == "euromomo" ]; then
-	rm -f middle/euromomo* output/plot9*
+	rm -f middle/euromomo* output/plot09*
+	time php program.php
+fi
+
+if [ "$1" == "sweden" ]; then
+	rm -f output/plot10*
+	time php program.php
+fi
+
+if [ "$1" == "norway" ]; then
+	rm -f output/plot11*
+	time php program.php
+fi
+
+if [ "$1" == "portugal" ]; then
+	rm -f output/plot13*
 	time php program.php
 fi
 

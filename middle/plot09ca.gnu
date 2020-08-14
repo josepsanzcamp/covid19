@@ -57,4 +57,6 @@ set output 'output/plot09ca20.png'
 plot 'middle/plot09ca.csv' u 1:116 w lp ti col,'' u 1:117 w lp ti col,'' u 1:118 w lp ti col,'' u 1:119 w lp ti col,'' u 1:120 w lp ti col,'' u 1:121 w lp lc 7 ti col
 set output 'output/plot09ca21.png'
 plot 'middle/plot09ca.csv' u 1:122 w lp ti col,'' u 1:123 w lp ti col,'' u 1:124 w lp ti col,'' u 1:125 w lp ti col,'' u 1:126 w lp ti col,'' u 1:127 w lp lc 7 ti col
+set output 'output/plot09ca22.png'
+plot 'middle/plot09ca.csv' u 1:128 w lp ti col,'' u 1:129 w lp ti col,'' u 1:130 w lp ti col,'' u 1:131 w lp ti col,'' u 1:132 w lp ti col,'' u 1:133 w lp lc 7 ti col
 

@@ -1476,7 +1476,11 @@ if(!file_exists("output/plot08${lang}1.png")) {
 	$axis1=array();
 	foreach($data as $key=>$val) {
 		if(!isset($axis0[$val[0]])) $axis0[$val[0]]=$val[0];
-		if(!isset($axis1[$val[1]])) $axis1[$val[1]]=$val[1];
+		//~ if(!isset($axis1[$val[1]])) $axis1[$val[1]]=$val[1];
+	}
+	for($i=strtotime("2018-01-01 12:00:00");$i<=strtotime("2021-01-01 12:00:00");$i+=86400) {
+		$fecha=date("Y-m",$i);
+		$axis1[$fecha]=$fecha;
 	}
 	$matrix=array();
 	foreach($axis1 as $key=>$val) {
@@ -1539,17 +1543,20 @@ if(!file_exists("output/plot08${lang}1.png")) {
 		"set ytics 0,10000,50000",
 		"set datafile separator ';'",
 		"set output 'output/plot08${lang}1.png'",
-		"set xrange [-0.5:13.5]",
+		"set xrange [-0.5:11.5]",
 		"plot 'middle/plot08${lang}.csv' ${cols2plot1}",
 		"set output 'output/plot08${lang}2.png'",
-		"set xrange [13.5:27.5]",
+		"set xrange [11.5:23.5]",
 		"plot 'middle/plot08${lang}.csv' ${cols2plot1}",
-		"set label 1 \"".$textos["escala"][$lang]."\" at 12,9000 c tc lt 1",
+		"set output 'output/plot08${lang}3.png'",
+		"set xrange [23.5:35.5]",
+		"plot 'middle/plot08${lang}.csv' ${cols2plot1}",
+		"set label 1 \"".$textos["escala"][$lang]."\" at 15.5,9000 c tc lt 1",
 		"set yrange [0:10000]",
 		"set ytics 0,2000,8000",
 		"set xtic rotate by -45",
-		"set output 'output/plot08${lang}3.png'",
-		"set xrange [0.5:24.5]",
+		"set output 'output/plot08${lang}4.png'",
+		"set xrange [3.5:27.5]",
 		"set bmargin 5",
 		"plot 'middle/plot08${lang}.csv' ${cols2plot2}",
 	))."\n";

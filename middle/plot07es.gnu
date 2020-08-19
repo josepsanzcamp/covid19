@@ -1,5 +1,5 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
-set title "7. Relación de camas de hospital y enfermeras por país en 2016 segun datos OECD"
+set title "7. Relación de camas de hospital, enfermeras y médicos por país el 2019 o ultimo año donde existan datos segun datos OECD"
 set grid
 set tmargin 3
 set rmargin 6
@@ -19,3 +19,5 @@ set output 'output/plot07es1.png'
 plot 'middle/plot07es1.csv' u 2:xtic(1) ti col
 set output 'output/plot07es2.png'
 plot 'middle/plot07es2.csv' u 2:xtic(1) ti col
+set output 'output/plot07es3.png'
+plot 'middle/plot07es3.csv' u 2:xtic(1) ti col

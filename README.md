@@ -46,6 +46,7 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - https://data.oecd.org/spain.htm
 - https://data.oecd.org/healtheqt/hospital-beds.htm => Hospital beds
 - https://data.oecd.org/healthres/nurses.htm => Nurses
+- https://data.oecd.org/healthres/doctors.htm => Doctors
 - https://stats.oecd.org/viewhtml.aspx?datasetcode=HEALTH_STAT&lang=en# => Para descargar la tabla de mortalidad por paises
 - https://www.oecd-ilibrary.org/social-issues-migration-health/population/indicator/english_d434f82b-en => Para descargar los datos de poblacion por paises
 

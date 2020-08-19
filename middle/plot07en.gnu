@@ -1,5 +1,5 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
-set title "7. Relation of hospital beds and nurses by country in 2016 according to OECD data"
+set title "7. Relation of hospital beds, nurses and doctors by country in 2019 or latest year where data is found according to OECD data"
 set grid
 set tmargin 3
 set rmargin 6
@@ -19,3 +19,5 @@ set output 'output/plot07en1.png'
 plot 'middle/plot07en1.csv' u 2:xtic(1) ti col
 set output 'output/plot07en2.png'
 plot 'middle/plot07en2.csv' u 2:xtic(1) ti col
+set output 'output/plot07en3.png'
+plot 'middle/plot07en3.csv' u 2:xtic(1) ti col

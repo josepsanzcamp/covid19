@@ -688,9 +688,9 @@ if(!file_exists("middle/euromomo.csv")) {
 	rsort($files);
 	$buffer=file_get_contents($files[0]);
 	$pos=strrpos($buffer,"JSON.parse");
-	if($pos===false) die("ERROR 5");
+	if($pos===false) die("ERROR 2");
 	$pos=strpos($buffer,"{",$pos);
-	if($pos===false) die("ERROR 6");
+	if($pos===false) die("ERROR 3");
 	$pos2=strpos($buffer,"}')",$pos);
 	$buffer=substr($buffer,$pos,$pos2-$pos+1);
 	$json=json_decode($buffer,true);
@@ -746,11 +746,11 @@ if(!file_exists("middle/euromomo-ok.csv")) {
 	}
 	foreach($data as $key=>$val) {
 		if($val[0]=="pooled") {
-			if(!isset($matrix[$val[4]][$val[3]])) die("ERROR 7");
+			if(!isset($matrix[$val[4]][$val[3]])) die("ERROR 4");
 			$matrix[$val[4]][$val[3]]=$val[5];
 		}
 		if($val[0]=="countries") {
-			if(!isset($matrix[$val[4]][$val[1]])) die("ERROR 8");
+			if(!isset($matrix[$val[4]][$val[1]])) die("ERROR 5");
 			$matrix[$val[4]][$val[1]]=$val[5];
 		}
 	}
@@ -801,9 +801,9 @@ $textos=array(
 			"en"=>"6. Places of residences by type and autonomous community (data obtained from envejecimientoenred.es, from the CSIC of 2019)",
 		),
 		"07"=>array(
-			"ca"=>"7. Relació de llits de hospital i infermeres per país en 2016 segons dades OECD",
-			"es"=>"7. Relación de camas de hospital y enfermeras por país en 2016 segun datos OECD",
-			"en"=>"7. Relation of hospital beds and nurses by country in 2016 according to OECD data",
+			"ca"=>"7. Relació de llits de hospital, infermeres y metges per país en 2019 o darrer any on existeixin dades segons dades OECD",
+			"es"=>"7. Relación de camas de hospital, enfermeras y médicos por país en 2019 o ultimo año donde existan datos segun datos OECD",
+			"en"=>"7. Relation of hospital beds, nurses and doctors by country in 2019 or latest year where data is found according to OECD data",
 		),
 		"08"=>array(
 			"ca"=>"8. Defuncions per any i mes del MoMo segons la data de descarrega del fitxer de dades i diferencia entre cada fitxer",
@@ -928,6 +928,11 @@ $textos=array(
 		"ca"=>"% enfermeres per cada 1000 habitants",
 		"es"=>"% enfermeras por cada 1000 habitantes",
 		"en"=>"% nurses per 1000 inhabitants",
+	),
+	"doctor"=>array(
+		"ca"=>"% metges per cada 1000 habitants",
+		"es"=>"% médicos por cada 1000 habitantes",
+		"en"=>"% doctors per 1000 inhabitants",
 	),
 	"momoold"=>array(
 		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció, he anomenat MoMoOld a les dades anteriors a la correcció i MoMoNew a les darreres dades oficials",
@@ -1413,34 +1418,69 @@ if(!file_exists("output/plot07${lang}1.png")) {
 	foreach($temp as $key=>$val) {
 		$paises[$val[0]]=$val[1];
 	}
-	$bed=import_file("input/oecd/DP_LIVE_13052020195801818.csv");
-	$nurse=import_file("input/oecd/DP_LIVE_13052020195843630.csv");
+	$bed=import_file("input/oecd/DP_LIVE_19082020091144018.csv");
+	$nurse=import_file("input/oecd/DP_LIVE_19082020092133263.csv");
+	$doctor=import_file("input/oecd/DP_LIVE_19082020092144951.csv");
+	$years=array();
+	foreach($bed as $key=>$val) {
+		if($val[1]=="HOSPITALBED" && $val[2]=="TOT") {
+			if(!isset($years[$val[0]])) $years[$val[0]]=0;
+			$years[$val[0]]=max($years[$val[0]],$val[5]);
+		}
+	}
 	$matrix=array();
 	foreach($bed as $key=>$val) {
-		if($val[1]=="HOSPITALBED" && $val[2]=="TOT" && $val[5]=="2016") {
-			if(isset($matrix[$val[0]])) die("ERROR 2");
+		if($val[1]=="HOSPITALBED" && $val[2]=="TOT" && $val[5]==$years[$val[0]]) {
+			if(isset($matrix[$val[0]])) die("ERROR 6");
 			$matrix[$val[0]]=$val[6];
 		}
 	}
-	arsort($matrix);
+	ksort($matrix);
 	foreach($matrix as $key=>$val) {
-		$matrix[$key]=array($paises[$key],$val);
+		$matrix[$key]=array($paises[$key],$val,$years[$key]);
 	}
-	array_unshift($matrix,array("Pais",$textos["hospitalbed"][$lang]));
+	array_unshift($matrix,array("Pais",$textos["hospitalbed"][$lang],"Year"));
 	export_file("middle/plot07${lang}1.csv",$matrix);
+	$years=array();
+	foreach($nurse as $key=>$val) {
+		if($val[1]=="NURSE" && $val[2]=="TOT") {
+			if(!isset($years[$val[0]])) $years[$val[0]]=0;
+			$years[$val[0]]=max($years[$val[0]],$val[5]);
+		}
+	}
 	$matrix=array();
 	foreach($nurse as $key=>$val) {
-		if($val[1]=="NURSE" && $val[2]=="TOT" && $val[5]=="2016") {
-			if(isset($matrix[$val[0]])) die("ERROR 3");
+		if($val[1]=="NURSE" && $val[2]=="TOT" && $val[5]==$years[$val[0]]) {
+			if(isset($matrix[$val[0]])) die("ERROR 7");
 			$matrix[$val[0]]=$val[6];
 		}
 	}
-	arsort($matrix);
+	ksort($matrix);
 	foreach($matrix as $key=>$val) {
-		$matrix[$key]=array($paises[$key],$val);
+		$matrix[$key]=array($paises[$key],$val,$years[$key]);
 	}
-	array_unshift($matrix,array("Pais",$textos["nurse"][$lang]));
+	array_unshift($matrix,array("Pais",$textos["nurse"][$lang],"Year"));
 	export_file("middle/plot07${lang}2.csv",$matrix);
+	$years=array();
+	foreach($doctor as $key=>$val) {
+		if($val[1]=="MEDICALDOC" && $val[2]=="TOT") {
+			if(!isset($years[$val[0]])) $years[$val[0]]=0;
+			$years[$val[0]]=max($years[$val[0]],$val[5]);
+		}
+	}
+	$matrix=array();
+	foreach($doctor as $key=>$val) {
+		if($val[1]=="MEDICALDOC" && $val[2]=="TOT" && $val[5]==$years[$val[0]]) {
+			if(isset($matrix[$val[0]])) die("ERROR 8");
+			$matrix[$val[0]]=$val[6];
+		}
+	}
+	ksort($matrix);
+	foreach($matrix as $key=>$val) {
+		$matrix[$key]=array($paises[$key],$val,$years[$key]);
+	}
+	array_unshift($matrix,array("Pais",$textos["doctor"][$lang],"Year"));
+	export_file("middle/plot07${lang}3.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
 		"set title \"".$textos["plots"]["07"][$lang]."\"",
@@ -1463,6 +1503,8 @@ if(!file_exists("output/plot07${lang}1.png")) {
 		"plot 'middle/plot07${lang}1.csv' u 2:xtic(1) ti col",
 		"set output 'output/plot07${lang}2.png'",
 		"plot 'middle/plot07${lang}2.csv' u 2:xtic(1) ti col",
+		"set output 'output/plot07${lang}3.png'",
+		"plot 'middle/plot07${lang}3.csv' u 2:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot07${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot07${lang}.gnu 2>&1");
@@ -1490,7 +1532,7 @@ if(!file_exists("output/plot08${lang}1.png")) {
 		}
 	}
 	foreach($data as $key=>$val) {
-		if($matrix[$val[1]][$val[0]]!="") die("ERROR 4");
+		if($matrix[$val[1]][$val[0]]!="") die("ERROR 9");
 		$matrix[$val[1]][$val[0]]=$val[2];
 	}
 	$diff0=array_values(array_slice($axis0,0,-1));
@@ -1591,7 +1633,7 @@ if(!file_exists("output/plot09${lang}01.png")) {
 	foreach($data as $key=>$val) {
 		if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
 			$temp=explode("-",$val[4]);
-			if(!isset($matrix[$temp[1]][$val[1]."-".$temp[0]])) die("ERROR 7");
+			if(!isset($matrix[$temp[1]][$val[1]."-".$temp[0]])) die("ERROR 10");
 			$matrix[$temp[1]][$val[1]."-".$temp[0]]=$val[5];
 		}
 	}

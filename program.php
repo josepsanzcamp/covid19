@@ -1421,6 +1421,26 @@ if(!file_exists("output/plot07${lang}1.png")) {
 	$bed=import_file("input/oecd/DP_LIVE_19082020091144018.csv");
 	$nurse=import_file("input/oecd/DP_LIVE_19082020092133263.csv");
 	$doctor=import_file("input/oecd/DP_LIVE_19082020092144951.csv");
+	$matrix=array();
+	foreach($bed as $key=>$val) {
+		if($val[1]=="HOSPITALBED" && $val[2]=="TOT") {
+			if(!isset($matrix[$val[0]])) $matrix[$val[0]]=$paises[$val[0]];
+		}
+	}
+	foreach($nurse as $key=>$val) {
+		if($val[1]=="NURSE" && $val[2]=="TOT") {
+			if(!isset($matrix[$val[0]])) $matrix[$val[0]]=$paises[$val[0]];
+		}
+	}
+	foreach($doctor as $key=>$val) {
+		if($val[1]=="MEDICALDOC" && $val[2]=="TOT") {
+			if(!isset($matrix[$val[0]])) $matrix[$val[0]]=$paises[$val[0]];
+		}
+	}
+	asort($matrix);
+	foreach($matrix as $key=>$val) {
+		$matrix[$key]=array($val,"","","","","","");
+	}
 	$years=array();
 	foreach($bed as $key=>$val) {
 		if($val[1]=="HOSPITALBED" && $val[2]=="TOT") {
@@ -1428,19 +1448,13 @@ if(!file_exists("output/plot07${lang}1.png")) {
 			$years[$val[0]]=max($years[$val[0]],$val[5]);
 		}
 	}
-	$matrix=array();
 	foreach($bed as $key=>$val) {
 		if($val[1]=="HOSPITALBED" && $val[2]=="TOT" && $val[5]==$years[$val[0]]) {
-			if(isset($matrix[$val[0]])) die("ERROR 6");
-			$matrix[$val[0]]=$val[6];
+			if($matrix[$val[0]][1]!="") die("ERROR 6");
+			$matrix[$val[0]][1]=$val[6];
+			$matrix[$val[0]][2]=$val[5];
 		}
 	}
-	ksort($matrix);
-	foreach($matrix as $key=>$val) {
-		$matrix[$key]=array($paises[$key],$val,$years[$key]);
-	}
-	array_unshift($matrix,array("Pais",$textos["hospitalbed"][$lang],"Year"));
-	export_file("middle/plot07${lang}1.csv",$matrix);
 	$years=array();
 	foreach($nurse as $key=>$val) {
 		if($val[1]=="NURSE" && $val[2]=="TOT") {
@@ -1448,19 +1462,13 @@ if(!file_exists("output/plot07${lang}1.png")) {
 			$years[$val[0]]=max($years[$val[0]],$val[5]);
 		}
 	}
-	$matrix=array();
 	foreach($nurse as $key=>$val) {
 		if($val[1]=="NURSE" && $val[2]=="TOT" && $val[5]==$years[$val[0]]) {
-			if(isset($matrix[$val[0]])) die("ERROR 7");
-			$matrix[$val[0]]=$val[6];
+			if($matrix[$val[0]][3]!="") die("ERROR 7");
+			$matrix[$val[0]][3]=$val[6];
+			$matrix[$val[0]][4]=$val[5];
 		}
 	}
-	ksort($matrix);
-	foreach($matrix as $key=>$val) {
-		$matrix[$key]=array($paises[$key],$val,$years[$key]);
-	}
-	array_unshift($matrix,array("Pais",$textos["nurse"][$lang],"Year"));
-	export_file("middle/plot07${lang}2.csv",$matrix);
 	$years=array();
 	foreach($doctor as $key=>$val) {
 		if($val[1]=="MEDICALDOC" && $val[2]=="TOT") {
@@ -1468,19 +1476,15 @@ if(!file_exists("output/plot07${lang}1.png")) {
 			$years[$val[0]]=max($years[$val[0]],$val[5]);
 		}
 	}
-	$matrix=array();
 	foreach($doctor as $key=>$val) {
 		if($val[1]=="MEDICALDOC" && $val[2]=="TOT" && $val[5]==$years[$val[0]]) {
-			if(isset($matrix[$val[0]])) die("ERROR 8");
-			$matrix[$val[0]]=$val[6];
+			if($matrix[$val[0]][5]!="") die("ERROR 8");
+			$matrix[$val[0]][5]=$val[6];
+			$matrix[$val[0]][6]=$val[5];
 		}
 	}
-	ksort($matrix);
-	foreach($matrix as $key=>$val) {
-		$matrix[$key]=array($paises[$key],$val,$years[$key]);
-	}
-	array_unshift($matrix,array("Pais",$textos["doctor"][$lang],"Year"));
-	export_file("middle/plot07${lang}3.csv",$matrix);
+	array_unshift($matrix,array("Pais",$textos["hospitalbed"][$lang],"Year",$textos["nurse"][$lang],"Year",$textos["doctor"][$lang],"Year"));
+	export_file("middle/plot07${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
 		"set title \"".$textos["plots"]["07"][$lang]."\"",
@@ -1500,11 +1504,11 @@ if(!file_exists("output/plot07${lang}1.png")) {
 		"set ytics 0,5,15",
 		"set datafile separator ';'",
 		"set output 'output/plot07${lang}1.png'",
-		"plot 'middle/plot07${lang}1.csv' u 2:xtic(1) ti col",
+		"set xrange [-0.5:21.5]",
+		"plot 'middle/plot07${lang}.csv' u 2:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 6:xtic(1) ti col",
 		"set output 'output/plot07${lang}2.png'",
-		"plot 'middle/plot07${lang}2.csv' u 2:xtic(1) ti col",
-		"set output 'output/plot07${lang}3.png'",
-		"plot 'middle/plot07${lang}3.csv' u 2:xtic(1) ti col",
+		"set xrange [21.5:43.5]",
+		"plot 'middle/plot07${lang}.csv' u 2:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 6:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot07${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot07${lang}.gnu 2>&1");

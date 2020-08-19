@@ -16,8 +16,8 @@ set ytic center rotate by 90
 set ytics 0,5,15
 set datafile separator ';'
 set output 'output/plot07ca1.png'
-plot 'middle/plot07ca1.csv' u 2:xtic(1) ti col
+set xrange [-0.5:21.5]
+plot 'middle/plot07ca.csv' u 2:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 6:xtic(1) ti col
 set output 'output/plot07ca2.png'
-plot 'middle/plot07ca2.csv' u 2:xtic(1) ti col
-set output 'output/plot07ca3.png'
-plot 'middle/plot07ca3.csv' u 2:xtic(1) ti col
+set xrange [21.5:43.5]
+plot 'middle/plot07ca.csv' u 2:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 6:xtic(1) ti col

@@ -1,5 +1,5 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
-set title "7. Relación de camas de hospital, enfermeras y médicos por país el 2019 o ultimo año donde existan datos segun datos OECD"
+set title "7. Relación de camas de hospital, enfermeras y médicos por país en 2019 o ultimo año donde existan datos segun datos OECD"
 set grid
 set tmargin 3
 set rmargin 6

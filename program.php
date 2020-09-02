@@ -1089,7 +1089,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 	$momonew=import_file("middle/datanew-ok2.csv");
 	$otros=import_file("middle/7947-ok.csv");
 	$matrix=array();
-	for($i=strtotime("2020-01-01 12:00:00");$i<=strtotime("2020-09-01 12:00:00");$i+=86400) {
+	for($i=strtotime("2020-01-01 12:00:00");$i<=strtotime("2020-11-01 12:00:00");$i+=86400) {
 		$fecha=date("Y-m-d",$i);
 		$i=strtotime($fecha." 12:00:00");
 		$matrix[$fecha]=array($fecha,"","","","","");
@@ -1134,8 +1134,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 		"set xdata time",
 		"set timefmt '%Y-%m-%d'",
 		"set format x '%Y-%m-%d'",
-		"set xrange ['2020-01-01':'2020-09-01']",
-		"set xtics '2020-01-06',86400*7,'2020-09-01'",
+		"set xtics '2020-01-06',86400*7,'2020-11-01'",
 		"set ytic center rotate by 90",
 		"set ytics 0,500,3000",
 		"set datafile separator ';'",
@@ -1151,7 +1150,10 @@ if(!file_exists("output/plot03${lang}1.png")) {
 		"set output 'output/plot03${lang}4.png'",
 		"set xrange ['2020-07-01':'2020-09-01']",
 		"plot 'middle/plot03${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col",
-	))."\n";
+		"set output 'output/plot03${lang}5.png'",
+		"set xrange ['2020-09-01':'2020-11-01']",
+		"plot 'middle/plot03${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col",
+ 	))."\n";
 	file_put_contents("middle/plot03${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot03${lang}.gnu 2>&1");
 	console_debug();

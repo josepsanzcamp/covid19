@@ -685,81 +685,49 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 if(!file_exists("middle/euromomo.csv")) {
 	console_debug("middle/euromomo.csv");
 	$files=glob("input/euromomo/component.????????.js");
-	rsort($files);
-	$buffer=file_get_contents($files[0]);
-	$pos=strrpos($buffer,"JSON.parse");
-	if($pos===false) die("ERROR 2");
-	$pos=strpos($buffer,"{",$pos);
-	if($pos===false) die("ERROR 3");
-	$pos2=strpos($buffer,"}')",$pos);
-	$buffer=substr($buffer,$pos,$pos2-$pos+1);
-	$json=json_decode($buffer,true);
-	$matrix=array();
-	$weeks=$json["pooled"]["weeks"];
-	foreach($json["pooled"]["groups"] as $key=>$val) {
-		$group=$val["group"];
-		unset($val["group"]);
-		foreach($val as $key2=>$val2) {
-			foreach($val2 as $key3=>$val3) {
-				$matrix[]=array("pooled","",$group,$key2,$weeks[$key3],$val3);
-			}
-		}
-	}
-	$weeks=$json["countries"]["weeks"];
-	foreach($json["countries"]["countries"] as $key=>$val) {
-		$country=$val["country"];
-		unset($val["country"]);
-		foreach($val["groups"] as $key2=>$val2) {
-			$group=$val2["group"];
-			unset($val2["group"]);
-			foreach($val2 as $key3=>$val3) {
-				foreach($val3 as $key4=>$val4) {
-					$matrix[]=array("countries",$country,$group,$key3,$weeks[$key4],$val4);
+	sort($files);
+	foreach($files as $file) {
+		$temp=explode(".",$file);
+		$temp=$temp[1];
+		$buffer=file_get_contents($file);
+		$pos=strrpos($buffer,"JSON.parse");
+		if($pos===false) die("ERROR 2");
+		$pos=strpos($buffer,"{",$pos);
+		if($pos===false) die("ERROR 3");
+		$pos2=strpos($buffer,"}')",$pos);
+		$buffer=substr($buffer,$pos,$pos2-$pos+1);
+		$json=json_decode($buffer,true);
+		$matrix=array();
+		if(!isset($json["pooled"]["weeks"])) $json["pooled"]["weeks"]=$json["weeks"];
+		$weeks=$json["pooled"]["weeks"];
+		foreach($json["pooled"]["groups"] as $key=>$val) {
+			$group=$val["group"];
+			unset($val["group"]);
+			foreach($val as $key2=>$val2) {
+				foreach($val2 as $key3=>$val3) {
+					$matrix[]=array("pooled","",$group,$key2,$weeks[$key3],$val3);
 				}
 			}
 		}
-	}
-	export_file("middle/euromomo.csv",$matrix);
-	console_debug();
-}
-
-if(!file_exists("middle/euromomo-ok.csv")) {
-	console_debug("middle/euromomo-ok.csv");
-	$data=import_file("middle/euromomo.csv");
-	$fechas=array();
-	$columnas=array();
-	foreach($data as $key=>$val) {
-		if($val[2]!="Total") unset($data[$key]);
-	}
-	foreach($data as $key=>$val) {
-		$fechas[$val[4]]=$val[4];
-		if($val[0]=="pooled") $columnas[$val[3]]=$val[3];
-		if($val[0]=="countries") $columnas[$val[1]]=$val[1];
-	}
-	asort($fechas);
-	$matrix=array(array_merge(array(""),$columnas));
-	foreach($fechas as $key=>$val) {
-		$matrix[$val][$val]=$val;
-		foreach($columnas as $key2=>$val2) {
-			$matrix[$val][$val2]="";
+		if(!isset($json["countries"]["countries"])) $json["countries"]["countries"]=$json["countries"];
+		if(!isset($json["countries"]["weeks"])) $json["countries"]["weeks"]=$json["weeks"];
+		$weeks=$json["countries"]["weeks"];
+		foreach($json["countries"]["countries"] as $key=>$val) {
+			$country=$val["country"];
+			unset($val["country"]);
+			foreach($val["groups"] as $key2=>$val2) {
+				$group=$val2["group"];
+				unset($val2["group"]);
+				foreach($val2 as $key3=>$val3) {
+					foreach($val3 as $key4=>$val4) {
+						$matrix[]=array("countries",$country,$group,$key3,$weeks[$key4],$val4);
+					}
+				}
+			}
 		}
+		export_file("middle/euromomo.csv",$matrix);
+		copy("middle/euromomo.csv","middle/euromomo.${temp}.csv");
 	}
-	foreach($data as $key=>$val) {
-		if($val[0]=="pooled") {
-			if(!isset($matrix[$val[4]][$val[3]])) die("ERROR 4");
-			$matrix[$val[4]][$val[3]]=$val[5];
-		}
-		if($val[0]=="countries") {
-			if(!isset($matrix[$val[4]][$val[1]])) die("ERROR 5");
-			$matrix[$val[4]][$val[1]]=$val[5];
-		}
-	}
-	foreach($matrix as $key=>$val) {
-		if(isset($fechas[$key]) && implode("",$val)==$key) {
-			unset($matrix[$key]);
-		}
-	}
-	export_file("middle/euromomo-ok.csv",$matrix);
 	console_debug();
 }
 
@@ -1613,85 +1581,101 @@ if(!file_exists("output/plot08${lang}1.png")) {
 	console_debug();
 }
 
-if(!file_exists("output/plot09${lang}01.png")) {
-	console_debug("output/plot09${lang}01.png");
-	$data=import_file("middle/euromomo.csv");
-	$paises=array();
-	$años=array();
-	$semanas=array();
-	foreach($data as $key=>$val) {
-		if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
-			$paises[$val[1]]=$val[1];
-			$temp=explode("-",$val[4]);
-			$años[$temp[0]]=$temp[0];
-			$semanas[$temp[1]]=$temp[1];
-		}
-	}
-	$matrix=array();
-	foreach($semanas as $semana) {
-		foreach($paises as $pais) {
-			foreach($años as $año) {
-				$matrix[$semana][$pais."-".$año]="";
+if(!file_exists("output/plot09${lang}01.gif")) {
+	console_debug("output/plot09${lang}01.gif");
+	$files=glob("middle/euromomo.????????.csv");
+	sort($files);
+	foreach($files as $file) {
+		$temp2=explode(".",$file);
+		$temp2=$temp2[1];
+		$data=import_file($file);
+		if(!isset($first)) $paises=array();
+		$años=array();
+		$semanas=array();
+		foreach($data as $key=>$val) {
+			if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
+				if(!isset($first)) $paises[$val[1]]=$val[1];
+				$temp=explode("-",$val[4]);
+				$años[$temp[0]]=$temp[0];
+				$semanas[$temp[1]]=$temp[1];
 			}
 		}
-	}
-	$header=array_keys(reset($matrix));
-	foreach($data as $key=>$val) {
-		if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
-			$temp=explode("-",$val[4]);
-			if(!isset($matrix[$temp[1]][$val[1]."-".$temp[0]])) die("ERROR 10");
-			$matrix[$temp[1]][$val[1]."-".$temp[0]]=$val[5];
-		}
-	}
-	foreach($matrix as $key=>$val) {
-		$key2=date("Y-m-d",strtotime("2020W".$key)+86400*2);
-		$matrix[$key]=array_merge(array($key2),$val);
-	}
-	foreach($header as $key=>$val) {
-		if(implode("",array_column($matrix,$val))=="") {
-			foreach($matrix as $key2=>$val2) {
-				$matrix[$key2][$val]=-100; // TRICK
+		$first=1;
+		$matrix=array();
+		foreach($semanas as $semana) {
+			foreach($paises as $pais) {
+				foreach($años as $año) {
+					$matrix[$semana][$pais."-".$año]="";
+				}
 			}
 		}
-	}
-	array_unshift($matrix,array_merge(array("Fecha"),$header));
-	export_file("middle/plot09${lang}.csv",$matrix);
-	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-		"set title \"".$textos["plots"]["09"][$lang]."\"",
-		"set grid",
-		"set tmargin 3",
-		"set rmargin 6",
-		"set bmargin 3",
-		"set lmargin 6",
-		"set auto x",
-		"set yrange [-10:50]",
-		"set xdata time",
-		"set timefmt '%Y-%m-%d'",
-		"set format x '%Y-%m-%d'",
-		"set xrange ['2020-01-01':'2021-01-01']",
-		"set xtics '2020-02-01',86400*30,'2020-12-01'",
-		"set ytic center rotate by 90",
-		"set ytics 0,10,40",
-		"set datafile separator ';'",
-	))."\n";
-	for($i=0;$i<count($paises);$i++) {
-		$col2=$i*count($años)+2;
-		$col3=$i*count($años)+3;
-		$col4=$i*count($años)+4;
-		$col5=$i*count($años)+5;
-		$col6=$i*count($años)+6;
-		$col7=$i*count($años)+7;
-		$j=sprintf("%02d",$i+1);
-		$gnuplot.=implode("\n",array(
-			"set output 'output/plot09${lang}${j}.png'",
-			"plot 'middle/plot09${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
+		$header=array_keys(reset($matrix));
+		foreach($data as $key=>$val) {
+			if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
+				$temp=explode("-",$val[4]);
+				if(!isset($matrix[$temp[1]][$val[1]."-".$temp[0]])) die("ERROR 10");
+				$matrix[$temp[1]][$val[1]."-".$temp[0]]=$val[5];
+			}
+		}
+		foreach($matrix as $key=>$val) {
+			$key2=date("Y-m-d",strtotime("2020W".$key)+86400*2);
+			$matrix[$key]=array_merge(array($key2),$val);
+		}
+		foreach($header as $key=>$val) {
+			if(implode("",array_column($matrix,$val))=="") {
+				foreach($matrix as $key2=>$val2) {
+					$matrix[$key2][$val]=-100; // TRICK
+				}
+			}
+		}
+		array_unshift($matrix,array_merge(array("Fecha"),$header));
+		export_file("middle/plot09${lang}.csv",$matrix);
+		$gnuplot=implode("\n",array(
+			"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+			"set title \"".$textos["plots"]["09"][$lang]."\"",
+			"set grid",
+			"set tmargin 3",
+			"set rmargin 6",
+			"set bmargin 3",
+			"set lmargin 6",
+			"set auto x",
+			"set yrange [-10:50]",
+			"set xdata time",
+			"set timefmt '%Y-%m-%d'",
+			"set format x '%Y-%m-%d'",
+			"set xrange ['2020-01-01':'2021-01-01']",
+			"set xtics '2020-02-01',86400*30,'2020-12-01'",
+			"set ytic center rotate by 90",
+			"set ytics 0,10,40",
+			"set datafile separator ';'",
 		))."\n";
+		for($i=0;$i<count($paises);$i++) {
+			$col2=$i*count($años)+2;
+			$col3=$i*count($años)+3;
+			$col4=$i*count($años)+4;
+			$col5=$i*count($años)+5;
+			$col6=$i*count($años)+6;
+			$col7=$i*count($años)+7;
+			$j=sprintf("%02d",$i+1);
+			$gnuplot.=implode("\n",array(
+				"set output 'output/plot09${lang}${j}.png'",
+				"plot 'middle/plot09${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
+			))."\n";
+		}
+		$gnuplot.=implode("\n",array(
+		))."\n";
+		file_put_contents("middle/plot09${lang}.gnu",$gnuplot);
+		passthru("gnuplot middle/plot09${lang}.gnu 2>&1");
+		$imgs=glob("output/plot09${lang}??.png");
+		foreach($imgs as $img) {
+			$img2=str_replace(".png",".${temp2}.png",$img);
+			rename($img,$img2);
+		}
 	}
-	$gnuplot.=implode("\n",array(
-	))."\n";
-	file_put_contents("middle/plot09${lang}.gnu",$gnuplot);
-	passthru("gnuplot middle/plot09${lang}.gnu 2>&1");
+	for($i=0;$i<count($paises);$i++) {
+		$j=sprintf("%02d",$i+1);
+		passthru("convert -delay 50 output/plot09${lang}${j}.????????.png output/plot09${lang}${j}.gif");
+	}
 	console_debug();
 }
 
@@ -1939,13 +1923,15 @@ if(!file_exists("index.${lang}.html")) {
 			"<a name='plot${key}'></a>",
 			"<h3>".$val[$lang]."</h3>",
 		))."\n";
-		$imgs=glob("output/plot${key}${lang}*.png");
+		$imgs=array();
+		$imgs=array_merge($imgs,glob("output/plot${key}${lang}.png"));
+		$imgs=array_merge($imgs,glob("output/plot${key}${lang}?.png"));
+		$imgs=array_merge($imgs,glob("output/plot${key}${lang}??.gif"));
 		foreach($imgs as $img) {
 			$html.=implode("\n",array(
 				"<img src='${img}'/>",
 			))."\n";
 		}
-
 	}
 	$html.=implode("\n",array(
 		"<h3>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",

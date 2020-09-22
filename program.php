@@ -682,13 +682,13 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 	console_debug();
 }
 
-if(!file_exists("middle/euromomo.csv")) {
-	console_debug("middle/euromomo.csv");
+if(!count(glob("middle/euromomo.????????.csv"))) {
+	console_debug("middle/euromomo.????????.csv");
 	$files=glob("input/euromomo/component.????????.js");
 	sort($files);
 	foreach($files as $file) {
-		$temp=explode(".",$file);
-		$temp=$temp[1];
+		$part=explode(".",$file);
+		$part=$part[1];
 		$buffer=file_get_contents($file);
 		$pos=strrpos($buffer,"JSON.parse");
 		if($pos===false) die("ERROR 2");
@@ -725,8 +725,7 @@ if(!file_exists("middle/euromomo.csv")) {
 				}
 			}
 		}
-		export_file("middle/euromomo.csv",$matrix);
-		copy("middle/euromomo.csv","middle/euromomo.${temp}.csv");
+		export_file("middle/euromomo.${part}.csv",$matrix);
 	}
 	console_debug();
 }
@@ -1585,9 +1584,10 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 	console_debug("output/plot09${lang}01.gif");
 	$files=glob("middle/euromomo.????????.csv");
 	sort($files);
+	unset($first);
 	foreach($files as $file) {
-		$temp2=explode(".",$file);
-		$temp2=$temp2[1];
+		$part=explode(".",$file);
+		$part=$part[1];
 		$data=import_file($file);
 		if(!isset($first)) $paises=array();
 		$años=array();
@@ -1629,7 +1629,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 			}
 		}
 		array_unshift($matrix,array_merge(array("Fecha"),$header));
-		export_file("middle/plot09${lang}.csv",$matrix);
+		export_file("middle/plot09${lang}.${part}.csv",$matrix);
 		$gnuplot=implode("\n",array(
 			"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
 			"set title \"".$textos["plots"]["09"][$lang]."\"",
@@ -1658,19 +1658,14 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 			$col7=$i*count($años)+7;
 			$j=sprintf("%02d",$i+1);
 			$gnuplot.=implode("\n",array(
-				"set output 'output/plot09${lang}${j}.png'",
-				"plot 'middle/plot09${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
+				"set output 'output/plot09${lang}${j}.${part}.png'",
+				"plot 'middle/plot09${lang}.${part}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
 			))."\n";
 		}
 		$gnuplot.=implode("\n",array(
 		))."\n";
-		file_put_contents("middle/plot09${lang}.gnu",$gnuplot);
-		passthru("gnuplot middle/plot09${lang}.gnu 2>&1");
-		$imgs=glob("output/plot09${lang}??.png");
-		foreach($imgs as $img) {
-			$img2=str_replace(".png",".${temp2}.png",$img);
-			rename($img,$img2);
-		}
+		file_put_contents("middle/plot09${lang}.${part}.gnu",$gnuplot);
+		passthru("gnuplot middle/plot09${lang}.${part}.gnu 2>&1");
 	}
 	for($i=0;$i<count($paises);$i++) {
 		$j=sprintf("%02d",$i+1);

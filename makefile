@@ -8,6 +8,10 @@ momo:
 	time -p php program.php
 
 euromomo:
+	rm -f output/plot09*.gif
+	time -p php program.php
+
+euromomo.old:
 	rm -f middle/euromomo* output/plot09* index.*.html
 	time -p php program.php
 

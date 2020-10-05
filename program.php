@@ -492,6 +492,29 @@ if(!file_exists("middle/02002-ok.csv")) {
 	console_debug();
 }
 
+if(!file_exists("middle/02002-ok2.csv")) {
+	console_debug("middle/02002-ok2.csv");
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".$val[1];
+	}
+	$data=import_file("input/ine/02002.csv");
+	$matrix=array();
+	foreach($data as $key=>$val) {
+		if($val[0]=="TOTAL ESPAÑA" && $val[1]=="TOTAL EDADES" && $val[2]=="TOTAL" && $val[3]=="Ambos sexos") {
+			$matrix[$val[4]]=str_replace(".","",str_replace(".","",$val[5]));
+		}
+		unset($data[$key]);
+	}
+	$matrix=array("Any"=>"Total")+$matrix;
+	foreach($matrix as $key=>$val) {;
+		$matrix[$key]=array($key,$val);
+	}
+	export_file("middle/02002-ok2.csv",$matrix);
+	console_debug();
+}
+
 if(!file_exists("middle/6548-ok2.csv")) {
 	console_debug("middle/6548-ok2.csv");
 	$temp=import_file("input/csic/prov2ccaa.csv");
@@ -803,6 +826,11 @@ $textos=array(
 			"es"=>"13. Defunciones por dia obtenidos del SICO Portugal",
 			"en"=>"13. Deaths by day obtained from SICO Portugal",
 		),
+		"14"=>array(
+			"ca"=>"14. Defuncions per anys del MoMo i del INE (any = dades de Gener a Setembre + Octubre a Desembre de l'any anterior)",
+			"es"=>"14. Defunciones por año del MoMo y del INE (año = datos de Enero a Setiembre + Octubre a Diciembre del año anterior)",
+			"en"=>"14. Deaths by year obtained from MoMo and INE (year = data from January to September + October to December of the previous year)",
+		),
 	),
 	"footer"=>array(
 		"ca"=>"Més info / fonts",
@@ -911,6 +939,11 @@ $textos=array(
 		"ca"=>"Atenció: aquesta gràfica te l'escala diferent que la gràfica anterior del mateix grup",
 		"es"=>"Atención: esta gráfica tiene la escala diferente que la gráfica anterior del mismo grupo",
 		"en"=>"Atencion: this plot has a different scale related to the previous plot of the same group",
+	),
+	"plot14"=>array(
+		"ca"=>"Gener a Setembre + Octubre a Desembre de l'any anterior",
+		"es"=>"Enero a Setiembre + Octubre a Diciembre del año anterior",
+		"en"=>"January to September + October to December of the previous year",
 	),
 );
 
@@ -1896,6 +1929,76 @@ if(!file_exists("output/plot13${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot13${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot13${lang}.gnu 2>&1");
+	console_debug();
+}
+
+if(!file_exists("output/plot14${lang}.png")) {
+	console_debug("output/plot14${lang}.png");
+	$momo=import_file("middle/datanew-ok.csv");
+	$ine1=import_file("middle/02001-ok.csv");
+	$ine2=import_file("middle/14819-ok.csv");
+	// CREAR LLISTA AMB LES DADES DEL MOMO PER L'ANY 2020 FENT SERVIR LA IDEA DE QUE OCTUBRE, NOVEMBRE I DESEMBRE, PERTANYEN AL ANY SEGÜENT
+	$matrix1=array();
+	foreach($momo as $key=>$val) {
+		$year=strtok($val[0],"-");
+		$month=intval(strtok(""));
+		if(in_array($month,array(10,11,12))) $year++;
+		if(!isset($matrix1[$year])) $matrix1[$year]=0;
+		$matrix1[$year]+=$val[1];
+	}
+	$matrix1=array(2020=>$matrix1[2020]);
+	// IDEM PERO PER LES DADES DEL INE1 PER L'ANY 2019
+	$matrix2=array();
+	foreach($ine1 as $key=>$val) {
+		$year=strtok($val[0],"-");
+		$month=intval(strtok(""));
+		if(in_array($month,array(10,11,12))) $year++;
+		if(!isset($matrix2[$year])) $matrix2[$year]=0;
+		$matrix2[$year]+=$val[1];
+	}
+	$matrix2=array(2019=>$matrix2[2019]);
+	// IDEM PERO PER LES DADES DEL INE2 PER LA RESTA D'ANYS
+	$matrix3=array();
+	foreach($ine2 as $key=>$val) {
+		$year=strtok($val[0],"-");
+		$month=intval(strtok(""));
+		if(in_array($month,array(10,11,12))) $year++;
+		if(!isset($matrix3[$year])) $matrix3[$year]=0;
+		$matrix3[$year]+=$val[1];
+	}
+	$years=array_keys($matrix3);
+	unset($matrix3[reset($years)]);
+	unset($matrix3[end($years)]);
+	// PREPARAR PER GUARDAR LES DADES AL FITXER CSV DEL PLOT
+	$matrix=array("Any"=>$textos["plot14"][$lang])+$matrix1+$matrix2+$matrix3;
+	foreach($matrix as $key=>$val) {
+		if(is_numeric($val)) $val/=1000;
+		$matrix[$key]=array($key,$val);
+	}
+	export_file("middle/plot14${lang}.csv",$matrix);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set title \"".$textos["plots"]["14"][$lang]."\"",
+		"set grid",
+		"set tmargin 3",
+		"set rmargin 6",
+		"set bmargin 3",
+		"set lmargin 6",
+		"set auto x",
+		"set auto y",
+		"set style data histogram",
+		"set style fill solid border -1",
+		"set xtic rotate by -45",
+		"set style histogram gap 3",
+		"set yrange [0:500]",
+		"set ytic center rotate by 90",
+		"set ytics 0,100,400",
+		"set datafile separator ';'",
+		"set output 'output/plot14${lang}.png'",
+		"plot 'middle/plot14${lang}.csv' u 1:2 w l ti col, '' u 1:3 w l ti col",
+	))."\n";
+	file_put_contents("middle/plot14${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot14${lang}.gnu 2>&1");
 	console_debug();
 }
 

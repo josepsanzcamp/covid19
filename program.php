@@ -2095,8 +2095,8 @@ if(!file_exists("index.${lang}.html")) {
 	))."\n";
 	foreach($textos["plots"] as $key=>$val) {
 		$html.=implode("\n",array(
-			"<a name='plot${key}'></a>",
 			"<h3>".$val[$lang]."</h3>",
+			"<a name='plot${key}'></a>",
 		))."\n";
 		$imgs=array();
 		$imgs=array_merge($imgs,glob("output/plot${key}${lang}.png"));

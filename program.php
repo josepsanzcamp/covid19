@@ -827,9 +827,9 @@ $textos=array(
 			"en"=>"13. Deaths by day obtained from SICO Portugal",
 		),
 		"14"=>array(
-			"ca"=>"14. Defuncions per anys del MoMo i del INE (any = dades de Gener a Setembre + Octubre a Desembre de l'any anterior)",
-			"es"=>"14. Defunciones por año del MoMo y del INE (año = datos de Enero a Setiembre + Octubre a Diciembre del año anterior)",
-			"en"=>"14. Deaths by year obtained from MoMo and INE (year = data from January to September + October to December of the previous year)",
+			"ca"=>"14. Defuncions per anys del MoMo i del INE (combinant dades del mateix any actual i del any anterior)",
+			"es"=>"14. Defunciones por año del MoMo y del INE (combinando datos del mismo año y del año anterior)",
+			"en"=>"14. Deaths by year obtained from MoMo and INE (combining data from the same year and the previous year)",
 		),
 	),
 	"footer"=>array(
@@ -941,9 +941,46 @@ $textos=array(
 		"en"=>"Atencion: this plot has a different scale related to the previous plot of the same group",
 	),
 	"plot14"=>array(
-		"ca"=>"Gener a Setembre + Octubre a Desembre de l'any anterior",
-		"es"=>"Enero a Setiembre + Octubre a Diciembre del año anterior",
-		"en"=>"January to September + October to December of the previous year",
+		0=>array(
+			"ca"=>"Gener a Desembre del mateix any",
+			"es"=>"Enero a Diciembre del mismo año",
+			"en"=>"January to December of the same year",
+		),
+		1=>array(
+			"ca"=>"Desembre de l'any anterior + Gener a Novembre del mateix any",
+			"es"=>"Diciembre del año anterior + Enero a Noviembre del mismo año",
+			"en"=>"December of the previous year + January to November of the same year",
+		),
+		2=>array(
+			"ca"=>"Novembre i Desembre de l'any anterior + Gener a Octubre del mateix any",
+			"es"=>"Noviembre y Diciembre del año anterior + Enero a Octubre del mismo año",
+			"en"=>"November and December of the previous year + January to October of the same year",
+		),
+		3=>array(
+			"ca"=>"Octubre a Desembre de l'any anterior + Gener a Setembre del mateix any",
+			"es"=>"Octubre a Diciembre del año anterior + Enero a Setiembre del mismo año",
+			"en"=>"October to December of the previous year + January to September of the same year",
+		),
+		4=>array(
+			"ca"=>"Setembre a Desembre de l'any anterior + Gener a Agost del mateix any",
+			"es"=>"Setiembre a Diciembre del año anterior + Enero a Agosto del mismo año",
+			"en"=>"September to December of the previous year + January to August of the same year",
+		),
+		5=>array(
+			"ca"=>"Agost a Desembre de l'any anterior + Gener a Juliol del mateix any",
+			"es"=>"Agosto a Diciembre del año anterior + Enero a Julio del mismo año",
+			"en"=>"August to December of the previous year + January to July of the same year",
+		),
+		6=>array(
+			"ca"=>"Juliol a Desembre de l'any anterior + Gener a Juny del mateix any",
+			"es"=>"Julio a Diciembre del año anterior + Enero a Junio del mismo año",
+			"en"=>"July to December of the previous year + January to June of the same year",
+		),
+		7=>array(
+			"ca"=>"Juny a Desembre de l'any anterior + Gener a Maig del mateix any",
+			"es"=>"Junio a Diciembre del año anterior + Enero a Mayo del mismo año",
+			"en"=>"June to December of the previous year + January to May of the same year",
+		),
 	),
 );
 
@@ -1937,43 +1974,66 @@ if(!file_exists("output/plot14${lang}.png")) {
 	$momo=import_file("middle/datanew-ok.csv");
 	$ine1=import_file("middle/02001-ok.csv");
 	$ine2=import_file("middle/14819-ok.csv");
-	// CREAR LLISTA AMB LES DADES DEL MOMO PER L'ANY 2020 FENT SERVIR LA IDEA DE QUE OCTUBRE, NOVEMBRE I DESEMBRE, PERTANYEN AL ANY SEGÜENT
+	// CREAR LLISTA AMB LES DADES DEL MOMO PER L'ANY 2020
+	// LA IDEA ORIGINAL ERA FENT SERVIR OCTUBRE, NOVEMBRE I DESEMBRE DEL AL ANY ANTERIOR
+	// DESPRES VA EVOLUCIONAR PER FER-HO AMB TOTS ELS MESOS DE L'ANY
+	// L'ARRAY DE SORTIDA TINDRA 12 ELEMENTS QUE SON ELS SUMATORIS DELS MESOS DE L'ANY + ANY ANTERIOR PER LA POSICIO QUE TOQUI
+	// PER EXEMPLE:
+	// LA POSICIO 0 TE TOTES LES DADES DEL ANY QUE TOCA
+	// LA POSICIO 1 TE LES DADES DE TOT EL ANY EXCEPTE PER DESEMBRE QUE FA SERVIR LES DEL ANY ANTERIOR
+	// LA POSICIO 2 TE LES DADES DE TOT EL ANY EXCEPTE PER NOVEMBRE I DESEMBRE
+	// LA POSICIO 3 TE LES DADES DE TOT EL ANY EXCEPTE PER OCTUBRE, NOVEMBRE I DESEMBRE
+	// LA POSICIO 4 TE LES DADES DE TOT EL ANY EXCEPTE PER SETEMBRE, OCTUBRE, NOVEMBRE I DESEMBRE
+	// LA POSICIO 5 TE LES DADES DE TOT EL ANY EXCEPTE PER AGOST, SETEMBRE, OCTUBRE, NOVEMBRE I DESEMBRE
+	// LA POSICIO 6 TE LES DADES DE TOT EL ANY EXCEPTE PER JULIOL, AGOST, SETEMBRE, OCTUBRE, NOVEMBRE I DESEMBRE
+	// LA POSICIO 7 TE LES DADES DE TOT EL ANY EXCEPTE PER JUNY, JULIOL, AGOST, SETEMBRE, OCTUBRE, NOVEMBRE I DESEMBRE
 	$matrix1=array();
 	foreach($momo as $key=>$val) {
-		$year=strtok($val[0],"-");
-		$month=intval(strtok(""));
-		if(in_array($month,array(10,11,12))) $year++;
-		if(!isset($matrix1[$year])) $matrix1[$year]=0;
-		$matrix1[$year]+=$val[1];
+		for($i=0;$i<8;$i++) {
+			$year=strtok($val[0],"-");
+			$month=intval(strtok(""));
+			if($month>12-$i) $year++;
+			if(!isset($matrix1[$year])) $matrix1[$year]=array_fill(0,8,0);
+			$matrix1[$year][$i]+=$val[1];
+		}
 	}
 	$matrix1=array(2020=>$matrix1[2020]);
 	// IDEM PERO PER LES DADES DEL INE1 PER L'ANY 2019
 	$matrix2=array();
 	foreach($ine1 as $key=>$val) {
-		$year=strtok($val[0],"-");
-		$month=intval(strtok(""));
-		if(in_array($month,array(10,11,12))) $year++;
-		if(!isset($matrix2[$year])) $matrix2[$year]=0;
-		$matrix2[$year]+=$val[1];
+		for($i=0;$i<8;$i++) {
+			$year=strtok($val[0],"-");
+			$month=intval(strtok(""));
+			if($month>12-$i) $year++;
+			if(!isset($matrix2[$year])) $matrix2[$year]=array_fill(0,8,0);
+			$matrix2[$year][$i]+=$val[1];
+		}
 	}
 	$matrix2=array(2019=>$matrix2[2019]);
 	// IDEM PERO PER LES DADES DEL INE2 PER LA RESTA D'ANYS
 	$matrix3=array();
 	foreach($ine2 as $key=>$val) {
-		$year=strtok($val[0],"-");
-		$month=intval(strtok(""));
-		if(in_array($month,array(10,11,12))) $year++;
-		if(!isset($matrix3[$year])) $matrix3[$year]=0;
-		$matrix3[$year]+=$val[1];
+		for($i=0;$i<8;$i++) {
+			$year=strtok($val[0],"-");
+			$month=intval(strtok(""));
+			if($month>12-$i) $year++;
+			if(!isset($matrix3[$year])) $matrix3[$year]=array_fill(0,8,0);
+			$matrix3[$year][$i]+=$val[1];
+		}
 	}
 	$years=array_keys($matrix3);
 	unset($matrix3[reset($years)]);
 	unset($matrix3[end($years)]);
 	// PREPARAR PER GUARDAR LES DADES AL FITXER CSV DEL PLOT
-	$matrix=array("Any"=>$textos["plot14"][$lang])+$matrix1+$matrix2+$matrix3;
+	$matrix=array("Any"=>array())+$matrix1+$matrix2+$matrix3;
+	foreach($textos["plot14"] as $texto) {
+		$matrix["Any"][]=$texto[$lang];
+	}
 	foreach($matrix as $key=>$val) {
-		if(is_numeric($val)) $val/=1000;
-		$matrix[$key]=array($key,$val);
+		foreach($val as $key2=>$val2) {
+			if(is_numeric($val2)) $val[$key2]/=1000;
+		}
+		$matrix[$key]=array_merge(array($key),$val);
 	}
 	export_file("middle/plot14${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
@@ -1994,8 +2054,9 @@ if(!file_exists("output/plot14${lang}.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,100,400",
 		"set datafile separator ';'",
+		"set key right center",
 		"set output 'output/plot14${lang}.png'",
-		"plot 'middle/plot14${lang}.csv' u 1:2 w l ti col, '' u 1:3 w l ti col",
+		"plot 'middle/plot14${lang}.csv' u 1:2 w l ti col, '' u 1:3 w l ti col, '' u 1:4 w l ti col, '' u 1:5 w l ti col, '' u 1:6 w l ti col, '' u 1:7 w l ti col, '' u 1:8 w l ti col, '' u 1:9 w l ti col",
 	))."\n";
 	file_put_contents("middle/plot14${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot14${lang}.gnu 2>&1");

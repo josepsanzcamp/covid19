@@ -4,7 +4,7 @@ all:
 	time -p php program.php
 
 momo:
-	rm -f middle/datanew* output/plot0[1-5,8]* output/plot12*
+	rm -f middle/datanew* output/plot0[1-5,8]* output/plot12* output/plot14*
 	time -p php program.php
 
 euromomo:

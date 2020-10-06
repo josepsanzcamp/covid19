@@ -981,6 +981,11 @@ $textos=array(
 			"es"=>"Junio a Diciembre del año anterior + Enero a Mayo del mismo año",
 			"en"=>"June to December of the previous year + January to May of the same year",
 		),
+		8=>array(
+			"ca"=>"1/100 de la població total, per comparar la mortalitat respecte la població",
+			"es"=>"1/100 de la población total, para comparar la mortalidad respecto la población",
+			"en"=>"1/100 of the total population, for compare the deathly vs population",
+		),
 	),
 );
 
@@ -1974,6 +1979,7 @@ if(!file_exists("output/plot14${lang}.png")) {
 	$momo=import_file("middle/datanew-ok.csv");
 	$ine1=import_file("middle/02001-ok.csv");
 	$ine2=import_file("middle/14819-ok.csv");
+	$ine3=import_file("middle/02002-ok2.csv");
 	// CREAR LLISTA AMB LES DADES DEL MOMO PER L'ANY 2020
 	// LA IDEA ORIGINAL ERA FENT SERVIR OCTUBRE, NOVEMBRE I DESEMBRE DEL AL ANY ANTERIOR
 	// DESPRES VA EVOLUCIONAR PER FER-HO AMB TOTS ELS MESOS DE L'ANY
@@ -2030,11 +2036,19 @@ if(!file_exists("output/plot14${lang}.png")) {
 		$matrix["Any"][]=$texto[$lang];
 	}
 	foreach($matrix as $key=>$val) {
-		foreach($val as $key2=>$val2) {
-			if(is_numeric($val2)) $val[$key2]/=1000;
-		}
 		$matrix[$key]=array_merge(array($key),$val);
 	}
+	// AGEGIR LES DADES DE LA POBLACIO
+	$ine3=array_combine(array_column($ine3,0),array_column($ine3,1));
+	foreach($matrix as $key=>$val) {
+		if($key=="Any") continue;
+		if(isset($ine3[$key])) {
+			$matrix[$key][]=$ine3[$key]/100;
+		} else {
+			$matrix[$key][]="";
+		}
+	}
+	// CONTINUAR
 	export_file("middle/plot14${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
@@ -2050,13 +2064,13 @@ if(!file_exists("output/plot14${lang}.png")) {
 		"set style fill solid border -1",
 		"set xtic rotate by -45",
 		"set style histogram gap 3",
-		"set yrange [0:500]",
+		"set yrange [0:500000]",
 		"set ytic center rotate by 90",
-		"set ytics 0,100,400",
+		"set ytics 0,100000,400000",
 		"set datafile separator ';'",
 		"set key right center",
 		"set output 'output/plot14${lang}.png'",
-		"plot 'middle/plot14${lang}.csv' u 1:2 w l ti col, '' u 1:3 w l ti col, '' u 1:4 w l ti col, '' u 1:5 w l ti col, '' u 1:6 w l ti col, '' u 1:7 w l ti col, '' u 1:8 w l ti col, '' u 1:9 w l ti col",
+		"plot 'middle/plot14${lang}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col, '' u 1:8 w lp ti col, '' u 1:9 w lp ti col, '' u 1:10 w lp ti col",
 	))."\n";
 	file_put_contents("middle/plot14${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot14${lang}.gnu 2>&1");

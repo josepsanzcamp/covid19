@@ -2016,7 +2016,8 @@ if(!file_exists("output/plot14${lang}.png")) {
 		}
 	}
 	$matrix2=array(2019=>$matrix2[2019]);
-	// IDEM PERO PER LES DADES DEL INE2 PER LA RESTA D'ANYS
+	// IDEM PERO PER LES DADES DEL INE2 PER LA RESTA D'ANYS (2018 A 1981)
+	// HAY QUE QUITAR LOS EXTREMOS PORQUE TIENEN SOLO FRAGMENTOS DE AÑO
 	$matrix3=array();
 	foreach($ine2 as $key=>$val) {
 		for($i=0;$i<8;$i++) {
@@ -2027,9 +2028,8 @@ if(!file_exists("output/plot14${lang}.png")) {
 			$matrix3[$year][$i]+=$val[1];
 		}
 	}
-	$years=array_keys($matrix3);
-	unset($matrix3[reset($years)]);
-	unset($matrix3[end($years)]);
+	unset($matrix3[2019]);
+	unset($matrix3[1980]);
 	// PREPARAR PER GUARDAR LES DADES AL FITXER CSV DEL PLOT
 	$matrix=array("Any"=>array())+$matrix1+$matrix2+$matrix3;
 	foreach($textos["plot14"] as $texto) {

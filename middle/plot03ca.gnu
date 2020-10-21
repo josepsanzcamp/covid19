@@ -10,7 +10,7 @@ set yrange [0:3500]
 set xdata time
 set timefmt '%Y-%m-%d'
 set format x '%Y-%m-%d'
-set xtics '2020-01-06',86400*7,'2020-11-01'
+set xtics '2020-01-06',86400*7,'2021-01-01'
 set ytic center rotate by 90
 set ytics 0,500,3000
 set datafile separator ';'
@@ -28,4 +28,7 @@ set xrange ['2020-07-01':'2020-09-01']
 plot 'middle/plot03ca.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col
 set output 'output/plot03ca5.png'
 set xrange ['2020-09-01':'2020-11-01']
+plot 'middle/plot03ca.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col
+set output 'output/plot03ca6.png'
+set xrange ['2020-11-01':'2021-01-01']
 plot 'middle/plot03ca.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:5 w lp lc 4 pt 4 ti col, '' u 1:6 w l lc 9 ti col

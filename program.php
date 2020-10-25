@@ -754,6 +754,29 @@ if(count(glob("middle/euromomo.????????.csv"))!=count(glob("input/euromomo/compo
 	console_debug();
 }
 
+if(count(glob("middle/data.????????.csv"))!=count(glob("input/momo2/data.????????.csv"))) {
+	console_debug("middle/data.????????.csv");
+	$files=glob("input/momo2/data.????????.csv");
+	sort($files);
+	foreach($files as $file) {
+		$part=explode(".",$file);
+		$part=$part[1];
+		if(file_exists("middle/data.${part}.csv")) continue;
+		$data=import_file($file);
+		$matrix=array();
+		foreach($data as $key=>$val) {
+			if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
+				$key2=$val[8];
+				if(isset($matrix[$key2])) die("ERROR 4");
+				$matrix[$key2]=array($key2,str_replace(".","",$val[9]));
+			}
+			unset($data[$key]);
+		}
+		export_file("middle/data.${part}.csv",$matrix);
+	}
+	console_debug();
+}
+
 $textos=array(
 	"header"=>array(
 		"ca"=>"Informació útil d'Espanya sobre l'impacte de covid-19: gràfics de defuncions per any, origen de les dades, acumulats diaris, per edat, per comunitat autònoma i més",
@@ -830,6 +853,11 @@ $textos=array(
 			"ca"=>"14. Defuncions per anys del MoMo i del INE (combinant dades del mateix any actual i del any anterior)",
 			"es"=>"14. Defunciones por año del MoMo y del INE (combinando datos del mismo año y del año anterior)",
 			"en"=>"14. Deaths by year obtained from MoMo and INE (combining data from the same year and the previous year)",
+		),
+		"15"=>array(
+			"ca"=>"15. Evolucio de defuncions per dia obtinguts del MoMo per al 2020, 2019, 2018 i el promig del 2018",
+			"es"=>"15. Evolución de las defunciones por dia obtenidos del MoMo para el 2020, 2019, 2018 y el promedio del 2018",
+			"en"=>"15. Evolution of the deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average",
 		),
 	),
 	"footer"=>array(
@@ -2080,6 +2108,72 @@ if(!file_exists("output/plot14${lang}.png")) {
 	console_debug();
 }
 
+if(!file_exists("output/plot15${lang}.gif")) {
+	console_debug("output/plot15${lang}.gif");
+	$files=glob("middle/data.????????.csv");
+	foreach($files as $file) {
+		$part=explode(".",$file);
+		$part=$part[1];
+		if(file_exists("output/plot15${lang}.${part}.png")) continue;
+		$momo=import_file($file);
+		if(!isset($otros)) $otros=import_file("middle/7947-ok.csv");
+		$matrix=array();
+		for($i=strtotime("2020-09-01 12:00:00");$i<=strtotime("2021-11-01 12:00:00");$i+=86400) {
+			$fecha=date("Y-m-d",$i);
+			$i=strtotime($fecha." 12:00:00");
+			$matrix[$fecha]=array($fecha,"","","","");
+		}
+		foreach($momo as $key=>$val) {
+			$year=strtok($val[0],"-");
+			if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=$val[1];
+			if($year==2019) {
+				$val[0]=str_replace(2019,2020,$val[0]);
+				if(isset($matrix[$val[0]])) $matrix[$val[0]][2]=$val[1];
+			}
+			if($year==2018) {
+				$val[0]=str_replace(2018,2020,$val[0]);
+				if(isset($matrix[$val[0]])) $matrix[$val[0]][3]=$val[1];
+			}
+			unset($momo[$key]);
+		}
+		foreach($otros as $key=>$val) {
+			$year=$val[0];
+			if($year!=2018) continue;
+			$media=round($val[1]/365,0);
+			foreach($matrix as $key2=>$val2) {
+				$matrix[$key2][4]=$media;
+			}
+		}
+		array_unshift($matrix,array("Fecha","MoMo2020","MoMo2019","MoMo2018","INE2018"));
+		export_file("middle/plot15${lang}.${part}.csv",$matrix);
+		$gnuplot=implode("\n",array(
+			"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+			"set title \"".$textos["plots"]["15"][$lang]."\"",
+			"set grid",
+			"set tmargin 3",
+			"set rmargin 6",
+			"set bmargin 3",
+			"set lmargin 6",
+			"set auto x",
+			"set yrange [0:3500]",
+			"set xdata time",
+			"set timefmt '%Y-%m-%d'",
+			"set format x '%Y-%m-%d'",
+			"set xtics '2020-01-06',86400*7,'2021-01-01'",
+			"set ytic center rotate by 90",
+			"set ytics 0,500,3000",
+			"set datafile separator ';'",
+			"set output 'output/plot15${lang}.${part}.png'",
+			"set xrange ['2020-09-01':'2020-11-01']",
+			"plot 'middle/plot15${lang}.${part}.csv' u 1:2 w lp lc 2 pt 2 ti col, '' u 1:3 w lp lc 3 pt 3 ti col, '' u 1:4 w lp lc 4 pt 4 ti col, '' u 1:5 w l lc 9 ti col",
+		))."\n";
+		file_put_contents("middle/plot15${lang}.${part}.gnu",$gnuplot);
+		passthru("gnuplot middle/plot15${lang}.${part}.gnu 2>&1");
+	}
+	passthru("convert -delay 50 output/plot15${lang}.????????.png output/plot15${lang}.gif 1>/dev/null 2>/dev/null");
+	console_debug();
+}
+
 if(!file_exists("index.${lang}.html")) {
 	console_debug("index.${lang}.html");
 	$html=implode("\n",array(
@@ -2118,6 +2212,9 @@ if(!file_exists("index.${lang}.html")) {
 		$imgs=array();
 		$imgs=array_merge($imgs,glob("output/plot${key}${lang}.png"));
 		$imgs=array_merge($imgs,glob("output/plot${key}${lang}?.png"));
+		$imgs=array_merge($imgs,glob("output/plot${key}${lang}??.png"));
+		$imgs=array_merge($imgs,glob("output/plot${key}${lang}.gif"));
+		$imgs=array_merge($imgs,glob("output/plot${key}${lang}?.gif"));
 		$imgs=array_merge($imgs,glob("output/plot${key}${lang}??.gif"));
 		foreach($imgs as $img) {
 			$html.=implode("\n",array(

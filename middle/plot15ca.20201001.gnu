@@ -1,5 +1,5 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
-set title "15. Evolucio de defuncions per dia obtinguts del MoMo per al 2020, 2019, 2018 i el promig del 2018"
+set title "15. Evolucio de defuncions per dia obtinguts del MoMo per al 2020, 2019, 2018 i el promig del 2018 (2020-10-01)"
 set grid
 set tmargin 3
 set rmargin 6

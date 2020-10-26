@@ -1,5 +1,5 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
-set title "15. Evolution of the deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average"
+set title "15. Evolution of the deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average (2020-10-15)"
 set grid
 set tmargin 3
 set rmargin 6

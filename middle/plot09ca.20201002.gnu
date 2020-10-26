@@ -1,5 +1,5 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
-set title "9. Defuncions per setmana del any y per pais obtingudes del EuroMoMo (el valor que es mostra es el zscore)"
+set title "9. Defuncions per setmana del any y per pais obtingudes del EuroMoMo (el valor que es mostra es el zscore) (2020-10-02)"
 set grid
 set tmargin 3
 set rmargin 6

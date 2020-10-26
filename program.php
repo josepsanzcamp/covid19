@@ -1738,9 +1738,10 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 		}
 		array_unshift($matrix,array_merge(array("Fecha"),$header));
 		export_file("middle/plot09${lang}.${part}.csv",$matrix);
+		$fecha=substr($part,0,4)."-".substr($part,4,2)."-".substr($part,6,2);
 		$gnuplot=implode("\n",array(
 			"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-			"set title \"".$textos["plots"]["09"][$lang]."\"",
+			"set title \"".$textos["plots"]["09"][$lang]." (${fecha})\"",
 			"set grid",
 			"set tmargin 3",
 			"set rmargin 6",
@@ -2110,6 +2111,7 @@ if(!file_exists("output/plot14${lang}.png")) {
 
 if(!file_exists("output/plot15${lang}.gif")) {
 	console_debug("output/plot15${lang}.gif");
+	$momonew=import_file("middle/datanew-ok2.csv");
 	$files=glob("middle/data.????????.csv");
 	foreach($files as $file) {
 		$part=explode(".",$file);
@@ -2144,11 +2146,21 @@ if(!file_exists("output/plot15${lang}.gif")) {
 				$matrix[$key2][4]=$media;
 			}
 		}
+		// CORRECCIO FALTA DE DADES DEL 2018
+		foreach($momonew as $key=>$val) {
+			$year=strtok($val[0],"-");
+			if($year==2018) {
+				$val[0]=str_replace(2018,2020,$val[0]);
+				if(isset($matrix[$val[0]]) && $matrix[$val[0]][3]=="") $matrix[$val[0]][3]=$val[1];
+			}
+		}
+		// CONTINUAR
 		array_unshift($matrix,array("Fecha","MoMo2020","MoMo2019","MoMo2018","INE2018"));
 		export_file("middle/plot15${lang}.${part}.csv",$matrix);
+		$fecha=substr($part,0,4)."-".substr($part,4,2)."-".substr($part,6,2);
 		$gnuplot=implode("\n",array(
 			"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
-			"set title \"".$textos["plots"]["15"][$lang]."\"",
+			"set title \"".$textos["plots"]["15"][$lang]." (${fecha})\"",
 			"set grid",
 			"set tmargin 3",
 			"set rmargin 6",

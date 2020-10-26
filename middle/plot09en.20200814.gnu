@@ -1,5 +1,5 @@
 set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
-set title "9. Deaths by week of year and by country obtained from the EuroMoMo (the value used to plot is the zscore)"
+set title "9. Deaths by week of year and by country obtained from the EuroMoMo (the value used to plot is the zscore) (2020-08-14)"
 set grid
 set tmargin 3
 set rmargin 6

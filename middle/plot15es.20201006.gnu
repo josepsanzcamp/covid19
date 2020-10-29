@@ -15,5 +15,5 @@ set ytic center rotate by 90
 set ytics 0,500,3000
 set datafile separator ';'
 set output 'output/plot15es.20201006.png'
-set xrange ['2020-09-01':'2020-11-01']
+set xrange ['2020-10-01':'2020-12-01']
 plot 'middle/plot15es.20201006.csv' u 1:2 w lp lc 2 pt 2 ti col, '' u 1:3 w lp lc 3 pt 3 ti col, '' u 1:4 w lp lc 4 pt 4 ti col, '' u 1:5 w l lc 9 ti col

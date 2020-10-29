@@ -2120,7 +2120,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 		$momo=import_file($file);
 		if(!isset($otros)) $otros=import_file("middle/7947-ok.csv");
 		$matrix=array();
-		for($i=strtotime("2020-09-01 12:00:00");$i<=strtotime("2021-11-01 12:00:00");$i+=86400) {
+		for($i=strtotime("2020-10-01 12:00:00");$i<=strtotime("2021-12-01 12:00:00");$i+=86400) {
 			$fecha=date("Y-m-d",$i);
 			$i=strtotime($fecha." 12:00:00");
 			$matrix[$fecha]=array($fecha,"","","","");
@@ -2176,7 +2176,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 			"set ytics 0,500,3000",
 			"set datafile separator ';'",
 			"set output 'output/plot15${lang}.${part}.png'",
-			"set xrange ['2020-09-01':'2020-11-01']",
+			"set xrange ['2020-10-01':'2020-12-01']",
 			"plot 'middle/plot15${lang}.${part}.csv' u 1:2 w lp lc 2 pt 2 ti col, '' u 1:3 w lp lc 3 pt 3 ti col, '' u 1:4 w lp lc 4 pt 4 ti col, '' u 1:5 w l lc 9 ti col",
 		))."\n";
 		file_put_contents("middle/plot15${lang}.${part}.gnu",$gnuplot);

@@ -1691,24 +1691,30 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 	console_debug("output/plot09${lang}01.gif");
 	$files=glob("middle/euromomo.????????.csv");
 	sort($files);
-	unset($first);
+	$paises=array();
+	foreach($files as $file) {
+		$data=import_file($file);
+		foreach($data as $key=>$val) {
+			if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
+				$paises[$val[1]]=$val[1];
+			}
+		}
+	}
+	ksort($paises);
 	foreach($files as $file) {
 		$part=explode(".",$file);
 		$part=$part[1];
 		if(file_exists("output/plot09${lang}01.${part}.png")) continue;
 		$data=import_file($file);
-		if(!isset($first)) $paises=array();
 		$años=array();
 		$semanas=array();
 		foreach($data as $key=>$val) {
 			if($val[0]=="countries" && $val[2]=="Total" && $val[3]=="zscore") {
-				if(!isset($first)) $paises[$val[1]]=$val[1];
 				$temp=explode("-",$val[4]);
 				$años[$temp[0]]=$temp[0];
 				$semanas[$temp[1]]=$temp[1];
 			}
 		}
-		$first=1;
 		$matrix=array();
 		foreach($semanas as $semana) {
 			foreach($paises as $pais) {

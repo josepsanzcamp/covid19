@@ -63,4 +63,8 @@ set output 'output/plot09es23.20200821.png'
 plot 'middle/plot09es.20200821.csv' u 1:134 w lp ti col,'' u 1:135 w lp ti col,'' u 1:136 w lp ti col,'' u 1:137 w lp ti col,'' u 1:138 w lp ti col,'' u 1:139 w lp lc 7 ti col
 set output 'output/plot09es24.20200821.png'
 plot 'middle/plot09es.20200821.csv' u 1:140 w lp ti col,'' u 1:141 w lp ti col,'' u 1:142 w lp ti col,'' u 1:143 w lp ti col,'' u 1:144 w lp ti col,'' u 1:145 w lp lc 7 ti col
+set output 'output/plot09es25.20200821.png'
+plot 'middle/plot09es.20200821.csv' u 1:146 w lp ti col,'' u 1:147 w lp ti col,'' u 1:148 w lp ti col,'' u 1:149 w lp ti col,'' u 1:150 w lp ti col,'' u 1:151 w lp lc 7 ti col
+set output 'output/plot09es26.20200821.png'
+plot 'middle/plot09es.20200821.csv' u 1:152 w lp ti col,'' u 1:153 w lp ti col,'' u 1:154 w lp ti col,'' u 1:155 w lp ti col,'' u 1:156 w lp ti col,'' u 1:157 w lp lc 7 ti col
 

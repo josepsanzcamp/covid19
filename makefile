@@ -4,11 +4,7 @@ all:
 	time -p php program.php
 
 momo:
-	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]*
-	time -p php program.php
-
-momo2:
-	rm -f output/plot15*.gif
+	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]* output/plot15*.gif
 	time -p php program.php
 
 euromomo:

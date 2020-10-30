@@ -3,6 +3,9 @@ all:
 	rm -f middle/* output/* index.*
 	time -p php program.php
 
+clean:
+	rm -f middle/* output/* index.*
+
 momo:
 	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]* output/plot15*.gif
 	time -p php program.php
@@ -26,4 +29,3 @@ norway:
 portugal:
 	rm -f output/plot13*
 	time -p php program.php
-

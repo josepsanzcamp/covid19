@@ -754,6 +754,25 @@ if(count(glob("middle/euromomo.????????.csv"))!=count(glob("input/euromomo/compo
 	console_debug();
 }
 
+if(!file_exists("middle/dc_20xx_det.csv")) {
+	console_debug("middle/dc_20xx_det.csv");
+	$files=glob("input/france/DC_20??_det.csv");
+	sort($files);
+	$sumas=array();
+	foreach($files as $file) {
+		$data=import_file($file);
+		unset($data[0]);
+		foreach($data as $key=>$val) {
+			$fecha=sprintf("%04d-%02d-%02d",$val[0],$val[1],$val[2]);
+			if(!isset($sumas[$fecha])) $sumas[$fecha]=array($fecha,0);
+			$sumas[$fecha][1]++;
+			unset($data[$key]);
+		}
+	}
+	export_file("middle/dc_20xx_det.csv",$sumas);
+	console_debug();
+}
+
 if(count(glob("middle/data.????????.csv"))!=count(glob("input/momo2/data.????????.csv"))) {
 	console_debug("middle/data.????????.csv");
 	$files=glob("input/momo2/data.????????.csv");
@@ -858,6 +877,16 @@ $textos=array(
 			"ca"=>"15. Evolucio de defuncions per dia obtinguts del MoMo per al 2020, 2019, 2018 i el promig del 2018",
 			"es"=>"15. Evolución de las defunciones por dia obtenidos del MoMo para el 2020, 2019, 2018 y el promedio del 2018",
 			"en"=>"15. Evolution of the deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average",
+		),
+		"16"=>array(
+			"ca"=>"16. Defuncions per dia obtinguts del Institut National de la statistique et des études économiques",
+			"es"=>"16. Defunciones por dia obtenidos del Institut National de la statistique et des études économiques",
+			"en"=>"16. Deaths per day obtained from the Institut National de la statistique et des études économiques",
+		),
+		"17"=>array(
+			"ca"=>"17. Defuncions per setmana obtinguts del Statistisches Bundesamt",
+			"es"=>"17. Defunciones por semana obtenidos del Statistisches Bundesamt",
+			"en"=>"17. Deaths by week obtained from Statistisches Bundesamt",
 		),
 	),
 	"footer"=>array(
@@ -2102,11 +2131,11 @@ if(!file_exists("output/plot14${lang}.png")) {
 		"set style fill solid border -1",
 		"set xtic rotate by -45",
 		"set style histogram gap 3",
-		"set yrange [0:500000]",
+		"set yrange [0:600000]",
 		"set ytic center rotate by 90",
-		"set ytics 0,100000,400000",
+		"set ytics 0,100000,500000",
 		"set datafile separator ';'",
-		"set key right center",
+		"set key at 2020,300000",
 		"set output 'output/plot14${lang}.png'",
 		"plot 'middle/plot14${lang}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col, '' u 1:8 w lp ti col, '' u 1:9 w lp ti col, '' u 1:10 w lp ti col",
 	))."\n";
@@ -2189,6 +2218,99 @@ if(!file_exists("output/plot15${lang}.gif")) {
 		passthru("gnuplot middle/plot15${lang}.${part}.gnu 2>&1");
 	}
 	passthru("convert -delay 50 output/plot15${lang}.????????.png output/plot15${lang}.gif 1>/dev/null 2>/dev/null");
+	console_debug();
+}
+
+if(!file_exists("output/plot16${lang}.png")) {
+	console_debug("output/plot16${lang}.png");
+	$france=import_file("middle/dc_20xx_det.csv");
+	$matrix=array();
+	for($i=strtotime("2020-01-01 12:00:00");$i<=strtotime("2021-01-01 12:00:00");$i+=86400) {
+		$fecha=date("Y-m-d",$i);
+		$i=strtotime($fecha." 12:00:00");
+		$matrix[$fecha]=array($fecha,"","","");
+	}
+	foreach($france as $key=>$val) {
+		$year=strtok($val[0],"-");
+		if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=$val[1];
+		if($year==2019) {
+			$val[0]=str_replace(2019,2020,$val[0]);
+			if(isset($matrix[$val[0]])) $matrix[$val[0]][2]=$val[1];
+		}
+		if($year==2018) {
+			$val[0]=str_replace(2018,2020,$val[0]);
+			if(isset($matrix[$val[0]])) $matrix[$val[0]][3]=$val[1];
+		}
+		unset($france[$key]);
+	}
+	array_unshift($matrix,array("Fecha","2020","2019","2018"));
+	export_file("middle/plot16${lang}.csv",$matrix);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set title \"".$textos["plots"]["16"][$lang]."\"",
+		"set grid",
+		"set tmargin 3",
+		"set rmargin 6",
+		"set bmargin 3",
+		"set lmargin 6",
+		"set auto x",
+		"set yrange [0:3500]",
+		"set xdata time",
+		"set timefmt '%Y-%m-%d'",
+		"set format x '%Y-%m-%d'",
+		"set xrange ['2020-01-01':'2021-01-01']",
+		"set xtics '2020-02-01',86400*30,'2020-12-01'",
+		"set ytic center rotate by 90",
+		"set ytics 0,500,3000",
+		"set datafile separator ';'",
+		"set output 'output/plot16${lang}.png'",
+		"plot 'middle/plot16${lang}.csv' u 1:4 w l ti col,'' u 1:3 w l ti col,'' u 1:2 w l ti col",
+	))."\n";
+	file_put_contents("middle/plot16${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot16${lang}.gnu 2>&1");
+	console_debug();
+}
+
+if(!file_exists("output/plot17${lang}.png")) {
+	console_debug("output/plot17${lang}.png");
+	$files=glob("input/germany/*.csv");
+	rsort($files);
+	$germany=import_file($files[0]);
+	foreach($germany as $key=>$val) {
+		unset($val[6]);
+		$germany[$key]=$val;
+	}
+	$header=array_shift($germany);
+	foreach($germany as $key=>$val) {
+		$val[0]=sprintf("%02d",$val[0]);
+		$val[0]=date("Y-m-d",strtotime("2020W".$val[0])+86400*2);
+		$germany[$key]=$val;
+	}
+	array_unshift($germany,$header);
+	export_file("middle/plot17${lang}.csv",$germany);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set title \"".$textos["plots"]["17"][$lang]."\"",
+		"set grid",
+		"set tmargin 3",
+		"set rmargin 6",
+		"set bmargin 3",
+		"set lmargin 6",
+		"set auto x",
+		"set yrange [0:35000]",
+		"set xdata time",
+		"set timefmt '%Y-%m-%d'",
+		"set format x '%Y-%m-%d'",
+		"set xrange ['2020-01-01':'2021-01-01']",
+		"set xtics '2020-02-01',86400*30,'2020-12-01'",
+		"set ytic center rotate by 90",
+		"set ytics 0,5000,30000",
+		"set datafile separator ';'",
+		"set output 'output/plot17${lang}.png'",
+		"plot 'middle/plot17${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col",
+	))."\n";
+	file_put_contents("middle/plot17${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot17${lang}.gnu 2>&1");
 	console_debug();
 }
 

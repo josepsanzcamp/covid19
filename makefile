@@ -6,6 +6,13 @@ all:
 clean:
 	rm -f middle/* output/* index.*
 
+index:
+	rm -f index.*
+	time -p php program.php
+
+continue:
+	time -p php program.php
+
 momo:
 	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]* output/plot15*.gif
 	time -p php program.php
@@ -29,3 +36,13 @@ norway:
 portugal:
 	rm -f output/plot13*
 	time -p php program.php
+
+france:
+	rm -f middle/dc_20xx_det.csv output/plot16*
+	time -p php program.php
+
+germany:
+	rm -f output/plot17*
+	time -p php program.php
+
+

@@ -75,3 +75,21 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - https://evm.min-saude.pt/ => SICO Vigilancia de mortalidade
 - https://evm.min-saude.pt/#shiny-tab-q_total => Mortalidade geral
 
+# France
+- https://www.insee.fr/en/statistiques
+- https://www.insee.fr/en/statistiques/series/103039135?NATURE=2320650&ZONE_GEO=2227392
+- https://www.insee.fr/en/statistiques?debut=0&categorie=5
+- https://www.insee.fr/en/statistiques/4493808?sommaire=4493845
+
+# Alemania
+- https://www.destatis.de/SiteGlobals/Forms/Suche/EN/Servicesuche_Formular.html?nn=23768&resourceId=2376&input_=23768&pageLocale=en&templateQueryString=daily+deaths&submit.x=0&submit.y=0
+- https://www.destatis.de/EN/Themes/Society-Environment/Population/Deaths-Life-Expectancy/mortality.html
+- https://www.destatis.de/EN/Themes/Cross-Section/Corona/_Graphic/_Interactive/deaths-weekly-years.html?nn=23768
+
+# Europa
+- https://www.destatis.de/Europa/EN/Topic/COVID-19/COVID-19-article.html
+- https://www.destatis.de/Europa/EN/Topic/Population-Labour-Social-Issues/Demography-migration/mortality.html
+- https://ec.europa.eu/eurostat/en/data/database?node_code=demo_mor
+- https://ec.europa.eu/eurostat/en/data/database?node_code=demomwk
+
+

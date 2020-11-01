@@ -45,4 +45,8 @@ germany:
 	rm -f output/plot17*
 	time -p php program.php
 
+europe:
+	rm -f output/plot18*
+	time -p php program.php
+
 

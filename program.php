@@ -754,25 +754,6 @@ if(count(glob("middle/euromomo.????????.csv"))!=count(glob("input/euromomo/compo
 	console_debug();
 }
 
-if(!file_exists("middle/dc_20xx_det.csv")) {
-	console_debug("middle/dc_20xx_det.csv");
-	$files=glob("input/france/DC_20??_det.csv");
-	sort($files);
-	$sumas=array();
-	foreach($files as $file) {
-		$data=import_file($file);
-		unset($data[0]);
-		foreach($data as $key=>$val) {
-			$fecha=sprintf("%04d-%02d-%02d",$val[0],$val[1],$val[2]);
-			if(!isset($sumas[$fecha])) $sumas[$fecha]=array($fecha,0);
-			$sumas[$fecha][1]++;
-			unset($data[$key]);
-		}
-	}
-	export_file("middle/dc_20xx_det.csv",$sumas);
-	console_debug();
-}
-
 if(count(glob("middle/data.????????.csv"))!=count(glob("input/momo2/data.????????.csv"))) {
 	console_debug("middle/data.????????.csv");
 	$files=glob("input/momo2/data.????????.csv");
@@ -793,6 +774,33 @@ if(count(glob("middle/data.????????.csv"))!=count(glob("input/momo2/data.???????
 		}
 		export_file("middle/data.${part}.csv",$matrix);
 	}
+	console_debug();
+}
+
+if(!file_exists("middle/dc_20xx_det.csv")) {
+	console_debug("middle/dc_20xx_det.csv");
+	$files=glob("input/france/DC_20??_det.csv");
+	sort($files);
+	$sumas=array();
+	foreach($files as $file) {
+		$data=import_file($file);
+		unset($data[0]);
+		foreach($data as $key=>$val) {
+			$fecha=sprintf("%04d-%02d-%02d",$val[0],$val[1],$val[2]);
+			if(!isset($sumas[$fecha])) $sumas[$fecha]=array($fecha,0);
+			$sumas[$fecha][1]++;
+			unset($data[$key]);
+		}
+	}
+	export_file("middle/dc_20xx_det.csv",$sumas);
+	console_debug();
+}
+
+if(!file_exists("middle/demo_r_mwk_ts.csv")) {
+	console_debug("middle/demo_r_mwk_ts.csv");
+	$buffer=file_get_contents("input/europe/demo_r_mwk_ts.tsv");
+	$buffer=str_replace("\t",";",$buffer);
+	file_put_contents("middle/demo_r_mwk_ts.csv",$buffer);
 	console_debug();
 }
 
@@ -887,6 +895,11 @@ $textos=array(
 			"ca"=>"17. Defuncions per setmana obtinguts del Statistisches Bundesamt",
 			"es"=>"17. Defunciones por semana obtenidos del Statistisches Bundesamt",
 			"en"=>"17. Deaths by week obtained from Statistisches Bundesamt",
+		),
+		"18"=>array(
+			"ca"=>"18. Defuncions per setmana del any y per pais obtingudes del Eurostat",
+			"es"=>"18. Defunciones por semana del año y por país obtenidas del Eurostat",
+			"en"=>"18. Deaths by week of year and by country obtained from the Eurostat",
 		),
 	),
 	"footer"=>array(
@@ -1521,7 +1534,7 @@ if(!file_exists("output/plot07${lang}1.png")) {
 	$temp=import_file("input/oecd/code2country.csv");
 	$paises=array();
 	foreach($temp as $key=>$val) {
-		$paises[$val[0]]=$val[1];
+		$paises[$val[2]]=$val[0];
 	}
 	$bed=import_file("input/oecd/DP_LIVE_19082020091144018.csv");
 	$nurse=import_file("input/oecd/DP_LIVE_19082020092133263.csv");
@@ -1806,8 +1819,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 				"plot 'middle/plot09${lang}.${part}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
 			))."\n";
 		}
-		$gnuplot.=implode("\n",array(
-		))."\n";
+		$gnuplot.="\n";
 		file_put_contents("middle/plot09${lang}.${part}.gnu",$gnuplot);
 		passthru("gnuplot middle/plot09${lang}.${part}.gnu 2>&1");
 	}
@@ -2311,6 +2323,157 @@ if(!file_exists("output/plot17${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot17${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot17${lang}.gnu 2>&1");
+	console_debug();
+}
+
+if(!file_exists("output/plot18${lang}01.png")) {
+	console_debug("output/plot18${lang}01.png");
+	$europe=import_file("middle/demo_r_mwk_ts.csv");
+	foreach($europe as $key=>$val) {
+		if($key==0) {
+			foreach($val as $key2=>$val2) {
+				if($key2==0) {
+					$val2="";
+					$val[$key2]=$val2;
+				} else {
+					$val2=trim($val2);
+					$val2=str_replace("W","-",$val2);
+					$val[$key2]=$val2;
+				}
+			}
+			$europe[$key]=$val;
+		} elseif(substr($val[0],0,5)=="T,NR,") {
+			foreach($val as $key2=>$val2) {
+				if($key2==0) {
+					$val2=substr($val2,5);
+					$val[$key2]=$val2;
+				} else {
+					$val2=trim($val2);
+					if($val2==":") $val2="";
+					if(substr($val2,-2,2)==" p") $val2=substr($val2,0,-2);
+					if(substr($val2,-2,2)==" e") $val2=substr($val2,0,-2);
+					$val[$key2]=$val2;
+				}
+			}
+			$europe[$key]=$val;
+		} else {
+			unset($europe[$key]);
+		}
+	}
+	$paises=array();
+	foreach($europe as $key=>$val) {
+		if($key==0) continue;
+		$paises[$val[0]]=$val[0];
+	}
+	ksort($paises);
+	$años=array();
+	$semanas=array();
+	foreach($europe[0] as $key=>$val) {
+		if($key==0) continue;
+		$temp=explode("-",$val);
+		$años[$temp[0]]=$temp[0];
+		$semanas[$temp[1]]=$temp[1];
+	}
+	for($i=2000;$i<2015;$i++) unset($años[$i]);
+	unset($semanas[99]);
+	ksort($años);
+	ksort($semanas);
+	$eje_y=array();
+	foreach($europe as $key=>$val) {
+		if($key==0) continue;
+		foreach($val as $key2=>$val2) {
+			if($key2==0) continue;
+			$temp=explode("-",$europe[0][$key2]);
+			if(!isset($eje_y[$val[0]])) $eje_y[$val[0]]=0;
+			$eje_y[$val[0]]=max($eje_y[$val[0]],$val2);
+		}
+	}
+	foreach($eje_y as $key=>$val) {
+		$size=floor(log($val,10));
+		$num1=10**$size*ceil($val*1.1/10**$size)/5;
+		$num2=$num1*4;
+		$num3=$num1*5;
+		$eje_y[$key]=array($num1,$num2,$num3);
+	}
+	$matrix=array();
+	foreach($semanas as $semana) {
+		foreach($paises as $pais) {
+			foreach($años as $año) {
+				$matrix[$semana][$pais."-".$año]="";
+			}
+		}
+	}
+	$header=array_keys(reset($matrix));
+	foreach($europe as $key=>$val) {
+		if($key==0) continue;
+		foreach($val as $key2=>$val2) {
+			if($key2==0) continue;
+			$temp=explode("-",$europe[0][$key2]);
+			if(!isset($matrix[$temp[1]][$val[0]."-".$temp[0]])) continue;
+			$matrix[$temp[1]][$val[0]."-".$temp[0]]=$val2;
+		}
+	}
+	foreach($matrix as $key=>$val) {
+		$key2=date("Y-m-d",strtotime("2020W".$key)+86400*2);
+		$matrix[$key]=array_merge(array($key2),$val);
+	}
+	foreach($header as $key=>$val) {
+		if(implode("",array_column($matrix,$val))=="") {
+			foreach($matrix as $key2=>$val2) {
+				$matrix[$key2][$val]=-100; // TRICK
+			}
+		}
+	}
+	$temp=import_file("input/oecd/code2country.csv");
+	$countries=array();
+	foreach($temp as $key=>$val) {
+		$countries[$val[1]]=$val[0];
+	}
+	foreach($header as $key=>$val) {
+		$val=explode("-",$val);
+		if(isset($countries[$val[0]])) $val[0]=$countries[$val[0]];
+		$val=implode("-",$val);
+		$header[$key]=$val;
+	}
+	array_unshift($matrix,array_merge(array("Fecha"),$header));
+	export_file("middle/plot18${lang}.csv",$matrix);
+	$gnuplot=implode("\n",array(
+		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set title \"".$textos["plots"]["18"][$lang]."\"",
+		"set grid",
+		"set tmargin 3",
+		"set rmargin 6",
+		"set bmargin 3",
+		"set lmargin 6",
+		"set auto x",
+		"set xdata time",
+		"set timefmt '%Y-%m-%d'",
+		"set format x '%Y-%m-%d'",
+		"set xrange ['2020-01-01':'2021-01-01']",
+		"set xtics '2020-02-01',86400*30,'2020-12-01'",
+		"set ytic center rotate by 90",
+		"set datafile separator ';'",
+	))."\n";
+	$paises2=array_values($paises);
+	for($i=0;$i<count($paises);$i++) {
+		$col2=$i*count($años)+2;
+		$col3=$i*count($años)+3;
+		$col4=$i*count($años)+4;
+		$col5=$i*count($años)+5;
+		$col6=$i*count($años)+6;
+		$col7=$i*count($años)+7;
+		$j=sprintf("%02d",$i+1);
+		list($num1,$num2,$num3)=$eje_y[$paises2[$i]];
+		$gnuplot.=implode("\n",array(
+			"set yrange [0:$num3]",
+			"set ytics 0,$num1,$num2",
+			"set output 'output/plot18${lang}${j}.png'",
+			"plot 'middle/plot18${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
+		))."\n";
+	}
+	$gnuplot.="\n";
+	file_put_contents("middle/plot18${lang}.gnu",$gnuplot);
+	passthru("gnuplot middle/plot18${lang}.gnu 2>&1");
 	console_debug();
 }
 

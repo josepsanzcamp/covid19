@@ -35,6 +35,8 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - https://www.ine.es/jaxi/Tabla.htm?path=/t20/e244/colectivos/p01/l0/&file=01001.px => Población en establecimientos colectivos según comunidad autónoma y provincia, por tipo de establecimiento colectivo (agrupado) y sexo
 - https://www.ine.es/dyngs//INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177008&menu=resultados&idp=1254735573002 => Estadística de defunciones. Movimiento natural de la población
 - https://www.ine.es/dyngs//INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177004&menu=resultados&idp=1254735573002 => Tablas de mortalidad
+- https://www.ine.es/experimental/defunciones/experimental_defunciones.htm => Estimación del número de defunciones semanales durante el brote de covid-19
+- https://www.ine.es/jaxiT3/Tabla.htm?t=35177
 
 # CSIC
 - http://envejecimiento.csic.es/estadisticas/indicadores/residencias/index.html => Estadísticas sobre residencias

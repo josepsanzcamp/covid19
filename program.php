@@ -806,9 +806,9 @@ if(!file_exists("middle/demo_r_mwk_ts.csv")) {
 
 $textos=array(
 	"title"=>array(
-		"ca"=>"Informació útil d'Espanya sobre l'impacte de covid-19",
-		"es"=>"Información útil de España sobre el impacto de covid-19",
-		"en"=>"Useful Spain information about the covid-19 impact",
+		"ca"=>"Informació sobre l'impacte de covid-19",
+		"es"=>"Información sobre el impacto de covid-19",
+		"en"=>"Information about the covid-19 impact",
 	),
 	"title2"=>array(
 		"ca"=>"Gràfics de defuncions per any, origen de les dades, acumulats diaris, setmanals, mensuals, anuals, per edat, per comunitat autònoma, per provincia, per pais i més",

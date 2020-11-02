@@ -805,10 +805,65 @@ if(!file_exists("middle/demo_r_mwk_ts.csv")) {
 }
 
 $textos=array(
-	"header"=>array(
-		"ca"=>"Informació útil d'Espanya sobre l'impacte de covid-19: gràfics de defuncions per any, origen de les dades, acumulats diaris, per edat, per comunitat autònoma i més",
-		"es"=>"Información útil de España sobre el impacto de covid-19: gráficos de defunciones por año, origen de los datos, acumulados diarios, por edad, por comunidad autónoma y más",
-		"en"=>"Useful Spain information about the covid-19 impact: Graphs of deaths by year, origin of the data, daily accumulated, by age, by autonomous community, and more",
+	"title"=>array(
+		"ca"=>"Informació útil d'Espanya sobre l'impacte de covid-19",
+		"es"=>"Información útil de España sobre el impacto de covid-19",
+		"en"=>"Useful Spain information about the covid-19 impact",
+	),
+	"title2"=>array(
+		"ca"=>"Gràfics de defuncions per any, origen de les dades, acumulats diaris, setmanals, mensuals, anuals, per edat, per comunitat autònoma, per provincia, per pais i més",
+		"es"=>"Gráficos de defunciones por año, origen de los datos, acumulados diarios, semanales, mensuales, anuales, por edad, por comunidad autónoma, por provincia, por pais y más",
+		"en"=>"Graphs of deaths by year, origin of the data, daily accumulated, weekly, montly, yearly, by age, by autonomous community, by province, by country and more",
+	),
+	"title3"=>array(
+		"ca"=>"Totes les dades s'han obtingut de fonts com MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, o els equivalents al institut nacional d'estadística de Suecia, Noruega, Portugal, França i Alemanya",
+		"es"=>"Todos los datos se han obtenido de fuentes como MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, o los equivalentes al instituto nacional de estadística de Suecia, Noruega, Portugal, Francia y Alemania",
+		"en"=>"All data have been obtained from sources as MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, or the equivalents to the National Statistics Institute of Sweden, Norway, Portugal, France and Germany",
+	),
+	"about"=>array(
+		"ca"=>"Envers a",
+		"es"=>"Acerca de",
+		"en"=>"About",
+	),
+	"lang"=>array(
+		"ca"=>"Idioma",
+		"es"=>"Idioma",
+		"en"=>"Language",
+	),
+	"langs"=>array(
+		"ca"=>"Català",
+		"es"=>"Castellano",
+		"en"=>"English",
+	),
+	"count1"=>array(
+		"ca"=>"imatge",
+		"es"=>"imagen",
+		"en"=>"image",
+	),
+	"count2"=>array(
+		"ca"=>"imatges",
+		"es"=>"imagenes",
+		"en"=>"images",
+	),
+	"view"=>array(
+		"ca"=>"Veure",
+		"es"=>"Ver",
+		"en"=>"View",
+	),
+	"data"=>array(
+		"ca"=>"Dades",
+		"es"=>"Datos",
+		"en"=>"Data",
+	),
+	"footer"=>array(
+		"ca"=>"Més info/fonts: <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a>",
+		"es"=>"Más info/fuentes: <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a>",
+		"en"=>"More info/sources: <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a>",
+	),
+	"top"=>array(
+		"ca"=>"Anar a dalt",
+		"es"=>"Ir arriba",
+		"en"=>"Go to top",
 	),
 	"plots"=>array(
 		"01"=>array(
@@ -901,11 +956,6 @@ $textos=array(
 			"es"=>"18. Defunciones por semana del año y por país obtenidas del Eurostat",
 			"en"=>"18. Deaths by week of year and by country obtained from the Eurostat",
 		),
-	),
-	"footer"=>array(
-		"ca"=>"Més info / fonts",
-		"es"=>"Más info / fuentes",
-		"en"=>"More info / sources",
 	),
 	"meses"=>array(
 		"ca"=>array(
@@ -2479,39 +2529,24 @@ if(!file_exists("output/plot18${lang}01.png")) {
 
 if(!file_exists("index.${lang}.html")) {
 	console_debug("index.${lang}.html");
-	$html=implode("\n",array(
-		"<!DOCTYPE html>",
-		"<html>",
-		"<head>",
-		"<title>".$textos["header"][$lang]."</title>",
-		"<style>",
-		"body { font-family:Arial,Helvetica,sans-serif; }",
-		"div { width:100%; max-width:1200px; margin: 0 auto; }",
-		"img { width:100%; }",
-		"h3 { text-align: center; padding:1em; background:#2c3e50; color:#fff; font-size:1em; }",
-		"h3.norm { clear:both; }",
-		"h3.lang { float:right; margin-left:1em; }",
-		"h3.warn { background:#ea4335; }",
-		"a { color:#fff; }",
-		"</style>",
-		"</head>",
-		"<body>",
-		"<div>",
-	))."\n";
-	foreach(array("en","es","ca") as $temp) {
-		$html.=implode("\n",array(
-			"<h3 class='lang'><a href='index.${temp}.html'>".strtoupper($temp)."</a></h4>",
-		))."\n";
+	$template=file_get_contents("template/index.html");
+	$template=str_replace(array("img/","css/","js/"),array("template/img/","template/css/","template/js/"),$template);
+	$template=explode("<!-- ROWROWROW -->",$template);
+	$html=str_replace(
+		array("__TITLE__","__ABOUT__","__FOOTER__","__LANG__","__MOMOOLD__"),
+		array($textos["title"][$lang],$textos["about"][$lang],$textos["footer"][$lang],$textos["lang"][$lang],$textos["momoold"][$lang]),
+		$template[0]);
+	foreach(array("ca","es","en") as $temp) {
+		$html.=str_replace(
+			array("__LANG__","__LANG2__"),
+			array($textos["langs"][$temp],"index.${temp}.html"),
+			$template[1]);
 	}
-	$html.=implode("\n",array(
-		"<h3 class='norm'>".$textos["header"][$lang]."</h3>",
-		"<h3 class='warn'>".$textos["momoold"][$lang]."</h3>",
-	))."\n";
+	$html.=str_replace(
+		array("__TITLE__","__TITLE2__","__TITLE3__"),
+		array($textos["title"][$lang],$textos["title2"][$lang],$textos["title3"][$lang]),
+		$template[2]);
 	foreach($textos["plots"] as $key=>$val) {
-		$html.=implode("\n",array(
-			"<h3>".$val[$lang]."</h3>",
-			"<a name='plot${key}'></a>",
-		))."\n";
 		$imgs=array();
 		$imgs=array_merge($imgs,glob("output/plot${key}${lang}.png"));
 		$imgs=array_merge($imgs,glob("output/plot${key}${lang}?.png"));
@@ -2519,18 +2554,27 @@ if(!file_exists("index.${lang}.html")) {
 		$imgs=array_merge($imgs,glob("output/plot${key}${lang}.gif"));
 		$imgs=array_merge($imgs,glob("output/plot${key}${lang}?.gif"));
 		$imgs=array_merge($imgs,glob("output/plot${key}${lang}??.gif"));
+		$count=count($imgs)." ".$textos["count".min(max(count($imgs),1),2)][$lang];
+		$datas=array();
+		$datas=array_merge($datas,glob("middle/plot${key}${lang}.csv"));
+		$datas=array_merge($datas,glob("middle/plot${key}${lang}*.csv"));
+		$datas=array_merge($datas,glob("middle/plot${key}${lang}.*.csv"));
+		$datas[0]="https://github.com/josepsanzcamp/covid19/tree/master/".$datas[0];
+		$html.=str_replace(
+			array("__IMAGE__","__LABEL__","__VIEW__","__DATA__","__COUNT__","__DATA2__","__PLOT__"),
+			array($imgs[0],$val[$lang],$textos["view"][$lang],$textos["data"][$lang],$count,$datas[0],"plot${key}"),
+			$template[3]);
 		foreach($imgs as $img) {
-			$html.=implode("\n",array(
-				"<img src='${img}'/>",
-			))."\n";
+			$html.=str_replace(
+				array("__PLOT__","__VIEW__"),
+				array("plot${key}",$img),
+				$template[4]);
 		}
 	}
-	$html.=implode("\n",array(
-		"<h3>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
-		"</div>",
-		"</body>",
-		"</html>",
-	))."\n";
+	$html.=str_replace(
+		array("__FOOTER__","__TOP__"),
+		array($textos["footer"][$lang],$textos["top"][$lang]),
+		$template[5]);
 	file_put_contents("index.${lang}.html",$html);
 	console_debug();
 }
@@ -2540,39 +2584,6 @@ if(!file_exists("index.${lang}.html")) {
 if(!file_exists("index.html")) {
 	console_debug("index.html");
 	$html=implode("\n",array(
-		"<!DOCTYPE html>",
-		"<html>",
-		"<head>",
-		"<title>".$textos["header"]["ca"]."</title>",
-		"<style>",
-		"body { font-family:Arial,Helvetica,sans-serif; }",
-		"div { width:100%; max-width:1200px; margin: 0 auto; }",
-		"img { width:100%; }",
-		"h3 { text-align: center; padding:1em; background:#2c3e50; color:#fff; font-size:1em; }",
-		"h3.norm { clear:both; }",
-		"h3.lang { float:right; margin-left:1em; }",
-		"h3.warn { background:#ea4335; }",
-		"a { color:#fff; }",
-		"</style>",
-		"</head>",
-		"<body>",
-		"<div>",
-	))."\n";
-	foreach(array("en","es","ca") as $lang) {
-		$html.=implode("\n",array(
-			"<h3 class='lang'><a href='index.${lang}.html'>".strtoupper($lang)."</a></h3>",
-		))."\n";
-	}
-	foreach(array("ca","es","en") as $lang) {
-		$html.=implode("\n",array(
-			"<h3 class='norm'><a href='index.${lang}.html'>".$textos["header"][$lang]."</a></h3>",
-			"<h3>".$textos["footer"][$lang].": <a href='https://github.com/josepsanzcamp/covid19/'>https://github.com/josepsanzcamp/covid19/</a></h3>",
-		))."\n";
-	}
-	$html.=implode("\n",array(
-		"</div>",
-	))."\n";
-	$html.=implode("\n",array(
 		"<script>",
 		"var lang=navigator.language || navigator.systemLanguage;",
 		"lang=lang.toLowerCase();",
@@ -2582,10 +2593,6 @@ if(!file_exists("index.html")) {
 		"else if(lang=='en') window.location.href='index.en.html';",
 		"else window.location.href='index.ca.html';",
 		"</script>",
-	))."\n";
-	$html.=implode("\n",array(
-		"</body>",
-		"</html>",
 	))."\n";
 	file_put_contents("index.html",$html);
 	console_debug();

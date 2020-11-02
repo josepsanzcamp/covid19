@@ -1,9 +1,12 @@
 # covid19
-Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y del OECD
-- Vigilancia de la Mortalidad Diaria (MoMo) => He sacado los datos de mortalidad del 2020
-- Instituto Nacional de Estadística (INE) => He sacado los datos de defunciones de los registros civiles
-- Envejecimiento en red (CSIC) => He sacado los listados de resicencias
-- Organisation for Economic Co-operation and Development (OECD) => He sacado datos de otros paises
+Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
+- Vigilancia de la Mortalidad Diaria (MoMo) => He obtenido los datos de mortalidad del 2020
+- Instituto Nacional de Estadística (INE) => He obtenido los datos de defunciones de los registros civiles
+- Envejecimiento en red (CSIC) => He obtenido los listados de resicencias
+- Organisation for Economic Co-operation and Development (OECD) => He obtenido datos de otros paises
+- EuroMoMo => He obtenido previsiones de mortalidad de otros paises de Europa
+- Eurostat => Idem que lo anterior, pero con datos reales en lugar de la estimación que hace EuroMoMo
+- Además, he obtenidos datos de Suecia, Noruega, Portugal, Francia y Alemania de sus respectivo instituto nacional de estadística
 
 # MoMo
 - https://www.isciii.es/QueHacemos/Servicios/VigilanciaSaludPublicaRENAVE/EnfermedadesTransmisibles/MoMo/Paginas/MoMo.aspx => pagina principal de MoMo
@@ -58,6 +61,12 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - wget -O component.$(date +"%Y%m%d").js https://www.euromomo.eu$(wget -q -O - https://www.euromomo.eu/graphs-and-maps | tr '"' '\n' | grep /component---src-templates-graphs-and-maps-js | head -1)
 - https://www.euromomo.eu/how-it-works/what-is-a-z-score => Importante para entender como vienen los datos normalizados
 
+# Eurostat
+- https://www.destatis.de/Europa/EN/Topic/COVID-19/COVID-19-article.html
+- https://www.destatis.de/Europa/EN/Topic/Population-Labour-Social-Issues/Demography-migration/mortality.html
+- https://ec.europa.eu/eurostat/en/data/database?node_code=demo_mor
+- https://ec.europa.eu/eurostat/en/data/database?node_code=demomwk
+
 # Por paises
 - https://magnet.xataka.com/en-diez-minutos/exceso-177-000-muertes-que-dicen-datos-momo-coronavirus-europa => Interpretacion de EuroMoMo
 - https://www.destatis.de/EN/Press/2020/05/PE20_179_12621.html => Noticia en la Oficina Federal de Estadística de Alemánia
@@ -87,11 +96,4 @@ Aqui dejare algunos plots para mostrar los datos del MoMo, del INE, del CSIC y d
 - https://www.destatis.de/SiteGlobals/Forms/Suche/EN/Servicesuche_Formular.html?nn=23768&resourceId=2376&input_=23768&pageLocale=en&templateQueryString=daily+deaths&submit.x=0&submit.y=0
 - https://www.destatis.de/EN/Themes/Society-Environment/Population/Deaths-Life-Expectancy/mortality.html
 - https://www.destatis.de/EN/Themes/Cross-Section/Corona/_Graphic/_Interactive/deaths-weekly-years.html?nn=23768
-
-# Europa
-- https://www.destatis.de/Europa/EN/Topic/COVID-19/COVID-19-article.html
-- https://www.destatis.de/Europa/EN/Topic/Population-Labour-Social-Issues/Demography-migration/mortality.html
-- https://ec.europa.eu/eurostat/en/data/database?node_code=demo_mor
-- https://ec.europa.eu/eurostat/en/data/database?node_code=demomwk
-
 

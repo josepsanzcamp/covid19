@@ -1,4 +1,7 @@
 
+first:
+	@echo "Nothing to do, please, specify a target ..."
+
 all:
 	rm -f middle/* output/* index.*
 	time -p php php/program.php
@@ -6,11 +9,11 @@ all:
 clean:
 	rm -f middle/* output/* index.*
 
-index:
-	rm -f index.*
+continue:
 	time -p php php/program.php
 
-continue:
+index:
+	rm -f index.*
 	time -p php php/program.php
 
 momo:
@@ -48,5 +51,4 @@ germany:
 europe:
 	rm -f output/plot18*
 	time -p php php/program.php
-
 

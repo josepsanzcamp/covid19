@@ -40,6 +40,9 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.ine.es/dyngs//INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177004&menu=resultados&idp=1254735573002 => Tablas de mortalidad
 - https://www.ine.es/experimental/defunciones/experimental_defunciones.htm => Estimación del número de defunciones semanales durante el brote de covid-19
 - https://www.ine.es/jaxiT3/Tabla.htm?t=35177 => Defunciones semanales, acumuladas y variación interanual del acumulado. Total nacional y CCAA. 2000-2020
+- https://www.ine.es/jaxiT3/Tabla.htm?t=10803 => Defunciones por causas (lista reducida) por sexo y grupos de edad
+- https://www.ine.es/jaxiT3/Tabla.htm?t=9936 => Defunciones por causas (lista reducida) por sexo
+- https://www.ine.es/jaxi/Tabla.htm?path=/COVID/t15/&file=02003.px => Defunciones por año, enfermedades del sistema respiratorio y mes de defunción.
 
 # CSIC
 - http://envejecimiento.csic.es/estadisticas/indicadores/residencias/index.html => Estadísticas sobre residencias

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="img/favicon.ico">
+
+		<title>__TITLE__</title>
+
+		<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="css/album.css" rel="stylesheet">
+
+		<link href="css/ekko-lightbox.css" rel="stylesheet">
+
+		<style>
+		.ekko-lightbox-nav-overlay a {
+			color:#000; // BLACK ARROWS
+		}
+		.ekko-lightbox-nav-overlay a span {
+			padding:0; // FOR POSITION
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<header>
+			<div class="collapse bg-dark" id="navbarHeader">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-md-7 py-4">
+							<h4 class="text-white">__ABOUT__</h4>
+							<p class="text-muted">__FOOTER__</p>
+							<p class="text-muted">__MOMOOLD__</p>
+						</div>
+						<div class="col-sm-4 offset-md-1 py-4">
+							<h4 class="text-white">__LANG__</h4>
+							<ul class="list-unstyled">
+<!-- ROWROWROW -->
+								<li><a href="__LANG2__" class="text-white">__LANG__</a></li>
+<!-- ROWROWROW -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="navbar navbar-dark bg-dark box-shadow">
+				<div class="container d-flex justify-content-between">
+					<a href="#" class="navbar-brand d-flex align-items-center">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+						<strong>__TITLE__</strong>
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<main role="main">
+
+			<section class="jumbotron text-center">
+				<div class="container">
+					<p class="lead text-muted text-left">__TITLE2__</p>
+					<p class="lead text-muted text-left">__TITLE3__</p>
+				</div>
+			</section>
+
+			<div class="album py-5 bg-light">
+				<div class="container">
+
+					<div class="row">
+<!-- ROWROWROW -->
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<a href="__IMAGE__" data-toggle2="lightbox" data-gallery2="__PLOT__">
+									<img class="card-img-top" src="__IMAGE__">
+								</a>
+								<div class="card-body">
+									<p class="card-text">__LABEL__</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="btn-group">
+											<a type="button" class="btn btn-sm btn-outline-secondary" href="__IMAGE__" data-toggle2="lightbox" data-gallery2="__PLOT__">__VIEW__</a>
+											<a type="button" class="btn btn-sm btn-outline-secondary" href="__DATA2__">__DATA__</a>
+										</div>
+										<small class="text-muted">__COUNT__</small>
+									</div>
+								</div>
+							</div>
+						</div>
+<!-- ROWROWROW -->
+						<div data-toggle="lightbox" data-gallery="__PLOT__" data-remote="__VIEW__"></div>
+<!-- ROWROWROW -->
+					</div>
+				</div>
+			</div>
+
+		</main>
+
+		<footer class="text-muted">
+			<div class="container">
+				<p class="float-right">
+					<a href="#">__TOP__</a>
+				</p>
+				<p>__FOOTER__</p>
+			</div>
+		</footer>
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="js/jquery-3.2.1.slim.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/ekko-lightbox.min.js"></script>
+
+		<script>
+		$(document).on('click', '[data-toggle2="lightbox"]', function(event) {
+			event.preventDefault();
+			var toggle=$(this).attr("data-toggle2");
+			var gallery=$(this).attr("data-gallery2");
+			$('[data-toggle="'+toggle+'"][data-gallery="'+gallery+'"]:first').ekkoLightbox();
+		});
+
+		$(function() {
+			var hash=window.location.hash;
+			if(hash.substr(0,1)=="#") hash=hash.substr(1);
+			$('[data-toggle="lightbox"][data-gallery="'+hash+'"]:first').ekkoLightbox();
+		});
+		</script>
+
+	</body>
+</html>

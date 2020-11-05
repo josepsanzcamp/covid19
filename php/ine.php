@@ -65,7 +65,7 @@ if(!file_exists("middle/02001-ok2.csv")) {
 			$key2=$val[3]."-".$meses[$val[0]].";".$edades[$val[2]];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			if($val[4]=="..") $val[4]="0";
-			$sumas[$key2][1]+=str_replace(".","",str_replace(".","",$val[4]));
+			$sumas[$key2][1]+=str_replace(".","",$val[4]);
 		}
 		unset($data[$key]);
 	}
@@ -78,6 +78,19 @@ if(!file_exists("middle/02001-ok2.csv")) {
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02001-ok2.csv",$sumas);
+	console_debug();
+}
+
+if(!file_exists("middle/02001-ok3.csv")) {
+	console_debug("middle/02001-ok3.csv");
+	$data=import_file("input/ine/02001.csv");
+	foreach($data as $key=>$val) {
+		if($val[0]=="Total" && $val[1]=="Total" && $val[2]=="Total") {
+			$matrix[$val[3]]=array($val[3],str_replace(".","",$val[4]));
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/02001-ok3.csv",$matrix);
 	console_debug();
 }
 
@@ -261,7 +274,7 @@ if(!file_exists("middle/02002-ok.csv")) {
 		if($val[0]!="TOTAL ESPAÑA" && $val[1]!="TOTAL EDADES" && $val[2]=="TOTAL" && $val[3]=="Ambos sexos") {
 			$key2=$val[4].";".$ccaas[$val[0]].";".$edades[$val[1]];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
-			$sumas[$key2][1]+=str_replace(".","",str_replace(".","",$val[5]));
+			$sumas[$key2][1]+=str_replace(".","",$val[5]);
 		}
 		unset($data[$key]);
 	}
@@ -287,7 +300,7 @@ if(!file_exists("middle/02002-ok2.csv")) {
 	$matrix=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="TOTAL ESPAÑA" && $val[1]=="TOTAL EDADES" && $val[2]=="TOTAL" && $val[3]=="Ambos sexos") {
-			$matrix[$val[4]]=str_replace(".","",str_replace(".","",$val[5]));
+			$matrix[$val[4]]=str_replace(".","",$val[5]);
 		}
 		unset($data[$key]);
 	}
@@ -362,7 +375,7 @@ if(!file_exists("middle/02005-ok.csv")) {
 			$key2=$edades[$val[1]];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			if($val[3]=="..") $val[3]=0;
-			$sumas[$key2][1]+=str_replace(".","",str_replace(".","",$val[3]));
+			$sumas[$key2][1]+=str_replace(".","",$val[3]);
 		}
 		unset($data[$key]);
 	}
@@ -372,6 +385,54 @@ if(!file_exists("middle/02005-ok.csv")) {
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02005-ok.csv",$sumas);
+	console_debug();
+}
+
+if(!file_exists("middle/35177-ok.csv")) {
+	console_debug("middle/35177-ok.csv");
+	$data=import_file("input/ine/35177.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]!="Total Nacional" && $val[1]=="Dato base" && $val[3]!="Total") {
+			$key2=substr($val[2],0,4);
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			$sumas[$key2][1]+=str_replace(".","",$val[3]);
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/35177-ok.csv",$sumas);
+	console_debug();
+}
+
+if(!file_exists("middle/35177-ok2.csv")) {
+	console_debug("middle/35177-ok2.csv");
+	$data=import_file("input/ine/35177.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]!="Total Nacional" && $val[1]=="Dato base" && $val[3]!="Total") {
+			$key2=str_replace("SM","-",$val[2]);
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			$sumas[$key2][1]+=str_replace(".","",$val[3]);
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/35177-ok2.csv",$sumas);
+	console_debug();
+}
+
+if(!file_exists("middle/35177-ok3.csv")) {
+	console_debug("middle/35177-ok3.csv");
+	$data=import_file("input/ine/35177.csv");
+	$sumas=array();
+	foreach($data as $key=>$val) {
+		if($val[0]!="Total Nacional" && $val[1]=="Dato base" && $val[3]!="Total") {
+			$key2=str_replace("SM","-",$val[2]).";".$val[0];
+			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
+			$sumas[$key2][1]+=str_replace(".","",$val[3]);
+		}
+		unset($data[$key]);
+	}
+	export_file("middle/35177-ok3.csv",$sumas);
 	console_debug();
 }
 

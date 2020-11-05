@@ -2,6 +2,11 @@
 
 if(!file_exists("output/plot18${lang}01.png")) {
 	console_debug("output/plot18${lang}01.png");
+	$temp=import_file("input/oecd/code2country.csv");
+	$countries=array();
+	foreach($temp as $key=>$val) {
+		$countries[$val[1]]=$val[0];
+	}
 	$europe=import_file("middle/demo_r_mwk_ts.csv");
 	foreach($europe as $key=>$val) {
 		if($key==0) {
@@ -38,8 +43,9 @@ if(!file_exists("output/plot18${lang}01.png")) {
 	foreach($europe as $key=>$val) {
 		if($key==0) continue;
 		$paises[$val[0]]=$val[0];
+		if(isset($countries[$val[0]])) $paises[$val[0]]=$countries[$val[0]];
 	}
-	ksort($paises);
+	asort($paises);
 	$años=array();
 	$semanas=array();
 	foreach($europe[0] as $key=>$val) {
@@ -71,7 +77,7 @@ if(!file_exists("output/plot18${lang}01.png")) {
 	}
 	$matrix=array();
 	foreach($semanas as $semana) {
-		foreach($paises as $pais) {
+		foreach($paises as $pais=>$nada) {
 			foreach($años as $año) {
 				$matrix[$semana][$pais."-".$año]="";
 			}
@@ -98,11 +104,6 @@ if(!file_exists("output/plot18${lang}01.png")) {
 			}
 		}
 	}
-	$temp=import_file("input/oecd/code2country.csv");
-	$countries=array();
-	foreach($temp as $key=>$val) {
-		$countries[$val[1]]=$val[0];
-	}
 	foreach($header as $key=>$val) {
 		$val=explode("-",$val);
 		if(isset($countries[$val[0]])) $val[0]=$countries[$val[0]];
@@ -128,7 +129,7 @@ if(!file_exists("output/plot18${lang}01.png")) {
 		"set ytic center rotate by 90",
 		"set datafile separator ';'",
 	))."\n";
-	$paises2=array_values($paises);
+	$paises=array_keys($paises);
 	for($i=0;$i<count($paises);$i++) {
 		$col2=$i*count($años)+2;
 		$col3=$i*count($años)+3;
@@ -137,7 +138,7 @@ if(!file_exists("output/plot18${lang}01.png")) {
 		$col6=$i*count($años)+6;
 		$col7=$i*count($años)+7;
 		$j=sprintf("%02d",$i+1);
-		list($num1,$num2,$num3)=$eje_y[$paises2[$i]];
+		list($num1,$num2,$num3)=$eje_y[$paises[$i]];
 		$gnuplot.=implode("\n",array(
 			"set yrange [0:$num3]",
 			"set ytics 0,$num1,$num2",

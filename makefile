@@ -52,3 +52,7 @@ europe:
 	rm -f output/plot18*
 	time -p php php/program.php
 
+spain:
+	rm -f output/plot19*
+	time -p php php/program.php
+

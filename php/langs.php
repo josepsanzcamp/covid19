@@ -152,6 +152,11 @@ $textos=array(
 			"es"=>"18. Defunciones por semana del año y por país obtenidas del Eurostat",
 			"en"=>"18. Deaths by week of year and by country obtained from the Eurostat",
 		),
+		"19"=>array(
+			"ca"=>"19. Defuncions per setmana obtinguts del Institut Nacional d'Estadística",
+			"es"=>"19. Defunciones por semana obtenidos del Instituto Nacional de Estadística",
+			"en"=>"19. Deaths by week obtained from Statistics Spain",
+		),
 	),
 	"meses"=>array(
 		"ca"=>array(

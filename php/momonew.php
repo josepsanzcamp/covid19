@@ -2,7 +2,7 @@
 
 if(!file_exists("middle/datanew.csv")) {
 	console_debug("middle/datanew.csv");
-	$files=glob("input/momo/data.????????.csv");
+	$files=glob("input/momo/data.????????.csv.gz");
 	sort($files);
 	$result=array();
 	foreach($files as $file) {
@@ -121,7 +121,7 @@ if(!file_exists("middle/datanew-ok6.csv")) {
 
 if(!file_exists("middle/datanew-ok7.csv")) {
 	console_debug("middle/datanew-ok7.csv");
-	$files=glob("input/momo/data.????????.csv");
+	$files=glob("input/momo/data.????????.csv.gz");
 	sort($files);
 	$sumas=array();
 	foreach($files as $file) {

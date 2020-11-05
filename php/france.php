@@ -2,7 +2,7 @@
 
 if(!file_exists("middle/dc_20xx_det.csv")) {
 	console_debug("middle/dc_20xx_det.csv");
-	$files=glob("input/france/DC_20??_det.csv");
+	$files=glob("input/france/DC_20??_det.csv.gz");
 	sort($files);
 	$sumas=array();
 	foreach($files as $file) {

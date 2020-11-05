@@ -1,6 +1,7 @@
 <?php
 
 function import_file($file) {
+	if(pathinfo($file,PATHINFO_EXTENSION)=="gz") $file="compress.zlib://".$file;
 	$data=file($file,FILE_IGNORE_NEW_LINES);
 	$sep="";
 	if($sep=="" && strpos($data[0],";")!==false) $sep=";";

@@ -2,7 +2,7 @@
 
 if(!file_exists("middle/02001-ok.csv")) {
 	console_debug("middle/02001-ok.csv");
-	$data=import_file("input/ine/02001.csv");
+	$data=import_file("input/ine/02001.csv.gz");
 	$meses=array(
 		"Enero"=>"01",
 		"Febrero"=>"02",
@@ -33,7 +33,7 @@ if(!file_exists("middle/02001-ok.csv")) {
 
 if(!file_exists("middle/02001-ok2.csv")) {
 	console_debug("middle/02001-ok2.csv");
-	$data=import_file("input/ine/02001.csv");
+	$data=import_file("input/ine/02001.csv.gz");
 	$meses=array(
 		"Enero"=>"01",
 		"Febrero"=>"02",
@@ -83,7 +83,7 @@ if(!file_exists("middle/02001-ok2.csv")) {
 
 if(!file_exists("middle/02001-ok3.csv")) {
 	console_debug("middle/02001-ok3.csv");
-	$data=import_file("input/ine/02001.csv");
+	$data=import_file("input/ine/02001.csv.gz");
 	foreach($data as $key=>$val) {
 		if($val[0]=="Total" && $val[1]=="Total" && $val[2]=="Total") {
 			$matrix[$val[3]]=array($val[3],str_replace(".","",$val[4]));
@@ -96,7 +96,7 @@ if(!file_exists("middle/02001-ok3.csv")) {
 
 if(!file_exists("middle/14819-ok.csv")) {
 	console_debug("middle/14819-ok.csv");
-	$data=import_file("input/ine/14819.csv");
+	$data=import_file("input/ine/14819.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if(strtok($val[0]," ")=="001-102" && $val[1]=="Total") {
@@ -112,7 +112,7 @@ if(!file_exists("middle/14819-ok.csv")) {
 
 if(!file_exists("middle/6545-ok.csv")) {
 	console_debug("middle/6545-ok.csv");
-	$data=import_file("input/ine/6545.csv");
+	$data=import_file("input/ine/6545.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="Total" && $val[1]=="Total") {
@@ -128,7 +128,7 @@ if(!file_exists("middle/6545-ok.csv")) {
 
 if(!file_exists("middle/6548-ok.csv")) {
 	console_debug("middle/6548-ok.csv");
-	$data=import_file("input/ine/6548.csv");
+	$data=import_file("input/ine/6548.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="Total" && $val[1]=="Total") {
@@ -144,7 +144,7 @@ if(!file_exists("middle/6548-ok.csv")) {
 
 if(!file_exists("middle/6561-ok.csv")) {
 	console_debug("middle/6561-ok.csv");
-	$data=import_file("input/ine/6561.csv");
+	$data=import_file("input/ine/6561.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="Total") {
@@ -160,7 +160,7 @@ if(!file_exists("middle/6561-ok.csv")) {
 
 if(!file_exists("middle/6562-ok.csv")) {
 	console_debug("middle/6562-ok.csv");
-	$data=import_file("input/ine/6562.csv");
+	$data=import_file("input/ine/6562.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total" && $val[2]!="Total") {
@@ -176,7 +176,7 @@ if(!file_exists("middle/6562-ok.csv")) {
 
 if(!file_exists("middle/6562-ok2.csv")) {
 	console_debug("middle/6562-ok2.csv");
-	$data=import_file("input/ine/6562.csv");
+	$data=import_file("input/ine/6562.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total" && $val[2]!="Total") {
@@ -192,7 +192,7 @@ if(!file_exists("middle/6562-ok2.csv")) {
 
 if(!file_exists("middle/6566-ok.csv")) {
 	console_debug("middle/6566-ok.csv");
-	$data=import_file("input/ine/6566.csv");
+	$data=import_file("input/ine/6566.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if(stripos($val[0],"defunci")!==false && stripos($val[1],"defunción")!==false) {
@@ -208,7 +208,7 @@ if(!file_exists("middle/6566-ok.csv")) {
 
 if(!file_exists("middle/6580-ok.csv")) {
 	console_debug("middle/6580-ok.csv");
-	$data=import_file("input/ine/6580.csv");
+	$data=import_file("input/ine/6580.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if(stripos($val[0],"defunci")!==false && stripos($val[1],"defunción")!==false) {
@@ -224,7 +224,7 @@ if(!file_exists("middle/6580-ok.csv")) {
 
 if(!file_exists("middle/7947-ok.csv")) {
 	console_debug("middle/7947-ok.csv");
-	$data=import_file("input/ine/7947.csv");
+	$data=import_file("input/ine/7947.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if(strtok($val[0]," ")=="001-102" && $val[1]=="Total" && $val[2]=="Todas las edades") {
@@ -245,7 +245,7 @@ if(!file_exists("middle/02002-ok.csv")) {
 	foreach($temp as $key=>$val) {
 		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".$val[1];
 	}
-	$data=import_file("input/ine/02002.csv");
+	$data=import_file("input/ine/02002.csv.gz");
 	$edades=array(
 		"0-4 años"=>1,
 		"5-9 años"=>1,
@@ -296,7 +296,7 @@ if(!file_exists("middle/02002-ok2.csv")) {
 	foreach($temp as $key=>$val) {
 		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".$val[1];
 	}
-	$data=import_file("input/ine/02002.csv");
+	$data=import_file("input/ine/02002.csv.gz");
 	$matrix=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="TOTAL ESPAÑA" && $val[1]=="TOTAL EDADES" && $val[2]=="TOTAL" && $val[3]=="Ambos sexos") {
@@ -319,7 +319,7 @@ if(!file_exists("middle/6548-ok2.csv")) {
 	foreach($temp as $key=>$val) {
 		$ccaas[$val[0]." ".$val[1]]=$val[0]." ".$val[1];
 	}
-	$data=import_file("input/ine/6548.csv");
+	$data=import_file("input/ine/6548.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total" && $val[0]!="Extranjero" && $val[1]=="Total") {
@@ -345,7 +345,7 @@ if(!file_exists("middle/02005-ok.csv")) {
 	foreach($temp as $key=>$val) {
 		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".$val[1];
 	}
-	$data=import_file("input/ine/02005.csv");
+	$data=import_file("input/ine/02005.csv.gz");
 	$edades=array(
 		"0-4"=>1,
 		"5-9"=>1,
@@ -390,7 +390,7 @@ if(!file_exists("middle/02005-ok.csv")) {
 
 if(!file_exists("middle/35177-ok.csv")) {
 	console_debug("middle/35177-ok.csv");
-	$data=import_file("input/ine/35177.csv");
+	$data=import_file("input/ine/35177.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total Nacional" && $val[1]=="Dato base" && $val[3]!="Total") {
@@ -406,7 +406,7 @@ if(!file_exists("middle/35177-ok.csv")) {
 
 if(!file_exists("middle/35177-ok2.csv")) {
 	console_debug("middle/35177-ok2.csv");
-	$data=import_file("input/ine/35177.csv");
+	$data=import_file("input/ine/35177.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total Nacional" && $val[1]=="Dato base" && $val[3]!="Total") {
@@ -422,7 +422,7 @@ if(!file_exists("middle/35177-ok2.csv")) {
 
 if(!file_exists("middle/35177-ok3.csv")) {
 	console_debug("middle/35177-ok3.csv");
-	$data=import_file("input/ine/35177.csv");
+	$data=import_file("input/ine/35177.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total Nacional" && $val[1]=="Dato base" && $val[3]!="Total") {

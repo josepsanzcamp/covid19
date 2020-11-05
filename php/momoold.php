@@ -2,7 +2,7 @@
 
 if(!file_exists("middle/dataold.csv")) {
 	console_debug("middle/dataold.csv");
-	$files=glob("input/momo/data.????????.csv");
+	$files=glob("input/momo/data.????????.csv.gz");
 	sort($files);
 	foreach($files as $key=>$val) {
 		$temp=explode(".",$val);

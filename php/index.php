@@ -7,10 +7,11 @@ if(!file_exists("index.html")) {
 		"var lang=navigator.language || navigator.systemLanguage;",
 		"lang=lang.toLowerCase();",
 		"lang=lang.substr(0,2);",
-		"if(lang=='ca') window.location.href='index.ca.html';",
-		"else if(lang=='es') window.location.href='index.es.html';",
-		"else if(lang=='en') window.location.href='index.en.html';",
-		"else window.location.href='index.ca.html';",
+		"var hash=window.location.hash;",
+		"if(lang=='ca') window.location.href='index.ca.html'+hash;",
+		"else if(lang=='es') window.location.href='index.es.html'+hash;",
+		"else if(lang=='en') window.location.href='index.en.html'+hash;",
+		"else window.location.href='index.ca.html'+hash;",
 		"</script>",
 	))."\n";
 	file_put_contents("index.html",$html);

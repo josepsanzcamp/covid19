@@ -2,7 +2,7 @@
 
 if(!file_exists("output/plot09${lang}01.gif")) {
 	console_debug("output/plot09${lang}01.gif");
-	$files=glob("middle/euromomo.????????.csv");
+	$files=glob("middle/component.????????.csv");
 	sort($files);
 	$paises=array();
 	foreach($files as $file) {

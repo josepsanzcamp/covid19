@@ -1,13 +1,13 @@
 <?php
 
-if(count(glob("middle/euromomo.????????.csv"))!=count(glob("input/euromomo/component.????????.js.gz"))) {
-	console_debug("middle/euromomo.????????.csv");
+if(count(glob("middle/component.????????.csv"))!=count(glob("input/euromomo/component.????????.js.gz"))) {
+	console_debug("middle/component.????????.csv");
 	$files=glob("input/euromomo/component.????????.js.gz");
 	sort($files);
 	foreach($files as $file) {
 		$part=explode(".",$file);
 		$part=$part[1];
-		if(file_exists("middle/euromomo.${part}.csv")) continue;
+		if(file_exists("middle/component.${part}.csv")) continue;
 		if(pathinfo($file,PATHINFO_EXTENSION)=="gz") $file="compress.zlib://".$file;
 		$buffer=file_get_contents($file);
 		$pos=strrpos($buffer,"JSON.parse");
@@ -45,7 +45,7 @@ if(count(glob("middle/euromomo.????????.csv"))!=count(glob("input/euromomo/compo
 				}
 			}
 		}
-		export_file("middle/euromomo.${part}.csv",$matrix);
+		export_file("middle/component.${part}.csv",$matrix);
 	}
 	console_debug();
 }

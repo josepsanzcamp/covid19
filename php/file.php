@@ -38,4 +38,9 @@ function export_file($file,$data) {
 	file_put_contents($file,$data);
 }
 
+function get_file($file) {
+	if(pathinfo($file,PATHINFO_EXTENSION)=="gz") $file="compress.zlib://".$file;
+	return file_get_contents($file);
+}
+
 ?>

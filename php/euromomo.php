@@ -8,8 +8,7 @@ if(count(glob("middle/component.????????.csv"))!=count(glob("input/euromomo/comp
 		$part=explode(".",$file);
 		$part=$part[1];
 		if(file_exists("middle/component.${part}.csv")) continue;
-		if(pathinfo($file,PATHINFO_EXTENSION)=="gz") $file="compress.zlib://".$file;
-		$buffer=file_get_contents($file);
+		$buffer=get_file($file);
 		$pos=strrpos($buffer,"JSON.parse");
 		if($pos===false) die("ERROR 2");
 		$pos=strpos($buffer,"{",$pos);

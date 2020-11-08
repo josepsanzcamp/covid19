@@ -2,7 +2,7 @@
 
 if(!file_exists("index.${lang}.html")) {
 	console_debug("index.${lang}.html");
-	$template=file_get_contents("template/index.html");
+	$template=get_file("template/index.html");
 	$template=str_replace(array("img/","css/","js/"),array("template/img/","template/css/","template/js/"),$template);
 	$template=explode("<!-- ROWROWROW -->",$template);
 	$html=str_replace(

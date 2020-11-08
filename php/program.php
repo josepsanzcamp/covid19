@@ -13,7 +13,7 @@ include("php/csic.php");
 include("php/euromomo.php");
 include("php/momo2.php");
 include("php/france.php");
-include("php/europe.php");
+include("php/eurostat.php");
 
 include("php/langs.php");
 

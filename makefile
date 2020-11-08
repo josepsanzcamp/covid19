@@ -25,7 +25,7 @@ euromomo:
 	time -p php php/program.php
 
 euromomo.all:
-	rm -f middle/euromomo* output/plot09* index.*.html
+	rm -f middle/component* output/plot09* index.*.html
 	time -p php php/program.php
 
 sweden:
@@ -49,10 +49,10 @@ germany:
 	time -p php php/program.php
 
 eurostat:
-	rm -f output/plot18*
+	rm -f middle/demo_r_mwk_ts.csv output/plot18*
 	time -p php php/program.php
 
 spain:
-	rm -f output/plot19*
+	rm -f middle/35177* output/plot19*
 	time -p php php/program.php
 

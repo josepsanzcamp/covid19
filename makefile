@@ -48,7 +48,7 @@ germany:
 	rm -f output/plot17*
 	time -p php php/program.php
 
-europe:
+eurostat:
 	rm -f output/plot18*
 	time -p php php/program.php
 

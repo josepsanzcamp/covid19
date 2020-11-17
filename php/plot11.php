@@ -2,9 +2,7 @@
 
 if(!file_exists("output/plot11${lang}.png")) {
 	console_debug("output/plot11${lang}.png");
-	$files=glob("input/norway/*.csv");
-	rsort($files);
-	$norway=import_file($files[0]);
+	$norway=import_file("input/norway/07995.csv.gz");
 	foreach($norway as $key=>$val) {
 		unset($val[0]);
 		for($i=2;$i<=16;$i++) unset($val[$i]);

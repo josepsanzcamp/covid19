@@ -96,21 +96,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 	}
 	for($i=0;$i<count(glob("output/plot09${lang}??.${part}.png"));$i++) {
 		$j=sprintf("%02d",$i+1);
-		passthru("convert -delay 50 output/plot09${lang}${j}.????????.png output/plot09${lang}${j}.gif 1>/dev/null 2>/dev/null &");
-		for($j=0;$j<300;$j++) {
-			ob_start();
-			passthru("ps uxaw|grep -v grep|grep convert|wc -l");
-			$num=trim(ob_get_clean());
-			if($num<4) break;
-			usleep(100000);
-		}
-	}
-	for($j=0;$j<300;$j++) {
-		ob_start();
-		passthru("ps uxaw|grep -v grep|grep convert|wc -l");
-		$num=trim(ob_get_clean());
-		if($num<1) break;
-		usleep(100000);
+		passthru("convert -delay 50 output/plot09${lang}${j}.????????.png output/plot09${lang}${j}.gif 1>/dev/null 2>/dev/null");
 	}
 	unset($paises);
 	unset($data);

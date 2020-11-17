@@ -79,6 +79,15 @@ if(!file_exists("output/plot04${lang}1.png")) {
 	))."\n";
 	file_put_contents("middle/plot04${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot04${lang}.gnu 2>&1");
+	unset($momoold);
+	unset($momonew);
+	unset($ine);
+	unset($matrix);
+	unset($years);
+	unset($edades);
+	unset($months);
+	unset($header);
+	unset($gnuplot);
 	console_debug();
 }
 

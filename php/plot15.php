@@ -74,6 +74,11 @@ if(!file_exists("output/plot15${lang}.gif")) {
 		passthru("gnuplot middle/plot15${lang}.${part}.gnu 2>&1");
 	}
 	passthru("convert -delay 50 output/plot15${lang}.????????.png output/plot15${lang}.gif 1>/dev/null 2>/dev/null");
+	unset($momonew);
+	unset($momo);
+	unset($otros);
+	unset($matrix);
+	unset($gnuplot);
 	console_debug();
 }
 

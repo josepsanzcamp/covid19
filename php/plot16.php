@@ -47,6 +47,9 @@ if(!file_exists("output/plot16${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot16${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot16${lang}.gnu 2>&1");
+	unset($france);
+	unset($matrix);
+	unset($gnuplot);
 	console_debug();
 }
 

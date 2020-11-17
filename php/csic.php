@@ -36,6 +36,10 @@ if(!file_exists("middle/residencias.csv")) {
 	}
 	array_unshift($sumas,array("CCAA","Tipo","Count","Plazas"));
 	export_file("middle/residencias.csv",$sumas);
+	unset($temp);
+	unset($ccaas);
+	unset($sumas);
+	unset($data);
 	console_debug();
 }
 

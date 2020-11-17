@@ -47,4 +47,6 @@ foreach(array("ca","es","en") as $lang) {
 
 include("php/index.php");
 
+memory_dump();
+
 ?>

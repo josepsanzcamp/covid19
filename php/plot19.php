@@ -43,6 +43,9 @@ if(!file_exists("output/plot19${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot19${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot19${lang}.gnu 2>&1");
+	unset($ine);
+	unset($matrix);
+	unset($gnuplot);
 	console_debug();
 }
 

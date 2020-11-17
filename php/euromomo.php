@@ -46,6 +46,9 @@ if(count(glob("middle/component.????????.csv"))!=count(glob("input/euromomo/comp
 		}
 		export_file("middle/component.${part}.csv",$matrix);
 	}
+	unset($buffer);
+	unset($json);
+	unset($matrix);
 	console_debug();
 }
 

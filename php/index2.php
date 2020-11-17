@@ -49,6 +49,10 @@ if(!file_exists("index.${lang}.html")) {
 		array($textos["footer"][$lang],$textos["top"][$lang]),
 		$template[5]);
 	file_put_contents("index.${lang}.html",$html);
+	unset($template);
+	unset($html);
+	unset($imgs);
+	unset($datas);
 	console_debug();
 }
 

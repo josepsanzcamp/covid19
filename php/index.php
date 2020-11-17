@@ -15,6 +15,7 @@ if(!file_exists("index.html")) {
 		"</script>",
 	))."\n";
 	file_put_contents("index.html",$html);
+	unset($html);
 	console_debug();
 }
 

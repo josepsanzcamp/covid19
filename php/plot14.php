@@ -100,6 +100,15 @@ if(!file_exists("output/plot14${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot14${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot14${lang}.gnu 2>&1");
+	unset($momo);
+	unset($ine1);
+	unset($ine2);
+	unset($ine3);
+	unset($matrix1);
+	unset($matrix2);
+	unset($matrix3);
+	unset($matrix);
+	unset($gnuplot);
 	console_debug();
 }
 

@@ -43,6 +43,9 @@ if(!file_exists("output/plot17${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot17${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot17${lang}.gnu 2>&1");
+	unset($germany);
+	unset($header);
+	unset($gnuplot);
 	console_debug();
 }
 

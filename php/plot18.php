@@ -149,6 +149,16 @@ if(!file_exists("output/plot18${lang}01.png")) {
 	$gnuplot.="\n";
 	file_put_contents("middle/plot18${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot18${lang}.gnu 2>&1");
+	unset($temp);
+	unset($countries);
+	unset($europe);
+	unset($paises);
+	unset($años);
+	unset($semanas);
+	unset($eje_y);
+	unset($matrix);
+	unset($header);
+	unset($gnuplot);
 	console_debug();
 }
 

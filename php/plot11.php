@@ -44,6 +44,9 @@ if(!file_exists("output/plot11${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot11${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot11${lang}.gnu 2>&1");
+	unset($norway);
+	unset($header);
+	unset($gnuplot);
 	console_debug();
 }
 

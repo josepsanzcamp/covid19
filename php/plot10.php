@@ -2,9 +2,7 @@
 
 if(!file_exists("output/plot10${lang}.png")) {
 	console_debug("output/plot10${lang}.png");
-	$files=glob("input/sweden/*.csv");
-	rsort($files);
-	$sweden=import_file($files[0]);
+	$sweden=import_file("middle/preliminar_statistik_over_doda_inkl_eng.csv");
 	$months=array(
 		"januari"=>1,
 		"februari"=>2,

@@ -37,7 +37,7 @@ euromomo9:
 	time -p php php/program.php
 
 sweden:
-	rm -f output/plot10*
+	rm -f middle/preliminar_statistik_over_doda_inkl_eng.csv output/plot10*
 	time -p php php/program.php
 
 norway:

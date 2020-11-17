@@ -2,9 +2,7 @@
 
 if(!file_exists("output/plot13${lang}.png")) {
 	console_debug("output/plot13${lang}.png");
-	$files=glob("input/portugal/*.csv");
-	rsort($files);
-	$portugal=import_file($files[0]);
+	$portugal=import_file("middle/Dados_SICO.csv");
 	$months=array(
 		"Jan"=>1,
 		"Fev"=>2,

@@ -15,6 +15,7 @@ include("php/euromomo.php");
 include("php/eurostat.php");
 include("php/france.php");
 include("php/germany.php");
+include("php/portugal.php");
 include("php/langs.php");
 
 foreach(array("ca","es","en") as $lang) {

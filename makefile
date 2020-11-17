@@ -45,7 +45,7 @@ norway:
 	time -p php php/program.php
 
 portugal:
-	rm -f output/plot13*
+	rm -f middle/Dados_SICO.csv output/plot13*
 	time -p php php/program.php
 
 france:

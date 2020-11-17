@@ -2,9 +2,7 @@
 
 if(!file_exists("output/plot17${lang}.png")) {
 	console_debug("output/plot17${lang}.png");
-	$files=glob("input/germany/*.csv");
-	rsort($files);
-	$germany=import_file($files[0]);
+	$germany=import_file("middle/sterbefallzahlen.csv");
 	foreach($germany as $key=>$val) {
 		unset($val[6]);
 		$germany[$key]=$val;
@@ -14,6 +12,11 @@ if(!file_exists("output/plot17${lang}.png")) {
 		$val[0]=sprintf("%02d",$val[0]);
 		$val[0]=date("Y-m-d",strtotime("2020W".$val[0])+86400*2);
 		$germany[$key]=$val;
+	}
+	foreach($header as $key=>$val) {
+		if(substr($val,0,1)=="D" && substr($val,-4,4)=="_Ins") {
+			$header[$key]=substr($val,1,-4);
+		}
 	}
 	array_unshift($germany,$header);
 	export_file("middle/plot17${lang}.csv",$germany);
@@ -36,7 +39,7 @@ if(!file_exists("output/plot17${lang}.png")) {
 		"set ytics 0,5000,30000",
 		"set datafile separator ';'",
 		"set output 'output/plot17${lang}.png'",
-		"plot 'middle/plot17${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col",
+		"plot 'middle/plot17${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp lc 7 ti col",
 	))."\n";
 	file_put_contents("middle/plot17${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot17${lang}.gnu 2>&1");

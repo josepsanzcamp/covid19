@@ -16,4 +16,4 @@ set ytic center rotate by 90
 set ytics 0,5000,30000
 set datafile separator ';'
 set output 'output/plot17es.png'
-plot 'middle/plot17es.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col
+plot 'middle/plot17es.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp lc 7 ti col

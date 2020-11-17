@@ -7,14 +7,14 @@ include("php/file.php");
 include("php/debug.php");
 
 include("php/ine.php");
+include("php/csic.php");
 include("php/momoold.php");
 include("php/momonew.php");
-include("php/csic.php");
-include("php/euromomo.php");
 include("php/momo2.php");
-include("php/france.php");
+include("php/euromomo.php");
 include("php/eurostat.php");
-
+include("php/france.php");
+include("php/germany.php");
 include("php/langs.php");
 
 foreach(array("ca","es","en") as $lang) {

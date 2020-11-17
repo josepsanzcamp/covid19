@@ -53,7 +53,7 @@ france:
 	time -p php php/program.php
 
 germany:
-	rm -f output/plot17*
+	rm -f middle/sterbefallzahlen.csv output/plot17*
 	time -p php php/program.php
 
 eurostat:

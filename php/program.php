@@ -14,7 +14,6 @@ include("php/euromomo.php");
 include("php/momo2.php");
 include("php/france.php");
 include("php/eurostat.php");
-include("php/spain.php");
 
 include("php/langs.php");
 

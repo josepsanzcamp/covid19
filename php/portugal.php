@@ -17,6 +17,7 @@ if(!file_exists("middle/Dados_SICO.csv")) {
 		foreach($val as $key2=>$val2) {
 			$matrix[$key2][$key]=$val2;
 		}
+		unset($data[$key]);
 	}
 	$head=$json["x"]["container"];
 	$head=explode("\n",$head);
@@ -30,6 +31,11 @@ if(!file_exists("middle/Dados_SICO.csv")) {
 	}
 	array_unshift($matrix,$head);
 	export_file("middle/Dados_SICO.csv",$matrix);
+	unset($buffer);
+	unset($json);
+	unset($data);
+	unset($head);
+	unset($matrix);
 	console_debug();
 }
 

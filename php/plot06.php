@@ -69,6 +69,13 @@ if(!file_exists("output/plot06${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot06${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot06${lang}.gnu 2>&1");
+	unset($temp);
+	unset($ccaas);
+	unset($resi);
+	unset($matrix);
+	unset($tipos);
+	unset($header);
+	unset($gnuplot);
 	console_debug();
 }
 

@@ -97,6 +97,15 @@ if(!file_exists("output/plot05${lang}1.png")) {
 	))."\n";
 	file_put_contents("middle/plot05${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot05${lang}.gnu 2>&1");
+	unset($temp);
+	unset($ccaas);
+	unset($momoold);
+	unset($momonew);
+	unset($ine);
+	unset($matrix);
+	unset($years);
+	unset($header);
+	unset($gnuplot);
 	console_debug();
 }
 

@@ -16,6 +16,8 @@ if(!file_exists("middle/dc_20xx_det.csv")) {
 		}
 	}
 	export_file("middle/dc_20xx_det.csv",$sumas);
+	unset($sumas);
+	unset($data);
 	console_debug();
 }
 

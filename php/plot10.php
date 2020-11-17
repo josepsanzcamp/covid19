@@ -50,6 +50,10 @@ if(!file_exists("output/plot10${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot10${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot10${lang}.gnu 2>&1");
+	unset($sweden);
+	unset($months);
+	unset($header);
+	unset($gnuplot);
 	console_debug();
 }
 

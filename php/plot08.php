@@ -93,6 +93,16 @@ if(!file_exists("output/plot08${lang}1.png")) {
 	))."\n";
 	file_put_contents("middle/plot08${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot08${lang}.gnu 2>&1");
+	unset($data);
+	unset($axis0);
+	unset($axis1);
+	unset($matrix);
+	unset($diff0);
+	unset($diff1);
+	unset($axis2);
+	unset($cols2plot1);
+	unset($cols2plot2);
+	unset($gnuplot);
 	console_debug();
 }
 

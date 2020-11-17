@@ -112,6 +112,13 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 		if($num<1) break;
 		usleep(100000);
 	}
+	unset($paises);
+	unset($data);
+	unset($años);
+	unset($semanas);
+	unset($matrix);
+	unset($headder);
+	unset($gnuplot);
 	console_debug();
 }
 

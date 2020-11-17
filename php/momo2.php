@@ -20,6 +20,8 @@ if(count(glob("middle/data.????????.csv"))!=count(glob("input/momo2/data.???????
 		}
 		export_file("middle/data.${part}.csv",$matrix);
 	}
+	unset($data);
+	unset($matrix);
 	console_debug();
 }
 

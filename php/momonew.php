@@ -20,6 +20,9 @@ if(!file_exists("middle/datanew.csv")) {
 		unset($result[$key]);
 	}
 	export_file("middle/datanew.csv",$result2);
+	unset($result);
+	unset($data);
+	unset($result2);
 	console_debug();
 }
 
@@ -36,6 +39,8 @@ if(!file_exists("middle/datanew-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -52,6 +57,8 @@ if(!file_exists("middle/datanew-ok2.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok2.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -68,6 +75,8 @@ if(!file_exists("middle/datanew-ok3.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok3.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -84,6 +93,8 @@ if(!file_exists("middle/datanew-ok4.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok4.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -100,6 +111,8 @@ if(!file_exists("middle/datanew-ok5.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok5.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -116,6 +129,8 @@ if(!file_exists("middle/datanew-ok6.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/datanew-ok6.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -139,6 +154,8 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 		}
 	}
 	export_file("middle/datanew-ok7.csv",$sumas);
+	unset($sumas);
+	unset($data);
 	console_debug();
 }
 

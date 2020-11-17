@@ -47,6 +47,9 @@ if(!file_exists("output/plot12${lang}.png")) {
 	))."\n";
 	file_put_contents("middle/plot12${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot12${lang}.gnu 2>&1");
+	unset($momonew);
+	unset($matrix);
+	unset($gnuplot);
 	console_debug();
 }
 

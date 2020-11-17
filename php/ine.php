@@ -28,6 +28,8 @@ if(!file_exists("middle/02001-ok.csv")) {
 	}
 	sort($sumas);
 	export_file("middle/02001-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -78,12 +80,17 @@ if(!file_exists("middle/02001-ok2.csv")) {
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02001-ok2.csv",$sumas);
+	unset($data);
+	unset($meses);
+	unset($edades);
+	unset($umas);
 	console_debug();
 }
 
 if(!file_exists("middle/02001-ok3.csv")) {
 	console_debug("middle/02001-ok3.csv");
 	$data=import_file("input/ine/02001.csv.gz");
+	$matrix=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="Total" && $val[1]=="Total" && $val[2]=="Total") {
 			$matrix[$val[3]]=array($val[3],str_replace(".","",$val[4]));
@@ -91,6 +98,8 @@ if(!file_exists("middle/02001-ok3.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/02001-ok3.csv",$matrix);
+	unset($data);
+	unset($matrix);
 	console_debug();
 }
 
@@ -107,6 +116,8 @@ if(!file_exists("middle/14819-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/14819-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -123,6 +134,8 @@ if(!file_exists("middle/6545-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6545-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -139,6 +152,8 @@ if(!file_exists("middle/6548-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6548-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -155,6 +170,8 @@ if(!file_exists("middle/6561-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6561-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -171,6 +188,8 @@ if(!file_exists("middle/6562-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6562-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -187,6 +206,8 @@ if(!file_exists("middle/6562-ok2.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6562-ok2.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -203,6 +224,8 @@ if(!file_exists("middle/6566-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6566-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -219,6 +242,8 @@ if(!file_exists("middle/6580-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6580-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -235,6 +260,8 @@ if(!file_exists("middle/7947-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/7947-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -286,6 +313,11 @@ if(!file_exists("middle/02002-ok.csv")) {
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02002-ok.csv",$sumas);
+	unset($temp);
+	unset($ccaas);
+	unset($data);
+	unset($edades);
+	unset($sumas);
 	console_debug();
 }
 
@@ -309,6 +341,10 @@ if(!file_exists("middle/02002-ok2.csv")) {
 		$matrix[$key]=array($key,$val);
 	}
 	export_file("middle/02002-ok2.csv",$matrix);
+	unset($temp);
+	unset($ccaas);
+	unset($data);
+	unset($matrix);
 	console_debug();
 }
 
@@ -335,6 +371,10 @@ if(!file_exists("middle/6548-ok2.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/6548-ok2.csv",$sumas);
+	unset($temp);
+	unset($ccaas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -385,6 +425,11 @@ if(!file_exists("middle/02005-ok.csv")) {
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02005-ok.csv",$sumas);
+	unset($temp);
+	unset($ccaas);
+	unset($data);
+	unset($edades);
+	unset($sumas);
 	console_debug();
 }
 
@@ -401,6 +446,8 @@ if(!file_exists("middle/35177-ok.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/35177-ok.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -417,6 +464,8 @@ if(!file_exists("middle/35177-ok2.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/35177-ok2.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 
@@ -433,6 +482,8 @@ if(!file_exists("middle/35177-ok3.csv")) {
 		unset($data[$key]);
 	}
 	export_file("middle/35177-ok3.csv",$sumas);
+	unset($data);
+	unset($sumas);
 	console_debug();
 }
 

@@ -66,6 +66,15 @@ if(!file_exists("output/plot01${lang}1.png")) {
 	))."\n";
 	file_put_contents("middle/plot01${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot01${lang}.gnu 2>&1");
+	unset($momoold);
+	unset($momonew);
+	unset($ine1);
+	unset($ine2);
+	unset($matrix);
+	unset($years);
+	unset($months);
+	unset($header);
+	unset($gnuplot);
 	console_debug();
 }
 

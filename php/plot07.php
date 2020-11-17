@@ -101,6 +101,14 @@ if(!file_exists("output/plot07${lang}1.png")) {
 	))."\n";
 	file_put_contents("middle/plot07${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot07${lang}.gnu 2>&1");
+	unset($temp);
+	unset($paises);
+	unset($bed);
+	unset($nurse);
+	unset($doctor);
+	unset($matrix);
+	unset($years);
+	unset($gnuplot);
 	console_debug();
 }
 

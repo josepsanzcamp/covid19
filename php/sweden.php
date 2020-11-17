@@ -20,6 +20,7 @@ if(!file_exists("middle/preliminar_statistik_over_doda_inkl_eng.csv")) {
 	$files=glob("input/sweden/preliminar_statistik_over_doda_inkl_eng.xlsx.*.csv");
 	foreach($files as $file) unlink($file);
 	export_file("middle/preliminar_statistik_over_doda_inkl_eng.csv",$matrix);
+	unset($matrix);
 	console_debug();
 }
 

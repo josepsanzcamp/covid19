@@ -19,8 +19,11 @@ if(!file_exists("middle/sterbefallzahlen.csv")) {
 				$matrix[]=array();
 			}
 		}
+		unset($buffer[$key]);
 	}
 	export_file("middle/sterbefallzahlen.csv",$matrix);
+	unset($buffer);
+	unset($matrix);
 	console_debug();
 }
 

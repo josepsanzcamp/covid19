@@ -3,13 +3,15 @@
 if(!file_exists("middle/Dados_SICO.csv")) {
 	console_debug("middle/Dados_SICO.csv");
 	$buffer=get_file("input/portugal/Dados_SICO.js.gz");
-	$key1='<script type="application/json" data-for="htmlwidget-5abfcfeac25bac676711">';
-	$key2="</script>";
+	$key1='<script type="application/json" data-for="htmlwidget-';
+	$key2='">';
+	$key3="</script>";
 	$pos1=strpos($buffer,$key1);
-	$pos2=strpos($buffer,$key2);
-	if($pos1===false || $pos2===false) die("ERROR 5");
-	$len1=strlen($key1);
-	$buffer=substr($buffer,$pos1+$len1,$pos2-$pos1-$len1);
+	$pos2=strpos($buffer,$key2,$pos1);
+	$pos3=strpos($buffer,$key3,$pos2);
+	if($pos1===false || $pos2===false || $pos3===false) die("ERROR 5");
+	$len2=strlen($key2);
+	$buffer=substr($buffer,$pos2+$len2,$pos3-$pos2-$len2);
 	$json=json_decode($buffer,true);
 	$data=$json["x"]["data"];
 	$matrix=array();

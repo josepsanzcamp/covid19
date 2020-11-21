@@ -10,7 +10,7 @@ include("php/ine.php");
 include("php/csic.php");
 include("php/momoold.php");
 include("php/momonew.php");
-include("php/momo2.php");
+include("php/momo2wave.php");
 include("php/euromomo.php");
 include("php/eurostat.php");
 include("php/france.php");

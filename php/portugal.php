@@ -1,7 +1,7 @@
 <?php
 
-if(!file_exists("middle/Dados_SICO.csv")) {
-	console_debug("middle/Dados_SICO.csv");
+if(!file_exists("middle/dados_sico.csv")) {
+	console_debug("middle/dados_sico.csv");
 	$buffer=get_file("input/portugal/Dados_SICO.js.gz");
 	$key1='<script type="application/json" data-for="htmlwidget-';
 	$key2='">';
@@ -32,7 +32,7 @@ if(!file_exists("middle/Dados_SICO.csv")) {
 		}
 	}
 	array_unshift($matrix,$head);
-	export_file("middle/Dados_SICO.csv",$matrix);
+	export_file("middle/dados_sico.csv",$matrix);
 	unset($buffer);
 	unset($json);
 	unset($data);

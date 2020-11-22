@@ -2,7 +2,7 @@
 
 if(!file_exists("output/plot13${lang}.png")) {
 	console_debug("output/plot13${lang}.png");
-	$portugal=import_file("middle/Dados_SICO.csv");
+	$portugal=import_file("middle/dados_sico.csv");
 	$months=array(
 		"Jan"=>1,
 		"Fev"=>2,

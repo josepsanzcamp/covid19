@@ -33,8 +33,8 @@ set yrange [0:5000]
 set ytics 0,1000,4000
 set output 'output/plot18es05.png'
 plot 'middle/plot18es.csv' u 1:26 w lp ti col,'' u 1:27 w lp ti col,'' u 1:28 w lp ti col,'' u 1:29 w lp ti col,'' u 1:30 w lp ti col,'' u 1:31 w lp lc 7 ti col
-set yrange [0:4000]
-set ytics 0,800,3200
+set yrange [0:5000]
+set ytics 0,1000,4000
 set output 'output/plot18es06.png'
 plot 'middle/plot18es.csv' u 1:32 w lp ti col,'' u 1:33 w lp ti col,'' u 1:34 w lp ti col,'' u 1:35 w lp ti col,'' u 1:36 w lp ti col,'' u 1:37 w lp lc 7 ti col
 set yrange [0:2000]

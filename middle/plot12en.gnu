@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "12. Deaths per day obtained from the MoMo Spain"
 set grid
 set tmargin 3

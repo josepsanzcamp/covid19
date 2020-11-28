@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "2. Deaths by year and month of the MoMo and INE between 2018 and 2020"
 set grid
 set tmargin 3

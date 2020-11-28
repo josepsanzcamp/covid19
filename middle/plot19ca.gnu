@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "19. Defuncions per setmana obtinguts del Institut Nacional d'Estadística"
 set grid
 set tmargin 3

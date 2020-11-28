@@ -50,7 +50,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 		export_file("middle/plot15${lang}.${part}.csv",$matrix);
 		$fecha=substr($part,0,4)."-".substr($part,4,2)."-".substr($part,6,2);
 		$gnuplot=implode("\n",array(
-			"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+			"set terminal gif size 1200,600 enhanced font ',10'",
 			"set title \"".$textos["plots"]["15"][$lang]." (${fecha})\"",
 			"set grid",
 			"set tmargin 3",
@@ -66,14 +66,14 @@ if(!file_exists("output/plot15${lang}.gif")) {
 			"set ytic center rotate by 90",
 			"set ytics 0,500,3000",
 			"set datafile separator ';'",
-			"set output 'output/plot15${lang}.${part}.png'",
+			"set output 'output/plot15${lang}.${part}.gif'",
 			"set xrange ['2020-10-01':'2020-12-01']",
 			"plot 'middle/plot15${lang}.${part}.csv' u 1:2 w lp lc 2 pt 2 ti col, '' u 1:3 w lp lc 3 pt 3 ti col, '' u 1:4 w lp lc 4 pt 4 ti col, '' u 1:5 w l lc 9 ti col",
 		))."\n";
 		file_put_contents("middle/plot15${lang}.${part}.gnu",$gnuplot);
 		passthru("gnuplot middle/plot15${lang}.${part}.gnu 2>&1");
 	}
-	passthru("convert -delay 100 output/plot15${lang}.????????.png output/plot15${lang}.gif 1>/dev/null 2>/dev/null");
+	passthru("convert -delay 100 output/plot15${lang}.????????.gif output/plot15${lang}.gif 2>&1");
 	unset($momonew);
 	unset($momo);
 	unset($otros);

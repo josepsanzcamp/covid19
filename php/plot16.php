@@ -25,7 +25,7 @@ if(!file_exists("output/plot16${lang}.png")) {
 	array_unshift($matrix,array("Fecha","2020","2019","2018"));
 	export_file("middle/plot16${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set terminal png size 1200,600 enhanced font ',10'",
 		"set title \"".$textos["plots"]["16"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",

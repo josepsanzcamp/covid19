@@ -39,7 +39,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 	array_unshift($matrix,array("Fecha","MoMoOld","MoMoNew","MoMo2019","MoMo2018","INE2018"));
 	export_file("middle/plot03${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set terminal png size 1200,600 enhanced font ',10'",
 		"set title \"".$textos["plots"]["03"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",

@@ -42,7 +42,7 @@ if(!file_exists("output/plot01${lang}1.png")) {
 	array_unshift($matrix,array_merge(array("Mes"),$header));
 	export_file("middle/plot01${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set terminal png size 1200,600 enhanced font ',10'",
 		"set title \"".$textos["plots"]["01"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",

@@ -68,7 +68,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 			"set datafile separator ';'",
 			"set output 'output/plot15${lang}.${part}.gif'",
 			"set xrange ['2020-10-01':'2020-12-01']",
-			"plot 'middle/plot15${lang}.${part}.csv' u 1:2 w lp lc 2 pt 2 ti col, '' u 1:3 w lp lc 3 pt 3 ti col, '' u 1:4 w lp lc 4 pt 4 ti col, '' u 1:5 w l lc 9 ti col",
+			"plot 'middle/plot15${lang}.${part}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w l ti col",
 		))."\n";
 		file_put_contents("middle/plot15${lang}.${part}.gnu",$gnuplot);
 		passthru("gnuplot middle/plot15${lang}.${part}.gnu 2>&1");

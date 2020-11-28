@@ -16,4 +16,4 @@ set ytics 0,500,3000
 set datafile separator ';'
 set output 'output/plot15en.20201018.gif'
 set xrange ['2020-10-01':'2020-12-01']
-plot 'middle/plot15en.20201018.csv' u 1:2 w lp lc 2 pt 2 ti col, '' u 1:3 w lp lc 3 pt 3 ti col, '' u 1:4 w lp lc 4 pt 4 ti col, '' u 1:5 w l lc 9 ti col
+plot 'middle/plot15en.20201018.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w l ti col

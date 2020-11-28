@@ -143,7 +143,7 @@ if(!file_exists("output/plot18${lang}01.png")) {
 			"set yrange [0:$num3]",
 			"set ytics 0,$num1,$num2",
 			"set output 'output/plot18${lang}${j}.png'",
-			"plot 'middle/plot18${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
+			"plot 'middle/plot18${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp ti col",
 		))."\n";
 	}
 	$gnuplot.="\n";

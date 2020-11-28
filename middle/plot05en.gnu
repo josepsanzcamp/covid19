@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "5. Deaths by autonomous community and year (accumulated by year of March and April, the data for 2020 are from the MoMo and the rest are from the INE)"
 set grid
 set tmargin 3

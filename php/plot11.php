@@ -22,7 +22,7 @@ if(!file_exists("output/plot11${lang}.png")) {
 	array_unshift($norway,$header);
 	export_file("middle/plot11${lang}.csv",$norway);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set terminal png size 1200,600 enhanced font ',10'",
 		"set title \"".$textos["plots"]["11"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",

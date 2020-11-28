@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "10. Defunciones por dia obtenidos del Statistics Sweden"
 set grid
 set tmargin 3

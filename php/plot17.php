@@ -21,7 +21,7 @@ if(!file_exists("output/plot17${lang}.png")) {
 	array_unshift($germany,$header);
 	export_file("middle/plot17${lang}.csv",$germany);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set terminal png size 1200,600 enhanced font ',10'",
 		"set title \"".$textos["plots"]["17"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",

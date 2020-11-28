@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "6. Plazas de residencias por tipo y comunidad autónoma (datos obtenidos de envejecimientoenred.es, del CSIC del 2019)"
 set grid
 set tmargin 3

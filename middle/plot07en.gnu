@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "7. Relation of hospital beds, nurses and doctors by country in 2019 or latest year where data is found according to OECD data"
 set grid
 set tmargin 3

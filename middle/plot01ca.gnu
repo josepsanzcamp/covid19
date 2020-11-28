@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "1. Defuncions per any i mes (només anys on algun mes ha superat els 40k morts, les dades de l'any 2020 són del MoMo i la resta són del INE)"
 set grid
 set tmargin 3

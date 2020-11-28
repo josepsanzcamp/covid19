@@ -75,7 +75,7 @@ if(!file_exists("output/plot07${lang}1.png")) {
 	array_unshift($matrix,array("Pais",$textos["hospitalbed"][$lang],"Year",$textos["nurse"][$lang],"Year",$textos["doctor"][$lang],"Year"));
 	export_file("middle/plot07${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set terminal png size 1200,600 enhanced font ',10'",
 		"set title \"".$textos["plots"]["07"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",

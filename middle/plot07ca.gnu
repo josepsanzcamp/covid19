@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "7. Relació de llits de hospital, infermeres y metges per país en 2019 o darrer any on existeixin dades segons dades OECD"
 set grid
 set tmargin 3

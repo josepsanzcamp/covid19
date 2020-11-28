@@ -77,7 +77,7 @@ if(!file_exists("output/plot14${lang}.png")) {
 	// CONTINUAR
 	export_file("middle/plot14${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+		"set terminal png size 1200,600 enhanced font ',10'",
 		"set title \"".$textos["plots"]["14"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",

@@ -59,7 +59,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 		export_file("middle/plot09${lang}.${part}.csv",$matrix);
 		$fecha=substr($part,0,4)."-".substr($part,4,2)."-".substr($part,6,2);
 		$gnuplot=implode("\n",array(
-			"set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'",
+			"set terminal gif size 1200,600 enhanced font ',10'",
 			"set title \"".$textos["plots"]["09"][$lang]." (${fecha})\"",
 			"set grid",
 			"set tmargin 3",
@@ -86,7 +86,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 			$col7=$i*count($años)+7;
 			$j=sprintf("%02d",$i+1);
 			$gnuplot.=implode("\n",array(
-				"set output 'output/plot09${lang}${j}.${part}.png'",
+				"set output 'output/plot09${lang}${j}.${part}.gif'",
 				"plot 'middle/plot09${lang}.${part}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp lc 7 ti col",
 			))."\n";
 		}
@@ -94,9 +94,9 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 		file_put_contents("middle/plot09${lang}.${part}.gnu",$gnuplot);
 		passthru("gnuplot middle/plot09${lang}.${part}.gnu 2>&1");
 	}
-	for($i=0;$i<count(glob("output/plot09${lang}??.${part}.png"));$i++) {
+	for($i=0;$i<count(glob("output/plot09${lang}??.${part}.gif"));$i++) {
 		$j=sprintf("%02d",$i+1);
-		passthru("convert -delay 100 output/plot09${lang}${j}.????????.png output/plot09${lang}${j}.gif 1>/dev/null 2>/dev/null");
+		passthru("convert -delay 100 output/plot09${lang}${j}.????????.gif output/plot09${lang}${j}.gif 2>&1");
 	}
 	unset($paises);
 	unset($data);

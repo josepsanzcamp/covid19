@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "8. Deaths by year and month of the MoMo related to the download date of the data file and difference between each file"
 set grid
 set tmargin 3

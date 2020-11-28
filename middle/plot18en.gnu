@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "18. Deaths by week of year and by country obtained from the Eurostat"
 set grid
 set tmargin 3

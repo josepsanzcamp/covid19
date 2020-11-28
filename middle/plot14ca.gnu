@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "14. Defuncions per anys del MoMo i del INE (combinant dades del mateix any actual i del any anterior)"
 set grid
 set tmargin 3

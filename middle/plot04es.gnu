@@ -1,4 +1,4 @@
-set terminal pngcairo size 1200,600 enhanced font 'Segoe UI,10'
+set terminal png size 1200,600 enhanced font ',10'
 set title "4. Defunciones por año, mes y edad (los datos del 2020 son del MoMo y el resto son del INE)"
 set grid
 set tmargin 3

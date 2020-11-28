@@ -46,7 +46,7 @@ if(!file_exists("output/plot13${lang}.png")) {
 		"set ytics 0,100,600",
 		"set datafile separator ';'",
 		"set output 'output/plot13${lang}.png'",
-		"plot 'middle/plot13${lang}.csv' u 1:8 w l ti col,'' u 1:9 w l ti col,'' u 1:10 w l ti col,'' u 1:11 w l ti col,'' u 1:12 w l ti col,'' u 1:13 w l lc 7 ti col",
+		"plot 'middle/plot13${lang}.csv' u 1:8 w l ti col,'' u 1:9 w l ti col,'' u 1:10 w l ti col,'' u 1:11 w l ti col,'' u 1:12 w l ti col,'' u 1:13 w l ti col",
 	))."\n";
 	file_put_contents("middle/plot13${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot13${lang}.gnu 2>&1");

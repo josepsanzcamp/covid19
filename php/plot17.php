@@ -39,7 +39,7 @@ if(!file_exists("output/plot17${lang}.png")) {
 		"set ytics 0,5000,30000",
 		"set datafile separator ';'",
 		"set output 'output/plot17${lang}.png'",
-		"plot 'middle/plot17${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp lc 7 ti col",
+		"plot 'middle/plot17${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col",
 	))."\n";
 	file_put_contents("middle/plot17${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot17${lang}.gnu 2>&1");

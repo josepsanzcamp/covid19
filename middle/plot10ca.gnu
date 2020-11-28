@@ -16,4 +16,4 @@ set ytic center rotate by 90
 set ytics 0,100,400
 set datafile separator ';'
 set output 'output/plot10ca.png'
-plot 'middle/plot10ca.csv' u 1:2 w l ti col,'' u 1:3 w l ti col,'' u 1:4 w l ti col,'' u 1:5 w l ti col,'' u 1:6 w l ti col,'' u 1:7 w l lc 7 ti col
+plot 'middle/plot10ca.csv' u 1:2 w l ti col,'' u 1:3 w l ti col,'' u 1:4 w l ti col,'' u 1:5 w l ti col,'' u 1:6 w l ti col,'' u 1:7 w l ti col

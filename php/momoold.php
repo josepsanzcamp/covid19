@@ -6,7 +6,7 @@ if(!file_exists("middle/dataold.csv")) {
 	sort($files);
 	foreach($files as $key=>$val) {
 		$temp=explode(".",$val);
-		if($temp[1]>=20200527) unset($files[$key]);
+		if(!in_array($temp[1],array(20200507,20200523))) unset($files[$key]);
 	}
 	$result=array();
 	foreach($files as $file) {

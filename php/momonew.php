@@ -4,6 +4,10 @@ if(!file_exists("middle/datanew.csv")) {
 	console_debug("middle/datanew.csv");
 	$files=glob("input/momo/data.????????.csv.gz");
 	sort($files);
+	foreach($files as $key=>$val) {
+		$temp=explode(".",$val);
+		if(in_array($temp[1],array(20200523,20200527))) unset($files[$key]);
+	}
 	$result=array();
 	foreach($files as $file) {
 		$data=import_file($file);

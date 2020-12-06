@@ -2,7 +2,7 @@
 
 if(!file_exists("output/plot10${lang}.png")) {
 	console_debug("output/plot10${lang}.png");
-	$sweden=import_file("middle/preliminar_statistik_over_doda_inkl_eng.csv");
+	$sweden=import_file("middle/preliminar_statistik.csv");
 	$months=array(
 		"januari"=>1,
 		"februari"=>2,

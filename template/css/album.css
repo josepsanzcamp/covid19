@@ -45,3 +45,14 @@ footer p {
 		margin-right:4rem;
 	}
 }
+
+/* BLACK ARROWS */
+.ekko-lightbox-nav-overlay a {
+	color:#000;
+}
+
+/* FOR POSITION */
+.ekko-lightbox-nav-overlay a span {
+	padding:0;
+}
+

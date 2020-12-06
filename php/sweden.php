@@ -1,7 +1,7 @@
 <?php
 
-if(!file_exists("middle/preliminar_statistik_over_doda_inkl_eng.csv")) {
-	console_debug("middle/preliminar_statistik_over_doda_inkl_eng.csv");
+if(!file_exists("middle/preliminar_statistik.csv")) {
+	console_debug("middle/preliminar_statistik.csv");
 	passthru("xlsxio_xlsx2csv input/sweden/preliminar_statistik_over_doda_inkl_eng.xlsx 1>/dev/null 2>/dev/null");
 	$matrix=import_file("input/sweden/preliminar_statistik_over_doda_inkl_eng.xlsx.Tabell 1.csv");
 	$run=0;
@@ -19,7 +19,7 @@ if(!file_exists("middle/preliminar_statistik_over_doda_inkl_eng.csv")) {
 	}
 	$files=glob("input/sweden/preliminar_statistik_over_doda_inkl_eng.xlsx.*.csv");
 	foreach($files as $file) unlink($file);
-	export_file("middle/preliminar_statistik_over_doda_inkl_eng.csv",$matrix);
+	export_file("middle/preliminar_statistik.csv",$matrix);
 	unset($matrix);
 	console_debug();
 }

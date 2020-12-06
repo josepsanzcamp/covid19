@@ -19,14 +19,7 @@
 
 		<link href="css/ekko-lightbox.css" rel="stylesheet">
 
-		<style>
-		.ekko-lightbox-nav-overlay a {
-			color:#000; // BLACK ARROWS
-		}
-		.ekko-lightbox-nav-overlay a span {
-			padding:0; // FOR POSITION
-		}
-		</style>
+		<link href="css/styles.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -121,23 +114,7 @@
 		<script src="js/ekko-lightbox.min.js"></script>
 		<script src="js/jquery.cookie.min.js"></script>
 
-		<script>
-		$(document).on('click', '[data-toggle2="lightbox"]', function(event) {
-			event.preventDefault();
-			var toggle=$(this).attr("data-toggle2");
-			var gallery=$(this).attr("data-gallery2");
-			$('[data-toggle="'+toggle+'"][data-gallery="'+gallery+'"]:first').ekkoLightbox();
-		});
-
-		$(function() {
-			var hash=window.location.hash;
-			if(hash.substr(0,1)=="#") hash=hash.substr(1);
-			$('[data-toggle="lightbox"][data-gallery="'+hash+'"]:first').ekkoLightbox();
-		});
-
-		var lang=window.location.href.split("/").pop().split(".")[1];
-		$.cookie("lang",lang,{expires:365,path:"/"});
-		</script>
+		<script src="js/program.js"></script>
 
 	</body>
 </html>

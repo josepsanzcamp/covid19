@@ -49,8 +49,15 @@ if(!file_exists("index.${lang}.html")) {
 		array("__FOOTER__","__TOP__"),
 		array($textos["footer"][$lang],$textos["top"][$lang]),
 		$template[5]);
+	list($html,$js,$css)=html_minify2($html);
 	$html=html_minify($html);
+	$js=js_minify($js);
+	$css=css_minify($css);
+	$html=js_minify2($html,"template/js/all.min.js");
+	$html=css_minify2($html,"template/css/all.min.css");
 	file_put_contents("index.${lang}.html",$html);
+	file_put_contents("template/js/all.min.js",$js);
+	file_put_contents("template/css/all.min.css",$css);
 	unset($template);
 	unset($html);
 	unset($imgs);

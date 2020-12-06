@@ -12,9 +12,9 @@ $textos=array(
 		"en"=>"Graphs of deaths by year, origin of the data, daily accumulated, weekly, montly, yearly, by age, by autonomous community, by province, by country and more",
 	),
 	"title3"=>array(
-		"ca"=>"Totes les dades s'han obtingut de fonts com MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, o els equivalents al institut nacional d'estadística de Suecia, Noruega, Portugal, França i Alemanya",
-		"es"=>"Todos los datos se han obtenido de fuentes como MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, o los equivalentes al instituto nacional de estadística de Suecia, Noruega, Portugal, Francia y Alemania",
-		"en"=>"All data have been obtained from sources as MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, or the equivalents to the National Statistics Institute of Sweden, Norway, Portugal, France and Germany",
+		"ca"=>"Totes les dades s'han obtingut de fonts oficials com MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, o els equivalents al institut nacional d'estadística de Suecia, Noruega, Portugal, França i Alemanya",
+		"es"=>"Todos los datos se han obtenido de fuentes oficiales como MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, o los equivalentes al instituto nacional de estadística de Suecia, Noruega, Portugal, Francia y Alemania",
+		"en"=>"All data have been obtained from official sources as MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, or the equivalents to the National Statistics Institute of Sweden, Norway, Portugal, France and Germany",
 	),
 	"about"=>array(
 		"ca"=>"Envers a",

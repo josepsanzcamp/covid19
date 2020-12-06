@@ -49,6 +49,7 @@ if(!file_exists("index.${lang}.html")) {
 		array("__FOOTER__","__TOP__"),
 		array($textos["footer"][$lang],$textos["top"][$lang]),
 		$template[5]);
+	$html=html_minify($html);
 	file_put_contents("index.${lang}.html",$html);
 	unset($template);
 	unset($html);

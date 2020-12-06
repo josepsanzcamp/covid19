@@ -5,6 +5,7 @@ ini_set("max_execution_time","3600");
 
 include("php/file.php");
 include("php/debug.php");
+include("php/minify.php");
 
 include("php/ine.php");
 include("php/csic.php");

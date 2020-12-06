@@ -119,6 +119,7 @@
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/ekko-lightbox.min.js"></script>
+		<script src="js/jquery.cookie.min.js"></script>
 
 		<script>
 		$(document).on('click', '[data-toggle2="lightbox"]', function(event) {
@@ -133,6 +134,9 @@
 			if(hash.substr(0,1)=="#") hash=hash.substr(1);
 			$('[data-toggle="lightbox"][data-gallery="'+hash+'"]:first').ekkoLightbox();
 		});
+
+		var lang=window.location.href.split("/").pop().split(".")[1];
+		$.cookie("lang",lang,{expires:365,path:"/"});
 		</script>
 
 	</body>

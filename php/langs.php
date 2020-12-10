@@ -133,9 +133,9 @@ $textos=array(
 			"en"=>"14. Deaths by year obtained from MoMo and INE (combining data from the same year and the previous year)",
 		),
 		"15"=>array(
-			"ca"=>"15. Evolucio de defuncions per dia obtinguts del MoMo per al 2020, 2019, 2018 i el promig del 2018",
-			"es"=>"15. Evolución de las defunciones por dia obtenidos del MoMo para el 2020, 2019, 2018 y el promedio del 2018",
-			"en"=>"15. Evolution of the deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average",
+			"ca"=>"15. Evolucio de defuncions segona ona per dia obtinguts del MoMo per al 2020, 2019, 2018 i el promig del 2018",
+			"es"=>"15. Evolución de las defunciones segunda ola por dia obtenidos del MoMo para el 2020, 2019, 2018 y el promedio del 2018",
+			"en"=>"15. Evolution of the second wave deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average",
 		),
 		"16"=>array(
 			"ca"=>"16. Defuncions per dia obtinguts del Institut National de la statistique et des études économiques",

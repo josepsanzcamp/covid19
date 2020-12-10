@@ -96,7 +96,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 	}
 	for($i=0;$i<count(glob("output/plot09${lang}??.${part}.gif"));$i++) {
 		$j=sprintf("%02d",$i+1);
-		passthru("convert -delay 100 output/plot09${lang}${j}.????????.gif output/plot09${lang}${j}.gif 2>&1");
+		passthru("convert -delay 25 output/plot09${lang}${j}.????????.gif output/plot09${lang}${j}.gif 2>&1");
 	}
 	unset($paises);
 	unset($data);

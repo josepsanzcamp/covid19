@@ -62,18 +62,18 @@ if(!file_exists("output/plot15${lang}.gif")) {
 			"set xdata time",
 			"set timefmt '%Y-%m-%d'",
 			"set format x '%Y-%m-%d'",
-			"set xtics '2020-01-06',86400*7,'2021-01-01'",
+			"set xtics '2020-01-06',86400*14,'2021-01-01'",
 			"set ytic center rotate by 90",
 			"set ytics 0,500,3000",
 			"set datafile separator ';'",
 			"set output 'output/plot15${lang}.${part}.gif'",
-			"set xrange ['2020-10-01':'2020-12-01']",
+			"set xrange ['2020-10-01':'2021-01-01']",
 			"plot 'middle/plot15${lang}.${part}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w l ti col",
 		))."\n";
 		file_put_contents("middle/plot15${lang}.${part}.gnu",$gnuplot);
 		passthru("gnuplot middle/plot15${lang}.${part}.gnu 2>&1");
 	}
-	passthru("convert -delay 100 output/plot15${lang}.????????.gif output/plot15${lang}.gif 2>&1");
+	passthru("convert -delay 25 output/plot15${lang}.????????.gif output/plot15${lang}.gif 2>&1");
 	unset($momonew);
 	unset($momo);
 	unset($otros);

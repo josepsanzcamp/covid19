@@ -1,14 +1,16 @@
-2020-47;01 Andalucía;1796
-2020-46;01 Andalucía;1925
-2020-45;01 Andalucía;1923
+2020-49;01 Andalucía;1644
+2020-48;01 Andalucía;1691
+2020-47;01 Andalucía;1814
+2020-46;01 Andalucía;1930
+2020-45;01 Andalucía;1926
 2020-44;01 Andalucía;1784
 2020-43;01 Andalucía;1726
-2020-42;01 Andalucía;1472
-2020-41;01 Andalucía;1495
+2020-42;01 Andalucía;1474
+2020-41;01 Andalucía;1496
 2020-40;01 Andalucía;1342
-2020-39;01 Andalucía;1352
+2020-39;01 Andalucía;1351
 2020-38;01 Andalucía;1344
-2020-37;01 Andalucía;1417
+2020-37;01 Andalucía;1418
 2020-36;01 Andalucía;1320
 2020-35;01 Andalucía;1370
 2020-34;01 Andalucía;1323
@@ -16,10 +18,10 @@
 2020-32;01 Andalucía;1444
 2020-31;01 Andalucía;1477
 2020-30;01 Andalucía;1413
-2020-29;01 Andalucía;1358
-2020-28;01 Andalucía;1394
+2020-29;01 Andalucía;1359
+2020-28;01 Andalucía;1393
 2020-27;01 Andalucía;1370
-2020-26;01 Andalucía;1340
+2020-26;01 Andalucía;1339
 2020-25;01 Andalucía;1183
 2020-24;01 Andalucía;1189
 2020-23;01 Andalucía;1205
@@ -1088,11 +1090,13 @@
 2000-03;01 Andalucía;1647
 2000-02;01 Andalucía;1611
 2000-01;01 Andalucía;1476
-2020-47;02 Aragón;400
-2020-46;02 Aragón;453
-2020-45;02 Aragón;508
+2020-49;02 Aragón;336
+2020-48;02 Aragón;395
+2020-47;02 Aragón;402
+2020-46;02 Aragón;454
+2020-45;02 Aragón;509
 2020-44;02 Aragón;352
-2020-43;02 Aragón;374
+2020-43;02 Aragón;375
 2020-42;02 Aragón;317
 2020-41;02 Aragón;298
 2020-40;02 Aragón;281
@@ -2178,11 +2182,13 @@
 2000-03;02 Aragón;292
 2000-02;02 Aragón;329
 2000-01;02 Aragón;350
-2020-47;03 Asturias, Principado de;401
+2020-49;03 Asturias, Principado de;345
+2020-48;03 Asturias, Principado de;419
+2020-47;03 Asturias, Principado de;411
 2020-46;03 Asturias, Principado de;447
-2020-45;03 Asturias, Principado de;422
+2020-45;03 Asturias, Principado de;421
 2020-44;03 Asturias, Principado de;334
-2020-43;03 Asturias, Principado de;338
+2020-43;03 Asturias, Principado de;339
 2020-42;03 Asturias, Principado de;268
 2020-41;03 Asturias, Principado de;254
 2020-40;03 Asturias, Principado de;220
@@ -3268,10 +3274,12 @@
 2000-03;03 Asturias, Principado de;330
 2000-02;03 Asturias, Principado de;357
 2000-01;03 Asturias, Principado de;312
-2020-47;04 Balears, Illes;134
+2020-49;04 Balears, Illes;168
+2020-48;04 Balears, Illes;179
+2020-47;04 Balears, Illes;136
 2020-46;04 Balears, Illes;158
 2020-45;04 Balears, Illes;164
-2020-44;04 Balears, Illes;158
+2020-44;04 Balears, Illes;159
 2020-43;04 Balears, Illes;172
 2020-42;04 Balears, Illes;169
 2020-41;04 Balears, Illes;140
@@ -3292,7 +3300,7 @@
 2020-26;04 Balears, Illes;143
 2020-25;04 Balears, Illes;142
 2020-24;04 Balears, Illes;123
-2020-23;04 Balears, Illes;127
+2020-23;04 Balears, Illes;128
 2020-22;04 Balears, Illes;144
 2020-21;04 Balears, Illes;137
 2020-20;04 Balears, Illes;133
@@ -4358,13 +4366,15 @@
 2000-03;04 Balears, Illes;209
 2000-02;04 Balears, Illes;206
 2000-01;04 Balears, Illes;181
-2020-47;05 Canarias;305
-2020-46;05 Canarias;294
+2020-49;05 Canarias;267
+2020-48;05 Canarias;301
+2020-47;05 Canarias;315
+2020-46;05 Canarias;297
 2020-45;05 Canarias;298
 2020-44;05 Canarias;290
 2020-43;05 Canarias;315
 2020-42;05 Canarias;290
-2020-41;05 Canarias;297
+2020-41;05 Canarias;299
 2020-40;05 Canarias;278
 2020-39;05 Canarias;314
 2020-38;05 Canarias;280
@@ -5448,6 +5458,8 @@
 2000-03;05 Canarias;365
 2000-02;05 Canarias;347
 2000-01;05 Canarias;343
+2020-49;06 Cantabria;133
+2020-48;06 Cantabria;120
 2020-47;06 Cantabria;112
 2020-46;06 Cantabria;129
 2020-45;06 Cantabria;134
@@ -6538,9 +6550,11 @@
 2000-03;06 Cantabria;188
 2000-02;06 Cantabria;174
 2000-01;06 Cantabria;184
-2020-47;07 Castilla y León;787
+2020-49;07 Castilla y León;757
+2020-48;07 Castilla y León;787
+2020-47;07 Castilla y León;790
 2020-46;07 Castilla y León;838
-2020-45;07 Castilla y León;841
+2020-45;07 Castilla y León;839
 2020-44;07 Castilla y León;727
 2020-43;07 Castilla y León;753
 2020-42;07 Castilla y León;672
@@ -6551,13 +6565,13 @@
 2020-37;07 Castilla y León;576
 2020-36;07 Castilla y León;528
 2020-35;07 Castilla y León;578
-2020-34;07 Castilla y León;507
+2020-34;07 Castilla y León;506
 2020-33;07 Castilla y León;598
 2020-32;07 Castilla y León;615
 2020-31;07 Castilla y León;565
 2020-30;07 Castilla y León;592
 2020-29;07 Castilla y León;578
-2020-28;07 Castilla y León;579
+2020-28;07 Castilla y León;578
 2020-27;07 Castilla y León;574
 2020-26;07 Castilla y León;568
 2020-25;07 Castilla y León;519
@@ -7628,11 +7642,13 @@
 2000-03;07 Castilla y León;676
 2000-02;07 Castilla y León;703
 2000-01;07 Castilla y León;641
-2020-47;08 Castilla - La Mancha;436
-2020-46;08 Castilla - La Mancha;438
-2020-45;08 Castilla - La Mancha;475
+2020-49;08 Castilla - La Mancha;401
+2020-48;08 Castilla - La Mancha;425
+2020-47;08 Castilla - La Mancha;448
+2020-46;08 Castilla - La Mancha;440
+2020-45;08 Castilla - La Mancha;477
 2020-44;08 Castilla - La Mancha;494
-2020-43;08 Castilla - La Mancha;469
+2020-43;08 Castilla - La Mancha;468
 2020-42;08 Castilla - La Mancha;415
 2020-41;08 Castilla - La Mancha;437
 2020-40;08 Castilla - La Mancha;386
@@ -8718,18 +8734,20 @@
 2000-03;08 Castilla - La Mancha;439
 2000-02;08 Castilla - La Mancha;402
 2000-01;08 Castilla - La Mancha;389
-2020-47;09 Cataluña;1284
-2020-46;09 Cataluña;1638
-2020-45;09 Cataluña;1747
-2020-44;09 Cataluña;1620
-2020-43;09 Cataluña;1538
-2020-42;09 Cataluña;1402
-2020-41;09 Cataluña;1417
-2020-40;09 Cataluña;1278
-2020-39;09 Cataluña;1188
+2020-49;09 Cataluña;1220
+2020-48;09 Cataluña;1573
+2020-47;09 Cataluña;1594
+2020-46;09 Cataluña;1690
+2020-45;09 Cataluña;1766
+2020-44;09 Cataluña;1624
+2020-43;09 Cataluña;1537
+2020-42;09 Cataluña;1403
+2020-41;09 Cataluña;1418
+2020-40;09 Cataluña;1279
+2020-39;09 Cataluña;1189
 2020-38;09 Cataluña;1248
 2020-37;09 Cataluña;1226
-2020-36;09 Cataluña;1182
+2020-36;09 Cataluña;1185
 2020-35;09 Cataluña;1225
 2020-34;09 Cataluña;1294
 2020-33;09 Cataluña;1360
@@ -8737,7 +8755,7 @@
 2020-31;09 Cataluña;1397
 2020-30;09 Cataluña;1252
 2020-29;09 Cataluña;1131
-2020-28;09 Cataluña;1264
+2020-28;09 Cataluña;1263
 2020-27;09 Cataluña;1231
 2020-26;09 Cataluña;1163
 2020-25;09 Cataluña;1144
@@ -9808,19 +9826,21 @@
 2000-03;09 Cataluña;1532
 2000-02;09 Cataluña;1649
 2000-01;09 Cataluña;1651
-2020-47;10 Comunitat Valenciana;975
-2020-46;10 Comunitat Valenciana;946
-2020-45;10 Comunitat Valenciana;976
-2020-44;10 Comunitat Valenciana;904
-2020-43;10 Comunitat Valenciana;945
+2020-49;10 Comunitat Valenciana;961
+2020-48;10 Comunitat Valenciana;981
+2020-47;10 Comunitat Valenciana;998
+2020-46;10 Comunitat Valenciana;952
+2020-45;10 Comunitat Valenciana;980
+2020-44;10 Comunitat Valenciana;903
+2020-43;10 Comunitat Valenciana;947
 2020-42;10 Comunitat Valenciana;897
-2020-41;10 Comunitat Valenciana;829
+2020-41;10 Comunitat Valenciana;831
 2020-40;10 Comunitat Valenciana;836
-2020-39;10 Comunitat Valenciana;852
+2020-39;10 Comunitat Valenciana;853
 2020-38;10 Comunitat Valenciana;842
 2020-37;10 Comunitat Valenciana;810
 2020-36;10 Comunitat Valenciana;898
-2020-35;10 Comunitat Valenciana;900
+2020-35;10 Comunitat Valenciana;901
 2020-34;10 Comunitat Valenciana;913
 2020-33;10 Comunitat Valenciana;937
 2020-32;10 Comunitat Valenciana;956
@@ -9831,7 +9851,7 @@
 2020-27;10 Comunitat Valenciana;847
 2020-26;10 Comunitat Valenciana;774
 2020-25;10 Comunitat Valenciana;795
-2020-24;10 Comunitat Valenciana;795
+2020-24;10 Comunitat Valenciana;796
 2020-23;10 Comunitat Valenciana;798
 2020-22;10 Comunitat Valenciana;764
 2020-21;10 Comunitat Valenciana;785
@@ -10898,14 +10918,16 @@
 2000-03;10 Comunitat Valenciana;894
 2000-02;10 Comunitat Valenciana;946
 2000-01;10 Comunitat Valenciana;905
-2020-47;11 Extremadura;257
-2020-46;11 Extremadura;216
+2020-49;11 Extremadura;248
+2020-48;11 Extremadura;266
+2020-47;11 Extremadura;258
+2020-46;11 Extremadura;215
 2020-45;11 Extremadura;274
-2020-44;11 Extremadura;289
-2020-43;11 Extremadura;244
-2020-42;11 Extremadura;232
+2020-44;11 Extremadura;290
+2020-43;11 Extremadura;245
+2020-42;11 Extremadura;231
 2020-41;11 Extremadura;252
-2020-40;11 Extremadura;212
+2020-40;11 Extremadura;213
 2020-39;11 Extremadura;205
 2020-38;11 Extremadura;197
 2020-37;11 Extremadura;214
@@ -10919,7 +10941,7 @@
 2020-29;11 Extremadura;273
 2020-28;11 Extremadura;209
 2020-27;11 Extremadura;208
-2020-26;11 Extremadura;226
+2020-26;11 Extremadura;225
 2020-25;11 Extremadura;208
 2020-24;11 Extremadura;178
 2020-23;11 Extremadura;188
@@ -11988,12 +12010,14 @@
 2000-03;11 Extremadura;277
 2000-02;11 Extremadura;301
 2000-01;11 Extremadura;271
-2020-47;12 Galicia;620
-2020-46;12 Galicia;667
-2020-45;12 Galicia;684
-2020-44;12 Galicia;650
+2020-49;12 Galicia;664
+2020-48;12 Galicia;618
+2020-47;12 Galicia;632
+2020-46;12 Galicia;669
+2020-45;12 Galicia;686
+2020-44;12 Galicia;652
 2020-43;12 Galicia;689
-2020-42;12 Galicia;599
+2020-42;12 Galicia;600
 2020-41;12 Galicia;572
 2020-40;12 Galicia;646
 2020-39;12 Galicia;555
@@ -13078,26 +13102,28 @@
 2000-03;12 Galicia;864
 2000-02;12 Galicia;805
 2000-01;12 Galicia;755
-2020-47;13 Madrid, Comunidad de;946
-2020-46;13 Madrid, Comunidad de;993
-2020-45;13 Madrid, Comunidad de;1031
-2020-44;13 Madrid, Comunidad de;1067
+2020-49;13 Madrid, Comunidad de;908
+2020-48;13 Madrid, Comunidad de;928
+2020-47;13 Madrid, Comunidad de;972
+2020-46;13 Madrid, Comunidad de;997
+2020-45;13 Madrid, Comunidad de;1035
+2020-44;13 Madrid, Comunidad de;1069
 2020-43;13 Madrid, Comunidad de;1108
-2020-42;13 Madrid, Comunidad de;1081
-2020-41;13 Madrid, Comunidad de;1108
-2020-40;13 Madrid, Comunidad de;1129
+2020-42;13 Madrid, Comunidad de;1082
+2020-41;13 Madrid, Comunidad de;1109
+2020-40;13 Madrid, Comunidad de;1126
 2020-39;13 Madrid, Comunidad de;1132
-2020-38;13 Madrid, Comunidad de;1056
-2020-37;13 Madrid, Comunidad de;988
+2020-38;13 Madrid, Comunidad de;1057
+2020-37;13 Madrid, Comunidad de;989
 2020-36;13 Madrid, Comunidad de;880
 2020-35;13 Madrid, Comunidad de;863
-2020-34;13 Madrid, Comunidad de;816
+2020-34;13 Madrid, Comunidad de;817
 2020-33;13 Madrid, Comunidad de;740
 2020-32;13 Madrid, Comunidad de;881
 2020-31;13 Madrid, Comunidad de;1016
 2020-30;13 Madrid, Comunidad de;866
-2020-29;13 Madrid, Comunidad de;784
-2020-28;13 Madrid, Comunidad de;840
+2020-29;13 Madrid, Comunidad de;785
+2020-28;13 Madrid, Comunidad de;841
 2020-27;13 Madrid, Comunidad de;860
 2020-26;13 Madrid, Comunidad de;856
 2020-25;13 Madrid, Comunidad de;770
@@ -14168,20 +14194,22 @@
 2000-03;13 Madrid, Comunidad de;897
 2000-02;13 Madrid, Comunidad de;940
 2000-01;13 Madrid, Comunidad de;918
-2020-47;14 Murcia, Región de;259
-2020-46;14 Murcia, Región de;272
+2020-49;14 Murcia, Región de;235
+2020-48;14 Murcia, Región de;258
+2020-47;14 Murcia, Región de;263
+2020-46;14 Murcia, Región de;273
 2020-45;14 Murcia, Región de;283
 2020-44;14 Murcia, Región de;282
-2020-43;14 Murcia, Región de;243
+2020-43;14 Murcia, Región de;244
 2020-42;14 Murcia, Región de;205
-2020-41;14 Murcia, Región de;233
+2020-41;14 Murcia, Región de;234
 2020-40;14 Murcia, Región de;227
-2020-39;14 Murcia, Región de;235
+2020-39;14 Murcia, Región de;236
 2020-38;14 Murcia, Región de;234
 2020-37;14 Murcia, Región de;220
 2020-36;14 Murcia, Región de;256
 2020-35;14 Murcia, Región de;224
-2020-34;14 Murcia, Región de;213
+2020-34;14 Murcia, Región de;215
 2020-33;14 Murcia, Región de;211
 2020-32;14 Murcia, Región de;237
 2020-31;14 Murcia, Región de;237
@@ -15258,11 +15286,13 @@
 2000-03;14 Murcia, Región de;266
 2000-02;14 Murcia, Región de;288
 2000-01;14 Murcia, Región de;225
-2020-47;15 Navarra, Comunidad Foral de;154
+2020-49;15 Navarra, Comunidad Foral de;125
+2020-48;15 Navarra, Comunidad Foral de;112
+2020-47;15 Navarra, Comunidad Foral de;155
 2020-46;15 Navarra, Comunidad Foral de;127
 2020-45;15 Navarra, Comunidad Foral de;147
 2020-44;15 Navarra, Comunidad Foral de;142
-2020-43;15 Navarra, Comunidad Foral de;135
+2020-43;15 Navarra, Comunidad Foral de;136
 2020-42;15 Navarra, Comunidad Foral de;119
 2020-41;15 Navarra, Comunidad Foral de;151
 2020-40;15 Navarra, Comunidad Foral de;112
@@ -16348,13 +16378,15 @@
 2000-03;15 Navarra, Comunidad Foral de;150
 2000-02;15 Navarra, Comunidad Foral de;165
 2000-01;15 Navarra, Comunidad Foral de;181
-2020-47;16 País Vasco;484
-2020-46;16 País Vasco;500
-2020-45;16 País Vasco;515
+2020-49;16 País Vasco;497
+2020-48;16 País Vasco;495
+2020-47;16 País Vasco;487
+2020-46;16 País Vasco;502
+2020-45;16 País Vasco;516
 2020-44;16 País Vasco;473
 2020-43;16 País Vasco;437
 2020-42;16 País Vasco;418
-2020-41;16 País Vasco;422
+2020-41;16 País Vasco;423
 2020-40;16 País Vasco;441
 2020-39;16 País Vasco;414
 2020-38;16 País Vasco;481
@@ -17438,7 +17470,9 @@
 2000-03;16 País Vasco;503
 2000-02;16 País Vasco;546
 2000-01;16 País Vasco;545
-2020-47;17 Rioja, La;71
+2020-49;17 Rioja, La;70
+2020-48;17 Rioja, La;65
+2020-47;17 Rioja, La;74
 2020-46;17 Rioja, La;75
 2020-45;17 Rioja, La;84
 2020-44;17 Rioja, La;98
@@ -18528,6 +18562,8 @@
 2000-03;17 Rioja, La;70
 2000-02;17 Rioja, La;88
 2000-01;17 Rioja, La;64
+2020-49;18 Ceuta;8
+2020-48;18 Ceuta;14
 2020-47;18 Ceuta;18
 2020-46;18 Ceuta;20
 2020-45;18 Ceuta;21
@@ -18543,7 +18579,7 @@
 2020-35;18 Ceuta;7
 2020-34;18 Ceuta;8
 2020-33;18 Ceuta;12
-2020-32;18 Ceuta;13
+2020-32;18 Ceuta;12
 2020-31;18 Ceuta;8
 2020-30;18 Ceuta;6
 2020-29;18 Ceuta;12
@@ -19618,6 +19654,8 @@
 2000-03;18 Ceuta;15
 2000-02;18 Ceuta;11
 2000-01;18 Ceuta;7
+2020-49;19 Melilla;11
+2020-48;19 Melilla;16
 2020-47;19 Melilla;11
 2020-46;19 Melilla;16
 2020-45;19 Melilla;20

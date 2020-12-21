@@ -21,19 +21,19 @@ momo:
 	time -p php php/program.php
 
 momo2wave:
-	rm -f output/plot15*.gif
+	rm -f output/plot15??.gif
 	time -p php php/program.php
 
-momo.all:
-	rm -f middle/data.* output/plot15*.gif
+momo2wave.all:
+	rm -f middle/data.* middle/plot15* output/plot15*
 	time -p php php/program.php
 
 euromomo:
-	rm -f output/plot09*.gif
+	rm -f output/plot09????.gif
 	time -p php php/program.php
 
 euromomo.all:
-	rm -f middle/component.* output/plot09*
+	rm -f middle/component.* middle/plot09* output/plot09*
 	time -p php php/program.php
 
 sweden:

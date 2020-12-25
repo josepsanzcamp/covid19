@@ -7,7 +7,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 	foreach($files as $file) {
 		$part=explode(".",$file);
 		$part=$part[1];
-		if(file_exists("output/plot15${lang}.${part}.png")) continue;
+		if(file_exists("output/plot15${lang}.${part}.gif")) continue;
 		$momo=import_file($file);
 		if(!isset($otros)) $otros=import_file("middle/7947-ok.csv");
 		$matrix=array();

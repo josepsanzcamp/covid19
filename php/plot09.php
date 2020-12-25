@@ -17,7 +17,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 	foreach($files as $file) {
 		$part=explode(".",$file);
 		$part=$part[1];
-		if(file_exists("output/plot09${lang}01.${part}.png")) continue;
+		if(file_exists("output/plot09${lang}01.${part}.gif")) continue;
 		$data=import_file($file);
 		$años=array();
 		$semanas=array();

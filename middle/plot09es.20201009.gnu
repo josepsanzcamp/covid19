@@ -67,4 +67,6 @@ set output 'output/plot09es25.20201009.gif'
 plot 'middle/plot09es.20201009.csv' u 1:146 w lp ti col,'' u 1:147 w lp ti col,'' u 1:148 w lp ti col,'' u 1:149 w lp ti col,'' u 1:150 w lp ti col,'' u 1:151 w lp ti col
 set output 'output/plot09es26.20201009.gif'
 plot 'middle/plot09es.20201009.csv' u 1:152 w lp ti col,'' u 1:153 w lp ti col,'' u 1:154 w lp ti col,'' u 1:155 w lp ti col,'' u 1:156 w lp ti col,'' u 1:157 w lp ti col
+set output 'output/plot09es27.20201009.gif'
+plot 'middle/plot09es.20201009.csv' u 1:158 w lp ti col,'' u 1:159 w lp ti col,'' u 1:160 w lp ti col,'' u 1:161 w lp ti col,'' u 1:162 w lp ti col,'' u 1:163 w lp ti col
 

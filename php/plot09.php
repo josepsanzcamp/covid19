@@ -28,6 +28,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 				$semanas[$temp[1]]=$temp[1];
 			}
 		}
+		sort($semanas);
 		$matrix=array();
 		foreach($semanas as $semana) {
 			foreach($paises as $pais) {

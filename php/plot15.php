@@ -50,7 +50,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 		export_file("middle/plot15${lang}.${part}.csv",$matrix);
 		$fecha=substr($part,0,4)."-".substr($part,4,2)."-".substr($part,6,2);
 		$gnuplot=implode("\n",array(
-			"set terminal gif size 1200,600 enhanced font ',10'",
+			"set terminal gif size 1200,600 enhanced font ',11'",
 			"set title \"".$textos["plots"]["15"][$lang]." (${fecha})\"",
 			"set grid",
 			"set tmargin 3",
@@ -66,6 +66,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 			"set ytic center rotate by 90",
 			"set ytics 0,500,3000",
 			"set datafile separator ';'",
+		"set colors classic",
 			"set output 'output/plot15${lang}.${part}.gif'",
 			"set xrange ['2020-10-01':'2021-01-01']",
 			"plot 'middle/plot15${lang}.${part}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w l ti col",

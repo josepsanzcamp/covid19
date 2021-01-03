@@ -1,4 +1,4 @@
-set terminal png size 1200,600 enhanced font ',10'
+set terminal png size 1200,600 enhanced font ',11'
 set title "7. Relació de llits de hospital, infermeres y metges per país en 2019 o darrer any on existeixin dades segons dades OECD"
 set grid
 set tmargin 3
@@ -15,6 +15,7 @@ set yrange [0:20]
 set ytic center rotate by 90
 set ytics 0,5,15
 set datafile separator ';'
+set colors classic
 set output 'output/plot07ca1.png'
 set xrange [-0.5:21.5]
 plot 'middle/plot07ca.csv' u 2:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 6:xtic(1) ti col

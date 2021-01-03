@@ -22,7 +22,7 @@ if(!file_exists("output/plot11${lang}.png")) {
 	array_unshift($norway,$header);
 	export_file("middle/plot11${lang}.csv",$norway);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["11"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -39,6 +39,7 @@ if(!file_exists("output/plot11${lang}.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,200,1400",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set output 'output/plot11${lang}.png'",
 		"plot 'middle/plot11${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp ti col",
 	))."\n";

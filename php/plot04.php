@@ -49,7 +49,7 @@ if(!file_exists("output/plot04${lang}1.png")) {
 	array_unshift($matrix,array_merge(array("Mes"),$header));
 	export_file("middle/plot04${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["04"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -64,6 +64,7 @@ if(!file_exists("output/plot04${lang}1.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,10000,50000",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set output 'output/plot04${lang}1.png'",
 		"set xrange [-0.5:11.5]",
 		"plot 'middle/plot04${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",

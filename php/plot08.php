@@ -58,7 +58,7 @@ if(!file_exists("output/plot08${lang}1.png")) {
 	}
 	$cols2plot2=implode(", '' ",$cols2plot2);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["08"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -73,6 +73,7 @@ if(!file_exists("output/plot08${lang}1.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,10000,50000",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set output 'output/plot08${lang}1.png'",
 		"set xrange [-0.5:11.5]",
 		"plot 'middle/plot08${lang}.csv' ${cols2plot1}",

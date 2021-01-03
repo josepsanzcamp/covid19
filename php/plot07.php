@@ -75,7 +75,7 @@ if(!file_exists("output/plot07${lang}1.png")) {
 	array_unshift($matrix,array("Pais",$textos["hospitalbed"][$lang],"Year",$textos["nurse"][$lang],"Year",$textos["doctor"][$lang],"Year"));
 	export_file("middle/plot07${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["07"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -92,6 +92,7 @@ if(!file_exists("output/plot07${lang}1.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,5,15",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set output 'output/plot07${lang}1.png'",
 		"set xrange [-0.5:21.5]",
 		"plot 'middle/plot07${lang}.csv' u 2:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 6:xtic(1) ti col",

@@ -1,4 +1,4 @@
-set terminal png size 1200,600 enhanced font ',10'
+set terminal png size 1200,600 enhanced font ',11'
 set title "11. Defuncions per setmana obtinguts del Statistics Norway"
 set grid
 set tmargin 3
@@ -15,5 +15,6 @@ set xtics '2020-02-01',86400*30,'2020-12-01'
 set ytic center rotate by 90
 set ytics 0,200,1400
 set datafile separator ';'
+set colors classic
 set output 'output/plot11ca.png'
 plot 'middle/plot11ca.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp ti col

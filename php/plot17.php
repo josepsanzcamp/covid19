@@ -21,7 +21,7 @@ if(!file_exists("output/plot17${lang}.png")) {
 	array_unshift($germany,$header);
 	export_file("middle/plot17${lang}.csv",$germany);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["17"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -38,6 +38,7 @@ if(!file_exists("output/plot17${lang}.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,5000,30000",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set output 'output/plot17${lang}.png'",
 		"plot 'middle/plot17${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col",
 	))."\n";

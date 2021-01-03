@@ -39,7 +39,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 	array_unshift($matrix,array("Fecha","MoMoOld","MoMoNew","MoMo2019","MoMo2018","INE2018"));
 	export_file("middle/plot03${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["03"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -55,6 +55,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,500,3000",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set output 'output/plot03${lang}1.png'",
 		"set xrange ['2020-01-01':'2020-03-01']",
 		"plot 'middle/plot03${lang}.csv' u 1:3 w lp lc 2 pt 2 ti col, '' u 1:4 w lp lc 3 pt 3 ti col, '' u 1:6 w l lc 6 ti col",

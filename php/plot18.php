@@ -113,7 +113,7 @@ if(!file_exists("output/plot18${lang}01.png")) {
 	array_unshift($matrix,array_merge(array("Fecha"),$header));
 	export_file("middle/plot18${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["18"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -128,6 +128,7 @@ if(!file_exists("output/plot18${lang}01.png")) {
 		"set xtics '2020-02-01',86400*30,'2020-12-01'",
 		"set ytic center rotate by 90",
 		"set datafile separator ';'",
+		"set colors classic",
 	))."\n";
 	$paises=array_keys($paises);
 	for($i=0;$i<count($paises);$i++) {

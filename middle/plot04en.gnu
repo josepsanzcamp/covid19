@@ -1,4 +1,4 @@
-set terminal png size 1200,600 enhanced font ',10'
+set terminal png size 1200,600 enhanced font ',11'
 set title "4. Deaths by year, month and age (2020 data are from MoMo and the rest are from INE)"
 set grid
 set tmargin 3
@@ -13,6 +13,7 @@ set style histogram gap 3
 set ytic center rotate by 90
 set ytics 0,10000,50000
 set datafile separator ';'
+set colors classic
 set output 'output/plot04en1.png'
 set xrange [-0.5:11.5]
 plot 'middle/plot04en.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col

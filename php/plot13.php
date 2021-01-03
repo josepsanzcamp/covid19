@@ -28,7 +28,7 @@ if(!file_exists("output/plot13${lang}.png")) {
 	array_unshift($portugal,$header);
 	export_file("middle/plot13${lang}.csv",$portugal);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["13"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -45,6 +45,7 @@ if(!file_exists("output/plot13${lang}.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,100,600",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set output 'output/plot13${lang}.png'",
 		"plot 'middle/plot13${lang}.csv' u 1:8 w l ti col,'' u 1:9 w l ti col,'' u 1:10 w l ti col,'' u 1:11 w l ti col,'' u 1:12 w l ti col,'' u 1:13 w l ti col",
 	))."\n";

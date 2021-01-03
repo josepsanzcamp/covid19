@@ -60,7 +60,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 		export_file("middle/plot09${lang}.${part}.csv",$matrix);
 		$fecha=substr($part,0,4)."-".substr($part,4,2)."-".substr($part,6,2);
 		$gnuplot=implode("\n",array(
-			"set terminal gif size 1200,600 enhanced font ',10'",
+			"set terminal gif size 1200,600 enhanced font ',11'",
 			"set title \"".$textos["plots"]["09"][$lang]." (${fecha})\"",
 			"set grid",
 			"set tmargin 3",
@@ -77,6 +77,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 			"set ytic center rotate by 90",
 			"set ytics 0,10,40",
 			"set datafile separator ';'",
+		"set colors classic",
 		))."\n";
 		for($i=0;$i<count($paises);$i++) {
 			$col2=$i*count($años)+2;

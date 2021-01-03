@@ -25,7 +25,7 @@ if(!file_exists("output/plot12${lang}.png")) {
 	array_unshift($matrix,array("Fecha","2020","2019","2018"));
 	export_file("middle/plot12${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["12"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -42,6 +42,7 @@ if(!file_exists("output/plot12${lang}.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,500,3000",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set output 'output/plot12${lang}.png'",
 		"plot 'middle/plot12${lang}.csv' u 1:4 w l ti col,'' u 1:3 w l ti col,'' u 1:2 w l ti col",
 	))."\n";

@@ -1,4 +1,4 @@
-set terminal png size 1200,600 enhanced font ',10'
+set terminal png size 1200,600 enhanced font ',11'
 set title "18. Defunciones por semana del año y por país obtenidas del Eurostat"
 set grid
 set tmargin 3
@@ -13,6 +13,7 @@ set xrange ['2020-01-01':'2021-01-01']
 set xtics '2020-02-01',86400*30,'2020-12-01'
 set ytic center rotate by 90
 set datafile separator ';'
+set colors classic
 set yrange [0:900]
 set ytics 0,180,720
 set output 'output/plot18es01.png'

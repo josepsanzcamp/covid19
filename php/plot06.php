@@ -47,7 +47,7 @@ if(!file_exists("output/plot06${lang}.png")) {
 	array_unshift($matrix,array_merge(array("CCAA"),$header));
 	export_file("middle/plot06${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["06"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -64,6 +64,7 @@ if(!file_exists("output/plot06${lang}.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,10000,60000",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set output 'output/plot06${lang}.png'",
 		"plot 'middle/plot06${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 	))."\n";

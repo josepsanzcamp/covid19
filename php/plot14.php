@@ -77,7 +77,7 @@ if(!file_exists("output/plot14${lang}.png")) {
 	// CONTINUAR
 	export_file("middle/plot14${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
-		"set terminal png size 1200,600 enhanced font ',10'",
+		"set terminal png size 1200,600 enhanced font ',11'",
 		"set title \"".$textos["plots"]["14"][$lang]."\"",
 		"set grid",
 		"set tmargin 3",
@@ -94,6 +94,7 @@ if(!file_exists("output/plot14${lang}.png")) {
 		"set ytic center rotate by 90",
 		"set ytics 0,100000,500000",
 		"set datafile separator ';'",
+		"set colors classic",
 		"set key at 2020,300000",
 		"set output 'output/plot14${lang}.png'",
 		"plot 'middle/plot14${lang}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col, '' u 1:8 w lp ti col, '' u 1:9 w lp ti col, '' u 1:10 w lp ti col",

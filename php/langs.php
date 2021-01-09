@@ -63,29 +63,29 @@ $textos=array(
 	),
 	"plots"=>array(
 		"01"=>array(
-			"ca"=>"1. Defuncions per any i mes (només anys on algun mes ha superat els 40k morts, les dades de l'any 2020 són del MoMo i la resta són del INE)",
-			"es"=>"1. Defunciones por año y mes (sólo años donde algún mes ha superado los 40k muertos, los datos del 2020 son del MoMo y el resto son del INE)",
-			"en"=>"1. Deaths by year and month (only years where some month has exceeded 40k deaths, 2020 data are from the MoMo and the rest are from the INE)",
+			"ca"=>"1. Defuncions per any i mes (només anys on algun mes ha superat els 40k morts, les dades del 2020 i 2021 són del MoMo i la resta són del INE)",
+			"es"=>"1. Defunciones por año y mes (sólo años donde algún mes ha superado los 40k muertos, los datos del 2020 y 2021 son del MoMo y el resto son del INE)",
+			"en"=>"1. Deaths by year and month (only years where some month has exceeded 40k deaths, 2020 and 2021 data are from the MoMo and the rest are from the INE)",
 		),
 		"02"=>array(
-			"ca"=>"2. Defuncions per any i mes del MoMo i INE entre 2018 i 2020",
-			"es"=>"2. Defunciones por año y mes del MoMo y INE entre 2018 y 2020",
-			"en"=>"2. Deaths by year and month of the MoMo and INE between 2018 and 2020",
+			"ca"=>"2. Defuncions per any i mes del MoMo i INE entre 2018 i 2021",
+			"es"=>"2. Defunciones por año y mes del MoMo y INE entre 2018 y 2021",
+			"en"=>"2. Deaths by year and month of the MoMo and INE between 2018 and 2021",
 		),
 		"03"=>array(
-			"ca"=>"3. Defuncions per dia obtinguts del MoMo per al 2020, 2019, 2018 i el promig del 2018",
-			"es"=>"3. Defunciones por dia obtenidos del MoMo para el 2020, 2019, 2018 y el promedio del 2018",
-			"en"=>"3. Deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average",
+			"ca"=>"3. Defuncions per dia obtinguts del MoMo per al 2021, 2020, 2019, 2018 i el promig del 2018",
+			"es"=>"3. Defunciones por dia obtenidos del MoMo para el 2021, 2020, 2019, 2018 y el promedio del 2018",
+			"en"=>"3. Deaths per day obtained from the MoMo by 2021, 2020, 2019, 2018 and the 2018 average",
 		),
 		"04"=>array(
-			"ca"=>"4. Defuncions per any, mes i edat (les dades de l'any 2020 són del MoMo i la resta són del INE)",
-			"es"=>"4. Defunciones por año, mes y edad (los datos del 2020 son del MoMo y el resto son del INE)",
-			"en"=>"4. Deaths by year, month and age (2020 data are from MoMo and the rest are from INE)",
+			"ca"=>"4. Defuncions per any, mes i edat (les dades del 2020 i 2021 són del MoMo i la resta són del INE)",
+			"es"=>"4. Defunciones por año, mes y edad (los datos del 2020 y 2021 son del MoMo y el resto son del INE)",
+			"en"=>"4. Deaths by year, month and age (2020 and 2021 data are from MoMo and the rest are from INE)",
 		),
 		"05"=>array(
-			"ca"=>"5. Defuncions per comunitat autònoma i any (acumulats per any de març i abril, les dades de l'any 2020 són del MoMo i la resta són del INE)",
-			"es"=>"5. Defunciones por comunidad autónoma y año (acumulados por año de marzo y abril, los datos del 2020 son del MoMo y el resto son del INE)",
-			"en"=>"5. Deaths by autonomous community and year (accumulated by year of March and April, the data for 2020 are from the MoMo and the rest are from the INE)",
+			"ca"=>"5. Defuncions per comunitat autònoma i any (acumulats per any de març i abril, les dades del 2020 i 2021 són del MoMo i la resta són del INE)",
+			"es"=>"5. Defunciones por comunidad autónoma y año (acumulados por año de marzo y abril, los datos del 2020 y 2021 son del MoMo y el resto son del INE)",
+			"en"=>"5. Deaths by autonomous community and year (accumulated by year of March and April, the data for 2020 and 2021 are from the MoMo and the rest are from the INE)",
 		),
 		"06"=>array(
 			"ca"=>"6. Places de residències per tipus i comunitat autònoma (dades obtingudes de envejecimientoenred.es, del CSIC del 2019)",
@@ -138,14 +138,14 @@ $textos=array(
 			"en"=>"15. Evolution of the second wave deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average",
 		),
 		"16"=>array(
-			"ca"=>"16. Defuncions per dia obtinguts del Institut National de la statistique et des études économiques",
-			"es"=>"16. Defunciones por dia obtenidos del Institut National de la statistique et des études économiques",
-			"en"=>"16. Deaths per day obtained from the Institut National de la statistique et des études économiques",
+			"ca"=>"16. Defuncions per dia obtinguts del Institut National de la statistique et des études économiques (France)",
+			"es"=>"16. Defunciones por dia obtenidos del Institut National de la statistique et des études économiques (France)",
+			"en"=>"16. Deaths per day obtained from the Institut National de la statistique et des études économiques (France)",
 		),
 		"17"=>array(
-			"ca"=>"17. Defuncions per setmana obtinguts del Statistisches Bundesamt",
-			"es"=>"17. Defunciones por semana obtenidos del Statistisches Bundesamt",
-			"en"=>"17. Deaths by week obtained from Statistisches Bundesamt",
+			"ca"=>"17. Defuncions per setmana obtinguts del Statistisches Bundesamt (Germany)",
+			"es"=>"17. Defunciones por semana obtenidos del Statistisches Bundesamt (Germany)",
+			"en"=>"17. Deaths by week obtained from Statistisches Bundesamt (Germany)",
 		),
 		"18"=>array(
 			"ca"=>"18. Defuncions per setmana del any y per pais obtingudes del Eurostat",
@@ -252,9 +252,9 @@ $textos=array(
 		"en"=>"% doctors per 1000 inhabitants",
 	),
 	"momoold"=>array(
-		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció, he anomenat MoMoOld a les dades anteriors a la correcció i MoMoNew a les darreres dades oficials",
-		"es"=>"Atención: el 27 de mayo del año 2020 se corrigieron los datos del MoMo, para poder observar esta corrección, he llamado MoMoOld a los datos anteriores a la corrección y MoMoNew a los últimos datos oficiales",
-		"en"=>"Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction, I have used MoMoOld for the previously data to the correction and MoMoNew for the latest oficial data",
+		"ca"=>"Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció, he anomenat MoMoOld a les dades anteriors a la correcció",
+		"es"=>"Atención: el 27 de mayo del año 2020 se corrigieron los datos del MoMo, para poder observar esta corrección, he llamado MoMoOld a los datos anteriores a la corrección",
+		"en"=>"Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction, I have used MoMoOld for the previously data to the correction",
 	),
 	"escala"=>array(
 		"ca"=>"Atenció: aquesta gràfica te l'escala diferent que la gràfica anterior del mateix grup",

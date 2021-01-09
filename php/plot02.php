@@ -6,13 +6,13 @@ if(!file_exists("output/plot02${lang}1.png")) {
 	$momonew=import_file("middle/datanew-ok.csv");
 	$ine=import_file("middle/02001-ok.csv");
 	$matrix=array();
-	$years=array(2018,2019,2020);
+	$years=array(2018,2019,2020,2021);
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($years as $year) {
 		foreach($months as $month) {
 			$month=sprintf("%02d",$month);
 			$matrix[$year."-".$month]["MoMoOld"]="";
-			$matrix[$year."-".$month]["MoMoNew"]="";
+			$matrix[$year."-".$month]["MoMo"]="";
 			$matrix[$year."-".$month]["INE"]="";
 		}
 	}
@@ -23,7 +23,7 @@ if(!file_exists("output/plot02${lang}1.png")) {
 	}
 	foreach($momonew as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
-		if(isset($matrix[$year."-".$month]["MoMoNew"])) $matrix[$year."-".$month]["MoMoNew"]=$val[1];
+		if(isset($matrix[$year."-".$month]["MoMo"])) $matrix[$year."-".$month]["MoMo"]=$val[1];
 	}
 	foreach($ine as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
@@ -60,6 +60,9 @@ if(!file_exists("output/plot02${lang}1.png")) {
 		"plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 		"set output 'output/plot02${lang}3.png'",
 		"set xrange [23.5:35.5]",
+		"plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"set output 'output/plot02${lang}4.png'",
+		"set xrange [35.5:47.5]",
 		"plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot02${lang}.gnu",$gnuplot);

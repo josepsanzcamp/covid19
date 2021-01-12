@@ -8,11 +8,11 @@ if(!file_exists("middle/preliminar_statistik.csv")) {
 	foreach($matrix as $key=>$val) {
 		if($val[0]=="DagMånad") {
 			$run=1;
-		} elseif($run && $val[9]=="9999") {
+		} elseif($run && $val[11]=="9999") {
 			$run=0;
 		}
 		if($run) {
-			$matrix[$key]=array_slice($val,0,7);
+			$matrix[$key]=array_slice($val,0,8);
 		} else {
 			unset($matrix[$key]);
 		}

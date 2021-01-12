@@ -9,7 +9,7 @@ if(!file_exists("output/plot08${lang}1.png")) {
 		if(!isset($axis0[$val[0]])) $axis0[$val[0]]=$val[0];
 		//~ if(!isset($axis1[$val[1]])) $axis1[$val[1]]=$val[1];
 	}
-	for($i=strtotime("2018-01-01 12:00:00");$i<=strtotime("2021-01-01 12:00:00");$i+=86400) {
+	for($i=strtotime("2018-01-01 12:00:00");$i<=strtotime("2022-01-01 12:00:00");$i+=86400) {
 		$fecha=date("Y-m",$i);
 		$axis1[$fecha]=$fecha;
 	}
@@ -83,11 +83,14 @@ if(!file_exists("output/plot08${lang}1.png")) {
 		"set output 'output/plot08${lang}3.png'",
 		"set xrange [23.5:35.5]",
 		"plot 'middle/plot08${lang}.csv' ${cols2plot1}",
+		"set output 'output/plot08${lang}4.png'",
+		"set xrange [35.5:47.5]",
+		"plot 'middle/plot08${lang}.csv' ${cols2plot1}",
 		"set label 1 \"".$textos["escala"][$lang]."\" at 15.5,9000 c tc lt 1",
 		"set yrange [0:10000]",
 		"set ytics 0,2000,8000",
 		"set xtic rotate by -45",
-		"set output 'output/plot08${lang}4.png'",
+		"set output 'output/plot08${lang}5.png'",
 		"set xrange [3.5:27.5]",
 		"set bmargin 5",
 		"plot 'middle/plot08${lang}.csv' ${cols2plot2}",

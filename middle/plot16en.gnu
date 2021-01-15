@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "16. Deaths per day obtained from the Institut National de la statistique et des études économiques"
+set title "16. Deaths per day obtained from the Institut National de la statistique et des études économiques (France)"
 set grid
 set tmargin 3
 set rmargin 6

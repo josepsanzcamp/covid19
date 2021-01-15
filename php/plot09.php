@@ -77,19 +77,18 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 			"set ytic center rotate by 90",
 			"set ytics 0,10,40",
 			"set datafile separator ';'",
-		"set colors classic",
+			"set colors classic",
 		))."\n";
 		for($i=0;$i<count($paises);$i++) {
-			$col2=$i*count($años)+2;
-			$col3=$i*count($años)+3;
-			$col4=$i*count($años)+4;
-			$col5=$i*count($años)+5;
-			$col6=$i*count($años)+6;
-			$col7=$i*count($años)+7;
 			$j=sprintf("%02d",$i+1);
+			$plot=array();
+			for($k=0;$k<count($años);$k++) {
+				$plot[]="u 1:".($i*count($años)+2+$k)." w lp ti col";
+			}
+			$plot=implode(",'' ",$plot);
 			$gnuplot.=implode("\n",array(
 				"set output 'output/plot09${lang}${j}.${part}.gif'",
-				"plot 'middle/plot09${lang}.${part}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp ti col",
+				"plot 'middle/plot09${lang}.${part}.csv' ${plot}",
 			))."\n";
 		}
 		$gnuplot.="\n";

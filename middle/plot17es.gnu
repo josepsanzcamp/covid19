@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "17. Defunciones por semana obtenidos del Statistisches Bundesamt"
+set title "17. Defunciones por semana obtenidos del Statistisches Bundesamt (Germany)"
 set grid
 set tmargin 3
 set rmargin 6

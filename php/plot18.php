@@ -132,19 +132,18 @@ if(!file_exists("output/plot18${lang}01.png")) {
 	))."\n";
 	$paises=array_keys($paises);
 	for($i=0;$i<count($paises);$i++) {
-		$col2=$i*count($años)+2;
-		$col3=$i*count($años)+3;
-		$col4=$i*count($años)+4;
-		$col5=$i*count($años)+5;
-		$col6=$i*count($años)+6;
-		$col7=$i*count($años)+7;
 		$j=sprintf("%02d",$i+1);
+		$plot=array();
+		for($k=0;$k<count($años);$k++) {
+			$plot[]="u 1:".($i*count($años)+2+$k)." w lp ti col";
+		}
+		$plot=implode(",'' ",$plot);
 		list($num1,$num2,$num3)=$eje_y[$paises[$i]];
 		$gnuplot.=implode("\n",array(
 			"set yrange [0:$num3]",
 			"set ytics 0,$num1,$num2",
 			"set output 'output/plot18${lang}${j}.png'",
-			"plot 'middle/plot18${lang}.csv' u 1:${col2} w lp ti col,'' u 1:${col3} w lp ti col,'' u 1:${col4} w lp ti col,'' u 1:${col5} w lp ti col,'' u 1:${col6} w lp ti col,'' u 1:${col7} w lp ti col",
+			"plot 'middle/plot18${lang}.csv' ${plot}",
 		))."\n";
 	}
 	$gnuplot.="\n";

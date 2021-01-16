@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/sanz/workspace/covid19.download
+cd $HOME/workspace/covid19.download
 
 wget -O renave/datos_ccaas.$(date +"%Y%m%d").csv https://cnecovid.isciii.es/covid19/resources/datos_ccaas.csv
 wget -O momo/data.$(date +"%Y%m%d").csv https://momo.isciii.es/public/momo/data

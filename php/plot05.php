@@ -11,7 +11,7 @@ if(!file_exists("output/plot05${lang}1.png")) {
 	$momonew=import_file("middle/datanew-ok5.csv");
 	$ine=import_file("middle/6562-ok2.csv");
 	$matrix=array();
-	$years=array(1999,2000,2005,2009,2012,2014,2015,2017,2018,"MoMoOld",2020,2021);
+	$years=array("MoMoOld",2021,2020,2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	foreach($years as $year) {
 		foreach($ccaas as $ccaa) {
 			$matrix[$ccaa][$year]=0;
@@ -37,18 +37,18 @@ if(!file_exists("output/plot05${lang}1.png")) {
 		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
 	}
 	$matrix["18 Ceuta + 19 Melilla"]=array(
-		$matrix["18 Ceuta"][1999]+$matrix["19 Melilla"][1999],
-		$matrix["18 Ceuta"][2000]+$matrix["19 Melilla"][2000],
-		$matrix["18 Ceuta"][2005]+$matrix["19 Melilla"][2005],
-		$matrix["18 Ceuta"][2009]+$matrix["19 Melilla"][2009],
-		$matrix["18 Ceuta"][2012]+$matrix["19 Melilla"][2012],
-		$matrix["18 Ceuta"][2014]+$matrix["19 Melilla"][2014],
-		$matrix["18 Ceuta"][2015]+$matrix["19 Melilla"][2015],
-		$matrix["18 Ceuta"][2017]+$matrix["19 Melilla"][2017],
-		$matrix["18 Ceuta"][2018]+$matrix["19 Melilla"][2018],
 		$matrix["18 Ceuta"]["MoMoOld"]+$matrix["19 Melilla"]["MoMoOld"],
-		$matrix["18 Ceuta"][2020]+$matrix["19 Melilla"][2020],
 		$matrix["18 Ceuta"][2021]+$matrix["19 Melilla"][2021],
+		$matrix["18 Ceuta"][2020]+$matrix["19 Melilla"][2020],
+		$matrix["18 Ceuta"][2018]+$matrix["19 Melilla"][2018],
+		$matrix["18 Ceuta"][2017]+$matrix["19 Melilla"][2017],
+		$matrix["18 Ceuta"][2015]+$matrix["19 Melilla"][2015],
+		$matrix["18 Ceuta"][2014]+$matrix["19 Melilla"][2014],
+		$matrix["18 Ceuta"][2012]+$matrix["19 Melilla"][2012],
+		$matrix["18 Ceuta"][2009]+$matrix["19 Melilla"][2009],
+		$matrix["18 Ceuta"][2005]+$matrix["19 Melilla"][2005],
+		$matrix["18 Ceuta"][2000]+$matrix["19 Melilla"][2000],
+		$matrix["18 Ceuta"][1999]+$matrix["19 Melilla"][1999],
 	);
 	unset($matrix["18 Ceuta"]);
 	unset($matrix["19 Melilla"]);

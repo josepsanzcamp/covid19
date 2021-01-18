@@ -40,7 +40,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 			$matrix[$key2][6]=$media;
 		}
 	}
-	array_unshift($matrix,array("Fecha","MoMoOld","MoMo2021","MoMo2020","MoMo2019","MoMo2018","INE2018"));
+	array_unshift($matrix,array("Fecha","MoMoOld","2021","2020","2019","2018","INE2018"));
 	export_file("middle/plot03${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal png size 1200,600 enhanced font ',11'",

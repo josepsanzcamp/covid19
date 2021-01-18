@@ -46,7 +46,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 			}
 		}
 		// CONTINUAR
-		array_unshift($matrix,array("Fecha","MoMo2020","MoMo2019","MoMo2018","INE2018"));
+		array_unshift($matrix,array("Fecha","2020","2019","2018","INE2018"));
 		export_file("middle/plot15${lang}.${part}.csv",$matrix);
 		$fecha=substr($part,0,4)."-".substr($part,4,2)."-".substr($part,6,2);
 		$gnuplot=implode("\n",array(

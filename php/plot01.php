@@ -7,7 +7,7 @@ if(!file_exists("output/plot01${lang}1.png")) {
 	$ine1=import_file("middle/02001-ok.csv");
 	$ine2=import_file("middle/14819-ok.csv");
 	$matrix=array();
-	$years=array(1999,2000,2005,2009,2012,2014,2015,2017,2018,2019,"MoMoOld",2020,2021);
+	$years=array("MoMoOld",2021,2020,2019,2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($years as $year) {
 		foreach($months as $month) {

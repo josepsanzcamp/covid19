@@ -41,7 +41,7 @@ if(!file_exists("output/plot11${lang}.png")) {
 		"set datafile separator ';'",
 		"set colors classic",
 		"set output 'output/plot11${lang}.png'",
-		"plot 'middle/plot11${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp ti col",
+		"plot 'middle/plot11${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp ti col,'' u 1:8 w lp ti col",
 	))."\n";
 	file_put_contents("middle/plot11${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot11${lang}.gnu 2>&1");

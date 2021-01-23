@@ -64,3 +64,6 @@ spain:
 	rm -f middle/35177* output/plot19*
 	time -p php php/program.php
 
+indef:
+	rm -f middle/2020_defunciones.csv output/plot20*
+	time -p php php/program.php

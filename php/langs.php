@@ -157,6 +157,11 @@ $textos=array(
 			"es"=>"19. Defunciones por semana obtenidos del Instituto Nacional de Estadística",
 			"en"=>"19. Deaths by week obtained from Statistics Spain",
 		),
+		"20"=>array(
+			"ca"=>"20. Evolució de les dades del Índice Nacional de Defunciones",
+			"es"=>"20. Evolución de los datos del Índice Nacional de Defunciones",
+			"en"=>"20. Evolution of the data of the Índice Nacional de Defunciones",
+		),
 	),
 	"meses"=>array(
 		"ca"=>array(

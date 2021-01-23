@@ -18,6 +18,7 @@ include("php/france.php");
 include("php/germany.php");
 include("php/portugal.php");
 include("php/sweden.php");
+include("php/indef.php");
 include("php/langs.php");
 
 foreach(array("ca","es","en") as $lang) {
@@ -41,6 +42,7 @@ foreach(array("ca","es","en") as $lang) {
 	include("php/plot17.php");
 	include("php/plot18.php");
 	include("php/plot19.php");
+	include("php/plot20.php");
 
 	include("php/index2.php");
 

@@ -109,3 +109,8 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.ine.es/jaxi/Tabla.htm?path=/COVID/t15/&file=02003.px => Defunciones por año, enfermedades del sistema respiratorio y mes de defunción.
 - wget -O spain/35177.$(date +"%Y%m%d").csv "https://www.ine.es/jaxiT3/files/t/es/csv_bdsc/35177.csv?nocab=1"
 
+# INDef
+- https://www.mscbs.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/IND_TipoDifusion.htm => Índice Nacional de Defunciones
+- for i in $(seq 1 11); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2020_Defunciones_$i.pdf; done
+- for i in $(seq 1 11); do pdftotext -layout 2020_Defunciones_$i.pdf; done
+

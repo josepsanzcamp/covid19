@@ -1,7 +1,7 @@
 <?php
 
-if(!file_exists("middle/2020_defunciones.csv")) {
-	console_debug("middle/2020_defunciones.csv");
+if(!file_exists("middle/defunciones.csv")) {
+	console_debug("middle/defunciones.csv");
 	$meses=array(
 		"enero"=>"01",
 		"febrero"=>"02",
@@ -17,6 +17,8 @@ if(!file_exists("middle/2020_defunciones.csv")) {
 		"diciembre"=>"12",
 	);
 	$files=array();
+	$files=array_merge($files,glob("input/indef/Defunciones_2019_?.txt"));
+	$files=array_merge($files,glob("input/indef/Defunciones_2019_1?.txt"));
 	$files=array_merge($files,glob("input/indef/2020_Defunciones_?.txt"));
 	$files=array_merge($files,glob("input/indef/2020_Defunciones_1?.txt"));
 	$matrix=array();
@@ -30,11 +32,14 @@ if(!file_exists("middle/2020_defunciones.csv")) {
 				while(!is_numeric($val[0])) array_shift($val);
 				$fecha=$val[4]."-".$meses[$val[2]]."-".sprintf("%02d",$val[0]);
 			}
-			if($key>=4 && $key<=37) {
+			if($key>=4 && $key<=37 && $val!="") {
 				$count=1;
 				while($count) $val=str_replace("  "," ",$val,$count);
 				$val=str_replace(".","",$val);
 				$val=explode(" ",$val);
+				if(!isset($matrix[$val[0]]) && count($matrix)) {
+					$matrix[$val[0]]=array_fill_keys(array_keys(reset($matrix)),"");
+				}
 				$matrix[$val[0]][$fecha]=$val[1];
 			}
 		}
@@ -44,7 +49,7 @@ if(!file_exists("middle/2020_defunciones.csv")) {
 		$matrix[$key]=array_merge(array($key),$val);
 	}
 	array_unshift($matrix,array_merge(array("Fecha"),$header));
-	export_file("middle/2020_defunciones.csv",$matrix);
+	export_file("middle/defunciones.csv",$matrix);
 	unset($files);
 	unset($lines);
 	unset($matrix);

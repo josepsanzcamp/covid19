@@ -32,6 +32,7 @@ if(!file_exists("index.${lang}.html")) {
 		$datas=array_merge($datas,glob("middle/plot${key}${lang}.csv"));
 		$datas=array_merge($datas,glob("middle/plot${key}${lang}*.csv"));
 		$datas=array_merge($datas,glob("middle/plot${key}${lang}.*.csv"));
+		if(!isset($datas[0])) $datas[0]="";
 		$datas[0]="https://github.com/josepsanzcamp/covid19/tree/master/".$datas[0];
 		if(!count($imgs)) $imgs[]="#";
 		$html.=str_replace(

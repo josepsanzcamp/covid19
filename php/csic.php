@@ -5,7 +5,7 @@ if(!file_exists("middle/residencias.csv")) {
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
-		$ccaas[$val[2]]=$val[0]." ".$val[1];
+		$ccaas[$val[2]]=$val[0]." ".ccaa2fix($val[1]);
 	}
 	$files=glob("input/csic/19_*.csv");
 	$sumas=array();
@@ -22,11 +22,11 @@ if(!file_exists("middle/residencias.csv")) {
 				if($publica) $tipo="Publica";
 				if($privada) $tipo="Privada";
 				$ccaa=$ccaas[substr($val[4],0,2)];
-				$key2=$ccaa.";Total";
+				$key2=$ccaa.SEPARADOR."Total";
 				if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0,0);
 				$sumas[$key2][1]++;
 				$sumas[$key2][2]+=str_replace(".","",$val[8]);
-				$key2=$ccaa.";".$tipo;
+				$key2=$ccaa.SEPARADOR.$tipo;
 				if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0,0);
 				$sumas[$key2][1]++;
 				$sumas[$key2][2]+=str_replace(".","",$val[8]);

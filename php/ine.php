@@ -64,7 +64,7 @@ if(!file_exists("middle/02001-ok2.csv")) {
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total" && $val[1]=="Total" && $val[2]!="Total") {
-			$key2=$val[3]."-".$meses[$val[0]].";".$edades[$val[2]];
+			$key2=$val[3]."-".$meses[$val[0]].SEPARADOR.$edades[$val[2]];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			if($val[4]=="..") $val[4]="0";
 			$sumas[$key2][1]+=str_replace(".","",$val[4]);
@@ -74,9 +74,9 @@ if(!file_exists("middle/02001-ok2.csv")) {
 	sort($sumas);
 	$edades=array(3=>"mas_74",2=>"65_74",1=>"menos_65");
 	foreach($sumas as $key=>$val) {
-		$temp=explode(";",$val[0]);
+		$temp=explode(SEPARADOR,$val[0]);
 		$temp[1]=$edades[$temp[1]];
-		$val[0]=implode(";",$temp);
+		$val[0]=implode(SEPARADOR,$temp);
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02001-ok2.csv",$sumas);
@@ -195,17 +195,25 @@ if(!file_exists("middle/6562-ok.csv")) {
 
 if(!file_exists("middle/6562-ok2.csv")) {
 	console_debug("middle/6562-ok2.csv");
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[$val[0]." ".$val[1]]=$val[0]." ".ccaa2fix($val[1]);
+	}
 	$data=import_file("input/ine/6562.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total" && $val[2]!="Total") {
-			$key2=str_replace("M","-",substr($val[1],0,7)).";".$val[0];
+			if(isset($ccaas[$val[0]])) $val[0]=$ccaas[$val[0]];
+			$key2=str_replace("M","-",substr($val[1],0,7)).SEPARADOR.$val[0];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			$sumas[$key2][1]+=str_replace(".","",$val[2]);
 		}
 		unset($data[$key]);
 	}
 	export_file("middle/6562-ok2.csv",$sumas);
+	unset($temp);
+	unset($ccaas);
 	unset($data);
 	unset($sumas);
 	console_debug();
@@ -270,7 +278,7 @@ if(!file_exists("middle/02002-ok.csv")) {
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
-		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".$val[1];
+		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".ccaa2fix($val[1]);
 	}
 	$data=import_file("input/ine/02002.csv.gz");
 	$edades=array(
@@ -299,7 +307,7 @@ if(!file_exists("middle/02002-ok.csv")) {
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="TOTAL ESPAÑA" && $val[1]!="TOTAL EDADES" && $val[2]=="TOTAL" && $val[3]=="Ambos sexos") {
-			$key2=$val[4].";".$ccaas[$val[0]].";".$edades[$val[1]];
+			$key2=$val[4].SEPARADOR.$ccaas[$val[0]].SEPARADOR.$edades[$val[1]];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			$sumas[$key2][1]+=str_replace(".","",$val[5]);
 		}
@@ -307,9 +315,9 @@ if(!file_exists("middle/02002-ok.csv")) {
 	}
 	$edades=array(3=>"mas_74",2=>"65_74",1=>"menos_65");
 	foreach($sumas as $key=>$val) {
-		$temp=explode(";",$val[0]);
+		$temp=explode(SEPARADOR,$val[0]);
 		$temp[2]=$edades[$temp[2]];
-		$val[0]=implode(";",$temp);
+		$val[0]=implode(SEPARADOR,$temp);
 		$sumas[$key]=$val;
 	}
 	export_file("middle/02002-ok.csv",$sumas);
@@ -326,7 +334,7 @@ if(!file_exists("middle/02002-ok2.csv")) {
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
-		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".$val[1];
+		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".ccaa2fix($val[1]);
 	}
 	$data=import_file("input/ine/02002.csv.gz");
 	$matrix=array();
@@ -353,7 +361,7 @@ if(!file_exists("middle/6548-ok2.csv")) {
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
-		$ccaas[$val[0]." ".$val[1]]=$val[0]." ".$val[1];
+		$ccaas[$val[0]." ".$val[1]]=$val[0]." ".ccaa2fix($val[1]);
 	}
 	$data=import_file("input/ine/6548.csv.gz");
 	$sumas=array();
@@ -363,7 +371,7 @@ if(!file_exists("middle/6548-ok2.csv")) {
 			if($edad<65) $edad="menos_65";
 			elseif($edad>74) $edad="mas_74";
 			else $edad="65_74";
-			$key2=$ccaas[$val[0]].";".$edad.";".$val[3];
+			$key2=$ccaas[$val[0]].SEPARADOR.$edad.SEPARADOR.$val[3];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			if($val[4]=="") $val[4]=0;
 			$sumas[$key2][1]+=str_replace(".","",$val[4]);
@@ -383,7 +391,7 @@ if(!file_exists("middle/02005-ok.csv")) {
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
-		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".$val[1];
+		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".ccaa2fix($val[1]);
 	}
 	$data=import_file("input/ine/02005.csv.gz");
 	$edades=array(
@@ -471,17 +479,24 @@ if(!file_exists("middle/35177-ok2.csv")) {
 
 if(!file_exists("middle/35177-ok3.csv")) {
 	console_debug("middle/35177-ok3.csv");
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[$val[0]." ".$val[1]]=$val[0]." ".ccaa2fix($val[1]);
+	}
 	$data=import_file("input/ine/35177.csv.gz");
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]!="Total Nacional" && $val[1]=="Dato base" && $val[3]!="Total") {
-			$key2=str_replace("SM","-",$val[2]).";".$val[0];
+			$key2=str_replace("SM","-",$val[2]).SEPARADOR.$ccaas[$val[0]];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			$sumas[$key2][1]+=str_replace(".","",$val[3]);
 		}
 		unset($data[$key]);
 	}
 	export_file("middle/35177-ok3.csv",$sumas);
+	unset($temp);
+	unset($ccaas);
 	unset($data);
 	unset($sumas);
 	console_debug();

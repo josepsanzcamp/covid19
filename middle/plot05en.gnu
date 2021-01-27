@@ -12,7 +12,7 @@ set style fill solid border -1
 set style histogram gap 3
 set ytic center rotate by 90
 set ytics 0,5000,25000
-set datafile separator ';'
+set datafile separator ','
 set colors classic
 set key maxrows 7
 set output 'output/plot05en1.png'

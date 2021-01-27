@@ -76,7 +76,7 @@ if(!file_exists("output/plot09${lang}01.gif")) {
 			"set xtics '2020-02-01',86400*30,'2020-12-01'",
 			"set ytic center rotate by 90",
 			"set ytics 0,10,40",
-			"set datafile separator ';'",
+			"set datafile separator '".SEPARADOR."'",
 			"set colors classic",
 		))."\n";
 		for($i=0;$i<count($paises);$i++) {

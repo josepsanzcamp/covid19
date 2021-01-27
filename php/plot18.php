@@ -21,7 +21,7 @@ if(!file_exists("output/plot18${lang}01.png")) {
 				}
 			}
 			$europe[$key]=$val;
-		} elseif(substr($val[0],0,5)=="T,NR,") {
+		} elseif(substr($val[0],0,5)=="T;NR;") {
 			foreach($val as $key2=>$val2) {
 				if($key2==0) {
 					$val2=substr($val2,5);
@@ -127,7 +127,7 @@ if(!file_exists("output/plot18${lang}01.png")) {
 		"set xrange ['2020-01-01':'2021-01-01']",
 		"set xtics '2020-02-01',86400*30,'2020-12-01'",
 		"set ytic center rotate by 90",
-		"set datafile separator ';'",
+		"set datafile separator '".SEPARADOR."'",
 		"set colors classic",
 	))."\n";
 	$paises=array_keys($paises);

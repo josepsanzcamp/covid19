@@ -308,9 +308,9 @@ $textos=array(
 			"en"=>"June to December of the previous year + January to May of the same year",
 		),
 		8=>array(
-			"ca"=>"1/100 de la població total, per comparar la mortalitat respecte la població",
-			"es"=>"1/100 de la población total, para comparar la mortalidad respecto la población",
-			"en"=>"1/100 of the total population, for compare the deathly vs population",
+			"ca"=>"1/100 de la població total per comparar la mortalitat respecte la població",
+			"es"=>"1/100 de la población total para comparar la mortalidad respecto la población",
+			"en"=>"1/100 of the total population for compare the deathly vs population",
 		),
 	),
 );

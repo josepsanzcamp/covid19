@@ -1,19 +1,19 @@
-CCAA;Residències de titularitat pública;Residències de titularitat privada;Totes les residències
-01 Andalucía;9501;33094;42595
-02 Aragón;6148;12276;18424
-03 Principado\nAsturias;3876;8437;12313
-04 Illes\nBalears;2096;3014;5110
-05 Canarias;3855;3472;7327
-06 Cantabria;848;5176;6024
-07 Castilla\ny León;11993;34464;46457
-08 Castilla\nLa Mancha;9991;16658;26649
-09 Cataluña;12621;49357;61978
-10 Comunitat\nValenciana;5336;21474;26810
-11 Extremadura;7570;6181;13751
-12 Galicia;4838;16342;21180
-13 Comunidad\nde Madrid;11463;37305;48768
-14 Región\nde Murcia;1249;3943;5192
-15 Comunidad\nForal de Navarra;1982;4167;6149
-16 País Vasco;6661;13873;20534
-17 Rioja, La;1065;2144;3209
-18 Ceuta\n19 Melilla;216;273;489
+CCAA,Residències de titularitat pública,Residències de titularitat privada,Totes les residències
+01 Andalucía,9501,33094,42595
+02 Aragón,6148,12276,18424
+03 Principado\nAsturias,3876,8437,12313
+04 Illes\nBalears,2096,3014,5110
+05 Canarias,3855,3472,7327
+06 Cantabria,848,5176,6024
+07 Castilla\ny León,11993,34464,46457
+08 Castilla\nLa Mancha,9991,16658,26649
+09 Cataluña,12621,49357,61978
+10 Comunitat\nValenciana,5336,21474,26810
+11 Extremadura,7570,6181,13751
+12 Galicia,4838,16342,21180
+13 Comunidad\nde Madrid,11463,37305,48768
+14 Región\nde Murcia,1249,3943,5192
+15 Comunidad\nForal de Navarra,1982,4167,6149
+16 País Vasco,6661,13873,20534
+17 La Rioja,1065,2144,3209
+18 Ceuta\n19 Melilla,216,273,489

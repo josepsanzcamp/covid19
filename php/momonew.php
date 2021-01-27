@@ -2,6 +2,11 @@
 
 if(!file_exists("middle/datanew.csv")) {
 	console_debug("middle/datanew.csv");
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[$val[1]]=ccaa2fix($val[1]);
+	}
 	$files=glob("input/momo/data.????????.csv.gz");
 	sort($files);
 	foreach($files as $key=>$val) {
@@ -12,6 +17,7 @@ if(!file_exists("middle/datanew.csv")) {
 	foreach($files as $file) {
 		$data=import_file($file);
 		foreach($data as $key=>$val) {
+			if(isset($ccaas[$val[3]])) $val[3]=$ccaas[$val[3]];
 			$key2=implode("|",array_slice($val,0,8));
 			$key3=$val[8];
 			$result[$key2][$key3]=array_slice($val,0,10);
@@ -24,6 +30,8 @@ if(!file_exists("middle/datanew.csv")) {
 		unset($result[$key]);
 	}
 	export_file("middle/datanew.csv",$result2);
+	unset($temp);
+	unset($ccaas);
 	unset($result);
 	unset($data);
 	unset($result2);
@@ -72,7 +80,7 @@ if(!file_exists("middle/datanew-ok3.csv")) {
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
-			$key2=substr($val[8],0,7).";".$val[6];
+			$key2=substr($val[8],0,7).SEPARADOR.$val[6];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			$sumas[$key2][1]+=str_replace(".","",$val[9]);
 		}
@@ -90,7 +98,7 @@ if(!file_exists("middle/datanew-ok4.csv")) {
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="nacional" && $val[4]=="all" && $val[6]!="all") {
-			$key2=$val[8].";".$val[6];
+			$key2=$val[8].SEPARADOR.$val[6];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			$sumas[$key2][1]+=str_replace(".","",$val[9]);
 		}
@@ -108,7 +116,7 @@ if(!file_exists("middle/datanew-ok5.csv")) {
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]=="all") {
-			$key2=substr($val[8],0,7).";".sprintf("%02d",$val[2])." ".$val[3];
+			$key2=substr($val[8],0,7).SEPARADOR.sprintf("%02d",$val[2])." ".$val[3];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			$sumas[$key2][1]+=str_replace(".","",$val[9]);
 		}
@@ -126,7 +134,7 @@ if(!file_exists("middle/datanew-ok6.csv")) {
 	$sumas=array();
 	foreach($data as $key=>$val) {
 		if($val[0]=="ccaa" && $val[4]=="all" && $val[6]!="all") {
-			$key2=substr($val[8],0,7).";".sprintf("%02d",$val[2])." ".$val[3].";".$val[6];
+			$key2=substr($val[8],0,7).SEPARADOR.sprintf("%02d",$val[2])." ".$val[3].SEPARADOR.$val[6];
 			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 			$sumas[$key2][1]+=str_replace(".","",$val[9]);
 		}
@@ -150,7 +158,7 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 		$fecha=$temp[0].$temp[1]."-".$temp[2]."-".$temp[3];
 		foreach($data as $key=>$val) {
 			if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
-				$key2=$fecha.";".substr($val[8],0,7);
+				$key2=$fecha.SEPARADOR.substr($val[8],0,7);
 				if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
 				$sumas[$key2][1]+=str_replace(".","",$val[9]);
 			}

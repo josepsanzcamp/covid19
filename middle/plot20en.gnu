@@ -14,7 +14,7 @@ set xrange ['2019-02-01':'2021-02-01']
 set xtics rotate by -45
 set ytic center rotate by 90
 set ytics 0,100000,400000
-set datafile separator ';'
+set datafile separator ','
 set colors classic
 set key at '2021-02-01',185000
 set output 'output/plot20en.png'

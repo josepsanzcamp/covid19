@@ -58,7 +58,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 		"set xtics '2020-01-06',86400*7,'2021-01-01'",
 		"set ytic center rotate by 90",
 		"set ytics 0,500,3000",
-		"set datafile separator ';'",
+		"set datafile separator '".SEPARADOR."'",
 		"set colors classic",
 		"set output 'output/plot03${lang}1.png'",
 		"set xrange ['2020-01-01':'2020-03-01']",

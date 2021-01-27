@@ -50,7 +50,7 @@ if(!file_exists("output/plot02${lang}1.png")) {
 		"set style histogram gap 3",
 		"set ytic center rotate by 90",
 		"set ytics 0,10000,50000",
-		"set datafile separator ';'",
+		"set datafile separator '".SEPARADOR."'",
 		"set colors classic",
 		"set output 'output/plot02${lang}1.png'",
 		"set xrange [-0.5:11.5]",

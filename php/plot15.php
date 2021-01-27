@@ -65,7 +65,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 			"set xtics '2020-01-06',86400*14,'2021-01-01'",
 			"set ytic center rotate by 90",
 			"set ytics 0,500,3000",
-			"set datafile separator ';'",
+			"set datafile separator '".SEPARADOR."'",
 		"set colors classic",
 			"set output 'output/plot15${lang}.${part}.gif'",
 			"set xrange ['2020-10-01':'2021-01-01']",

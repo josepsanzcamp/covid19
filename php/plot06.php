@@ -5,7 +5,7 @@ if(!file_exists("output/plot06${lang}.png")) {
 	$temp=import_file("input/csic/prov2ccaa.csv");
 	$ccaas=array();
 	foreach($temp as $key=>$val) {
-		$ccaas[$val[0]]=$val[0]." ".$val[1];
+		$ccaas[$val[0]]=$val[0]." ".ccaa2fix($val[1]);
 	}
 	$resi=import_file("middle/residencias.csv");
 	$matrix=array();
@@ -27,14 +27,14 @@ if(!file_exists("output/plot06${lang}.png")) {
 	unset($matrix["18 Ceuta"]);
 	unset($matrix["19 Melilla"]);
 	$ccaas=array(
-		"03 Asturias, Principado de"=>"03 Principado\\nAsturias",
-		"04 Balears, Illes"=>"04 Illes\\nBalears",
+		"03 Principado de Asturias"=>"03 Principado\\nAsturias",
+		"04 Illes Balears"=>"04 Illes\\nBalears",
 		"07 Castilla y León"=>"07 Castilla\\ny León",
 		"08 Castilla - La Mancha"=>"08 Castilla\\nLa Mancha",
 		"10 Comunitat Valenciana"=>"10 Comunitat\\nValenciana",
-		"13 Madrid, Comunidad de"=>"13 Comunidad\\nde Madrid",
-		"14 Murcia, Región de"=>"14 Región\\nde Murcia",
-		"15 Navarra, Comunidad Foral de"=>"15 Comunidad\\nForal de Navarra",
+		"13 Comunidad de Madrid"=>"13 Comunidad\\nde Madrid",
+		"14 Región de Murcia"=>"14 Región\\nde Murcia",
+		"15 Comunidad Foral de Navarra"=>"15 Comunidad\\nForal de Navarra",
 		"18 Ceuta + 19 Melilla"=>"18 Ceuta\\n19 Melilla",
 	);
 	foreach($matrix as $key=>$val) {
@@ -63,7 +63,7 @@ if(!file_exists("output/plot06${lang}.png")) {
 		"set yrange [0:70000]",
 		"set ytic center rotate by 90",
 		"set ytics 0,10000,60000",
-		"set datafile separator ';'",
+		"set datafile separator '".SEPARADOR."'",
 		"set colors classic",
 		"set output 'output/plot06${lang}.png'",
 		"plot 'middle/plot06${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",

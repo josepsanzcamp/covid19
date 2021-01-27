@@ -91,7 +91,7 @@ if(!file_exists("output/plot07${lang}1.png")) {
 		"set yrange [0:20]",
 		"set ytic center rotate by 90",
 		"set ytics 0,5,15",
-		"set datafile separator ';'",
+		"set datafile separator '".SEPARADOR."'",
 		"set colors classic",
 		"set output 'output/plot07${lang}1.png'",
 		"set xrange [-0.5:21.5]",

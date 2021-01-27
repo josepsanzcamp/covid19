@@ -1,58 +1,58 @@
-CCAA;Tipo;Count;Plazas
-08 Castilla - La Mancha;Total;471;26649
-08 Castilla - La Mancha;Privada;207;16658
-08 Castilla - La Mancha;Publica;264;9991
-10 Comunitat Valenciana;Total;324;26810
-10 Comunitat Valenciana;Publica;67;5336
-10 Comunitat Valenciana;Privada;257;21474
-01 Andalucía;Total;631;42595
-01 Andalucía;Publica;155;9501
-01 Andalucía;Privada;476;33094
-16 País Vasco;Total;373;20534
-16 País Vasco;Publica;93;6661
-16 País Vasco;Privada;280;13873
-03 Asturias, Principado de;Total;183;12313
-03 Asturias, Principado de;Publica;43;3876
-03 Asturias, Principado de;Privada;140;8437
-07 Castilla y León;Total;690;46457
-07 Castilla y León;Privada;490;34464
-07 Castilla y León;Publica;200;11993
-11 Extremadura;Total;264;13751
-11 Extremadura;Publica;187;7570
-11 Extremadura;Privada;77;6181
-04 Balears, Illes;Total;61;5110
-04 Balears, Illes;Publica;29;2096
-04 Balears, Illes;Privada;32;3014
-09 Cataluña;Total;1002;61978
-09 Cataluña;Privada;830;49357
-09 Cataluña;Publica;172;12621
-06 Cantabria;Total;64;6024
-06 Cantabria;Privada;53;5176
-06 Cantabria;Publica;11;848
-18 Ceuta;Total;3;218
-18 Ceuta;Privada;2;162
-18 Ceuta;Publica;1;56
-12 Galicia;Total;321;21180
-12 Galicia;Publica;74;4838
-12 Galicia;Privada;247;16342
-02 Aragón;Total;279;18424
-02 Aragón;Publica;85;6148
-02 Aragón;Privada;194;12276
-05 Canarias;Total;99;7327
-05 Canarias;Publica;57;3855
-05 Canarias;Privada;42;3472
-13 Madrid, Comunidad de;Total;424;48768
-13 Madrid, Comunidad de;Privada;352;37305
-13 Madrid, Comunidad de;Publica;72;11463
-19 Melilla;Total;2;271
-19 Melilla;Privada;1;111
-19 Melilla;Publica;1;160
-14 Murcia, Región de;Total;58;5192
-14 Murcia, Región de;Privada;44;3943
-14 Murcia, Región de;Publica;14;1249
-15 Navarra, Comunidad Foral de;Total;78;6149
-15 Navarra, Comunidad Foral de;Publica;35;1982
-15 Navarra, Comunidad Foral de;Privada;43;4167
-17 Rioja, La;Total;32;3209
-17 Rioja, La;Privada;23;2144
-17 Rioja, La;Publica;9;1065
+CCAA,Tipo,Count,Plazas
+08 Castilla - La Mancha,Total,471,26649
+08 Castilla - La Mancha,Privada,207,16658
+08 Castilla - La Mancha,Publica,264,9991
+10 Comunitat Valenciana,Total,324,26810
+10 Comunitat Valenciana,Publica,67,5336
+10 Comunitat Valenciana,Privada,257,21474
+01 Andalucía,Total,631,42595
+01 Andalucía,Publica,155,9501
+01 Andalucía,Privada,476,33094
+16 País Vasco,Total,373,20534
+16 País Vasco,Publica,93,6661
+16 País Vasco,Privada,280,13873
+03 Principado de Asturias,Total,183,12313
+03 Principado de Asturias,Publica,43,3876
+03 Principado de Asturias,Privada,140,8437
+07 Castilla y León,Total,690,46457
+07 Castilla y León,Privada,490,34464
+07 Castilla y León,Publica,200,11993
+11 Extremadura,Total,264,13751
+11 Extremadura,Publica,187,7570
+11 Extremadura,Privada,77,6181
+04 Illes Balears,Total,61,5110
+04 Illes Balears,Publica,29,2096
+04 Illes Balears,Privada,32,3014
+09 Cataluña,Total,1002,61978
+09 Cataluña,Privada,830,49357
+09 Cataluña,Publica,172,12621
+06 Cantabria,Total,64,6024
+06 Cantabria,Privada,53,5176
+06 Cantabria,Publica,11,848
+18 Ceuta,Total,3,218
+18 Ceuta,Privada,2,162
+18 Ceuta,Publica,1,56
+12 Galicia,Total,321,21180
+12 Galicia,Publica,74,4838
+12 Galicia,Privada,247,16342
+02 Aragón,Total,279,18424
+02 Aragón,Publica,85,6148
+02 Aragón,Privada,194,12276
+05 Canarias,Total,99,7327
+05 Canarias,Publica,57,3855
+05 Canarias,Privada,42,3472
+13 Comunidad de Madrid,Total,424,48768
+13 Comunidad de Madrid,Privada,352,37305
+13 Comunidad de Madrid,Publica,72,11463
+19 Melilla,Total,2,271
+19 Melilla,Privada,1,111
+19 Melilla,Publica,1,160
+14 Región de Murcia,Total,58,5192
+14 Región de Murcia,Privada,44,3943
+14 Región de Murcia,Publica,14,1249
+15 Comunidad Foral de Navarra,Total,78,6149
+15 Comunidad Foral de Navarra,Publica,35,1982
+15 Comunidad Foral de Navarra,Privada,43,4167
+17 La Rioja,Total,32,3209
+17 La Rioja,Privada,23,2144
+17 La Rioja,Publica,9,1065

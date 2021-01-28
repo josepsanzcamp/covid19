@@ -44,6 +44,7 @@ foreach(array("ca","es","en") as $lang) {
 	include("php/plot18.php");
 	include("php/plot19.php");
 	include("php/plot20.php");
+	include("php/plot21.php");
 
 	include("php/index2.php");
 

@@ -38,12 +38,28 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.ine.es/jaxi/Tabla.htm?path=/t20/e244/colectivos/p01/l0/&file=01001.px => Población en establecimientos colectivos según comunidad autónoma y provincia, por tipo de establecimiento colectivo (agrupado) y sexo
 - https://www.ine.es/dyngs//INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177008&menu=resultados&idp=1254735573002 => Estadística de defunciones. Movimiento natural de la población
 - https://www.ine.es/dyngs//INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177004&menu=resultados&idp=1254735573002 => Tablas de mortalidad
+- https://cadenaser.com/ser/2020/07/16/sociedad/1594904807_835153.html => España alcanza su máximo histórico de envejecimiento
+- https://www.ine.es/dynt3/inebase/index.htm?padre=2077&capsel=2077 => Indicadores de Estructura de la Población
+- https://www.ine.es/jaxiT3/Tabla.htm?t=1451&L=0 => Proporción de personas mayores de cierta edad por comunidad autónoma
+- https://www.ine.es/jaxiT3/Tabla.htm?t=1452&L=0 => Índice de Envejecimiento por comunidad autónoma
+- https://www.ine.es/jaxiT3/Tabla.htm?t=3198&L=0 => Edad Media de la Población por comunidad autónoma, según sexo
+- https://www.ine.es/jaxiT3/Tabla.htm?t=1726&L=0 => Edad Mediana de la Población por comunidad autónoma según sexo
 
 # CSIC
 - http://envejecimiento.csic.es/estadisticas/indicadores/residencias/index.html => Estadísticas sobre residencias
 - http://envejecimiento.csic.es/recursos/residencias/por_provincia.html => Descarga gratuita de todas las residencias por provincia, formato xls 2019
 - wget -O - -q http://envejecimiento.csic.es/recursos/residencias/por_provincia.html|tr '"' '\n'|grep 19_|gawk '{print "http://envejecimiento.csic.es"$0}'|xargs wget => Para descargar todos los excels
 - http://envejecimientoenred.es/una-estimacion-de-la-poblacion-que-vive-en-residencias-de-mayores/ => Una estimación de la población que vive en residencias de mayores
+
+# INDef
+- https://www.mscbs.gob.es/ => Ministerio de Sanidad, Consumo y Bienestar Social
+- https://www.mscbs.gob.es/sanidad/portada/home.htm => Sanidad
+- https://www.mscbs.gob.es/estadEstudios/estadisticas/bancoDatos.htm => Banco de Datos
+- https://www.mscbs.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/IND_TipoDifusion.htm => Índice Nacional de Defunciones
+- for i in $(seq 1 11); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2020_Defunciones_$i.pdf; done
+- for i in $(seq 1 11); do pdftotext -layout 2020_Defunciones_$i.pdf; done
+- for i in $(seq 1 10); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2019_$i.pdf; done
+- for i in $(seq 1 10); do pdftotext -layout Defunciones_2019_$i.pdf; done
 
 # OECD
 - https://data.oecd.org/spain.htm
@@ -108,14 +124,4 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.ine.es/jaxiT3/Tabla.htm?t=9936 => Defunciones por causas (lista reducida) por sexo
 - https://www.ine.es/jaxi/Tabla.htm?path=/COVID/t15/&file=02003.px => Defunciones por año, enfermedades del sistema respiratorio y mes de defunción.
 - wget -O spain/35177.$(date +"%Y%m%d").csv "https://www.ine.es/jaxiT3/files/t/es/csv_bdsc/35177.csv?nocab=1"
-
-# INDef
-- https://www.mscbs.gob.es/ => Ministerio de Sanidad, Consumo y Bienestar Social
-- https://www.mscbs.gob.es/sanidad/portada/home.htm => Sanidad
-- https://www.mscbs.gob.es/estadEstudios/estadisticas/bancoDatos.htm => Banco de Datos
-- https://www.mscbs.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/IND_TipoDifusion.htm => Índice Nacional de Defunciones
-- for i in $(seq 1 11); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2020_Defunciones_$i.pdf; done
-- for i in $(seq 1 11); do pdftotext -layout 2020_Defunciones_$i.pdf; done
-- for i in $(seq 1 10); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2019_$i.pdf; done
-- for i in $(seq 1 10); do pdftotext -layout Defunciones_2019_$i.pdf; done
 

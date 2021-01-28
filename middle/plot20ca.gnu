@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "20. Evolució de les dades de l'Índex Nacional de Defuncions"
+set title "20. Evolució de les dades de l'Índex Nacional de Defuncions segons cada PDF publicat"
 set grid
 set tmargin 3
 set rmargin 6

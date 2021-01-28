@@ -158,9 +158,14 @@ $textos=array(
 			"en"=>"19. Deaths by week obtained from Statistics Spain",
 		),
 		"20"=>array(
-			"ca"=>"20. Evolució de les dades de l'Índex Nacional de Defuncions",
-			"es"=>"20. Evolución de los datos del Índice Nacional de Defunciones",
-			"en"=>"20. Evolution of the data of the National Death Index",
+			"ca"=>"20. Evolució de les dades de l'Índex Nacional de Defuncions segons cada PDF publicat",
+			"es"=>"20. Evolución de los datos del Índice Nacional de Defunciones segun cada PDF publicado",
+			"en"=>"20. Evolution of the data of the National Death Index according to each published PDF",
+		),
+		"21"=>array(
+			"ca"=>"21. Indicadors d'Estructura de la Població (des de 1975 fins al 2020, dades del INE)",
+			"es"=>"21. Indicadores de Estructura de la Población (des de 1975 fins al 2020, dades del INE)",
+			"en"=>"21. Population Structure Indicators (from 1975 to 2020, data from INE)",
 		),
 	),
 	"meses"=>array(
@@ -311,6 +316,28 @@ $textos=array(
 			"ca"=>"1/100 de la població total per comparar la mortalitat respecte la població",
 			"es"=>"1/100 de la población total para comparar la mortalidad respecto la población",
 			"en"=>"1/100 of the total population for compare the deathly vs population",
+		),
+	),
+	"plot21"=>array(
+		1451=>array(
+			"ca"=>"Proporció de persones de 65 i més anys",
+			"es"=>"Proporción de personas de 65 y más años",
+			"en"=>"Proportion of people aged 65 and over",
+		),
+		1452=>array(
+			"ca"=>"Índex d'Envelliment",
+			"es"=>"Índice de Envejecimiento",
+			"en"=>"Aging Index",
+		),
+		3198=>array(
+			"ca"=>"Edat Mitjana de la Població",
+			"es"=>"Edad Media de la Población",
+			"en"=>"Average Age of the Population",
+		),
+		1726=>array(
+			"ca"=>"Edat Mediana de la Població",
+			"es"=>"Edad Mediana de la Población",
+			"en"=>"Median Age of the Population",
 		),
 	),
 );

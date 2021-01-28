@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "20. Evolution of the data of the National Death Index"
+set title "20. Evolution of the data of the National Death Index according to each published PDF"
 set grid
 set tmargin 3
 set rmargin 6

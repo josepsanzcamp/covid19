@@ -6,7 +6,7 @@ if(!file_exists("output/plot04${lang}1.png")) {
 	$momonew=import_file("middle/datanew-ok3.csv");
 	$ine=import_file("middle/02001-ok2.csv");
 	$matrix=array();
-	$years=array("MoMoOld","MoMo2021","MoMo2020","INE2019","INE2018");
+	$years=array("MoMo2021","MoMoOld","MoMo2020","INE2019","INE2018");
 	$edades=array("mas_74","65_74","menos_65");
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($edades as $edad) {

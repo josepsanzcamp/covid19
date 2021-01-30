@@ -12,7 +12,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 		$matrix[$fecha]=array($fecha,"","","","","","");
 	}
 	foreach($momoold as $key=>$val) {
-		if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=$val[1];
+		if(isset($matrix[$val[0]])) $matrix[$val[0]][2]=$val[1];
 		unset($momoold[$key]);
 	}
 	foreach($momonew as $key=>$val) {
@@ -20,7 +20,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][3]=$val[1];
 		if($year==2021) {
 			$val[0]=str_replace(2021,2020,$val[0]);
-			if(isset($matrix[$val[0]])) $matrix[$val[0]][2]=$val[1];
+			if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=$val[1];
 		}
 		if($year==2019) {
 			$val[0]=str_replace(2019,2020,$val[0]);
@@ -40,7 +40,7 @@ if(!file_exists("output/plot03${lang}1.png")) {
 			$matrix[$key2][6]=$media;
 		}
 	}
-	array_unshift($matrix,array("Fecha","MoMoOld","2021","2020","2019","2018","INE2018"));
+	array_unshift($matrix,array("Fecha","2021","MoMoOld","2020","2019","2018","INE2018"));
 	export_file("middle/plot03${lang}.csv",$matrix);
 	$gnuplot=implode("\n",array(
 		"set terminal png size 1200,600 enhanced font ',11'",

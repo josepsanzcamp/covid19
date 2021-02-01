@@ -31,7 +31,7 @@
 2020-10,01 Andalucía,menos_65,1099
 2020-11,01 Andalucía,menos_65,1122
 2020-12,01 Andalucía,menos_65,1134
-2021-01,01 Andalucía,menos_65,1180
+2021-01,01 Andalucía,menos_65,1210
 2018-04,01 Andalucía,65_74,351
 2018-05,01 Andalucía,65_74,915
 2018-06,01 Andalucía,65_74,790
@@ -65,7 +65,7 @@
 2020-10,01 Andalucía,65_74,1072
 2020-11,01 Andalucía,65_74,1179
 2020-12,01 Andalucía,65_74,1156
-2021-01,01 Andalucía,65_74,1208
+2021-01,01 Andalucía,65_74,1243
 2018-04,01 Andalucía,mas_74,1657
 2018-05,01 Andalucía,mas_74,3866
 2018-06,01 Andalucía,mas_74,3677
@@ -99,7 +99,7 @@
 2020-10,01 Andalucía,mas_74,4730
 2020-11,01 Andalucía,mas_74,5495
 2020-12,01 Andalucía,mas_74,4791
-2021-01,01 Andalucía,mas_74,6214
+2021-01,01 Andalucía,mas_74,6370
 2018-04,02 Aragón,menos_65,47
 2018-05,02 Aragón,menos_65,106
 2018-06,02 Aragón,menos_65,97
@@ -133,7 +133,7 @@
 2020-10,02 Aragón,menos_65,131
 2020-11,02 Aragón,menos_65,138
 2020-12,02 Aragón,menos_65,107
-2021-01,02 Aragón,menos_65,124
+2021-01,02 Aragón,menos_65,127
 2018-04,02 Aragón,65_74,44
 2018-05,02 Aragón,65_74,121
 2018-06,02 Aragón,65_74,110
@@ -167,7 +167,7 @@
 2020-10,02 Aragón,65_74,147
 2020-11,02 Aragón,65_74,187
 2020-12,02 Aragón,65_74,165
-2021-01,02 Aragón,65_74,147
+2021-01,02 Aragón,65_74,150
 2018-04,02 Aragón,mas_74,262
 2018-05,02 Aragón,mas_74,622
 2018-06,02 Aragón,mas_74,657
@@ -201,7 +201,7 @@
 2020-10,02 Aragón,mas_74,872
 2020-11,02 Aragón,mas_74,1133
 2020-12,02 Aragón,mas_74,892
-2021-01,02 Aragón,mas_74,932
+2021-01,02 Aragón,mas_74,963
 2018-04,03 Principado de Asturias,menos_65,42
 2018-05,03 Principado de Asturias,menos_65,149
 2018-06,03 Principado de Asturias,menos_65,140
@@ -235,7 +235,7 @@
 2020-10,03 Principado de Asturias,menos_65,142
 2020-11,03 Principado de Asturias,menos_65,177
 2020-12,03 Principado de Asturias,menos_65,144
-2021-01,03 Principado de Asturias,menos_65,154
+2021-01,03 Principado de Asturias,menos_65,155
 2018-04,03 Principado de Asturias,65_74,60
 2018-05,03 Principado de Asturias,65_74,130
 2018-06,03 Principado de Asturias,65_74,156
@@ -303,7 +303,7 @@
 2020-10,03 Principado de Asturias,mas_74,851
 2020-11,03 Principado de Asturias,mas_74,1301
 2020-12,03 Principado de Asturias,mas_74,1076
-2021-01,03 Principado de Asturias,mas_74,1097
+2021-01,03 Principado de Asturias,mas_74,1112
 2018-04,04 Illes Balears,menos_65,36
 2018-05,04 Illes Balears,menos_65,123
 2018-06,04 Illes Balears,menos_65,131
@@ -337,7 +337,7 @@
 2020-10,04 Illes Balears,menos_65,125
 2020-11,04 Illes Balears,menos_65,98
 2020-12,04 Illes Balears,menos_65,105
-2021-01,04 Illes Balears,menos_65,124
+2021-01,04 Illes Balears,menos_65,126
 2018-04,04 Illes Balears,65_74,34
 2018-05,04 Illes Balears,65_74,134
 2018-06,04 Illes Balears,65_74,102
@@ -371,7 +371,7 @@
 2020-10,04 Illes Balears,65_74,101
 2020-11,04 Illes Balears,65_74,104
 2020-12,04 Illes Balears,65_74,137
-2021-01,04 Illes Balears,65_74,119
+2021-01,04 Illes Balears,65_74,122
 2018-04,04 Illes Balears,mas_74,178
 2018-05,04 Illes Balears,mas_74,416
 2018-06,04 Illes Balears,mas_74,390
@@ -405,7 +405,7 @@
 2020-10,04 Illes Balears,mas_74,481
 2020-11,04 Illes Balears,mas_74,472
 2020-12,04 Illes Balears,mas_74,567
-2021-01,04 Illes Balears,mas_74,652
+2021-01,04 Illes Balears,mas_74,672
 2018-04,05 Canarias,menos_65,100
 2018-05,05 Canarias,menos_65,264
 2018-06,05 Canarias,menos_65,227
@@ -439,7 +439,7 @@
 2020-10,05 Canarias,menos_65,238
 2020-11,05 Canarias,menos_65,256
 2020-12,05 Canarias,menos_65,263
-2021-01,05 Canarias,menos_65,273
+2021-01,05 Canarias,menos_65,274
 2018-04,05 Canarias,65_74,78
 2018-05,05 Canarias,65_74,217
 2018-06,05 Canarias,65_74,226
@@ -473,7 +473,7 @@
 2020-10,05 Canarias,65_74,217
 2020-11,05 Canarias,65_74,244
 2020-12,05 Canarias,65_74,252
-2021-01,05 Canarias,65_74,241
+2021-01,05 Canarias,65_74,240
 2018-04,05 Canarias,mas_74,331
 2018-05,05 Canarias,mas_74,858
 2018-06,05 Canarias,mas_74,784
@@ -507,7 +507,7 @@
 2020-10,05 Canarias,mas_74,839
 2020-11,05 Canarias,mas_74,776
 2020-12,05 Canarias,mas_74,918
-2021-01,05 Canarias,mas_74,941
+2021-01,05 Canarias,mas_74,961
 2018-04,06 Cantabria,menos_65,18
 2018-05,06 Cantabria,menos_65,51
 2018-06,06 Cantabria,menos_65,48
@@ -541,7 +541,7 @@
 2020-10,06 Cantabria,menos_65,45
 2020-11,06 Cantabria,menos_65,43
 2020-12,06 Cantabria,menos_65,72
-2021-01,06 Cantabria,menos_65,41
+2021-01,06 Cantabria,menos_65,43
 2018-04,06 Cantabria,65_74,22
 2018-05,06 Cantabria,65_74,56
 2018-06,06 Cantabria,65_74,59
@@ -575,7 +575,7 @@
 2020-10,06 Cantabria,65_74,72
 2020-11,06 Cantabria,65_74,59
 2020-12,06 Cantabria,65_74,56
-2021-01,06 Cantabria,65_74,65
+2021-01,06 Cantabria,65_74,66
 2018-04,06 Cantabria,mas_74,106
 2018-05,06 Cantabria,mas_74,271
 2018-06,06 Cantabria,mas_74,237
@@ -609,7 +609,7 @@
 2020-10,06 Cantabria,mas_74,274
 2020-11,06 Cantabria,mas_74,317
 2020-12,06 Cantabria,mas_74,366
-2021-01,06 Cantabria,mas_74,316
+2021-01,06 Cantabria,mas_74,326
 2018-04,07 Castilla y León,menos_65,93
 2018-05,07 Castilla y León,menos_65,230
 2018-06,07 Castilla y León,menos_65,192
@@ -643,7 +643,7 @@
 2020-10,07 Castilla y León,menos_65,213
 2020-11,07 Castilla y León,menos_65,233
 2020-12,07 Castilla y León,menos_65,227
-2021-01,07 Castilla y León,menos_65,239
+2021-01,07 Castilla y León,menos_65,247
 2018-04,07 Castilla y León,65_74,79
 2018-05,07 Castilla y León,65_74,225
 2018-06,07 Castilla y León,65_74,211
@@ -677,7 +677,7 @@
 2020-10,07 Castilla y León,65_74,275
 2020-11,07 Castilla y León,65_74,309
 2020-12,07 Castilla y León,65_74,288
-2021-01,07 Castilla y León,65_74,304
+2021-01,07 Castilla y León,65_74,312
 2018-04,07 Castilla y León,mas_74,572
 2018-05,07 Castilla y León,mas_74,1356
 2018-06,07 Castilla y León,mas_74,1306
@@ -711,7 +711,7 @@
 2020-10,07 Castilla y León,mas_74,1898
 2020-11,07 Castilla y León,mas_74,2153
 2020-12,07 Castilla y León,mas_74,1871
-2021-01,07 Castilla y León,mas_74,1835
+2021-01,07 Castilla y León,mas_74,1894
 2018-04,08 Castilla - La Mancha,menos_65,58
 2018-05,08 Castilla - La Mancha,menos_65,170
 2018-06,08 Castilla - La Mancha,menos_65,191
@@ -745,7 +745,7 @@
 2020-10,08 Castilla - La Mancha,menos_65,221
 2020-11,08 Castilla - La Mancha,menos_65,211
 2020-12,08 Castilla - La Mancha,menos_65,212
-2021-01,08 Castilla - La Mancha,menos_65,227
+2021-01,08 Castilla - La Mancha,menos_65,235
 2018-04,08 Castilla - La Mancha,65_74,60
 2018-05,08 Castilla - La Mancha,65_74,182
 2018-06,08 Castilla - La Mancha,65_74,144
@@ -779,7 +779,7 @@
 2020-10,08 Castilla - La Mancha,65_74,222
 2020-11,08 Castilla - La Mancha,65_74,211
 2020-12,08 Castilla - La Mancha,65_74,266
-2021-01,08 Castilla - La Mancha,65_74,236
+2021-01,08 Castilla - La Mancha,65_74,242
 2018-04,08 Castilla - La Mancha,mas_74,430
 2018-05,08 Castilla - La Mancha,mas_74,1132
 2018-06,08 Castilla - La Mancha,mas_74,1130
@@ -813,7 +813,7 @@
 2020-10,08 Castilla - La Mancha,mas_74,1419
 2020-11,08 Castilla - La Mancha,mas_74,1423
 2020-12,08 Castilla - La Mancha,mas_74,1298
-2021-01,08 Castilla - La Mancha,mas_74,1883
+2021-01,08 Castilla - La Mancha,mas_74,1928
 2018-04,09 Cataluña,menos_65,284
 2018-05,09 Cataluña,menos_65,710
 2018-06,09 Cataluña,menos_65,766
@@ -847,7 +847,7 @@
 2020-10,09 Cataluña,menos_65,858
 2020-11,09 Cataluña,menos_65,809
 2020-12,09 Cataluña,menos_65,861
-2021-01,09 Cataluña,menos_65,771
+2021-01,09 Cataluña,menos_65,794
 2018-04,09 Cataluña,65_74,249
 2018-05,09 Cataluña,65_74,679
 2018-06,09 Cataluña,65_74,693
@@ -881,7 +881,7 @@
 2020-10,09 Cataluña,65_74,843
 2020-11,09 Cataluña,65_74,854
 2020-12,09 Cataluña,65_74,872
-2021-01,09 Cataluña,65_74,806
+2021-01,09 Cataluña,65_74,830
 2018-04,09 Cataluña,mas_74,1506
 2018-05,09 Cataluña,mas_74,3657
 2018-06,09 Cataluña,mas_74,3401
@@ -915,7 +915,7 @@
 2020-10,09 Cataluña,mas_74,4363
 2020-11,09 Cataluña,mas_74,4981
 2020-12,09 Cataluña,mas_74,4959
-2021-01,09 Cataluña,mas_74,4813
+2021-01,09 Cataluña,mas_74,4948
 2018-04,10 Comunitat Valenciana,menos_65,212
 2018-05,10 Comunitat Valenciana,menos_65,543
 2018-06,10 Comunitat Valenciana,menos_65,529
@@ -949,7 +949,7 @@
 2020-10,10 Comunitat Valenciana,menos_65,601
 2020-11,10 Comunitat Valenciana,menos_65,562
 2020-12,10 Comunitat Valenciana,menos_65,667
-2021-01,10 Comunitat Valenciana,menos_65,767
+2021-01,10 Comunitat Valenciana,menos_65,787
 2018-04,10 Comunitat Valenciana,65_74,206
 2018-05,10 Comunitat Valenciana,65_74,515
 2018-06,10 Comunitat Valenciana,65_74,502
@@ -983,7 +983,7 @@
 2020-10,10 Comunitat Valenciana,65_74,547
 2020-11,10 Comunitat Valenciana,65_74,606
 2020-12,10 Comunitat Valenciana,65_74,666
-2021-01,10 Comunitat Valenciana,65_74,914
+2021-01,10 Comunitat Valenciana,65_74,933
 2018-04,10 Comunitat Valenciana,mas_74,984
 2018-05,10 Comunitat Valenciana,mas_74,2480
 2018-06,10 Comunitat Valenciana,mas_74,2300
@@ -1017,7 +1017,7 @@
 2020-10,10 Comunitat Valenciana,mas_74,2729
 2020-11,10 Comunitat Valenciana,mas_74,2928
 2020-12,10 Comunitat Valenciana,mas_74,3431
-2021-01,10 Comunitat Valenciana,mas_74,5157
+2021-01,10 Comunitat Valenciana,mas_74,5255
 2018-04,11 Extremadura,menos_65,41
 2018-05,11 Extremadura,menos_65,105
 2018-06,11 Extremadura,menos_65,93
@@ -1051,7 +1051,7 @@
 2020-10,11 Extremadura,menos_65,108
 2020-11,11 Extremadura,menos_65,143
 2020-12,11 Extremadura,menos_65,136
-2021-01,11 Extremadura,menos_65,160
+2021-01,11 Extremadura,menos_65,163
 2018-04,11 Extremadura,65_74,32
 2018-05,11 Extremadura,65_74,117
 2018-06,11 Extremadura,65_74,114
@@ -1085,7 +1085,7 @@
 2020-10,11 Extremadura,65_74,159
 2020-11,11 Extremadura,65_74,135
 2020-12,11 Extremadura,65_74,123
-2021-01,11 Extremadura,65_74,170
+2021-01,11 Extremadura,65_74,174
 2018-04,11 Extremadura,mas_74,256
 2018-05,11 Extremadura,mas_74,604
 2018-06,11 Extremadura,mas_74,589
@@ -1119,7 +1119,7 @@
 2020-10,11 Extremadura,mas_74,743
 2020-11,11 Extremadura,mas_74,736
 2020-12,11 Extremadura,mas_74,735
-2021-01,11 Extremadura,mas_74,1043
+2021-01,11 Extremadura,mas_74,1067
 2018-04,12 Galicia,menos_65,110
 2018-05,12 Galicia,menos_65,307
 2018-06,12 Galicia,menos_65,307
@@ -1153,7 +1153,7 @@
 2020-10,12 Galicia,menos_65,341
 2020-11,12 Galicia,menos_65,281
 2020-12,12 Galicia,menos_65,355
-2021-01,12 Galicia,menos_65,354
+2021-01,12 Galicia,menos_65,365
 2018-04,12 Galicia,65_74,109
 2018-05,12 Galicia,65_74,328
 2018-06,12 Galicia,65_74,286
@@ -1187,7 +1187,7 @@
 2020-10,12 Galicia,65_74,347
 2020-11,12 Galicia,65_74,342
 2020-12,12 Galicia,65_74,372
-2021-01,12 Galicia,65_74,384
+2021-01,12 Galicia,65_74,394
 2018-04,12 Galicia,mas_74,805
 2018-05,12 Galicia,mas_74,1923
 2018-06,12 Galicia,mas_74,1842
@@ -1221,7 +1221,7 @@
 2020-10,12 Galicia,mas_74,2091
 2020-11,12 Galicia,mas_74,2128
 2020-12,12 Galicia,mas_74,2184
-2021-01,12 Galicia,mas_74,2638
+2021-01,12 Galicia,mas_74,2711
 2018-04,13 Comunidad de Madrid,menos_65,179
 2018-05,13 Comunidad de Madrid,menos_65,507
 2018-06,13 Comunidad de Madrid,menos_65,479
@@ -1255,7 +1255,7 @@
 2020-10,13 Comunidad de Madrid,menos_65,597
 2020-11,13 Comunidad de Madrid,menos_65,528
 2020-12,13 Comunidad de Madrid,menos_65,510
-2021-01,13 Comunidad de Madrid,menos_65,663
+2021-01,13 Comunidad de Madrid,menos_65,681
 2018-04,13 Comunidad de Madrid,65_74,154
 2018-05,13 Comunidad de Madrid,65_74,420
 2018-06,13 Comunidad de Madrid,65_74,450
@@ -1289,7 +1289,7 @@
 2020-10,13 Comunidad de Madrid,65_74,588
 2020-11,13 Comunidad de Madrid,65_74,555
 2020-12,13 Comunidad de Madrid,65_74,546
-2021-01,13 Comunidad de Madrid,65_74,657
+2021-01,13 Comunidad de Madrid,65_74,671
 2018-04,13 Comunidad de Madrid,mas_74,905
 2018-05,13 Comunidad de Madrid,mas_74,2270
 2018-06,13 Comunidad de Madrid,mas_74,2296
@@ -1323,7 +1323,7 @@
 2020-10,13 Comunidad de Madrid,mas_74,3071
 2020-11,13 Comunidad de Madrid,mas_74,2599
 2020-12,13 Comunidad de Madrid,mas_74,2613
-2021-01,13 Comunidad de Madrid,mas_74,3489
+2021-01,13 Comunidad de Madrid,mas_74,3572
 2018-04,14 Región de Murcia,menos_65,65
 2018-05,14 Región de Murcia,menos_65,110
 2018-06,14 Región de Murcia,menos_65,138
@@ -1357,7 +1357,7 @@
 2020-10,14 Región de Murcia,menos_65,175
 2020-11,14 Región de Murcia,menos_65,139
 2020-12,14 Región de Murcia,menos_65,162
-2021-01,14 Región de Murcia,menos_65,191
+2021-01,14 Región de Murcia,menos_65,195
 2018-04,14 Región de Murcia,65_74,50
 2018-05,14 Región de Murcia,65_74,113
 2018-06,14 Región de Murcia,65_74,128
@@ -1391,7 +1391,7 @@
 2020-10,14 Región de Murcia,65_74,145
 2020-11,14 Región de Murcia,65_74,141
 2020-12,14 Región de Murcia,65_74,168
-2021-01,14 Región de Murcia,65_74,185
+2021-01,14 Región de Murcia,65_74,189
 2018-04,14 Región de Murcia,mas_74,231
 2018-05,14 Región de Murcia,mas_74,600
 2018-06,14 Región de Murcia,mas_74,559
@@ -1425,7 +1425,7 @@
 2020-10,14 Región de Murcia,mas_74,685
 2020-11,14 Región de Murcia,mas_74,828
 2020-12,14 Región de Murcia,mas_74,788
-2021-01,14 Región de Murcia,mas_74,1147
+2021-01,14 Región de Murcia,mas_74,1170
 2018-04,15 Comunidad Foral de Navarra,menos_65,28
 2018-05,15 Comunidad Foral de Navarra,menos_65,52
 2018-06,15 Comunidad Foral de Navarra,menos_65,61
@@ -1459,7 +1459,7 @@
 2020-10,15 Comunidad Foral de Navarra,menos_65,63
 2020-11,15 Comunidad Foral de Navarra,menos_65,86
 2020-12,15 Comunidad Foral de Navarra,menos_65,63
-2021-01,15 Comunidad Foral de Navarra,menos_65,64
+2021-01,15 Comunidad Foral de Navarra,menos_65,63
 2018-04,15 Comunidad Foral de Navarra,65_74,21
 2018-05,15 Comunidad Foral de Navarra,65_74,47
 2018-06,15 Comunidad Foral de Navarra,65_74,46
@@ -1527,7 +1527,7 @@
 2020-10,15 Comunidad Foral de Navarra,mas_74,447
 2020-11,15 Comunidad Foral de Navarra,mas_74,431
 2020-12,15 Comunidad Foral de Navarra,mas_74,412
-2021-01,15 Comunidad Foral de Navarra,mas_74,390
+2021-01,15 Comunidad Foral de Navarra,mas_74,400
 2018-04,16 País Vasco,menos_65,95
 2018-05,16 País Vasco,menos_65,208
 2018-06,16 País Vasco,menos_65,208
@@ -1561,7 +1561,7 @@
 2020-10,16 País Vasco,menos_65,243
 2020-11,16 País Vasco,menos_65,233
 2020-12,16 País Vasco,menos_65,265
-2021-01,16 País Vasco,menos_65,236
+2021-01,16 País Vasco,menos_65,240
 2018-04,16 País Vasco,65_74,72
 2018-05,16 País Vasco,65_74,216
 2018-06,16 País Vasco,65_74,222
@@ -1629,7 +1629,7 @@
 2020-10,16 País Vasco,mas_74,1423
 2020-11,16 País Vasco,mas_74,1594
 2020-12,16 País Vasco,mas_74,1620
-2021-01,16 País Vasco,mas_74,1610
+2021-01,16 País Vasco,mas_74,1656
 2018-04,17 La Rioja,menos_65,8
 2018-05,17 La Rioja,menos_65,16
 2018-06,17 La Rioja,menos_65,15
@@ -1663,7 +1663,7 @@
 2020-10,17 La Rioja,menos_65,42
 2020-11,17 La Rioja,menos_65,20
 2020-12,17 La Rioja,menos_65,28
-2021-01,17 La Rioja,menos_65,39
+2021-01,17 La Rioja,menos_65,40
 2018-04,17 La Rioja,65_74,13
 2018-05,17 La Rioja,65_74,30
 2018-06,17 La Rioja,65_74,22
@@ -1731,7 +1731,7 @@
 2020-10,17 La Rioja,mas_74,196
 2020-11,17 La Rioja,mas_74,196
 2020-12,17 La Rioja,mas_74,159
-2021-01,17 La Rioja,mas_74,201
+2021-01,17 La Rioja,mas_74,207
 2018-04,18 Ceuta,menos_65,4
 2018-05,18 Ceuta,menos_65,13
 2018-06,18 Ceuta,menos_65,15
@@ -1765,7 +1765,7 @@
 2020-10,18 Ceuta,menos_65,14
 2020-11,18 Ceuta,menos_65,14
 2020-12,18 Ceuta,menos_65,9
-2021-01,18 Ceuta,menos_65,15
+2021-01,18 Ceuta,menos_65,16
 2018-04,18 Ceuta,65_74,3
 2018-05,18 Ceuta,65_74,8
 2018-06,18 Ceuta,65_74,3
@@ -1799,7 +1799,7 @@
 2020-10,18 Ceuta,65_74,16
 2020-11,18 Ceuta,65_74,20
 2020-12,18 Ceuta,65_74,10
-2021-01,18 Ceuta,65_74,10
+2021-01,18 Ceuta,65_74,9
 2018-04,18 Ceuta,mas_74,9
 2018-05,18 Ceuta,mas_74,27
 2018-06,18 Ceuta,mas_74,20
@@ -1867,7 +1867,7 @@
 2020-10,19 Melilla,menos_65,10
 2020-11,19 Melilla,menos_65,10
 2020-12,19 Melilla,menos_65,12
-2021-01,19 Melilla,menos_65,6
+2021-01,19 Melilla,menos_65,7
 2018-04,19 Melilla,65_74,1
 2018-05,19 Melilla,65_74,7
 2018-06,19 Melilla,65_74,8
@@ -1935,4 +1935,4 @@
 2020-10,19 Melilla,mas_74,35
 2020-11,19 Melilla,mas_74,43
 2020-12,19 Melilla,mas_74,22
-2021-01,19 Melilla,mas_74,28
+2021-01,19 Melilla,mas_74,29

@@ -118,6 +118,10 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.destatis.de/EN/Themes/Society-Environment/Population/Deaths-Life-Expectancy/mortality.html
 - https://www.destatis.de/EN/Themes/Cross-Section/Corona/_Graphic/_Interactive/deaths-weekly-years.html?nn=23768
 - wget -O germany/sterbefallzahlen.$(date +"%Y%m%d").js "https://www.destatis.de/EN/Themes/Cross-Section/Corona/_Graphic/_Interactive/deaths-weekly-years.html?nn=23768&cms_showChartData=1"
+- https://www.destatis.de/SiteGlobals/Forms/Suche/EN/Servicesuche_Formular.html?templateQueryString=daily+deaths
+- https://www.destatis.de/EN/Themes/Society-Environment/Population/Deaths-Life-Expectancy/mortality.html
+- https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Sterbefaelle-Lebenserwartung/Tabellen/sonderauswertung-sterbefaelle.html?nn=23768
+- https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Sterbefaelle-Lebenserwartung/Tabellen/sonderauswertung-sterbefaelle.xlsx?__blob=publicationFile
 
 # Spain
 - https://www.ine.es/experimental/defunciones/experimental_defunciones.htm => Estimación del número de defunciones semanales durante el brote de covid-19

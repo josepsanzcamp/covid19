@@ -4,7 +4,8 @@ if(!file_exists("output/plot17${lang}.png")) {
 	console_debug("output/plot17${lang}.png");
 	$germany=import_file("middle/sterbefallzahlen.csv");
 	foreach($germany as $key=>$val) {
-		unset($val[6]);
+		unset($val[7]);
+		unset($val[8]);
 		$germany[$key]=$val;
 	}
 	$header=array_shift($germany);
@@ -40,7 +41,7 @@ if(!file_exists("output/plot17${lang}.png")) {
 		"set datafile separator '".SEPARADOR."'",
 		"set colors classic",
 		"set output 'output/plot17${lang}.png'",
-		"plot 'middle/plot17${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col",
+		"plot 'middle/plot17${lang}.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp ti col",
 	))."\n";
 	file_put_contents("middle/plot17${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot17${lang}.gnu 2>&1");

@@ -31,16 +31,17 @@ if(!file_exists("middle/defunciones.csv")) {
 				$val=explode(" ",$val);
 				while(!is_numeric($val[0])) array_shift($val);
 				$fecha=$val[4]."-".$meses[$val[2]]."-".sprintf("%02d",$val[0]);
-			}
-			if($key>=4 && $key<=37 && $val!="") {
+			} elseif($val!="") {
 				$count=1;
 				while($count) $val=str_replace("  "," ",$val,$count);
 				$val=str_replace(".","",$val);
 				$val=explode(" ",$val);
-				if(!isset($matrix[$val[0]]) && count($matrix)) {
-					$matrix[$val[0]]=array_fill_keys(array_keys(reset($matrix)),"");
+				if(count($val)==2 && is_numeric($val[0]) && is_numeric($val[1])) {
+					if(!isset($matrix[$val[0]]) && count($matrix)) {
+						$matrix[$val[0]]=array_fill_keys(array_keys(reset($matrix)),"");
+					}
+					$matrix[$val[0]][$fecha]=$val[1];
 				}
-				$matrix[$val[0]][$fecha]=$val[1];
 			}
 		}
 	}

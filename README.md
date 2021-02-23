@@ -58,8 +58,8 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/IND_TipoDifusion.htm => Índice Nacional de Defunciones
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2020_Defunciones_11.pdf => 22 de enero de 2021
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2019_10.pdf => 29 de enero de 2020
-- for i in $(seq 1 11); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2020_Defunciones_$i.pdf; done
-- for i in $(seq 1 11); do pdftotext -layout 2020_Defunciones_$i.pdf; done
+- for i in $(seq 1 12); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2020_Defunciones_$i.pdf; done
+- for i in $(seq 1 12); do pdftotext -layout 2020_Defunciones_$i.pdf; done
 - for i in $(seq 1 10); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2019_$i.pdf; done
 - for i in $(seq 1 10); do pdftotext -layout Defunciones_2019_$i.pdf; done
 

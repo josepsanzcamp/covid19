@@ -163,9 +163,9 @@ $textos=array(
 			"en"=>"20. Evolution of the data of the National Death Index according to each published PDF",
 		),
 		"21"=>array(
-			"ca"=>"21. Indicadors d'Estructura de la Població (des de 1975 fins al 2020, dades del INE)",
-			"es"=>"21. Indicadores de Estructura de la Población (des de 1975 fins al 2020, dades del INE)",
-			"en"=>"21. Population Structure Indicators (from 1975 to 2020, data from INE)",
+			"ca"=>"21. Indicadors d'estructura de la població (des de 1975 fins al 2020, dades del INE)",
+			"es"=>"21. Indicadores de estructura de la población (des de 1975 fins al 2020, dades del INE)",
+			"en"=>"21. Population structure indicators (from 1975 to 2020, data from INE)",
 		),
 		"22"=>array(
 			"ca"=>"22. Defuncions per comunitat autònoma i any (acumulats per any, les dades del 2020 i 2021 són del MoMo i la resta són del INE)",
@@ -330,19 +330,19 @@ $textos=array(
 			"en"=>"Proportion of people aged 65 and over",
 		),
 		1452=>array(
-			"ca"=>"Índex d'Envelliment",
-			"es"=>"Índice de Envejecimiento",
-			"en"=>"Aging Index",
+			"ca"=>"Índex d'envelliment",
+			"es"=>"Índice de envejecimiento",
+			"en"=>"Aging index",
 		),
 		3198=>array(
-			"ca"=>"Edat Mitjana de la Població",
-			"es"=>"Edad Media de la Población",
-			"en"=>"Average Age of the Population",
+			"ca"=>"Edat mitjana de la població",
+			"es"=>"Edad media de la población",
+			"en"=>"Average age of the population",
 		),
 		1726=>array(
-			"ca"=>"Edat Mediana de la Població",
-			"es"=>"Edad Mediana de la Población",
-			"en"=>"Median Age of the Population",
+			"ca"=>"Edat mediana de la població",
+			"es"=>"Edad mediana de la población",
+			"en"=>"Median age of the population",
 		),
 	),
 );

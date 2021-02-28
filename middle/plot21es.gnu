@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "21. Indicadores de Estructura de la Población (des de 1975 fins al 2020, dades del INE)"
+set title "21. Indicadores de estructura de la población (des de 1975 fins al 2020, dades del INE)"
 set grid
 set tmargin 3
 set rmargin 6

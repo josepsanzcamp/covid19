@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "21. Population Structure Indicators (from 1975 to 2020, data from INE)"
+set title "21. Population structure indicators (from 1975 to 2020, data from INE)"
 set grid
 set tmargin 3
 set rmargin 6

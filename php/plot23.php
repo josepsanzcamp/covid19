@@ -7,7 +7,7 @@ if(!file_exists("output/plot23${lang}.png")) {
 	$ine2=import_file("middle/35177-ok.csv");
 	$matrix=array(array("Year","INDef","INE-6545","INE-35177"));
 	for($i=1990;$i<=2020;$i++) {
-		$matrix[$i]=array($i,"","");
+		$matrix[$i]=array($i,"","","");
 	}
 	foreach($indef as $key=>$val) {
 		if(isset($matrix[$val[0]])) $matrix[$val[0]][1]=end($val);

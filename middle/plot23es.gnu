@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "23. Defunciones por año del Índice Nacional de defunciones y del Instituto Nacional de Estadística (6545 y 35177)"
+set title "23. Defunciones por año del Índice Nacional de Defunciones y del Instituto Nacional de Estadística (6545 y 35177)"
 set grid
 set tmargin 3
 set rmargin 6

@@ -173,8 +173,8 @@ $textos=array(
 			"en"=>"22. Deaths by autonomous community and year (accumulated by year, the data for 2020 and 2021 are from the MoMo and the rest are from the INE)",
 		),
 		"23"=>array(
-			"ca"=>"23. Defuncions per any de l'Índex Nacional de defuncions i de l'Institut Nacional d'Estadística (6545 i 35177)",
-			"es"=>"23. Defunciones por año del Índice Nacional de defunciones y del Instituto Nacional de Estadística (6545 y 35177)",
+			"ca"=>"23. Defuncions per any de l'Índex Nacional de Defuncions i de l'Institut Nacional d'Estadística (6545 i 35177)",
+			"es"=>"23. Defunciones por año del Índice Nacional de Defunciones y del Instituto Nacional de Estadística (6545 y 35177)",
 			"en"=>"23. Deaths by year from the National Death Index and the National Institute of Statistics (6545 and 35177)",
 		),
 	),

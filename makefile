@@ -61,7 +61,7 @@ eurostat:
 	time -p php php/program.php
 
 spain:
-	rm -f middle/35177* output/plot19*
+	rm -f middle/35177* output/plot19* output/plot23*
 	time -p php php/program.php
 
 indef:

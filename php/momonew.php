@@ -9,9 +9,10 @@ if(!file_exists("middle/datanew.csv")) {
 	}
 	$files=glob("input/momo/data.????????.csv.gz");
 	sort($files);
+	$last=explode(".",end($files));
 	foreach($files as $key=>$val) {
 		$temp=explode(".",$val);
-		if(in_array($temp[1],array(20200523,20200527))) unset($files[$key]);
+		if(!in_array($temp[1],array(20200507,20200530,$last[1]))) unset($files[$key]);
 	}
 	$result=array();
 	foreach($files as $file) {
@@ -150,6 +151,11 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 	console_debug("middle/datanew-ok7.csv");
 	$files=glob("input/momo/data.????????.csv.gz");
 	sort($files);
+	$last=explode(".",end($files));
+	foreach($files as $key=>$val) {
+		$temp=explode(".",$val);
+		if(!in_array($temp[1],array(20200507,20200523,20200527,20200530,$last[1]))) unset($files[$key]);
+	}
 	$sumas=array();
 	foreach($files as $file) {
 		$data=import_file($file);

@@ -177,6 +177,11 @@ $textos=array(
 			"es"=>"23. Defunciones por año del Índice Nacional de Defunciones y del Instituto Nacional de Estadística (6545 y 35177)",
 			"en"=>"23. Deaths by year from the National Death Index and the National Institute of Statistics (6545 and 35177)",
 		),
+		"24"=>array(
+			"ca"=>"24. Defuncions afegides diariament i setmanalment al MoMo, per veure la qualitat de les dades",
+			"es"=>"24. Defunciones añadidas diariamente y semanalmente en el MoMo, para ver la calidad de los datos",
+			"en"=>"24. Deaths added daily and weekly to the MoMo, to see the data quality",
+		),
 	),
 	"meses"=>array(
 		"ca"=>array(

@@ -17,7 +17,9 @@ set datafile separator ','
 set colors classic
 set ytics 0,2000,8000
 set output 'output/plot24es1.png'
+set label 1 "Atención: esta gráfica tiene la escala diferente que la otra gráfica del mismo grupo" at '2020-09-15',7000 c tc lt 1
 plot 'middle/plot24es1.csv' u 1:2 w l ti col
 set ytics 0,4000,20000
 set output 'output/plot24es2.png'
+set label 1 "Atención: esta gráfica tiene la escala diferente que la otra gráfica del mismo grupo" at '2020-09-15',14000 c tc lt 1
 plot 'middle/plot24es2.csv' u 1:2 w lp ti col

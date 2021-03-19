@@ -34,9 +34,9 @@ if(!file_exists("output/plot24${lang}1.png")) {
 		if(!isset($matrix2[$week])) $matrix2[$week]=array($val[0],0);
 		$matrix2[$week][1]+=$val[1];
 	}
-	array_unshift($matrix1,array("Date","Diff"));
+	array_unshift($matrix1,array($textos["plot24"]["fecha"][$lang],$textos["plot24"]["diario"][$lang]));
 	export_file("middle/plot24${lang}1.csv",$matrix1);
-	array_unshift($matrix2,array("Date","Diff"));
+	array_unshift($matrix2,array($textos["plot24"]["fecha"][$lang],$textos["plot24"]["semanal"][$lang]));
 	export_file("middle/plot24${lang}2.csv",$matrix2);
 	$gnuplot=implode("\n",array(
 		"set terminal png size 1200,600 enhanced font ',11'",
@@ -58,9 +58,11 @@ if(!file_exists("output/plot24${lang}1.png")) {
 		"set colors classic",
 		"set ytics 0,2000,8000",
 		"set output 'output/plot24${lang}1.png'",
+		"set label 1 \"".$textos["plot24"]["escala"][$lang]."\" at '2020-09-15',7000 c tc lt 1",
 		"plot 'middle/plot24${lang}1.csv' u 1:2 w l ti col",
 		"set ytics 0,4000,20000",
 		"set output 'output/plot24${lang}2.png'",
+		"set label 1 \"".$textos["plot24"]["escala"][$lang]."\" at '2020-09-15',14000 c tc lt 1",
 		"plot 'middle/plot24${lang}2.csv' u 1:2 w lp ti col",
 	))."\n";
 	file_put_contents("middle/plot24${lang}.gnu",$gnuplot);

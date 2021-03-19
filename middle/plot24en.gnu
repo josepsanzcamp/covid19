@@ -17,7 +17,9 @@ set datafile separator ','
 set colors classic
 set ytics 0,2000,8000
 set output 'output/plot24en1.png'
+set label 1 "Atencion: this plot has a different scale related to the other plot of the same group" at '2020-09-15',7000 c tc lt 1
 plot 'middle/plot24en1.csv' u 1:2 w l ti col
 set ytics 0,4000,20000
 set output 'output/plot24en2.png'
+set label 1 "Atencion: this plot has a different scale related to the other plot of the same group" at '2020-09-15',14000 c tc lt 1
 plot 'middle/plot24en2.csv' u 1:2 w lp ti col

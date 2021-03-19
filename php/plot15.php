@@ -67,7 +67,7 @@ if(!file_exists("output/plot15${lang}.gif")) {
 			"set ytic center rotate by 90",
 			"set ytics 0,500,3000",
 			"set datafile separator '".SEPARADOR."'",
-		"set colors classic",
+			"set colors classic",
 			"set output 'output/plot15${lang}.${part}.gif'",
 			"set xrange ['2020-10-01':'2021-01-01']",
 			"plot 'middle/plot15${lang}.${part}.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w l ti col",

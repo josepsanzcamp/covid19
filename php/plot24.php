@@ -11,6 +11,7 @@ if(!file_exists("output/plot24${lang}1.png")) {
 		$part=$part[1];
 		if(in_array($part,array(20200507,20200523,20200527))) continue;
 		$data=import_file($file);
+		$data=array_slice($data,-90); // PER FER SERVIR NOMES LES DADES DELS DARRERS 90 DIES
 		$momonew=array();
 		$unused=$momoold;
 		foreach($data as $key=>$val) {

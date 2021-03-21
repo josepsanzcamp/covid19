@@ -1,5 +1,5 @@
 set terminal gif size 1200,600 enhanced font ',11'
-set title "15. Evolución de las defunciones segunda ola por dia obtenidos del MoMo para el 2020, 2019, 2018 y el promedio del 2018 (2020-11-17)"
+set title "15. Evolución de las defunciones segunda ola por dia obtenidos del MoMo para el 2020, 2019, 2018 y la media del 2018 (2020-11-17)"
 set grid
 set tmargin 3
 set rmargin 6

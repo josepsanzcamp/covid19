@@ -73,8 +73,8 @@ $textos=array(
 			"en"=>"2. Deaths by year and month of the MoMo and INE between 2018 and 2021",
 		),
 		"03"=>array(
-			"ca"=>"3. Defuncions per dia obtinguts del MoMo per al 2021, 2020, 2019, 2018 i el promig del 2018",
-			"es"=>"3. Defunciones por dia obtenidos del MoMo para el 2021, 2020, 2019, 2018 y el promedio del 2018",
+			"ca"=>"3. Defuncions per dia obtinguts del MoMo per al 2021, 2020, 2019, 2018 i la mitjana del 2018",
+			"es"=>"3. Defunciones por dia obtenidos del MoMo para el 2021, 2020, 2019, 2018 y la media del 2018",
 			"en"=>"3. Deaths per day obtained from the MoMo by 2021, 2020, 2019, 2018 and the 2018 average",
 		),
 		"04"=>array(
@@ -133,8 +133,8 @@ $textos=array(
 			"en"=>"14. Deaths by year obtained from MoMo and INE (combining data from the same year and the previous year)",
 		),
 		"15"=>array(
-			"ca"=>"15. Evolucio de defuncions segona ona per dia obtinguts del MoMo per al 2020, 2019, 2018 i el promig del 2018",
-			"es"=>"15. Evolución de las defunciones segunda ola por dia obtenidos del MoMo para el 2020, 2019, 2018 y el promedio del 2018",
+			"ca"=>"15. Evolucio de defuncions segona ona per dia obtinguts del MoMo per al 2020, 2019, 2018 i la mitjana del 2018",
+			"es"=>"15. Evolución de las defunciones segunda ola por dia obtenidos del MoMo para el 2020, 2019, 2018 y la media del 2018",
 			"en"=>"15. Evolution of the second wave deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average",
 		),
 		"16"=>array(
@@ -178,9 +178,9 @@ $textos=array(
 			"en"=>"23. Deaths by year from the National Death Index and the National Institute of Statistics (6545 and 35177)",
 		),
 		"24"=>array(
-			"ca"=>"24. Defuncions afegides diariament i setmanalment al MoMo, per veure la qualitat de les dades",
-			"es"=>"24. Defunciones añadidas diariamente y semanalmente en el MoMo, para ver la calidad de los datos",
-			"en"=>"24. Deaths added daily and weekly to the MoMo, to see the data quality",
+			"ca"=>"24. Defuncions afegides diariament i setmanalment al MoMo, i la mitjana del INE del 2018",
+			"es"=>"24. Defunciones añadidas diariamente y semanalmente en el MoMo, y la media del INE del 2018",
+			"en"=>"24. Deaths added daily and weekly to the MoMo, and the 2018 INE average",
 		),
 	),
 	"meses"=>array(
@@ -375,6 +375,11 @@ $textos=array(
 			"ca"=>"Atenció: aquesta gràfica te l'escala diferent que l'altre gràfica del mateix grup",
 			"es"=>"Atención: esta gráfica tiene la escala diferente que la otra gráfica del mismo grupo",
 			"en"=>"Atencion: this plot has a different scale related to the other plot of the same group",
+		),
+		"media"=>array(
+			"ca"=>"Mitjana INE2018",
+			"es"=>"Media INE2018",
+			"en"=>"Median INE2018",
 		),
 	),
 );

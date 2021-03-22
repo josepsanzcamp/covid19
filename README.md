@@ -58,10 +58,12 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/IND_TipoDifusion.htm => Índice Nacional de Defunciones
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2020_Defunciones_12.pdf => 19 de febrero de 2021
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2019_10.pdf => 29 de enero de 2020
-- for i in $(seq 1 12); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2020_Defunciones_$i.pdf; done
-- for i in $(seq 1 12); do pdftotext -layout 2020_Defunciones_$i.pdf; done
-- for i in $(seq 1 10); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2019_$i.pdf; done
-- for i in $(seq 1 10); do pdftotext -layout Defunciones_2019_$i.pdf; done
+- https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2018_11.pdf => 18 de enero de 2019
+- https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2017_09.pdf => 22 de enero de 2018
+- https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2016_12.pdf => 18 de enero de 2017
+- for k in $(seq 13 19); do for j in "" 0 1; do for i in $(seq 0 9); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_20${k}_${j}${i}.pdf; done; done; done
+- for k in $(seq 20 21); do for j in "" 0 1; do for i in $(seq 0 9); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/20${k}_Defunciones_${j}${i}.pdf; done; done; done
+- for i in *.pdf; do pdftotext -layout $i; done
 
 # OECD
 - https://data.oecd.org/spain.htm

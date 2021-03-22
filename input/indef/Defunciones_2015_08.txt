@@ -1,0 +1,38 @@
+ Número de defunciones incorporadas al Indice Nacional de Defunciones
+                                 21 de septiembre de 2015
+
+                       AÑO                    Nº DEFUNCIONES
+                       1987                              304.044
+                       1988                              314.663
+                       1989                              323.063
+                       1990                              330.592
+                       1991                              334.581
+                       1992                              325.318
+                       1993                              334.691
+                       1994                              331.269
+                       1995                              338.452
+                       1996                              329.872
+                       1997                              349.518
+                       1998                              360.472
+                       1999                              371.606
+                       2000                              360.357
+                       2001                              333.629
+                       2002                              327.630
+                       2003                              384.172
+                       2004                              372.539
+                       2005                              373.342
+                       2006                              372.562
+                       2007                              386.834
+                       2008                              385.448
+                       2009                              382.861
+                       2010                              383.233
+                       2011                              388.614
+                       2012                              403.719
+                       2013                              388.236
+                       2014                              395.088
+                       2015                              204.845
+
+Nota: La incorporación de fallecidos al Indice de defunciones tiene un decalaje temporal. Aunque
+ los datos se actualizan cada mes, no todas las defunciones que se producen en un mes dado
+             pueden ser incorporadas al mes siguiente; algunas lo hacen más tarde.
+

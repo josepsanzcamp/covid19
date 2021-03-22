@@ -10,12 +10,21 @@ set yrange [0:500000]
 set xdata time
 set timefmt '%Y-%m-%d'
 set format x '%Y-%m-%d'
-set xrange ['2019-02-01':'2021-03-01']
-set xtics rotate by -45
+set xtics rotate by -70
+set xtics font ',10'
 set ytic center rotate by 90
 set ytics 0,100000,400000
 set datafile separator ','
 set colors classic
-set key at '2021-03-01',250000
-set output 'output/plot20en.png'
+set key at '2016-01-01',130000
+set xrange ['2013-01-01':'2016-01-01']
+set output 'output/plot20en1.png'
 plot 'middle/plot20en.csv' u 1:2:xtic(1) w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col
+set key at '2019-01-01',130000
+set xrange ['2016-01-01':'2019-01-01']
+set output 'output/plot20en2.png'
+plot 'middle/plot20en.csv' u 1:5:xtic(1) w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp ti col,'' u 1:8 w lp ti col,'' u 1:9 w lp ti col
+set key at '2022-01-01',130000
+set xrange ['2019-01-01':'2022-01-01']
+set output 'output/plot20en3.png'
+plot 'middle/plot20en.csv' u 1:8:xtic(1) w lp ti col,'' u 1:9 w lp ti col,'' u 1:10 w lp ti col,'' u 1:11 w lp ti col,'' u 1:12 w lp ti col

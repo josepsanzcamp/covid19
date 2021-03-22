@@ -1,0 +1,41 @@
+    Número de defunciones incorporadas al Indice Nacional de Defunciones
+                                       19 de junio de 2018
+
+                            AÑO                    Nº DEFUNCIONES
+                            1987                              304.044
+                            1988                              314.664
+                            1989                              323.064
+                            1990                              330.592
+                            1991                              334.581
+                            1992                              325.318
+                            1993                              334.692
+                            1994                              331.269
+                            1995                              338.454
+                            1996                              329.878
+                            1997                              349.530
+                            1998                              360.478
+                            1999                              371.617
+                            2000                              360.362
+                            2001                              333.633
+                            2002                              327.635
+                            2003                              384.176
+                            2004                              372.554
+                            2005                              373.370
+                            2006                              372.601
+                            2007                              386.859
+                            2008                              385.463
+                            2009                              382.962
+                            2010                              383.357
+                            2011                              388.746
+                            2012                              403.889
+                            2013                              388.418
+                            2014                              395.588
+                            2015                              422.914
+                            2016                              409.209
+                            2017                              421.013
+                            2018                              147.595
+
+ Nota: La incorporación de fallecidos al Indice de defunciones tiene un decalaje temporal. Aunque los
+datos se actualizan cada mes, no todas las defunciones que se producen en un mes dado pueden ser
+                     incorporadas al mes siguiente; algunas lo hacen más tarde.
+

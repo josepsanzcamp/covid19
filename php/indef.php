@@ -17,10 +17,14 @@ if(!file_exists("middle/defunciones.csv")) {
 		"diciembre"=>"12",
 	);
 	$files=array();
-	$files=array_merge($files,glob("input/indef/Defunciones_2019_?.txt"));
-	$files=array_merge($files,glob("input/indef/Defunciones_2019_1?.txt"));
-	$files=array_merge($files,glob("input/indef/2020_Defunciones_?.txt"));
-	$files=array_merge($files,glob("input/indef/2020_Defunciones_1?.txt"));
+	for($i=13;$i<=21;$i++) {
+		$files=array_merge($files,glob("input/indef/Defunciones_20${i}_?.txt"));
+		$files=array_merge($files,glob("input/indef/Defunciones_20${i}_0?.txt"));
+		$files=array_merge($files,glob("input/indef/Defunciones_20${i}_1?.txt"));
+		$files=array_merge($files,glob("input/indef/20${i}_Defunciones_?.txt"));
+		$files=array_merge($files,glob("input/indef/20${i}_Defunciones_0?.txt"));
+		$files=array_merge($files,glob("input/indef/20${i}_Defunciones_1?.txt"));
+	}
 	$matrix=array();
 	foreach($files as $file) {
 		$lines=file_get_contents($file);

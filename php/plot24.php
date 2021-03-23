@@ -31,7 +31,7 @@ if(!file_exists("output/plot24${lang}1.png")) {
 	}
 	$matrix2=array();
 	foreach($matrix1 as $key=>$val) {
-		$week=date("o-W",strtotime($val[0]));
+		$week=date("o-W",strtotime($val[0])+86400*3); // PER COMENÇAR LA SETMANA EN DIVENDRES
 		if(!isset($matrix2[$week])) $matrix2[$week]=array($val[0],0);
 		$matrix2[$week][1]+=$val[1];
 	}
@@ -73,9 +73,9 @@ if(!file_exists("output/plot24${lang}1.png")) {
 		"set output 'output/plot24${lang}1.png'",
 		"set label 1 \"".$textos["plot24"]["escala"][$lang]."\" at '2020-09-15',7000 c tc lt 1",
 		"plot 'middle/plot24${lang}1.csv' u 1:2 w l ti col, '' u 1:3 w l ti col",
-		"set ytics 0,4000,20000",
+		"set ytics 0,2000,20000",
 		"set output 'output/plot24${lang}2.png'",
-		"set label 1 \"".$textos["plot24"]["escala"][$lang]."\" at '2020-09-15',14000 c tc lt 1",
+		"set label 1 \"".$textos["plot24"]["escala"][$lang]."\" at '2020-09-15',13000 c tc lt 1",
 		"plot 'middle/plot24${lang}2.csv' u 1:2 w lp ti col, '' u 1:3 w l ti col",
 	))."\n";
 	file_put_contents("middle/plot24${lang}.gnu",$gnuplot);

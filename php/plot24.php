@@ -31,7 +31,7 @@ if(!file_exists("output/plot24${lang}1.png")) {
 	}
 	$matrix2=array();
 	foreach($matrix1 as $key=>$val) {
-		$week=date("Y-W",strtotime($val[0]));
+		$week=date("o-W",strtotime($val[0]));
 		if(!isset($matrix2[$week])) $matrix2[$week]=array($val[0],0);
 		$matrix2[$week][1]+=$val[1];
 	}

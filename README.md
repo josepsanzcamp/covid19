@@ -56,6 +56,7 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.mscbs.gob.es/sanidad/portada/home.htm => Sanidad
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/bancoDatos.htm => Banco de Datos
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/IND_TipoDifusion.htm => Índice Nacional de Defunciones
+- https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2021_Defunciones_1.pdf => 23 de marzo de 2021
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/2020_Defunciones_12.pdf => 19 de febrero de 2021
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2019_10.pdf => 29 de enero de 2020
 - https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_2018_11.pdf => 18 de enero de 2019

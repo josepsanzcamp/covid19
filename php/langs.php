@@ -367,9 +367,9 @@ $textos=array(
 			"en"=>"Daily",
 		),
 		"semanal"=>array(
-			"ca"=>"Semanalment",
-			"es"=>"Semanalmente",
-			"en"=>"Weekly",
+			"ca"=>"Semanalment (de divendres a dijous)",
+			"es"=>"Semanalmente (de viernes a jueves)",
+			"en"=>"Weekly (from friday to thursday)",
 		),
 		"escala"=>array(
 			"ca"=>"Atenció: aquesta gràfica te l'escala diferent que l'altre gràfica del mateix grup",

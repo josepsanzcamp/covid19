@@ -19,7 +19,7 @@ set ytics 0,2000,8000
 set output 'output/plot24ca1.png'
 set label 1 "Atenció: aquesta gràfica te l'escala diferent que l'altre gràfica del mateix grup" at '2020-09-15',7000 c tc lt 1
 plot 'middle/plot24ca1.csv' u 1:2 w l ti col, '' u 1:3 w l ti col
-set ytics 0,4000,20000
+set ytics 0,2000,20000
 set output 'output/plot24ca2.png'
-set label 1 "Atenció: aquesta gràfica te l'escala diferent que l'altre gràfica del mateix grup" at '2020-09-15',14000 c tc lt 1
+set label 1 "Atenció: aquesta gràfica te l'escala diferent que l'altre gràfica del mateix grup" at '2020-09-15',13000 c tc lt 1
 plot 'middle/plot24ca2.csv' u 1:2 w lp ti col, '' u 1:3 w l ti col

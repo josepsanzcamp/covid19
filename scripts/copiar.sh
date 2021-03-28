@@ -74,12 +74,13 @@ fi
 
 # momo
 i=momo
-file1=$(find $i|sort|tail -1)
-file2="../../covid19/input/$file1"
-if [ ! -f "$file2" ]; then
-	echo "Copiar $i"
-	cp $file1 $file2
-fi
+for file1 in $(find $i/*); do
+	file2="../../covid19/input/$file1"
+	if [ ! -f "$file2" ]; then
+		echo "Copiar $file1"
+		cp $file1 $file2
+	fi
+done
 
 # norway
 i=norway

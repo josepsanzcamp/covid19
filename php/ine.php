@@ -308,18 +308,20 @@ if(!file_exists("middle/02002-ok.csv")) {
 	foreach($data as $key=>$val) {
 		if($val[0]!="TOTAL ESPAÑA" && $val[1]!="TOTAL EDADES" && $val[2]=="TOTAL" && $val[3]=="Ambos sexos") {
 			$key2=$val[4].SEPARADOR.$ccaas[$val[0]].SEPARADOR.$edades[$val[1]];
-			if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
-			$sumas[$key2][1]+=str_replace(".","",$val[5]);
+			if(!isset($sumas[$key2])) $sumas[$key2]=0;
+			$sumas[$key2]+=str_replace(".","",$val[5]);
 		}
 		unset($data[$key]);
 	}
 	$edades=array(3=>"mas_74",2=>"65_74",1=>"menos_65");
 	foreach($sumas as $key=>$val) {
-		$temp=explode(SEPARADOR,$val[0]);
+		$temp=explode(SEPARADOR,$key);
 		$temp[2]=$edades[$temp[2]];
-		$val[0]=implode(SEPARADOR,$temp);
-		$sumas[$key]=$val;
+		$temp=implode(SEPARADOR,$temp);
+		$sumas[$key]=array($temp,$val);
 	}
+	$temp="Any".SEPARADOR."CCAA".SEPARADOR."Edat";
+	$sumas=array($temp=>array($temp,"Total"))+$sumas;
 	export_file("middle/02002-ok.csv",$sumas);
 	unset($temp);
 	unset($ccaas);
@@ -331,11 +333,6 @@ if(!file_exists("middle/02002-ok.csv")) {
 
 if(!file_exists("middle/02002-ok2.csv")) {
 	console_debug("middle/02002-ok2.csv");
-	$temp=import_file("input/csic/prov2ccaa.csv");
-	$ccaas=array();
-	foreach($temp as $key=>$val) {
-		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".ccaa2fix($val[1]);
-	}
 	$data=import_file("input/ine/02002.csv.gz");
 	$matrix=array();
 	foreach($data as $key=>$val) {
@@ -349,6 +346,33 @@ if(!file_exists("middle/02002-ok2.csv")) {
 		$matrix[$key]=array($key,$val);
 	}
 	export_file("middle/02002-ok2.csv",$matrix);
+	unset($data);
+	unset($matrix);
+	console_debug();
+}
+
+if(!file_exists("middle/02002-ok3.csv")) {
+	console_debug("middle/02002-ok3.csv");
+	$temp=import_file("input/csic/prov2ccaa.csv");
+	$ccaas=array();
+	foreach($temp as $key=>$val) {
+		$ccaas[mb_strtoupper($val[1])]=$val[0]." ".ccaa2fix($val[1]);
+	}
+	$data=import_file("input/ine/02002.csv.gz");
+	$matrix=array();
+	foreach($data as $key=>$val) {
+		if($val[0]!="TOTAL ESPAÑA" && $val[1]=="TOTAL EDADES" && $val[2]=="TOTAL" && $val[3]=="Ambos sexos") {
+			$key2=$val[4].SEPARADOR.$ccaas[$val[0]];
+			if(isset($matrix[$key2])) die("ERROR 11");
+			$matrix[$key2]=str_replace(".","",$val[5]);
+		}
+		unset($data[$key]);
+	}
+	$matrix=array("Any".SEPARADOR."CCAA"=>"Total")+$matrix;
+	foreach($matrix as $key=>$val) {;
+		$matrix[$key]=array($key,$val);
+	}
+	export_file("middle/02002-ok3.csv",$matrix);
 	unset($temp);
 	unset($ccaas);
 	unset($data);

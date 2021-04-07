@@ -355,6 +355,13 @@ $textos=array(
 			"en"=>"Median age of the population",
 		),
 	),
+	"plot22"=>array(
+		"XXX"=>array(
+			"ca"=>"1/100 de la població total per comparar la mortalitat respecte la població de la comunitat autònoma",
+			"es"=>"1/100 de la población total para comparar la mortalidad respecto la población de la comunidad autónoma",
+			"en"=>"1/100 of the total population for compare the deathly vs population in the autonomous community",
+		),
+	),
 	"plot24"=>array(
 		"fecha"=>array(
 			"ca"=>"Data",

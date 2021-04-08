@@ -182,6 +182,11 @@ $textos=array(
 			"es"=>"24. Defunciones añadidas diariamente y semanalmente en el MoMo, y la media del INE del 2018",
 			"en"=>"24. Deaths added daily and weekly to the MoMo, and the 2018 INE average",
 		),
+		"25"=>array(
+			"ca"=>"25. Població per edats obtingut del INE del l'any 2019 (la unitat és el milió de persones)",
+			"es"=>"25. Población por edades obtenido del INE del año 2019 (la unidad es el millón de personas)",
+			"en"=>"25. Population by age obtained from the INE of year 2019 (the unit is the million people)",
+		),
 	),
 	"meses"=>array(
 		"ca"=>array(
@@ -232,16 +237,19 @@ $textos=array(
 			"menos_65"=>"Menys de 65 anys",
 			"65_74"=>"Entre 65 i 74 anys",
 			"mas_74"=>"Més de 74 anys",
+			"total"=>"Totes les edats"
 		),
 		"es"=>array(
 			"menos_65"=>"Menos de 65 años",
 			"65_74"=>"Entre 65 y 74 años",
 			"mas_74"=>"Más de 74 años",
+			"total"=>"Todas las edades"
 		),
 		"en"=>array(
 			"menos_65"=>"Under 65 years old",
 			"65_74"=>"Between 65 and 74 years old",
 			"mas_74"=>"Over 74 years old",
+			"total"=>"Total all ages"
 		),
 	),
 	"tipos"=>array(

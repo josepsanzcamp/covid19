@@ -249,16 +249,19 @@ $textos=array(
 			"Publica"=>"Residències de titularitat pública",
 			"Privada"=>"Residències de titularitat privada",
 			"Total"=>"Totes les residències",
+			"XXX"=>"1/100 de la població de la comunitat autònoma",
 		),
 		"es"=>array(
 			"Publica"=>"Residencias de titularidad pública",
 			"Privada"=>"Residencias de titularidad privada",
 			"Total"=>"Todas las residencias",
+			"XXX"=>"1/100 de la población de la comunidad autónoma",
 		),
 		"en"=>array(
 			"Publica"=>"Publicly owned residences",
 			"Privada"=>"Privately owned residences",
 			"Total"=>"All residences",
+			"XXX"=>"1/100 of the total population in the autonomous community",
 		),
 	),
 	"hospitalbed"=>array(

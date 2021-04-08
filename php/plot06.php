@@ -8,8 +8,9 @@ if(!file_exists("output/plot06${lang}.png")) {
 		$ccaas[$val[0]]=$val[0]." ".ccaa2fix($val[1]);
 	}
 	$resi=import_file("middle/residencias.csv");
+	$ine2=import_file("middle/02002-ok3.csv");
 	$matrix=array();
-	$tipos=array("Publica","Privada","Total");
+	$tipos=array("Publica","Privada","Total","XXX");
 	foreach($tipos as $tipo) {
 		foreach($ccaas as $ccaa) {
 			$matrix[$ccaa][$tipo]=0;
@@ -19,10 +20,16 @@ if(!file_exists("output/plot06${lang}.png")) {
 	foreach($resi as $key=>$val) {
 		if(isset($matrix[$val[0]][$val[1]])) $matrix[$val[0]][$val[1]]+=$val[3];
 	}
+	foreach($ine2 as $key=>$val) {
+		if($val[0]==2019) {
+			$matrix[$val[1]]["XXX"]=$val[2]/100;
+		}
+	}
 	$matrix["18 Ceuta + 19 Melilla"]=array(
 		$matrix["18 Ceuta"]["Publica"]+$matrix["19 Melilla"]["Publica"],
 		$matrix["18 Ceuta"]["Privada"]+$matrix["19 Melilla"]["Privada"],
 		$matrix["18 Ceuta"]["Total"]+$matrix["19 Melilla"]["Total"],
+		$matrix["18 Ceuta"]["XXX"]+$matrix["19 Melilla"]["XXX"],
 	);
 	unset($matrix["18 Ceuta"]);
 	unset($matrix["19 Melilla"]);
@@ -60,13 +67,13 @@ if(!file_exists("output/plot06${lang}.png")) {
 		"set style fill solid border -1",
 		"set xtic rotate by -45",
 		"set style histogram gap 3",
-		"set yrange [0:70000]",
+		"set yrange [0:90000]",
 		"set ytic center rotate by 90",
-		"set ytics 0,10000,60000",
+		"set ytics 0,15000,75000",
 		"set datafile separator '".SEPARADOR."'",
 		"set colors classic",
 		"set output 'output/plot06${lang}.png'",
-		"plot 'middle/plot06${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col",
+		"plot 'middle/plot06${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot06${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot06${lang}.gnu 2>&1");

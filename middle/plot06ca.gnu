@@ -11,10 +11,10 @@ set style data histogram
 set style fill solid border -1
 set xtic rotate by -45
 set style histogram gap 3
-set yrange [0:70000]
+set yrange [0:90000]
 set ytic center rotate by 90
-set ytics 0,10000,60000
+set ytics 0,15000,75000
 set datafile separator ','
 set colors classic
 set output 'output/plot06ca.png'
-plot 'middle/plot06ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col
+plot 'middle/plot06ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col

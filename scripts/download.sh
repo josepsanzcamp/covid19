@@ -2,7 +2,7 @@
 
 cd $HOME/workspace/covid19.download
 
-wget -O renave/datos_ccaas.$(date +"%Y%m%d").csv https://cnecovid.isciii.es/covid19/resources/datos_ccaas.csv
+#~ wget -O renave/datos_ccaas.$(date +"%Y%m%d").csv https://cnecovid.isciii.es/covid19/resources/datos_ccaas.csv
 wget -O momo/data.$(date +"%Y%m%d").csv https://momo.isciii.es/public/momo/data
 wget -O euromomo/component.$(date +"%Y%m%d").js https://www.euromomo.eu$(wget -q -O - https://www.euromomo.eu/graphs-and-maps | tr '"' '\n' | grep /component---src-templates-graphs-and-maps-js | head -1)
 wget -O eurostat/demo_r_mwk_ts.$(date +"%Y%m%d").tsv.gz "https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/demo_r_mwk_ts.tsv.gz"

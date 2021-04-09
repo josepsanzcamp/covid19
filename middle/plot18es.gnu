@@ -14,8 +14,8 @@ set xtics '2020-02-01',86400*30,'2020-12-01'
 set ytic center rotate by 90
 set datafile separator ','
 set colors classic
-set yrange [0:900]
-set ytics 0,180,720
+set yrange [0:1100]
+set ytics 0,220,880
 set output 'output/plot18es01.png'
 plot 'middle/plot18es.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp ti col,'' u 1:8 w lp ti col
 set yrange [0:20]

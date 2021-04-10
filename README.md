@@ -99,7 +99,7 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 # Noruega
 - https://www.ssb.no/en/statbank/list/dode/ => Statistics Norway
 - https://www.ssb.no/en/statbank/table/07995/ => 07995: Deaths, by sex, age and week. Preliminary figures 2000 - 2020
-- wget -O norway/07995.$(date +"%Y%m%d").csv --post-data='{"query":[{"code":"Kjonn","selection":{"filter":"item","values":["0"]}},{"code":"Uke","selection":{"filter":"item","values":["U01","U02","U03","U04","U05","U06","U07","U08","U09","U10","U11","U12","U13","U14","U15","U16","U17","U18","U19","U20","U21","U22","U23","U24","U25","U26","U27","U28","U29","U30","U31","U32","U33","U34","U35","U36","U37","U38","U39","U40","U41","U42","U43","U44","U45","U46","U47","U48","U49","U50","U51","U52","U53"]}}],"response":{"format":"csv"}}' https://data.ssb.no/api/v0/en/table/07995/
+- wget -O norway/07995.$(date +"%Y%m%d").csv --post-data='{"query":[{"code":"Uke","selection":{"filter":"item","values":["U01","U02","U03","U04","U05","U06","U07","U08","U09","U10","U11","U12","U13","U14","U15","U16","U17","U18","U19","U20","U21","U22","U23","U24","U25","U26","U27","U28","U29","U30","U31","U32","U33","U34","U35","U36","U37","U38","U39","U40","U41","U42","U43","U44","U45","U46","U47","U48","U49","U50","U51","U52","U53"]}}],"response":{"format":"csv"}}' https://data.ssb.no/api/v0/en/table/07995/
 
 # Portugal
 - https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_base_dados

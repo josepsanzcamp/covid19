@@ -4,8 +4,7 @@ if(!file_exists("output/plot11${lang}.png")) {
 	console_debug("output/plot11${lang}.png");
 	$norway=import_file("input/norway/07995.csv.gz");
 	foreach($norway as $key=>$val) {
-		unset($val[0]);
-		for($i=2;$i<=16;$i++) unset($val[$i]);
+		for($i=1;$i<=15;$i++) unset($val[$i]);
 		$norway[$key]=$val;
 	}
 	$header=array_shift($norway);
@@ -14,8 +13,8 @@ if(!file_exists("output/plot11${lang}.png")) {
 		$header[$key]=$val;
 	}
 	foreach($norway as $key=>$val) {
-		$val[1]=sprintf("%02d",str_replace("Week ","",$val[1]));
-		$val[1]=date("Y-m-d",strtotime("2020W".$val[1])+86400*2);
+		$val[0]=sprintf("%02d",str_replace("Week ","",$val[0]));
+		$val[0]=date("Y-m-d",strtotime("2020W".$val[0])+86400*2);
 		foreach($val as $key2=>$val2) if($val2=="0") $val[$key2]="";
 		$norway[$key]=$val;
 	}

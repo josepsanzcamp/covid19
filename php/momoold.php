@@ -15,7 +15,11 @@ if(!file_exists("middle/dataold.csv")) {
 	}
 	$result=array();
 	foreach($files as $file) {
-		$data=import_file($file);
+		//~ $data=import_file($file);
+		$temp=get_tempfile();
+		passthru("zcat $file | grep -v -e hombres -e mujeres > $temp");
+		$data=import_file($temp);
+		unlink($temp);
 		foreach($data as $key=>$val) {
 			if(isset($ccaas[$val[3]])) $val[3]=$ccaas[$val[3]];
 			$key2=implode("|",array_slice($val,0,8));

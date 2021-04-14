@@ -45,4 +45,13 @@ function get_file($file) {
 	return file_get_contents($file);
 }
 
+function get_tempfile() {
+	for(;;) {
+		$file="/tmp/file.".microtime(true);
+		if(!file_exists($file)) break;
+		usleep(1);
+	}
+	return $file;
+}
+
 ?>

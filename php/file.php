@@ -54,4 +54,12 @@ function get_tempfile() {
 	return $file;
 }
 
+function import_file_with_grep($file,$grep) {
+	$temp=get_tempfile();
+	passthru("zcat $file | $grep > $temp");
+	$data=import_file($temp);
+	unlink($temp);
+	return $data;
+}
+
 ?>

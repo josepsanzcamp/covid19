@@ -16,11 +16,7 @@ if(!file_exists("middle/datanew.csv")) {
 	}
 	$result=array();
 	foreach($files as $file) {
-		//~ $data=import_file($file);
-		$temp=get_tempfile();
-		passthru("zcat $file | grep -v -e hombres -e mujeres > $temp");
-		$data=import_file($temp);
-		unlink($temp);
+		$data=import_file_with_grep($file,"grep -v -e hombres -e mujeres");
 		foreach($data as $key=>$val) {
 			if(isset($ccaas[$val[3]])) $val[3]=$ccaas[$val[3]];
 			$key2=implode("|",array_slice($val,0,8));
@@ -162,11 +158,7 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 	}
 	$sumas=array();
 	foreach($files as $file) {
-		//~ $data=import_file($file);
-		$temp=get_tempfile();
-		passthru("zcat $file | grep -v -e hombres -e mujeres > $temp");
-		$data=import_file($temp);
-		unlink($temp);
+		$data=import_file_with_grep($file,"grep -v -e hombres -e mujeres");
 		$temp=explode(".",$file);
 		$temp=str_split($temp[1],2);
 		$fecha=$temp[0].$temp[1]."-".$temp[2]."-".$temp[3];

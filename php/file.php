@@ -56,7 +56,8 @@ function get_tempfile() {
 
 function import_file_with_grep($file,$grep) {
 	$temp=get_tempfile();
-	passthru("zcat $file | $grep > $temp");
+	$cat=(pathinfo($file,PATHINFO_EXTENSION)=="gz")?"zcat":"cat";
+	passthru("$cat $file | $grep > $temp");
 	$data=import_file($temp);
 	unlink($temp);
 	return $data;

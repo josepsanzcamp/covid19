@@ -8,7 +8,7 @@ if(count(glob("middle/data.????????.csv"))!=count(glob("input/momo/data.????????
 		$part=explode(".",$file);
 		$part=$part[1];
 		if(file_exists("middle/data.${part}.csv")) continue;
-		$data=import_file_with_grep($file,"grep nacional | grep -v -e hombres -e mujeres");
+		$data=import_file_with_grep($file,"grep nacional | grep -v -e hombres -e mujeres -e edad");
 		$matrix=array();
 		foreach($data as $key=>$val) {
 			if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {

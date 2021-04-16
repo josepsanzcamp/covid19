@@ -158,7 +158,7 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 	}
 	$sumas=array();
 	foreach($files as $file) {
-		$data=import_file_with_grep($file,"grep -v -e hombres -e mujeres");
+		$data=import_file_with_grep($file,"grep -v -e hombres -e mujeres -e edad");
 		$temp=explode(".",$file);
 		$temp=str_split($temp[1],2);
 		$fecha=$temp[0].$temp[1]."-".$temp[2]."-".$temp[3];

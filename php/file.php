@@ -45,17 +45,12 @@ function get_file($file) {
 	return file_get_contents($file);
 }
 
-function get_tempfile() {
+function import_file_with_grep($file,$grep) {
 	for(;;) {
-		$file="/tmp/file.".microtime(true);
-		if(!file_exists($file)) break;
+		$temp="/tmp/file.".microtime(true);
+		if(!file_exists($temp)) break;
 		usleep(1);
 	}
-	return $file;
-}
-
-function import_file_with_grep($file,$grep) {
-	$temp=get_tempfile();
 	$cat=(pathinfo($file,PATHINFO_EXTENSION)=="gz")?"zcat":"cat";
 	passthru("$cat $file | $grep > $temp");
 	$data=import_file($temp);

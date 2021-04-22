@@ -154,7 +154,7 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 	$last=explode(".",end($files));
 	foreach($files as $key=>$val) {
 		$temp=explode(".",$val);
-		if(!in_array($temp[1],array(20200507,20200523,20200527,20200530,$last[1]))) unset($files[$key]);
+		if(!in_array($temp[1],array(20200507,20200523,20200527,20200530,20210420,20210421,$last[1]))) unset($files[$key]);
 	}
 	$sumas=array();
 	foreach($files as $file) {

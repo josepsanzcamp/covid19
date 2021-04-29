@@ -2,11 +2,10 @@
 
 if(!file_exists("output/plot04${lang}1.png")) {
 	console_debug("output/plot04${lang}1.png");
-	$momoold=import_file("middle/dataold-ok3.csv");
 	$momonew=import_file("middle/datanew-ok3.csv");
 	$ine=import_file("middle/02001-ok2.csv");
 	$matrix=array();
-	$years=array("MoMo2021","MoMoOld","MoMo2020","INE2019","INE2018");
+	$years=array("MoMo2021","MoMo2020","INE2019","INE2018");
 	$edades=array("mas_74","65_74","menos_65");
 	$months=array(1,2,3,4,5,6,7,8,9,10,11,12);
 	foreach($edades as $edad) {
@@ -18,13 +17,6 @@ if(!file_exists("output/plot04${lang}1.png")) {
 		}
 	}
 	$header=array_keys(reset($matrix));
-	foreach($momoold as $key=>$val) {
-		list($year,$month)=explode("-",$val[0]);
-		if($year!=2020) continue;
-		$edad=$val[1];
-		$year="MoMoOld";
-		if(isset($matrix[$month][$edad."-".$year])) $matrix[$month][$edad."-".$year]=$val[2];
-	}
 	foreach($momonew as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if(!in_array($year,array(2020,2021))) continue;
@@ -69,20 +61,19 @@ if(!file_exists("output/plot04${lang}1.png")) {
 		"set colors classic",
 		"set output 'output/plot04${lang}1.png'",
 		"set xrange [-0.5:11.5]",
-		"plot 'middle/plot04${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col",
+		"plot 'middle/plot04${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col",
 		"set yrange [0:12000]",
 		"set ytics 0,2000,10000",
 		"set label 1 \"".$textos["escala"][$lang]."\" at 5.5,9000 c tc lt 1",
 		"set output 'output/plot04${lang}2.png'",
 		"set xrange [-0.5:11.5]",
-		"plot 'middle/plot04${lang}.csv' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col",
+		"plot 'middle/plot04${lang}.csv' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col",
 		"set output 'output/plot04${lang}3.png'",
 		"set xrange [-0.5:11.5]",
-		"plot 'middle/plot04${lang}.csv' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col, '' u 14:xtic(1) ti col, '' u 15:xtic(1) ti col, '' u 16:xtic(1) ti col",
+		"plot 'middle/plot04${lang}.csv' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot04${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot04${lang}.gnu 2>&1");
-	unset($momoold);
 	unset($momonew);
 	unset($ine);
 	unset($matrix);

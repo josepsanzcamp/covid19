@@ -7,24 +7,16 @@ if(!file_exists("output/plot05${lang}1.png")) {
 	foreach($temp as $key=>$val) {
 		$ccaas[$val[0]]=$val[0]." ".ccaa2fix($val[1]);
 	}
-	$momoold=import_file("middle/dataold-ok5.csv");
 	$momonew=import_file("middle/datanew-ok5.csv");
 	$ine=import_file("middle/6562-ok2.csv");
 	$matrix=array();
-	$years=array(2021,"MoMoOld",2020,2018,2017,2015,2014,2012,2009,2005,2000,1999);
+	$years=array(2021,2020,2018,2017,2015,2014,2012,2009,2005,2000,1999);
 	foreach($years as $year) {
 		foreach($ccaas as $ccaa) {
 			$matrix[$ccaa][$year]=0;
 		}
 	}
 	$header=array_keys(reset($matrix));
-	foreach($momoold as $key=>$val) {
-		list($year,$month)=explode("-",$val[0]);
-		if(!in_array($month,array(3,4))) continue;
-		if($year!=2020) continue;
-		$year="MoMoOld";
-		if(isset($matrix[$val[1]][$year])) $matrix[$val[1]][$year]+=$val[2];
-	}
 	foreach($momonew as $key=>$val) {
 		list($year,$month)=explode("-",$val[0]);
 		if(!in_array($month,array(3,4))) continue;
@@ -38,7 +30,6 @@ if(!file_exists("output/plot05${lang}1.png")) {
 	}
 	$matrix["18 Ceuta + 19 Melilla"]=array(
 		$matrix["18 Ceuta"][2021]+$matrix["19 Melilla"][2021],
-		$matrix["18 Ceuta"]["MoMoOld"]+$matrix["19 Melilla"]["MoMoOld"],
 		$matrix["18 Ceuta"][2020]+$matrix["19 Melilla"][2020],
 		$matrix["18 Ceuta"][2018]+$matrix["19 Melilla"][2018],
 		$matrix["18 Ceuta"][2017]+$matrix["19 Melilla"][2017],
@@ -89,19 +80,18 @@ if(!file_exists("output/plot05${lang}1.png")) {
 		"set key maxrows 7",
 		"set output 'output/plot05${lang}1.png'",
 		"set xrange [-0.5:5.5]",
-		"plot 'middle/plot05${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"plot 'middle/plot05${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
 		"set output 'output/plot05${lang}2.png'",
 		"set xrange [5.5:11.5]",
-		"plot 'middle/plot05${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"plot 'middle/plot05${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
 		"set output 'output/plot05${lang}3.png'",
 		"set xrange [11.5:17.5]",
-		"plot 'middle/plot05${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col",
+		"plot 'middle/plot05${lang}.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col, '' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col",
 	))."\n";
 	file_put_contents("middle/plot05${lang}.gnu",$gnuplot);
 	passthru("gnuplot middle/plot05${lang}.gnu 2>&1");
 	unset($temp);
 	unset($ccaas);
-	unset($momoold);
 	unset($momonew);
 	unset($ine);
 	unset($matrix);

@@ -25,4 +25,30 @@ if(count(glob("middle/data.????????.csv"))!=count(glob("input/momo/data.????????
 	console_debug();
 }
 
+if(!file_exists("middle/datanew-ok8.csv")) {
+	console_debug("middle/datanew-ok8.csv");
+	$files=glob("middle/data.????????.csv");
+	sort($files);
+	$last=end($files);
+	$prev="";
+	$rows=array(array("From","To","Diff"));
+	foreach($files as $key=>$val) {
+		if($prev!="" && $val!=$last) {
+			ob_start();
+			passthru("bash -c \"diff <(head -n 365 $prev) <(head -n 365 $val) | wc -l\"");
+			$diff=trim(ob_get_clean());
+			$from=explode(".",$prev);
+			$from=str_split($from[1],2);
+			$from=$from[0].$from[1]."-".$from[2]."-".$from[3];
+			$to=explode(".",$val);
+			$to=str_split($to[1],2);
+			$to=$to[0].$to[1]."-".$to[2]."-".$to[3];
+			$rows[]=array($from,$to,$diff);
+		}
+		$prev=$val;
+	}
+	export_file("middle/datanew-ok8.csv",$rows);
+	console_debug();
+}
+
 ?>

@@ -10,7 +10,7 @@
 2019-01,01 Andalucía,7560
 2019-02,01 Andalucía,6337
 2019-03,01 Andalucía,6248
-2019-04,01 Andalucía,5848
+2019-04,01 Andalucía,5878
 2019-05,01 Andalucía,5858
 2019-06,01 Andalucía,5234
 2019-07,01 Andalucía,5491
@@ -48,7 +48,7 @@
 2019-01,02 Aragón,1097
 2019-02,02 Aragón,956
 2019-03,02 Aragón,998
-2019-04,02 Aragón,907
+2019-04,02 Aragón,923
 2019-05,02 Aragón,941
 2019-06,02 Aragón,917
 2019-07,02 Aragón,986
@@ -86,7 +86,7 @@
 2019-01,03 Principado de Asturias,1280
 2019-02,03 Principado de Asturias,1130
 2019-03,03 Principado de Asturias,1145
-2019-04,03 Principado de Asturias,1056
+2019-04,03 Principado de Asturias,1057
 2019-05,03 Principado de Asturias,1029
 2019-06,03 Principado de Asturias,965
 2019-07,03 Principado de Asturias,996
@@ -124,7 +124,7 @@
 2019-01,04 Illes Balears,849
 2019-02,04 Illes Balears,733
 2019-03,04 Illes Balears,683
-2019-04,04 Illes Balears,703
+2019-04,04 Illes Balears,707
 2019-05,04 Illes Balears,661
 2019-06,04 Illes Balears,637
 2019-07,04 Illes Balears,663
@@ -162,7 +162,7 @@
 2019-01,05 Canarias,1722
 2019-02,05 Canarias,1417
 2019-03,05 Canarias,1505
-2019-04,05 Canarias,1289
+2019-04,05 Canarias,1303
 2019-05,05 Canarias,1312
 2019-06,05 Canarias,1199
 2019-07,05 Canarias,1157
@@ -200,7 +200,7 @@
 2019-01,06 Cantabria,541
 2019-02,06 Cantabria,426
 2019-03,06 Cantabria,387
-2019-04,06 Cantabria,410
+2019-04,06 Cantabria,412
 2019-05,06 Cantabria,418
 2019-06,06 Cantabria,374
 2019-07,06 Cantabria,390
@@ -238,7 +238,7 @@
 2019-01,07 Castilla y León,2340
 2019-02,07 Castilla y León,2031
 2019-03,07 Castilla y León,1970
-2019-04,07 Castilla y León,1853
+2019-04,07 Castilla y León,1852
 2019-05,07 Castilla y León,1824
 2019-06,07 Castilla y León,1770
 2019-07,07 Castilla y León,1843
@@ -276,7 +276,7 @@
 2019-01,08 Castilla - La Mancha,2048
 2019-02,08 Castilla - La Mancha,1738
 2019-03,08 Castilla - La Mancha,1678
-2019-04,08 Castilla - La Mancha,1422
+2019-04,08 Castilla - La Mancha,1431
 2019-05,08 Castilla - La Mancha,1565
 2019-06,08 Castilla - La Mancha,1465
 2019-07,08 Castilla - La Mancha,1624
@@ -314,7 +314,7 @@
 2019-01,09 Cataluña,6883
 2019-02,09 Cataluña,5889
 2019-03,09 Cataluña,5547
-2019-04,09 Cataluña,5192
+2019-04,09 Cataluña,5228
 2019-05,09 Cataluña,5119
 2019-06,09 Cataluña,4990
 2019-07,09 Cataluña,5263
@@ -352,7 +352,7 @@
 2019-01,10 Comunitat Valenciana,4722
 2019-02,10 Comunitat Valenciana,3920
 2019-03,10 Comunitat Valenciana,3986
-2019-04,10 Comunitat Valenciana,3602
+2019-04,10 Comunitat Valenciana,3632
 2019-05,10 Comunitat Valenciana,3563
 2019-06,10 Comunitat Valenciana,3284
 2019-07,10 Comunitat Valenciana,3602
@@ -390,7 +390,7 @@
 2019-01,11 Extremadura,1088
 2019-02,11 Extremadura,929
 2019-03,11 Extremadura,929
-2019-04,11 Extremadura,866
+2019-04,11 Extremadura,868
 2019-05,11 Extremadura,860
 2019-06,11 Extremadura,783
 2019-07,11 Extremadura,795
@@ -428,7 +428,7 @@
 2019-01,12 Galicia,3110
 2019-02,12 Galicia,2693
 2019-03,12 Galicia,2783
-2019-04,12 Galicia,2651
+2019-04,12 Galicia,2661
 2019-05,12 Galicia,2461
 2019-06,12 Galicia,2306
 2019-07,12 Galicia,2454
@@ -466,7 +466,7 @@
 2019-01,13 Comunidad de Madrid,4350
 2019-02,13 Comunidad de Madrid,3810
 2019-03,13 Comunidad de Madrid,3665
-2019-04,13 Comunidad de Madrid,3318
+2019-04,13 Comunidad de Madrid,3335
 2019-05,13 Comunidad de Madrid,3380
 2019-06,13 Comunidad de Madrid,3225
 2019-07,13 Comunidad de Madrid,3304
@@ -504,7 +504,7 @@
 2019-01,14 Región de Murcia,1245
 2019-02,14 Región de Murcia,1016
 2019-03,14 Región de Murcia,996
-2019-04,14 Región de Murcia,957
+2019-04,14 Región de Murcia,959
 2019-05,14 Región de Murcia,936
 2019-06,14 Región de Murcia,870
 2019-07,14 Región de Murcia,872
@@ -542,7 +542,7 @@
 2019-01,15 Comunidad Foral de Navarra,543
 2019-02,15 Comunidad Foral de Navarra,461
 2019-03,15 Comunidad Foral de Navarra,456
-2019-04,15 Comunidad Foral de Navarra,447
+2019-04,15 Comunidad Foral de Navarra,450
 2019-05,15 Comunidad Foral de Navarra,451
 2019-06,15 Comunidad Foral de Navarra,457
 2019-07,15 Comunidad Foral de Navarra,458
@@ -580,7 +580,7 @@
 2019-01,16 País Vasco,2304
 2019-02,16 País Vasco,1780
 2019-03,16 País Vasco,1774
-2019-04,16 País Vasco,1733
+2019-04,16 País Vasco,1739
 2019-05,16 País Vasco,1695
 2019-06,16 País Vasco,1528
 2019-07,16 País Vasco,1678
@@ -694,7 +694,7 @@
 2019-01,19 Melilla,56
 2019-02,19 Melilla,31
 2019-03,19 Melilla,45
-2019-04,19 Melilla,44
+2019-04,19 Melilla,46
 2019-05,19 Melilla,38
 2019-06,19 Melilla,48
 2019-07,19 Melilla,41

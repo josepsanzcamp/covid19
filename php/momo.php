@@ -59,7 +59,7 @@ if(!file_exists("middle/datanew-ok8.csv")) {
 	sort($files);
 	$last=end($files);
 	$prev="";
-	$rows=array(array("From","To","Diff"));
+	$rows=array();
 	foreach($files as $key=>$val) {
 		if($prev!="" && $val!=$last) {
 			ob_start();

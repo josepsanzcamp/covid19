@@ -147,34 +147,4 @@ if(!file_exists("middle/datanew-ok6.csv")) {
 	console_debug();
 }
 
-if(!file_exists("middle/datanew-ok7.csv")) {
-	console_debug("middle/datanew-ok7.csv");
-	$files=glob("input/momo/data.????????.csv.gz");
-	sort($files);
-	$last=explode(".",end($files));
-	foreach($files as $key=>$val) {
-		$temp=explode(".",$val);
-		if(!in_array($temp[1],array(20200507,20200523,20200527,20200530,20210420,20210421,$last[1]))) unset($files[$key]);
-	}
-	$sumas=array();
-	foreach($files as $file) {
-		$data=import_file_with_grep($file,"grep -v -e hombres -e mujeres -e edad");
-		$temp=explode(".",$file);
-		$temp=str_split($temp[1],2);
-		$fecha=$temp[0].$temp[1]."-".$temp[2]."-".$temp[3];
-		foreach($data as $key=>$val) {
-			if($val[0]=="nacional" && $val[4]=="all" && $val[6]=="all") {
-				$key2=$fecha.SEPARADOR.substr($val[8],0,7);
-				if(!isset($sumas[$key2])) $sumas[$key2]=array($key2,0);
-				$sumas[$key2][1]+=str_replace(".","",$val[9]);
-			}
-			unset($data[$key]);
-		}
-	}
-	export_file("middle/datanew-ok7.csv",$sumas);
-	unset($sumas);
-	unset($data);
-	console_debug();
-}
-
 ?>

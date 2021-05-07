@@ -10,7 +10,7 @@
 2019-01,01 Andalucía,menos_65,1043
 2019-02,01 Andalucía,menos_65,997
 2019-03,01 Andalucía,menos_65,985
-2019-04,01 Andalucía,menos_65,903
+2019-04,01 Andalucía,menos_65,913
 2019-05,01 Andalucía,menos_65,958
 2019-06,01 Andalucía,menos_65,948
 2019-07,01 Andalucía,menos_65,988
@@ -48,7 +48,7 @@
 2019-01,01 Andalucía,65_74,1104
 2019-02,01 Andalucía,65_74,920
 2019-03,01 Andalucía,65_74,954
-2019-04,01 Andalucía,65_74,883
+2019-04,01 Andalucía,65_74,888
 2019-05,01 Andalucía,65_74,907
 2019-06,01 Andalucía,65_74,846
 2019-07,01 Andalucía,65_74,865
@@ -86,7 +86,7 @@
 2019-01,01 Andalucía,mas_74,5413
 2019-02,01 Andalucía,mas_74,4420
 2019-03,01 Andalucía,mas_74,4309
-2019-04,01 Andalucía,mas_74,4062
+2019-04,01 Andalucía,mas_74,4077
 2019-05,01 Andalucía,mas_74,3993
 2019-06,01 Andalucía,mas_74,3440
 2019-07,01 Andalucía,mas_74,3638
@@ -124,7 +124,7 @@
 2019-01,02 Aragón,menos_65,127
 2019-02,02 Aragón,menos_65,127
 2019-03,02 Aragón,menos_65,114
-2019-04,02 Aragón,menos_65,105
+2019-04,02 Aragón,menos_65,107
 2019-05,02 Aragón,menos_65,116
 2019-06,02 Aragón,menos_65,89
 2019-07,02 Aragón,menos_65,110
@@ -162,7 +162,7 @@
 2019-01,02 Aragón,65_74,130
 2019-02,02 Aragón,65_74,105
 2019-03,02 Aragón,65_74,109
-2019-04,02 Aragón,65_74,118
+2019-04,02 Aragón,65_74,120
 2019-05,02 Aragón,65_74,139
 2019-06,02 Aragón,65_74,129
 2019-07,02 Aragón,65_74,107
@@ -200,7 +200,7 @@
 2019-01,02 Aragón,mas_74,840
 2019-02,02 Aragón,mas_74,724
 2019-03,02 Aragón,mas_74,775
-2019-04,02 Aragón,mas_74,684
+2019-04,02 Aragón,mas_74,696
 2019-05,02 Aragón,mas_74,686
 2019-06,02 Aragón,mas_74,699
 2019-07,02 Aragón,mas_74,769
@@ -314,7 +314,7 @@
 2019-01,03 Principado de Asturias,mas_74,983
 2019-02,03 Principado de Asturias,mas_74,855
 2019-03,03 Principado de Asturias,mas_74,861
-2019-04,03 Principado de Asturias,mas_74,759
+2019-04,03 Principado de Asturias,mas_74,760
 2019-05,03 Principado de Asturias,mas_74,764
 2019-06,03 Principado de Asturias,mas_74,721
 2019-07,03 Principado de Asturias,mas_74,740
@@ -352,7 +352,7 @@
 2019-01,04 Illes Balears,menos_65,128
 2019-02,04 Illes Balears,menos_65,102
 2019-03,04 Illes Balears,menos_65,110
-2019-04,04 Illes Balears,menos_65,123
+2019-04,04 Illes Balears,menos_65,125
 2019-05,04 Illes Balears,menos_65,119
 2019-06,04 Illes Balears,menos_65,114
 2019-07,04 Illes Balears,menos_65,122
@@ -390,7 +390,7 @@
 2019-01,04 Illes Balears,65_74,115
 2019-02,04 Illes Balears,65_74,98
 2019-03,04 Illes Balears,65_74,100
-2019-04,04 Illes Balears,65_74,103
+2019-04,04 Illes Balears,65_74,105
 2019-05,04 Illes Balears,65_74,106
 2019-06,04 Illes Balears,65_74,100
 2019-07,04 Illes Balears,65_74,93
@@ -466,7 +466,7 @@
 2019-01,05 Canarias,menos_65,305
 2019-02,05 Canarias,menos_65,247
 2019-03,05 Canarias,menos_65,285
-2019-04,05 Canarias,menos_65,258
+2019-04,05 Canarias,menos_65,259
 2019-05,05 Canarias,menos_65,253
 2019-06,05 Canarias,menos_65,276
 2019-07,05 Canarias,menos_65,254
@@ -504,7 +504,7 @@
 2019-01,05 Canarias,65_74,281
 2019-02,05 Canarias,65_74,258
 2019-03,05 Canarias,65_74,265
-2019-04,05 Canarias,65_74,228
+2019-04,05 Canarias,65_74,229
 2019-05,05 Canarias,65_74,241
 2019-06,05 Canarias,65_74,219
 2019-07,05 Canarias,65_74,179
@@ -542,7 +542,7 @@
 2019-01,05 Canarias,mas_74,1136
 2019-02,05 Canarias,mas_74,912
 2019-03,05 Canarias,mas_74,955
-2019-04,05 Canarias,mas_74,803
+2019-04,05 Canarias,mas_74,815
 2019-05,05 Canarias,mas_74,818
 2019-06,05 Canarias,mas_74,704
 2019-07,05 Canarias,mas_74,724
@@ -580,7 +580,7 @@
 2019-01,06 Cantabria,menos_65,78
 2019-02,06 Cantabria,menos_65,57
 2019-03,06 Cantabria,menos_65,54
-2019-04,06 Cantabria,menos_65,60
+2019-04,06 Cantabria,menos_65,61
 2019-05,06 Cantabria,menos_65,65
 2019-06,06 Cantabria,menos_65,69
 2019-07,06 Cantabria,menos_65,53
@@ -618,7 +618,7 @@
 2019-01,06 Cantabria,65_74,56
 2019-02,06 Cantabria,65_74,62
 2019-03,06 Cantabria,65_74,59
-2019-04,06 Cantabria,65_74,62
+2019-04,06 Cantabria,65_74,60
 2019-05,06 Cantabria,65_74,59
 2019-06,06 Cantabria,65_74,60
 2019-07,06 Cantabria,65_74,54
@@ -656,7 +656,7 @@
 2019-01,06 Cantabria,mas_74,407
 2019-02,06 Cantabria,mas_74,307
 2019-03,06 Cantabria,mas_74,274
-2019-04,06 Cantabria,mas_74,288
+2019-04,06 Cantabria,mas_74,291
 2019-05,06 Cantabria,mas_74,294
 2019-06,06 Cantabria,mas_74,245
 2019-07,06 Cantabria,mas_74,283
@@ -770,7 +770,7 @@
 2019-01,07 Castilla y León,mas_74,1835
 2019-02,07 Castilla y León,mas_74,1603
 2019-03,07 Castilla y León,mas_74,1513
-2019-04,07 Castilla y León,mas_74,1436
+2019-04,07 Castilla y León,mas_74,1435
 2019-05,07 Castilla y León,mas_74,1380
 2019-06,07 Castilla y León,mas_74,1371
 2019-07,07 Castilla y León,mas_74,1427
@@ -808,7 +808,7 @@
 2019-01,08 Castilla - La Mancha,menos_65,211
 2019-02,08 Castilla - La Mancha,menos_65,197
 2019-03,08 Castilla - La Mancha,menos_65,183
-2019-04,08 Castilla - La Mancha,menos_65,168
+2019-04,08 Castilla - La Mancha,menos_65,174
 2019-05,08 Castilla - La Mancha,menos_65,186
 2019-06,08 Castilla - La Mancha,menos_65,161
 2019-07,08 Castilla - La Mancha,menos_65,195
@@ -884,7 +884,7 @@
 2019-01,08 Castilla - La Mancha,mas_74,1669
 2019-02,08 Castilla - La Mancha,mas_74,1350
 2019-03,08 Castilla - La Mancha,mas_74,1300
-2019-04,08 Castilla - La Mancha,mas_74,1116
+2019-04,08 Castilla - La Mancha,mas_74,1119
 2019-05,08 Castilla - La Mancha,mas_74,1203
 2019-06,08 Castilla - La Mancha,mas_74,1140
 2019-07,08 Castilla - La Mancha,mas_74,1266
@@ -922,7 +922,7 @@
 2019-01,09 Cataluña,menos_65,842
 2019-02,09 Cataluña,menos_65,718
 2019-03,09 Cataluña,menos_65,689
-2019-04,09 Cataluña,menos_65,708
+2019-04,09 Cataluña,menos_65,720
 2019-05,09 Cataluña,menos_65,723
 2019-06,09 Cataluña,menos_65,719
 2019-07,09 Cataluña,menos_65,775
@@ -960,7 +960,7 @@
 2019-01,09 Cataluña,65_74,869
 2019-02,09 Cataluña,65_74,746
 2019-03,09 Cataluña,65_74,722
-2019-04,09 Cataluña,65_74,728
+2019-04,09 Cataluña,65_74,733
 2019-05,09 Cataluña,65_74,663
 2019-06,09 Cataluña,65_74,644
 2019-07,09 Cataluña,65_74,714
@@ -998,7 +998,7 @@
 2019-01,09 Cataluña,mas_74,5172
 2019-02,09 Cataluña,mas_74,4425
 2019-03,09 Cataluña,mas_74,4136
-2019-04,09 Cataluña,mas_74,3756
+2019-04,09 Cataluña,mas_74,3775
 2019-05,09 Cataluña,mas_74,3733
 2019-06,09 Cataluña,mas_74,3627
 2019-07,09 Cataluña,mas_74,3774
@@ -1036,7 +1036,7 @@
 2019-01,10 Comunitat Valenciana,menos_65,615
 2019-02,10 Comunitat Valenciana,menos_65,552
 2019-03,10 Comunitat Valenciana,menos_65,530
-2019-04,10 Comunitat Valenciana,menos_65,485
+2019-04,10 Comunitat Valenciana,menos_65,488
 2019-05,10 Comunitat Valenciana,menos_65,543
 2019-06,10 Comunitat Valenciana,menos_65,524
 2019-07,10 Comunitat Valenciana,menos_65,556
@@ -1074,7 +1074,7 @@
 2019-01,10 Comunitat Valenciana,65_74,698
 2019-02,10 Comunitat Valenciana,65_74,598
 2019-03,10 Comunitat Valenciana,65_74,598
-2019-04,10 Comunitat Valenciana,65_74,530
+2019-04,10 Comunitat Valenciana,65_74,538
 2019-05,10 Comunitat Valenciana,65_74,510
 2019-06,10 Comunitat Valenciana,65_74,537
 2019-07,10 Comunitat Valenciana,65_74,535
@@ -1112,7 +1112,7 @@
 2019-01,10 Comunitat Valenciana,mas_74,3409
 2019-02,10 Comunitat Valenciana,mas_74,2770
 2019-03,10 Comunitat Valenciana,mas_74,2858
-2019-04,10 Comunitat Valenciana,mas_74,2587
+2019-04,10 Comunitat Valenciana,mas_74,2606
 2019-05,10 Comunitat Valenciana,mas_74,2510
 2019-06,10 Comunitat Valenciana,mas_74,2223
 2019-07,10 Comunitat Valenciana,mas_74,2511
@@ -1150,7 +1150,7 @@
 2019-01,11 Extremadura,menos_65,128
 2019-02,11 Extremadura,menos_65,109
 2019-03,11 Extremadura,menos_65,118
-2019-04,11 Extremadura,menos_65,99
+2019-04,11 Extremadura,menos_65,100
 2019-05,11 Extremadura,menos_65,108
 2019-06,11 Extremadura,menos_65,111
 2019-07,11 Extremadura,menos_65,111
@@ -1188,7 +1188,7 @@
 2019-01,11 Extremadura,65_74,113
 2019-02,11 Extremadura,65_74,118
 2019-03,11 Extremadura,65_74,123
-2019-04,11 Extremadura,65_74,114
+2019-04,11 Extremadura,65_74,113
 2019-05,11 Extremadura,65_74,110
 2019-06,11 Extremadura,65_74,106
 2019-07,11 Extremadura,65_74,118
@@ -1226,7 +1226,7 @@
 2019-01,11 Extremadura,mas_74,847
 2019-02,11 Extremadura,mas_74,702
 2019-03,11 Extremadura,mas_74,688
-2019-04,11 Extremadura,mas_74,653
+2019-04,11 Extremadura,mas_74,655
 2019-05,11 Extremadura,mas_74,642
 2019-06,11 Extremadura,mas_74,566
 2019-07,11 Extremadura,mas_74,566
@@ -1264,7 +1264,7 @@
 2019-01,12 Galicia,menos_65,332
 2019-02,12 Galicia,menos_65,305
 2019-03,12 Galicia,menos_65,302
-2019-04,12 Galicia,menos_65,301
+2019-04,12 Galicia,menos_65,302
 2019-05,12 Galicia,menos_65,314
 2019-06,12 Galicia,menos_65,285
 2019-07,12 Galicia,menos_65,314
@@ -1302,7 +1302,7 @@
 2019-01,12 Galicia,65_74,357
 2019-02,12 Galicia,65_74,323
 2019-03,12 Galicia,65_74,344
-2019-04,12 Galicia,65_74,322
+2019-04,12 Galicia,65_74,326
 2019-05,12 Galicia,65_74,334
 2019-06,12 Galicia,65_74,311
 2019-07,12 Galicia,65_74,321
@@ -1340,7 +1340,7 @@
 2019-01,12 Galicia,mas_74,2421
 2019-02,12 Galicia,mas_74,2065
 2019-03,12 Galicia,mas_74,2137
-2019-04,12 Galicia,mas_74,2028
+2019-04,12 Galicia,mas_74,2033
 2019-05,12 Galicia,mas_74,1813
 2019-06,12 Galicia,mas_74,1710
 2019-07,12 Galicia,mas_74,1819
@@ -1378,7 +1378,7 @@
 2019-01,13 Comunidad de Madrid,menos_65,568
 2019-02,13 Comunidad de Madrid,menos_65,453
 2019-03,13 Comunidad de Madrid,menos_65,478
-2019-04,13 Comunidad de Madrid,menos_65,458
+2019-04,13 Comunidad de Madrid,menos_65,470
 2019-05,13 Comunidad de Madrid,menos_65,472
 2019-06,13 Comunidad de Madrid,menos_65,501
 2019-07,13 Comunidad de Madrid,menos_65,515
@@ -1416,7 +1416,7 @@
 2019-01,13 Comunidad de Madrid,65_74,563
 2019-02,13 Comunidad de Madrid,65_74,481
 2019-03,13 Comunidad de Madrid,65_74,500
-2019-04,13 Comunidad de Madrid,65_74,478
+2019-04,13 Comunidad de Madrid,65_74,480
 2019-05,13 Comunidad de Madrid,65_74,430
 2019-06,13 Comunidad de Madrid,65_74,462
 2019-07,13 Comunidad de Madrid,65_74,449
@@ -1454,7 +1454,7 @@
 2019-01,13 Comunidad de Madrid,mas_74,3219
 2019-02,13 Comunidad de Madrid,mas_74,2876
 2019-03,13 Comunidad de Madrid,mas_74,2687
-2019-04,13 Comunidad de Madrid,mas_74,2382
+2019-04,13 Comunidad de Madrid,mas_74,2385
 2019-05,13 Comunidad de Madrid,mas_74,2478
 2019-06,13 Comunidad de Madrid,mas_74,2262
 2019-07,13 Comunidad de Madrid,mas_74,2340
@@ -1492,7 +1492,7 @@
 2019-01,14 Región de Murcia,menos_65,153
 2019-02,14 Región de Murcia,menos_65,150
 2019-03,14 Región de Murcia,menos_65,146
-2019-04,14 Región de Murcia,menos_65,155
+2019-04,14 Región de Murcia,menos_65,156
 2019-05,14 Región de Murcia,menos_65,153
 2019-06,14 Región de Murcia,menos_65,127
 2019-07,14 Región de Murcia,menos_65,150
@@ -1530,7 +1530,7 @@
 2019-01,14 Región de Murcia,65_74,177
 2019-02,14 Región de Murcia,65_74,129
 2019-03,14 Región de Murcia,65_74,134
-2019-04,14 Región de Murcia,65_74,124
+2019-04,14 Región de Murcia,65_74,125
 2019-05,14 Región de Murcia,65_74,110
 2019-06,14 Región de Murcia,65_74,122
 2019-07,14 Región de Murcia,65_74,113
@@ -1606,7 +1606,7 @@
 2019-01,15 Comunidad Foral de Navarra,menos_65,57
 2019-02,15 Comunidad Foral de Navarra,menos_65,51
 2019-03,15 Comunidad Foral de Navarra,menos_65,53
-2019-04,15 Comunidad Foral de Navarra,menos_65,52
+2019-04,15 Comunidad Foral de Navarra,menos_65,53
 2019-05,15 Comunidad Foral de Navarra,menos_65,52
 2019-06,15 Comunidad Foral de Navarra,menos_65,55
 2019-07,15 Comunidad Foral de Navarra,menos_65,61
@@ -1644,7 +1644,7 @@
 2019-01,15 Comunidad Foral de Navarra,65_74,61
 2019-02,15 Comunidad Foral de Navarra,65_74,59
 2019-03,15 Comunidad Foral de Navarra,65_74,66
-2019-04,15 Comunidad Foral de Navarra,65_74,47
+2019-04,15 Comunidad Foral de Navarra,65_74,48
 2019-05,15 Comunidad Foral de Navarra,65_74,59
 2019-06,15 Comunidad Foral de Navarra,65_74,67
 2019-07,15 Comunidad Foral de Navarra,65_74,53
@@ -1682,7 +1682,7 @@
 2019-01,15 Comunidad Foral de Navarra,mas_74,425
 2019-02,15 Comunidad Foral de Navarra,mas_74,351
 2019-03,15 Comunidad Foral de Navarra,mas_74,337
-2019-04,15 Comunidad Foral de Navarra,mas_74,348
+2019-04,15 Comunidad Foral de Navarra,mas_74,349
 2019-05,15 Comunidad Foral de Navarra,mas_74,340
 2019-06,15 Comunidad Foral de Navarra,mas_74,335
 2019-07,15 Comunidad Foral de Navarra,mas_74,344
@@ -1720,7 +1720,7 @@
 2019-01,16 País Vasco,menos_65,261
 2019-02,16 País Vasco,menos_65,184
 2019-03,16 País Vasco,menos_65,247
-2019-04,16 País Vasco,menos_65,200
+2019-04,16 País Vasco,menos_65,203
 2019-05,16 País Vasco,menos_65,208
 2019-06,16 País Vasco,menos_65,206
 2019-07,16 País Vasco,menos_65,235
@@ -1758,7 +1758,7 @@
 2019-01,16 País Vasco,65_74,282
 2019-02,16 País Vasco,65_74,231
 2019-03,16 País Vasco,65_74,223
-2019-04,16 País Vasco,65_74,234
+2019-04,16 País Vasco,65_74,235
 2019-05,16 País Vasco,65_74,234
 2019-06,16 País Vasco,65_74,185
 2019-07,16 País Vasco,65_74,204
@@ -1796,7 +1796,7 @@
 2019-01,16 País Vasco,mas_74,1761
 2019-02,16 País Vasco,mas_74,1365
 2019-03,16 País Vasco,mas_74,1304
-2019-04,16 País Vasco,mas_74,1299
+2019-04,16 País Vasco,mas_74,1301
 2019-05,16 País Vasco,mas_74,1253
 2019-06,16 País Vasco,mas_74,1137
 2019-07,16 País Vasco,mas_74,1239
@@ -2062,7 +2062,7 @@
 2019-01,19 Melilla,menos_65,23
 2019-02,19 Melilla,menos_65,8
 2019-03,19 Melilla,menos_65,11
-2019-04,19 Melilla,menos_65,13
+2019-04,19 Melilla,menos_65,14
 2019-05,19 Melilla,menos_65,7
 2019-06,19 Melilla,menos_65,12
 2019-07,19 Melilla,menos_65,10
@@ -2138,7 +2138,7 @@
 2019-01,19 Melilla,mas_74,26
 2019-02,19 Melilla,mas_74,19
 2019-03,19 Melilla,mas_74,25
-2019-04,19 Melilla,mas_74,22
+2019-04,19 Melilla,mas_74,23
 2019-05,19 Melilla,mas_74,26
 2019-06,19 Melilla,mas_74,31
 2019-07,19 Melilla,mas_74,23

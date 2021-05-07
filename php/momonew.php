@@ -12,7 +12,7 @@ if(!file_exists("middle/datanew.csv")) {
 	$last=explode(".",end($files));
 	foreach($files as $key=>$val) {
 		$temp=explode(".",$val);
-		if(!in_array($temp[1],array(20200507,20200530,$last[1]))) unset($files[$key]);
+		if(!in_array($temp[1],array(20200507,20200530,20210421,$last[1]))) unset($files[$key]);
 	}
 	$result=array();
 	foreach($files as $file) {

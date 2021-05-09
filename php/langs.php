@@ -399,6 +399,16 @@ $textos=array(
 			"es"=>"Media INE2018",
 			"en"=>"Median INE2018",
 		),
+		"semana"=>array(
+			"ca"=>"Any i setmana",
+			"es"=>"Año y semana",
+			"en"=>"Year and week",
+		),
+		"original"=>array(
+			"ca"=>"Original sense correcció",
+			"es"=>"Original sin corrección",
+			"en"=>"Original without correction",
+		),
 	),
 );
 

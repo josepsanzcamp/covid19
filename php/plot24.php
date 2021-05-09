@@ -45,11 +45,26 @@ if(!file_exists("output/plot24${lang}1.png")) {
 		}
 		foreach($matrix2 as $key2=>$val2) {
 			$matrix2[$key2][2]=$media*7;
+			$matrix2[$key2][3]=$key2;
 		}
 	}
+	// CORRECCIONS
+	$correccions=array(
+		array("2021-01","2021-02"),
+		array("2021-15","2021-16"),
+		array("2020-42","2020-43"),
+	);
+	foreach($correccions as $correccio) {
+		$matrix2[$correccio[0]][4]=$matrix2[$correccio[0]][1];
+		$matrix2[$correccio[1]][4]=$matrix2[$correccio[1]][1];
+		$temp=($matrix2[$correccio[0]][1]+$matrix2[$correccio[1]][1])/2;
+		$matrix2[$correccio[0]][1]=$temp;
+		$matrix2[$correccio[1]][1]=$temp;
+	}
+	// CONTINUAR
 	array_unshift($matrix1,array($textos["plot24"]["fecha"][$lang],$textos["plot24"]["diario"][$lang],$textos["plot24"]["media"][$lang]));
 	export_file("middle/plot24${lang}1.csv",$matrix1);
-	array_unshift($matrix2,array($textos["plot24"]["fecha"][$lang],$textos["plot24"]["semanal"][$lang],$textos["plot24"]["media"][$lang]));
+	array_unshift($matrix2,array($textos["plot24"]["fecha"][$lang],$textos["plot24"]["semanal"][$lang],$textos["plot24"]["media"][$lang],$textos["plot24"]["semana"][$lang],$textos["plot24"]["original"][$lang]));
 	export_file("middle/plot24${lang}2.csv",$matrix2);
 	$gnuplot=implode("\n",array(
 		"set terminal png size 1200,600 enhanced font ',11'",
@@ -75,7 +90,7 @@ if(!file_exists("output/plot24${lang}1.png")) {
 		"plot 'middle/plot24${lang}1.csv' u 1:2 w l ti col, '' u 1:3 w l ti col",
 		"set ytics 0,2000,20000",
 		"set output 'output/plot24${lang}2.png'",
-		"set label 1 \"".$textos["plot24"]["escala"][$lang]."\" at '2020-09-15',13000 c tc lt 1",
+		"set label 1 \"".$textos["plot24"]["escala"][$lang]."\" at '2020-09-15',11000 c tc lt 1",
 		"plot 'middle/plot24${lang}2.csv' u 1:2 w lp ti col, '' u 1:3 w l ti col",
 	))."\n";
 	file_put_contents("middle/plot24${lang}.gnu",$gnuplot);

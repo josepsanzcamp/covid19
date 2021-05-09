@@ -63,7 +63,7 @@ if(!file_exists("middle/datanew-ok8.csv")) {
 	foreach($files as $key=>$val) {
 		if($prev!="" && $val!=$last) {
 			ob_start();
-			passthru("bash -c 'diff <(head -n 365 $prev) <(head -n 365 $val) | wc -l'");
+			passthru("bash -c 'diff <(head -n 365 $prev) <(head -n 365 $val)' | grep -e '<' -e '>' | wc -l");
 			$diff=trim(ob_get_clean());
 			$fecha1=explode(".",$prev);
 			$fecha1=str_split($fecha1[1],2);

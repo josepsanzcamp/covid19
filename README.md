@@ -95,6 +95,8 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.scb.se/en/About-us/news-and-press-releases/highest-mortality-this-millennium-noted-in-sweden/ => Statistics Sweden
 - https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/population-composition/population-statistics/pong/tables-and-graphs/preliminary-statistics-on-deaths/
 - wget -O sweden/$(date +"%Y-%m-%d")-preliminar_statistik_over_doda_inkl_eng.xlsx https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/population-composition/population-statistics/pong/tables-and-graphs/preliminary-statistics-on-deaths/
+- wget -q -O - https://www.scb.se/en/About-us/news-and-press-releases/highest-mortality-this-millennium-noted-in-sweden/ | grep -i excel | grep href | cut -d'"' -f4 | gawk '{print "https://www.scb.se"$0}' | xargs wget -O sweden/$(date +"%Y-%m-%d")-preliminar_statistik_over_doda_inkl_eng.xlsx
+
 
 # Noruega
 - https://www.ssb.no/en/statbank/list/dode/ => Statistics Norway

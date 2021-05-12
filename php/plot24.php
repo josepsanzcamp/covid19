@@ -46,6 +46,7 @@ if(!file_exists("output/plot24${lang}1.png")) {
 		foreach($matrix2 as $key2=>$val2) {
 			$matrix2[$key2][2]=$media*7;
 			$matrix2[$key2][3]=$key2;
+			$matrix2[$key2][4]="";
 		}
 	}
 	// CORRECCIONS

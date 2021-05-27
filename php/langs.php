@@ -187,6 +187,11 @@ $textos=array(
 			"es"=>"25. Población por edades obtenido del INE del año 2019 (la unidad es el millón de personas)",
 			"en"=>"25. Population by age obtained from the INE of year 2019 (the unit is the million people)",
 		),
+		"26"=>array(
+			"ca"=>"26. Número de línies de diferència entre cada fitxer del MoMo comparant només les 365 primeres línies de dades",
+			"es"=>"26. Número de líneas de diferencia entre cada fichero del MoMo comparando solo las 365 primeras lineas de datos",
+			"en"=>"26. Number of difference lines between each MoMo file comparing only the first 365 lines of data",
+		),
 	),
 	"meses"=>array(
 		"ca"=>array(
@@ -408,6 +413,23 @@ $textos=array(
 			"ca"=>"Original sense correcció",
 			"es"=>"Original sin corrección",
 			"en"=>"Original without correction",
+		),
+	),
+	"plot26"=>array(
+		"fecha1"=>array(
+			"ca"=>"Data primer fitxer",
+			"es"=>"Fecha primer fichero",
+			"en"=>"Date first file",
+		),
+		"fecha2"=>array(
+			"ca"=>"Data segon fitxer",
+			"es"=>"Fecha segundo fichero",
+			"en"=>"Date second file",
+		),
+		"diff"=>array(
+			"ca"=>"Número de línies",
+			"es"=>"Número de lineas",
+			"en"=>"Number of lines",
 		),
 	),
 );

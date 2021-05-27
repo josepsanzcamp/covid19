@@ -17,7 +17,7 @@ index:
 	time -p php php/program.php
 
 momo:
-	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]* output/plot2[2,4]*
+	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]* output/plot2[2,4,6]*
 	time -p php php/program.php
 
 momo2wave:

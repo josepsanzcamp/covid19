@@ -61,5 +61,5 @@ spain:
 	time -p php php/program.php
 
 indef:
-	rm -f middle/defunciones.csv output/plot20*
+	rm -f middle/defunciones.csv output/plot2[0,3]*
 	time -p php php/program.php

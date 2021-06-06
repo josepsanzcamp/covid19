@@ -53,27 +53,4 @@ if(!file_exists("middle/datanew-ok7.csv")) {
 	console_debug();
 }
 
-if(!file_exists("middle/datanew-ok8.csv")) {
-	console_debug("middle/datanew-ok8.csv");
-	$files=glob("middle/data.????????.csv");
-	sort($files);
-	$rows=array();
-	foreach($files as $key=>$val) {
-		if($key==0) continue;
-		$prev=$files[$key-1];
-		ob_start();
-		passthru("bash -c 'diff <(head -n 365 $prev) <(head -n 365 $val)' | grep -e '<' -e '>' | wc -l");
-		$diff=trim(ob_get_clean());
-		$fecha1=explode(".",$prev);
-		$fecha1=str_split($fecha1[1],2);
-		$fecha1=$fecha1[0].$fecha1[1]."-".$fecha1[2]."-".$fecha1[3];
-		$fecha2=explode(".",$val);
-		$fecha2=str_split($fecha2[1],2);
-		$fecha2=$fecha2[0].$fecha2[1]."-".$fecha2[2]."-".$fecha2[3];
-		$rows[]=array($fecha1,$fecha2,$diff);
-	}
-	export_file("middle/datanew-ok8.csv",$rows);
-	console_debug();
-}
-
 ?>

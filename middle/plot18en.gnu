@@ -86,80 +86,84 @@ set yrange [0:70]
 set ytics 0,14,56
 set output 'output/plot18en18.png'
 plot 'middle/plot18en.csv' u 1:121 w lp ti col,'' u 1:122 w lp ti col,'' u 1:123 w lp ti col,'' u 1:124 w lp ti col,'' u 1:125 w lp ti col,'' u 1:126 w lp ti col,'' u 1:127 w lp ti col
-set yrange [0:30000]
-set ytics 0,6000,24000
+set yrange [0:1100]
+set ytics 0,220,880
 set output 'output/plot18en19.png'
 plot 'middle/plot18en.csv' u 1:128 w lp ti col,'' u 1:129 w lp ti col,'' u 1:130 w lp ti col,'' u 1:131 w lp ti col,'' u 1:132 w lp ti col,'' u 1:133 w lp ti col,'' u 1:134 w lp ti col
-set yrange [0:2000]
-set ytics 0,400,1600
+set yrange [0:30000]
+set ytics 0,6000,24000
 set output 'output/plot18en20.png'
 plot 'middle/plot18en.csv' u 1:135 w lp ti col,'' u 1:136 w lp ti col,'' u 1:137 w lp ti col,'' u 1:138 w lp ti col,'' u 1:139 w lp ti col,'' u 1:140 w lp ti col,'' u 1:141 w lp ti col
-set yrange [0:20]
-set ytics 0,4,16
-set output 'output/plot18en21.png'
-plot 'middle/plot18en.csv' u 1:142 w lp ti col,'' u 1:143 w lp ti col,'' u 1:144 w lp ti col,'' u 1:145 w lp ti col,'' u 1:146 w lp ti col,'' u 1:147 w lp ti col,'' u 1:148 w lp ti col
 set yrange [0:2000]
 set ytics 0,400,1600
+set output 'output/plot18en21.png'
+plot 'middle/plot18en.csv' u 1:142 w lp ti col,'' u 1:143 w lp ti col,'' u 1:144 w lp ti col,'' u 1:145 w lp ti col,'' u 1:146 w lp ti col,'' u 1:147 w lp ti col,'' u 1:148 w lp ti col
+set yrange [0:20]
+set ytics 0,4,16
 set output 'output/plot18en22.png'
 plot 'middle/plot18en.csv' u 1:149 w lp ti col,'' u 1:150 w lp ti col,'' u 1:151 w lp ti col,'' u 1:152 w lp ti col,'' u 1:153 w lp ti col,'' u 1:154 w lp ti col,'' u 1:155 w lp ti col
-set yrange [0:200]
-set ytics 0,40,160
+set yrange [0:2000]
+set ytics 0,400,1600
 set output 'output/plot18en23.png'
 plot 'middle/plot18en.csv' u 1:156 w lp ti col,'' u 1:157 w lp ti col,'' u 1:158 w lp ti col,'' u 1:159 w lp ti col,'' u 1:160 w lp ti col,'' u 1:161 w lp ti col,'' u 1:162 w lp ti col
 set yrange [0:200]
 set ytics 0,40,160
 set output 'output/plot18en24.png'
 plot 'middle/plot18en.csv' u 1:163 w lp ti col,'' u 1:164 w lp ti col,'' u 1:165 w lp ti col,'' u 1:166 w lp ti col,'' u 1:167 w lp ti col,'' u 1:168 w lp ti col,'' u 1:169 w lp ti col
-set yrange [0:300]
-set ytics 0,60,240
+set yrange [0:200]
+set ytics 0,40,160
 set output 'output/plot18en25.png'
 plot 'middle/plot18en.csv' u 1:170 w lp ti col,'' u 1:171 w lp ti col,'' u 1:172 w lp ti col,'' u 1:173 w lp ti col,'' u 1:174 w lp ti col,'' u 1:175 w lp ti col,'' u 1:176 w lp ti col
-set yrange [0:6000]
-set ytics 0,1200,4800
+set yrange [0:300]
+set ytics 0,60,240
 set output 'output/plot18en26.png'
 plot 'middle/plot18en.csv' u 1:177 w lp ti col,'' u 1:178 w lp ti col,'' u 1:179 w lp ti col,'' u 1:180 w lp ti col,'' u 1:181 w lp ti col,'' u 1:182 w lp ti col,'' u 1:183 w lp ti col
-set yrange [0:2000]
-set ytics 0,400,1600
-set output 'output/plot18en27.png'
-plot 'middle/plot18en.csv' u 1:184 w lp ti col,'' u 1:185 w lp ti col,'' u 1:186 w lp ti col,'' u 1:187 w lp ti col,'' u 1:188 w lp ti col,'' u 1:189 w lp ti col,'' u 1:190 w lp ti col
-set yrange [0:20000]
-set ytics 0,4000,16000
-set output 'output/plot18en28.png'
-plot 'middle/plot18en.csv' u 1:191 w lp ti col,'' u 1:192 w lp ti col,'' u 1:193 w lp ti col,'' u 1:194 w lp ti col,'' u 1:195 w lp ti col,'' u 1:196 w lp ti col,'' u 1:197 w lp ti col
 set yrange [0:6000]
 set ytics 0,1200,4800
+set output 'output/plot18en27.png'
+plot 'middle/plot18en.csv' u 1:184 w lp ti col,'' u 1:185 w lp ti col,'' u 1:186 w lp ti col,'' u 1:187 w lp ti col,'' u 1:188 w lp ti col,'' u 1:189 w lp ti col,'' u 1:190 w lp ti col
+set yrange [0:2000]
+set ytics 0,400,1600
+set output 'output/plot18en28.png'
+plot 'middle/plot18en.csv' u 1:191 w lp ti col,'' u 1:192 w lp ti col,'' u 1:193 w lp ti col,'' u 1:194 w lp ti col,'' u 1:195 w lp ti col,'' u 1:196 w lp ti col,'' u 1:197 w lp ti col
+set yrange [0:20000]
+set ytics 0,4000,16000
 set output 'output/plot18en29.png'
 plot 'middle/plot18en.csv' u 1:198 w lp ti col,'' u 1:199 w lp ti col,'' u 1:200 w lp ti col,'' u 1:201 w lp ti col,'' u 1:202 w lp ti col,'' u 1:203 w lp ti col,'' u 1:204 w lp ti col
-set yrange [0:10000]
-set ytics 0,2000,8000
+set yrange [0:6000]
+set ytics 0,1200,4800
 set output 'output/plot18en30.png'
 plot 'middle/plot18en.csv' u 1:205 w lp ti col,'' u 1:206 w lp ti col,'' u 1:207 w lp ti col,'' u 1:208 w lp ti col,'' u 1:209 w lp ti col,'' u 1:210 w lp ti col,'' u 1:211 w lp ti col
-set yrange [0:5000]
-set ytics 0,1000,4000
+set yrange [0:10000]
+set ytics 0,2000,8000
 set output 'output/plot18en31.png'
 plot 'middle/plot18en.csv' u 1:212 w lp ti col,'' u 1:213 w lp ti col,'' u 1:214 w lp ti col,'' u 1:215 w lp ti col,'' u 1:216 w lp ti col,'' u 1:217 w lp ti col,'' u 1:218 w lp ti col
-set yrange [0:3000]
-set ytics 0,600,2400
+set yrange [0:5000]
+set ytics 0,1000,4000
 set output 'output/plot18en32.png'
 plot 'middle/plot18en.csv' u 1:219 w lp ti col,'' u 1:220 w lp ti col,'' u 1:221 w lp ti col,'' u 1:222 w lp ti col,'' u 1:223 w lp ti col,'' u 1:224 w lp ti col,'' u 1:225 w lp ti col
-set yrange [0:900]
-set ytics 0,180,720
-set output 'output/plot18en33.png'
-plot 'middle/plot18en.csv' u 1:226 w lp ti col,'' u 1:227 w lp ti col,'' u 1:228 w lp ti col,'' u 1:229 w lp ti col,'' u 1:230 w lp ti col,'' u 1:231 w lp ti col,'' u 1:232 w lp ti col
-set yrange [0:30000]
-set ytics 0,6000,24000
-set output 'output/plot18en34.png'
-plot 'middle/plot18en.csv' u 1:233 w lp ti col,'' u 1:234 w lp ti col,'' u 1:235 w lp ti col,'' u 1:236 w lp ti col,'' u 1:237 w lp ti col,'' u 1:238 w lp ti col,'' u 1:239 w lp ti col
 set yrange [0:3000]
 set ytics 0,600,2400
+set output 'output/plot18en33.png'
+plot 'middle/plot18en.csv' u 1:226 w lp ti col,'' u 1:227 w lp ti col,'' u 1:228 w lp ti col,'' u 1:229 w lp ti col,'' u 1:230 w lp ti col,'' u 1:231 w lp ti col,'' u 1:232 w lp ti col
+set yrange [0:900]
+set ytics 0,180,720
+set output 'output/plot18en34.png'
+plot 'middle/plot18en.csv' u 1:233 w lp ti col,'' u 1:234 w lp ti col,'' u 1:235 w lp ti col,'' u 1:236 w lp ti col,'' u 1:237 w lp ti col,'' u 1:238 w lp ti col,'' u 1:239 w lp ti col
+set yrange [0:30000]
+set ytics 0,6000,24000
 set output 'output/plot18en35.png'
 plot 'middle/plot18en.csv' u 1:240 w lp ti col,'' u 1:241 w lp ti col,'' u 1:242 w lp ti col,'' u 1:243 w lp ti col,'' u 1:244 w lp ti col,'' u 1:245 w lp ti col,'' u 1:246 w lp ti col
 set yrange [0:3000]
 set ytics 0,600,2400
 set output 'output/plot18en36.png'
 plot 'middle/plot18en.csv' u 1:247 w lp ti col,'' u 1:248 w lp ti col,'' u 1:249 w lp ti col,'' u 1:250 w lp ti col,'' u 1:251 w lp ti col,'' u 1:252 w lp ti col,'' u 1:253 w lp ti col
-set yrange [0:30000]
-set ytics 0,6000,24000
+set yrange [0:3000]
+set ytics 0,600,2400
 set output 'output/plot18en37.png'
 plot 'middle/plot18en.csv' u 1:254 w lp ti col,'' u 1:255 w lp ti col,'' u 1:256 w lp ti col,'' u 1:257 w lp ti col,'' u 1:258 w lp ti col,'' u 1:259 w lp ti col,'' u 1:260 w lp ti col
+set yrange [0:30000]
+set ytics 0,6000,24000
+set output 'output/plot18en38.png'
+plot 'middle/plot18en.csv' u 1:261 w lp ti col,'' u 1:262 w lp ti col,'' u 1:263 w lp ti col,'' u 1:264 w lp ti col,'' u 1:265 w lp ti col,'' u 1:266 w lp ti col,'' u 1:267 w lp ti col
 

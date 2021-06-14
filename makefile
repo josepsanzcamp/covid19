@@ -63,3 +63,6 @@ spain:
 indef:
 	rm -f middle/defunciones.csv output/plot2[0,3]*
 	time -p php php/program.php
+
+commit:
+	php scripts/gitcommit.php

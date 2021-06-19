@@ -1,6 +1,6 @@
 <?php
 ob_start();
-passthru("git status | grep input | cut -d/ -f2");
+passthru("git status | grep input | cut -d/ -f2 | sort -u");
 $items=explode("\n",trim(ob_get_clean()));
 $items=array_diff($items,array(""));
 $total=count($items);

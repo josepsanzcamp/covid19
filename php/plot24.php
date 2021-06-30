@@ -62,6 +62,12 @@ if(!file_exists("output/plot24${lang}1.png")) {
 		$matrix2[$correccio[0]][1]=$temp;
 		$matrix2[$correccio[1]][1]=$temp;
 	}
+    // CALCULO DE FECHAS
+    $fecha1=$matrix1[0][0];
+    $fecha2=$matrix1[count($matrix1)-1][0];
+    $fecha3=date("Y-m-d",strtotime("$fecha1 + 1 month"));
+    $fecha3=substr($fecha3,0,-2)."01";
+    $fecha4=substr($fecha2,0,-2)."01";
 	// CONTINUAR
 	array_unshift($matrix1,array($textos["plot24"]["fecha"][$lang],$textos["plot24"]["diario"][$lang],$textos["plot24"]["media"][$lang]));
 	export_file("middle/plot24${lang}1.csv",$matrix1);
@@ -73,15 +79,16 @@ if(!file_exists("output/plot24${lang}1.png")) {
 		"set grid",
 		"set tmargin 3",
 		"set rmargin 6",
-		"set bmargin 3",
+		"set bmargin 5",
 		"set lmargin 6",
 		"set auto x",
 		"set auto y",
 		"set xdata time",
 		"set timefmt '%Y-%m-%d'",
 		"set format x '%Y-%m-%d'",
-		"set xtics '2020-06-01',86400*30,'2021-06-01'",
-		"set xrange ['2020-05-01':'2021-07-01']",
+        "set xtics rotate by -45",
+		"set xtics '${fecha3}',86400*30,'${fecha4}'",
+		"set xrange ['${fecha1}':'${fecha2}']",
 		"set ytic center rotate by 90",
 		"set datafile separator '".SEPARADOR."'",
 		"set colors classic",

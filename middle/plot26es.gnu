@@ -3,15 +3,16 @@ set title "26. Número de líneas de diferencia entre cada fichero del MoMo comp
 set grid
 set tmargin 3
 set rmargin 6
-set bmargin 3
+set bmargin 5
 set lmargin 6
 set auto x
 set auto y
 set xdata time
 set timefmt '%Y-%m-%d'
 set format x '%Y-%m-%d'
+set xtics rotate by -45
 set xtics '2020-06-01',86400*30,'2021-06-01'
-set xrange ['2020-05-01':'2021-07-01']
+set xrange ['2020-05-23':'2021-06-30']
 set ytic center rotate by 90
 set datafile separator ','
 set colors classic

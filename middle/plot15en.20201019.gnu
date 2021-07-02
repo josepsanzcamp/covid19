@@ -1,5 +1,5 @@
 set terminal gif size 1200,600 enhanced font ',11'
-set title "15. Evolution of the second wave deaths per day obtained from the MoMo by 2020, 2019, 2018 and the 2018 average (2020-10-19)"
+set title "15. Evolution of the second wave deaths per day obtained from the MoMo by 2018, 2019, 2020 and the 2018 average (2020-10-19)"
 set grid
 set tmargin 3
 set rmargin 6

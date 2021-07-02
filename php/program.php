@@ -23,10 +23,10 @@ include("php/indef.php");
 include("php/langs.php");
 
 foreach(array("ca","es","en") as $lang) {
-	$plots=glob("php/plot??.php");
-	foreach($plots as $plot) include($plot);
+    $plots=glob("php/plot??.php");
+    foreach($plots as $plot) include($plot);
 
-	include("php/index2.php");
+    include("php/index2.php");
 
 }
 

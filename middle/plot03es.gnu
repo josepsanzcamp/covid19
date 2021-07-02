@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "3. Defunciones por dia obtenidos del MoMo para el 2021, 2020, 2019, 2018 y la media del 2018"
+set title "3. Defunciones por dia obtenidos del MoMo para el 2018, 2019, 2020, 2021 y la media del 2018"
 set grid
 set tmargin 3
 set rmargin 6

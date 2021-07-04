@@ -1,58 +1,58 @@
 
 .jumbotron {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-	margin-bottom: 0;
-	background-color: #fff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
 }
 
 @media (min-width: 768px) {
-	.jumbotron {
-		padding-top: 6rem;
-		padding-bottom: 6rem;
-	}
+    .jumbotron {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
 }
 
 .jumbotron p:last-child {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .jumbotron h1 {
-	font-weight: 300;
+    font-weight: 300;
 }
 
 .jumbotron .container {
-	max-width: 40rem;
+    max-width: 40rem;
 }
 
 footer {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 footer p {
-	margin-bottom: .25rem;
+    margin-bottom: .25rem;
 }
 
 @media (max-width: 575.98px) {
-	.navbar-toggler {
-		position:absolute;
-		top:0.5rem;
-		right:2rem;
-	}
+    .navbar-toggler {
+        position:absolute;
+        top:0.5rem;
+        right:2rem;
+    }
 
-	.navbar-brand {
-		margin-right:4rem;
-	}
+    .navbar-brand {
+        margin-right:4rem;
+    }
 }
 
 /* BLACK ARROWS */
 .ekko-lightbox-nav-overlay a {
-	color:#000;
+    color:#000;
 }
 
 /* FOR POSITION */
 .ekko-lightbox-nav-overlay a span {
-	padding:0;
+    padding:0;
 }
 

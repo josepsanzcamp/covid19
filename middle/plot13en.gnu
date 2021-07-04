@@ -17,4 +17,10 @@ set ytics 0,150,750
 set datafile separator ','
 set colors classic
 set output 'output/plot13en.png'
-plot 'middle/plot13en.csv' u 1:8 w l ti col,'' u 1:9 w l ti col,'' u 1:10 w l ti col,'' u 1:11 w l ti col,'' u 1:12 w l ti col,'' u 1:13 w l ti col,'' u 1:14 w l ti col
+plot 'middle/plot13en.csv' u 1:8 w l ti col,\
+            '' u 1:9 w l ti col,\
+            '' u 1:10 w l ti col,\
+            '' u 1:11 w l ti col,\
+            '' u 1:12 w l ti col,\
+            '' u 1:13 w l ti col,\
+            '' u 1:14 w l ti col

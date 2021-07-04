@@ -17,4 +17,6 @@ set ytics 0,100000,500000
 set datafile separator ','
 set colors classic
 set output 'output/plot23es.png'
-plot 'middle/plot23es.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col
+plot 'middle/plot23es.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col

@@ -17,4 +17,7 @@ set ytics 0,1.5,7.5
 set datafile separator ','
 set colors classic
 set output 'output/plot25ca.png'
-plot 'middle/plot25ca.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col
+plot 'middle/plot25ca.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col,\
+            '' u 4:xtic(1) ti col,\
+            '' u 5:xtic(1) ti col

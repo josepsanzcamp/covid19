@@ -18,7 +18,11 @@ set datafile separator ','
 set colors classic
 set output 'output/plot07es1.png'
 set xrange [-0.5:21.5]
-plot 'middle/plot07es.csv' u 2:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 6:xtic(1) ti col
+plot 'middle/plot07es.csv' u 2:xtic(1) ti col,\
+            '' u 4:xtic(1) ti col,\
+            '' u 6:xtic(1) ti col
 set output 'output/plot07es2.png'
 set xrange [21.5:43.5]
-plot 'middle/plot07es.csv' u 2:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 6:xtic(1) ti col
+plot 'middle/plot07es.csv' u 2:xtic(1) ti col,\
+            '' u 4:xtic(1) ti col,\
+            '' u 6:xtic(1) ti col

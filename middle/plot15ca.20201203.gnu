@@ -17,4 +17,7 @@ set datafile separator ','
 set colors classic
 set output 'output/plot15ca.20201203.gif'
 set xrange ['2020-10-01':'2021-01-01']
-plot 'middle/plot15ca.20201203.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w l ti col
+plot 'middle/plot15ca.20201203.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w l ti col

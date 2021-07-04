@@ -13,8 +13,8 @@ hash1=$(md5sum $file1|cut -d' ' -f1)
 #~ echo $hash0
 #~ echo $hash1
 if [ "$hash0" != "$hash1" -a ! -f "$file2" ]; then
-	echo "Copiar $i"
-	cp $file1 $file2
+    echo "Copiar $i"
+    cp $file1 $file2
 fi
 
 # eurostat
@@ -32,8 +32,8 @@ hash2=$(md5sum $file2|cut -d' ' -f1)
 #~ echo $hash1
 #~ echo $hash2
 if [ "$hash0" != "$hash1" -a "$hash1" != "$hash2" ]; then
-	echo "Copiar $i"
-	cp $file1 $file2
+    echo "Copiar $i"
+    cp $file1 $file2
 fi
 
 # france
@@ -49,8 +49,8 @@ hash1=$(md5sum $file1|cut -d' ' -f1)
 #~ echo $hash0
 #~ echo $hash1
 if [ "$hash0" != "$hash1" -a ! -f "$file2" ]; then
-	echo "Copiar $i"
-	cp $file1 $file2
+    echo "Copiar $i"
+    cp $file1 $file2
 fi
 
 # germany
@@ -68,18 +68,18 @@ hash2=$(zcat $file2|gawk 'BEGIN{num=0}{if(match($0,/table/))num=(num+1)%2;if(num
 #~ echo $hash1
 #~ echo $hash2
 if [ "$hash0" != "$hash1" -a "$hash1" != "$hash2" ]; then
-	echo "Copiar $i"
-	cp $file1 $file2
+    echo "Copiar $i"
+    cp $file1 $file2
 fi
 
 # momo
 i=momo
 for file1 in $(find $i/*); do
-	file2="../../covid19/input/$file1"
-	if [ ! -f "$file2" ]; then
-		echo "Copiar $file1"
-		cp $file1 $file2
-	fi
+    file2="../../covid19/input/$file1"
+    if [ ! -f "$file2" ]; then
+        echo "Copiar $file1"
+        cp $file1 $file2
+    fi
 done
 
 # norway
@@ -97,8 +97,8 @@ hash2=$(md5sum $file2|cut -d' ' -f1)
 #~ echo $hash1
 #~ echo $hash2
 if [ "$hash0" != "$hash1" -a "$hash1" != "$hash2" ]; then
-	echo "Copiar $i"
-	cp $file1 $file2
+    echo "Copiar $i"
+    cp $file1 $file2
 fi
 
 # portugal
@@ -116,8 +116,8 @@ hash2=$(md5sum $file2|cut -d' ' -f1)
 #~ echo $hash1
 #~ echo $hash2
 if [ "$hash0" != "$hash1" -a "$hash1" != "$hash2" ]; then
-	echo "Copiar $i"
-	cp $file1 $file2
+    echo "Copiar $i"
+    cp $file1 $file2
 fi
 
 # spain
@@ -135,8 +135,8 @@ hash2=$(md5sum $file2|cut -d' ' -f1)
 #~ echo $hash1
 #~ echo $hash2
 if [ "$hash0" != "$hash1" -a "$hash1" != "$hash2" ]; then
-	echo "Copiar $i"
-	cp $file1 $file2
+    echo "Copiar $i"
+    cp $file1 $file2
 fi
 
 # sweden
@@ -154,7 +154,7 @@ hash2=$(md5sum $file2|cut -d' ' -f1)
 #~ echo $hash1
 #~ echo $hash2
 if [ "$hash0" != "$hash1" -a "$hash1" != "$hash2" ]; then
-	echo "Copiar $i"
-	cp $file1 $file2
+    echo "Copiar $i"
+    cp $file1 $file2
 fi
 

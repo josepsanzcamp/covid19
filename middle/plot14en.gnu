@@ -18,4 +18,12 @@ set datafile separator ','
 set colors classic
 set key at 2020,300000
 set output 'output/plot14en.png'
-plot 'middle/plot14en.csv' u 1:2 w lp ti col, '' u 1:3 w lp ti col, '' u 1:4 w lp ti col, '' u 1:5 w lp ti col, '' u 1:6 w lp ti col, '' u 1:7 w lp ti col, '' u 1:8 w lp ti col, '' u 1:9 w lp ti col, '' u 1:10 w lp ti col
+plot 'middle/plot14en.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w lp ti col,\
+            '' u 1:6 w lp ti col,\
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col,\
+            '' u 1:9 w lp ti col,\
+            '' u 1:10 w lp ti col

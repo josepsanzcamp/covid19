@@ -17,4 +17,10 @@ set ytics 0,200,1400
 set datafile separator ','
 set colors classic
 set output 'output/plot11es.png'
-plot 'middle/plot11es.csv' u 1:2 w lp ti col,'' u 1:3 w lp ti col,'' u 1:4 w lp ti col,'' u 1:5 w lp ti col,'' u 1:6 w lp ti col,'' u 1:7 w lp ti col,'' u 1:8 w lp ti col
+plot 'middle/plot11es.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w lp ti col,\
+            '' u 1:6 w lp ti col,\
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col

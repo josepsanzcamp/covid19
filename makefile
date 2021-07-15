@@ -1,16 +1,20 @@
 
+# common targets
 first:
 	@echo "Nothing to do, please, specify a target ..."
 
-all:
-	rm -f middle/* output/* index.*
-	time -p php php/program.php
+all: clean continue
 
 clean:
 	rm -f middle/* output/* index.*
 
 continue:
 	time -p php php/program.php
+
+commit:
+	git commit -m "$(php scripts/gitcommit.php)" -e
+
+# individual targets
 
 index:
 	rm -f index.*
@@ -63,6 +67,3 @@ spain:
 indef:
 	rm -f middle/defunciones.csv output/plot2[0,3]*
 	time -p php php/program.php
-
-commit:
-	php scripts/gitcommit.php

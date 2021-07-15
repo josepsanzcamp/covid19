@@ -13,5 +13,5 @@ if($total>1) {
 }
 $items=implode(", ",$items);
 $message="Actualitzar/afegir les dades de ".$items;
-passthru('git commit -m "'.$message.'" -e');
+echo $message;
 ?>

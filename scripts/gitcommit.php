@@ -5,7 +5,7 @@ $items=explode("\n",trim(ob_get_clean()));
 $items=array_diff($items,array(""));
 $total=count($items);
 if(!$total) {
-    die("Nothing to commit\n");
+    die();
 }
 if($total>1) {
     $items[$total-2]=$items[$total-2]." i ".$items[$total-1];

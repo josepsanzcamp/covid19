@@ -12,7 +12,7 @@ continue:
 	time -p php php/program.php
 
 commit:
-	git commit -m "$(php scripts/gitcommit.php)" -e
+	git commit -m "`php scripts/gitcommit.php`" -e
 
 # individual targets
 

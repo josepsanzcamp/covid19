@@ -1,17 +1,17 @@
 <?php
+
 ob_start();
 passthru("git status | grep input | cut -d/ -f2 | sort -u");
-$items=explode("\n",trim(ob_get_clean()));
-$items=array_diff($items,array(""));
-$total=count($items);
-if(!$total) {
+$items = explode("\n", trim(ob_get_clean()));
+$items = array_diff($items, array(""));
+$total = count($items);
+if (!$total) {
     die();
 }
-if($total>1) {
-    $items[$total-2]=$items[$total-2]." i ".$items[$total-1];
-    unset($items[$total-1]);
+if ($total > 1) {
+    $items[$total - 2] = $items[$total - 2] . " i " . $items[$total - 1];
+    unset($items[$total - 1]);
 }
-$items=implode(", ",$items);
-$message="Actualitzar/afegir les dades de ".$items;
+$items = implode(", ", $items);
+$message = "Actualitzar/afegir les dades de " . $items;
 echo $message;
-?>

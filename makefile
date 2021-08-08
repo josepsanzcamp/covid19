@@ -23,6 +23,9 @@ commit:
 push:
 	git push
 
+log:
+	git log
+
 # individual targets
 
 index:

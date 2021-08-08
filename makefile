@@ -11,6 +11,12 @@ clean:
 continue:
 	time -p php php/program.php
 
+status:
+	git status | less
+
+add:
+	git add .
+
 commit:
 	git commit -m "`php scripts/gitcommit.php`" -e
 

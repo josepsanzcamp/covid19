@@ -20,6 +20,9 @@ add:
 commit:
 	git commit -m "`php scripts/gitcommit.php`" -e
 
+push:
+	git push
+
 # individual targets
 
 index:

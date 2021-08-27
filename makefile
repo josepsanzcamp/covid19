@@ -12,7 +12,8 @@ continue:
 	time -p php php/program.php
 
 status:
-	git status | less
+	git status
+	git status | less -F
 
 add:
 	git add .

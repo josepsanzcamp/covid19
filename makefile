@@ -13,7 +13,7 @@ continue:
 
 status:
 	git status
-	git status | less -F
+	@git status | less -F
 
 add:
 	git add .

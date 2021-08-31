@@ -1,5 +1,6 @@
 
 # common targets
+
 first:
 	@echo "Nothing to do, please, specify a target ..."
 
@@ -11,9 +12,10 @@ clean:
 continue:
 	time -p php php/program.php
 
+# git targets
+
 status:
-	git status
-	@git status | less -F
+	git status | less -F
 
 add:
 	git add .

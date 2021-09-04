@@ -2,7 +2,7 @@
 
 if (!file_exists("middle/dc_20xx_det.csv")) {
     console_debug("middle/dc_20xx_det.csv");
-    passthru("zcat input/france/DC_20*_det.csv.gz |
+    passthru("zcat input/france/DC_20*.csv.gz |
         cut -d';' -f-3 |
         tr ';' '-' |
         uniq -c |

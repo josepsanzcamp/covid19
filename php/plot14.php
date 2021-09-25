@@ -21,47 +21,52 @@ if (!file_exists("output/plot14${lang}.png")) {
     // LA POSICIO 7 TE LES DADES DE TOT EL ANY EXCEPTE PER JUNY, JULIOL, AGOST, SETEMBRE, OCTUBRE, NOVEMBRE I DESEMBRE
     $matrix1 = array();
     foreach ($momo as $key => $val) {
-        for ($i = 0; $i < 8; $i++) {
+        for ($i = 0; $i < 12; $i++) {
             $year = strtok($val[0], "-");
             $month = intval(strtok(""));
             if ($month > 12 - $i) {
                 $year++;
             }
             if (!isset($matrix1[$year])) {
-                $matrix1[$year] = array_fill(0, 8, 0);
+                $matrix1[$year] = array_fill(0, 12, 0);
             }
             $matrix1[$year][$i] += $val[1];
         }
     }
-    $matrix1 = array(2020 => $matrix1[2020]);
+    $matrix1 = array(
+        2021 => $matrix1[2021],
+        2020 => $matrix1[2020],
+    );
     // IDEM PERO PER LES DADES DEL INE1 PER L'ANY 2019
     $matrix2 = array();
     foreach ($ine1 as $key => $val) {
-        for ($i = 0; $i < 8; $i++) {
+        for ($i = 0; $i < 12; $i++) {
             $year = strtok($val[0], "-");
             $month = intval(strtok(""));
             if ($month > 12 - $i) {
                 $year++;
             }
             if (!isset($matrix2[$year])) {
-                $matrix2[$year] = array_fill(0, 8, 0);
+                $matrix2[$year] = array_fill(0, 12, 0);
             }
             $matrix2[$year][$i] += $val[1];
         }
     }
-    $matrix2 = array(2019 => $matrix2[2019]);
+    $matrix2 = array(
+        2019 => $matrix2[2019],
+    );
     // IDEM PERO PER LES DADES DEL INE2 PER LA RESTA D'ANYS (2018 A 1981)
     // HAY QUE QUITAR LOS EXTREMOS PORQUE TIENEN SOLO FRAGMENTOS DE AÑO
     $matrix3 = array();
     foreach ($ine2 as $key => $val) {
-        for ($i = 0; $i < 8; $i++) {
+        for ($i = 0; $i < 12; $i++) {
             $year = strtok($val[0], "-");
             $month = intval(strtok(""));
             if ($month > 12 - $i) {
                 $year++;
             }
             if (!isset($matrix3[$year])) {
-                $matrix3[$year] = array_fill(0, 8, 0);
+                $matrix3[$year] = array_fill(0, 12, 0);
             }
             $matrix3[$year][$i] += $val[1];
         }
@@ -119,7 +124,11 @@ if (!file_exists("output/plot14${lang}.png")) {
             '' u 1:7 w lp ti col,\
             '' u 1:8 w lp ti col,\
             '' u 1:9 w lp ti col,\
-            '' u 1:10 w lp ti col",
+            '' u 1:10 w lp ti col,\
+            '' u 1:11 w lp ti col,\
+            '' u 1:12 w lp ti col,\
+            '' u 1:13 w lp ti col,\
+            '' u 1:14 w lp ti col",
     )) . "\n";
     file_put_contents("middle/plot14${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot14${lang}.gnu 2>&1");

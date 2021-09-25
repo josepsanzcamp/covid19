@@ -346,6 +346,26 @@ $textos = array(
             "en" => "June to December of the previous year + January to May of the same year",
         ),
         8 => array(
+            "ca" => "Maig a Desembre de l'any anterior + Gener a Abril del mateix any",
+            "es" => "Mayo a Diciembre del año anterior + Enero a Abril del mismo año",
+            "en" => "May to December of the previous year + January to April of the same year",
+        ),
+        9 => array(
+            "ca" => "Abril a Desembre de l'any anterior + Gener a Març del mateix any",
+            "es" => "Abril a Diciembre del año anterior + Enero a Marzo del mismo año",
+            "en" => "April to December of the previous year + January to March of the same year",
+        ),
+        10 => array(
+            "ca" => "Març a Desembre de l'any anterior + Gener a Febrer del mateix any",
+            "es" => "Marzo a Diciembre del año anterior + Enero a Febrero del mismo año",
+            "en" => "March to December of the previous year + January to February of the same year",
+        ),
+        11 => array(
+            "ca" => "Febrer a Desembre de l'any anterior + Gener del mateix any",
+            "es" => "Febrero a Diciembre del año anterior + Enero del mismo año",
+            "en" => "February to December of the previous year + January of the same year",
+        ),
+        12 => array(
             "ca" => "1/100 de la població total per comparar la mortalitat respecte la població",
             "es" => "1/100 de la población total para comparar la mortalidad respecto la población",
             "en" => "1/100 of the total population for compare the deathly vs population",

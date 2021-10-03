@@ -6,9 +6,10 @@ if (!file_exists("output/plot26${lang}.png")) {
     // CALCULO DE FECHAS
     $fecha1 = $data[0][1];
     $fecha2 = $data[count($data) - 1][1];
-    $fecha3 = date("Y-m-d", strtotime("$fecha1 + 1 month"));
+    $fecha3 = date("Y-m-d", strtotime("$fecha1 + 15 days"));
     $fecha3 = substr($fecha3, 0, -2) . "01";
-    $fecha4 = substr($fecha2, 0, -2) . "01";
+    $fecha4 = date("Y-m-d", strtotime("$fecha2 + 15 days"));
+    $fecha4 = substr($fecha4, 0, -2) . "01";
     // CONTINUAR
     array_unshift($data, array(
         $textos["plot26"]["fecha1"][$lang],

@@ -417,9 +417,9 @@ $textos = array(
             "en" => "Weekly (from friday to thursday)",
         ),
         "escala" => array(
-            "ca" => "Atenció: aquesta gràfica te l'escala diferent que l'altre gràfica del mateix grup",
-            "es" => "Atención: esta gráfica tiene la escala diferente que la otra gráfica del mismo grupo",
-            "en" => "Atencion: this plot has a different scale related to the other plot of the same group",
+            "ca" => "Atenció: aquesta gràfica te l'escala diferent\\nque l'altre gràfica del mateix grup",
+            "es" => "Atención: esta gráfica tiene la escala diferente\\nque la otra gráfica del mismo grupo",
+            "en" => "Atencion: this plot has a different scale\\nrelated to the other plot of the same group",
         ),
         "media" => array(
             "ca" => "Mitjana INE2018",

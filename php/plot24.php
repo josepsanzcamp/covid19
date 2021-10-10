@@ -73,9 +73,9 @@ if (!file_exists("output/plot24${lang}1.png")) {
     // CALCULO DE FECHAS
     $fecha1 = $matrix1[0][0];
     $fecha2 = $matrix1[count($matrix1) - 1][0];
-    $fecha3 = date("Y-m-d", strtotime("$fecha1 + 15 days"));
+    $fecha3 = date("Y-m-d", strtotime("$fecha1 + 1 month"));
     $fecha3 = substr($fecha3, 0, -2) . "01";
-    $fecha4 = date("Y-m-d", strtotime("$fecha2 + 15 days"));
+    $fecha4 = date("Y-m-d", strtotime("$fecha2 + 1 month"));
     $fecha4 = substr($fecha4, 0, -2) . "01";
     // CONTINUAR
     array_unshift($matrix1, array(

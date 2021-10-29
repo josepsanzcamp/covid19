@@ -35,7 +35,7 @@ if (!file_exists("output/plot24${lang}1.png")) {
     }
     $matrix2 = array();
     foreach ($matrix1 as $key => $val) {
-        $week = date("o-W", strtotime($val[0]) + 86400 * 3); // PER COMENÇAR LA SETMANA EN DIVENDRES
+        $week = date("o-W", strtotime($val[0] . " 12:00:00") + 86400 * 3); // PER COMENÇAR LA SETMANA EN DIVENDRES
         if (!isset($matrix2[$week])) {
             $matrix2[$week] = array($val[0],0);
         }

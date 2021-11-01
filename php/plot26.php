@@ -8,7 +8,7 @@ if (!file_exists("output/plot26${lang}.png")) {
     $fecha2 = $data[count($data) - 1][1];
     $fecha3 = date("Y-m-d", strtotime("$fecha1 + 1 month"));
     $fecha3 = substr($fecha3, 0, -2) . "01";
-    $fecha4 = date("Y-m-d", strtotime("$fecha2 + 1 month"));
+    $fecha4 = date("Y-m-d", strtotime("$fecha2 - 1 month"));
     $fecha4 = substr($fecha4, 0, -2) . "01";
     // CONTINUAR
     array_unshift($data, array(
@@ -31,7 +31,7 @@ if (!file_exists("output/plot26${lang}.png")) {
         "set timefmt '%Y-%m-%d'",
         "set format x '%Y-%m-%d'",
         "set xtics rotate by -45",
-        "set xtics '${fecha3}',86400*30,'${fecha4}'",
+        "set xtics '${fecha3}',86400*30.25,'${fecha4}'",
         "set xrange ['${fecha1}':'${fecha2}']",
         "set ytic center rotate by 90",
         "set datafile separator '" . SEPARADOR . "'",

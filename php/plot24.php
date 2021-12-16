@@ -59,9 +59,12 @@ if (!file_exists("output/plot24${lang}1.png")) {
     }
     // CORRECCIONS
     $correccions = array(
+        array("2020-42","2020-43"),
+        array("2020-50","2020-51"),
+        array("2020-52","2020-53"),
         array("2021-01","2021-02"),
         array("2021-15","2021-16"),
-        array("2020-42","2020-43"),
+        array("2021-49","2021-50"),
     );
     foreach ($correccions as $correccio) {
         $matrix2[$correccio[0]][4] = $matrix2[$correccio[0]][1];

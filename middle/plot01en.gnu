@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "1. Deaths by year and month (only years where some month has exceeded 40k deaths, 2020 and 2021 data are from the MoMo and the rest are from the INE)"
+set title "1. Deaths by year and month (only years where some month has exceeded 40k deaths, >= 2020 data are from the MoMo and the rest are from the INE)"
 set grid
 set tmargin 3
 set rmargin 6
@@ -14,7 +14,7 @@ set ytic center rotate by 90
 set ytics 0,10000,50000
 set datafile separator ','
 set colors classic
-set key maxrows 6
+set key maxrows 7
 set output 'output/plot01en1.png'
 set xrange [-0.5:5.5]
 plot 'middle/plot01en.csv' u 2:xtic(1) ti col,\
@@ -28,7 +28,8 @@ plot 'middle/plot01en.csv' u 2:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col
 set output 'output/plot01en2.png'
 set xrange [5.5:11.5]
 plot 'middle/plot01en.csv' u 2:xtic(1) ti col,\
@@ -42,4 +43,5 @@ plot 'middle/plot01en.csv' u 2:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col

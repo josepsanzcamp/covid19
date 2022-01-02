@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "5. Defuncions per comunitat autònoma i any (acumulats per any de març i abril, les dades del 2020 i 2021 són del MoMo i la resta són del INE)"
+set title "5. Defuncions per comunitat autònoma i any (acumulats per any de març i abril, les dades >= 2020 són del MoMo i la resta són del INE)"
 set grid
 set tmargin 3
 set rmargin 6
@@ -27,7 +27,8 @@ plot 'middle/plot05ca.csv' u 2:xtic(1) ti col,\
             '' u 9:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
-            '' u 12:xtic(1) ti col
+            '' u 12:xtic(1) ti col,\
+            '' u 13:xtic(1) ti col
 set output 'output/plot05ca2.png'
 set xrange [5.5:11.5]
 plot 'middle/plot05ca.csv' u 2:xtic(1) ti col,\
@@ -40,7 +41,8 @@ plot 'middle/plot05ca.csv' u 2:xtic(1) ti col,\
             '' u 9:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
-            '' u 12:xtic(1) ti col
+            '' u 12:xtic(1) ti col,\
+            '' u 13:xtic(1) ti col
 set output 'output/plot05ca3.png'
 set xrange [11.5:17.5]
 plot 'middle/plot05ca.csv' u 2:xtic(1) ti col,\
@@ -53,4 +55,5 @@ plot 'middle/plot05ca.csv' u 2:xtic(1) ti col,\
             '' u 9:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
-            '' u 12:xtic(1) ti col
+            '' u 12:xtic(1) ti col,\
+            '' u 13:xtic(1) ti col

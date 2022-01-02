@@ -26,11 +26,14 @@ plot 'middle/plot08es.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xti
 set output 'output/plot08es4.png'
 set xrange [35.5:47.5]
 plot 'middle/plot08es.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col
+set output 'output/plot08es5.png'
+set xrange [47.5:59.5]
+plot 'middle/plot08es.csv' u 2:xtic(1) ti col, '' u 3:xtic(1) ti col, '' u 4:xtic(1) ti col, '' u 5:xtic(1) ti col, '' u 6:xtic(1) ti col, '' u 7:xtic(1) ti col, '' u 8:xtic(1) ti col
 set label 1 "Atención: esta gráfica tiene la escala diferente que la gráfica anterior del mismo grupo" at 15.5,9000 c tc lt 1
 set yrange [0:10000]
 set ytics 0,2000,8000
 set xtic rotate by -45
-set output 'output/plot08es5.png'
+set output 'output/plot08es6.png'
 set xrange [3.5:27.5]
 set bmargin 5
 plot 'middle/plot08es.csv' u 9:xtic(1) ti col, '' u 10:xtic(1) ti col, '' u 11:xtic(1) ti col, '' u 12:xtic(1) ti col, '' u 13:xtic(1) ti col, '' u 14:xtic(1) ti col

@@ -10,7 +10,7 @@ if (!file_exists("output/plot05${lang}1.png")) {
     $momonew = import_file("middle/datanew-ok5.csv");
     $ine = import_file("middle/6562-ok2.csv");
     $matrix = array();
-    $years = array(1999,2000,2005,2009,2012,2014,2015,2017,2018,2020,2021);
+    $years = array(1999,2000,2005,2009,2012,2014,2015,2017,2018,2020,2021,2022);
     foreach ($years as $year) {
         foreach ($ccaas as $ccaa) {
             $matrix[$ccaa][$year] = 0;
@@ -22,7 +22,7 @@ if (!file_exists("output/plot05${lang}1.png")) {
         if (!in_array($month, array(3,4))) {
             continue;
         }
-        if (!in_array($year, array(2020,2021))) {
+        if (!in_array($year, array(2020,2021,2022))) {
             continue;
         }
         if (isset($matrix[$val[1]][$year])) {
@@ -39,17 +39,18 @@ if (!file_exists("output/plot05${lang}1.png")) {
         }
     }
     $matrix["18 Ceuta + 19 Melilla"] = array(
-        $matrix["18 Ceuta"][2021] + $matrix["19 Melilla"][2021],
-        $matrix["18 Ceuta"][2020] + $matrix["19 Melilla"][2020],
-        $matrix["18 Ceuta"][2018] + $matrix["19 Melilla"][2018],
-        $matrix["18 Ceuta"][2017] + $matrix["19 Melilla"][2017],
-        $matrix["18 Ceuta"][2015] + $matrix["19 Melilla"][2015],
-        $matrix["18 Ceuta"][2014] + $matrix["19 Melilla"][2014],
-        $matrix["18 Ceuta"][2012] + $matrix["19 Melilla"][2012],
-        $matrix["18 Ceuta"][2009] + $matrix["19 Melilla"][2009],
-        $matrix["18 Ceuta"][2005] + $matrix["19 Melilla"][2005],
-        $matrix["18 Ceuta"][2000] + $matrix["19 Melilla"][2000],
         $matrix["18 Ceuta"][1999] + $matrix["19 Melilla"][1999],
+        $matrix["18 Ceuta"][2000] + $matrix["19 Melilla"][2000],
+        $matrix["18 Ceuta"][2005] + $matrix["19 Melilla"][2005],
+        $matrix["18 Ceuta"][2009] + $matrix["19 Melilla"][2009],
+        $matrix["18 Ceuta"][2012] + $matrix["19 Melilla"][2012],
+        $matrix["18 Ceuta"][2014] + $matrix["19 Melilla"][2014],
+        $matrix["18 Ceuta"][2015] + $matrix["19 Melilla"][2015],
+        $matrix["18 Ceuta"][2017] + $matrix["19 Melilla"][2017],
+        $matrix["18 Ceuta"][2018] + $matrix["19 Melilla"][2018],
+        $matrix["18 Ceuta"][2020] + $matrix["19 Melilla"][2020],
+        $matrix["18 Ceuta"][2021] + $matrix["19 Melilla"][2021],
+        $matrix["18 Ceuta"][2022] + $matrix["19 Melilla"][2022],
     );
     unset($matrix["18 Ceuta"]);
     unset($matrix["19 Melilla"]);
@@ -100,7 +101,8 @@ if (!file_exists("output/plot05${lang}1.png")) {
             '' u 9:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
-            '' u 12:xtic(1) ti col",
+            '' u 12:xtic(1) ti col,\
+            '' u 13:xtic(1) ti col",
         "set output 'output/plot05${lang}2.png'",
         "set xrange [5.5:11.5]",
         "plot 'middle/plot05${lang}.csv' u 2:xtic(1) ti col,\
@@ -113,7 +115,8 @@ if (!file_exists("output/plot05${lang}1.png")) {
             '' u 9:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
-            '' u 12:xtic(1) ti col",
+            '' u 12:xtic(1) ti col,\
+            '' u 13:xtic(1) ti col",
         "set output 'output/plot05${lang}3.png'",
         "set xrange [11.5:17.5]",
         "plot 'middle/plot05${lang}.csv' u 2:xtic(1) ti col,\
@@ -126,7 +129,8 @@ if (!file_exists("output/plot05${lang}1.png")) {
             '' u 9:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
-            '' u 12:xtic(1) ti col",
+            '' u 12:xtic(1) ti col,\
+            '' u 13:xtic(1) ti col",
     )) . "\n";
     file_put_contents("middle/plot05${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot05${lang}.gnu 2>&1");

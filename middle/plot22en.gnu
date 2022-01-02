@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "22. Deaths by autonomous community and year (accumulated by year, the data for 2020 and 2021 are from the MoMo and the rest are from the INE)"
+set title "22. Deaths by autonomous community and year (accumulated by year, the data >= 2020 are from the MoMo and the rest are from the INE)"
 set grid
 set tmargin 3
 set rmargin 6
@@ -14,7 +14,7 @@ set ytic center rotate by 90
 set ytics 0,15000,75000
 set datafile separator ','
 set colors classic
-set key maxrows 6
+set key maxrows 7
 set output 'output/plot22en1.png'
 set xrange [-0.5:5.5]
 set label 1 "XXX = 1/100 of the total population for compare the deathly vs population in the autonomous community " at 5.5,87000 r tc lt 12
@@ -30,7 +30,8 @@ plot 'middle/plot22en.csv' u 2:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col
 set output 'output/plot22en2.png'
 set xrange [5.5:11.5]
 set label 1 "XXX = 1/100 of the total population for compare the deathly vs population in the autonomous community " at 5.5+6,87000 r tc lt 12
@@ -46,7 +47,8 @@ plot 'middle/plot22en.csv' u 2:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col
 set output 'output/plot22en3.png'
 set xrange [11.5:17.5]
 set label 1 "XXX = 1/100 of the total population for compare the deathly vs population in the autonomous community " at 5.5+12,87000 r tc lt 12
@@ -62,4 +64,5 @@ plot 'middle/plot22en.csv' u 2:xtic(1) ti col,\
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col

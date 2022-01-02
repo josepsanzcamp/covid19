@@ -65,29 +65,29 @@ $textos = array(
     ),
     "plots" => array(
         "01" => array(
-            "ca" => "1. Defuncions per any i mes (només anys on algun mes ha superat els 40k morts, les dades del 2020 i 2021 són del MoMo i la resta són del INE)",
-            "es" => "1. Defunciones por año y mes (sólo años donde algún mes ha superado los 40k muertos, los datos del 2020 y 2021 son del MoMo y el resto son del INE)",
-            "en" => "1. Deaths by year and month (only years where some month has exceeded 40k deaths, 2020 and 2021 data are from the MoMo and the rest are from the INE)",
+            "ca" => "1. Defuncions per any i mes (només anys on algun mes ha superat els 40k morts, les dades >= 2020 són del MoMo i la resta són del INE)",
+            "es" => "1. Defunciones por año y mes (sólo años donde algún mes ha superado los 40k muertos, los datos >= 2020 son del MoMo y el resto son del INE)",
+            "en" => "1. Deaths by year and month (only years where some month has exceeded 40k deaths, >= 2020 data are from the MoMo and the rest are from the INE)",
         ),
         "02" => array(
-            "ca" => "2. Defuncions per any i mes del MoMo i INE entre 2018 i 2021",
-            "es" => "2. Defunciones por año y mes del MoMo y INE entre 2018 y 2021",
-            "en" => "2. Deaths by year and month of the MoMo and INE between 2018 and 2021",
+            "ca" => "2. Defuncions per any i mes del MoMo i INE",
+            "es" => "2. Defunciones por año y mes del MoMo y INE",
+            "en" => "2. Deaths by year and month of the MoMo and INE",
         ),
         "03" => array(
-            "ca" => "3. Defuncions per dia obtinguts del MoMo per al 2018, 2019, 2020, 2021 i la mitjana del 2018",
-            "es" => "3. Defunciones por dia obtenidos del MoMo para el 2018, 2019, 2020, 2021 y la media del 2018",
-            "en" => "3. Deaths per day obtained from the MoMo by 2018, 2019, 2020, 2021 and the 2018 average",
+            "ca" => "3. Defuncions per dia obtinguts del MoMo i la mitjana del 2018",
+            "es" => "3. Defunciones por dia obtenidos del MoMo y la media del 2018",
+            "en" => "3. Deaths per day obtained from the MoMo and the 2018 average",
         ),
         "04" => array(
-            "ca" => "4. Defuncions per any, mes i edat (les dades del 2020 i 2021 són del MoMo i la resta són del INE)",
-            "es" => "4. Defunciones por año, mes y edad (los datos del 2020 y 2021 son del MoMo y el resto son del INE)",
-            "en" => "4. Deaths by year, month and age (2020 and 2021 data are from MoMo and the rest are from INE)",
+            "ca" => "4. Defuncions per any, mes i edat (les dades >= 2020 són del MoMo i la resta són del INE)",
+            "es" => "4. Defunciones por año, mes y edad (los datos >= 2020 son del MoMo y el resto son del INE)",
+            "en" => "4. Deaths by year, month and age (>= 2020 data are from MoMo and the rest are from INE)",
         ),
         "05" => array(
-            "ca" => "5. Defuncions per comunitat autònoma i any (acumulats per any de març i abril, les dades del 2020 i 2021 són del MoMo i la resta són del INE)",
-            "es" => "5. Defunciones por comunidad autónoma y año (acumulados por año de marzo y abril, los datos del 2020 y 2021 son del MoMo y el resto son del INE)",
-            "en" => "5. Deaths by autonomous community and year (accumulated by year of March and April, the data for 2020 and 2021 are from the MoMo and the rest are from the INE)",
+            "ca" => "5. Defuncions per comunitat autònoma i any (acumulats per any de març i abril, les dades >= 2020 són del MoMo i la resta són del INE)",
+            "es" => "5. Defunciones por comunidad autónoma y año (acumulados por año de marzo y abril, los datos >= 2020 son del MoMo y el resto son del INE)",
+            "en" => "5. Deaths by autonomous community and year (accumulated by year of March and April, the data >= 2020 are from the MoMo and the rest are from the INE)",
         ),
         "06" => array(
             "ca" => "6. Places de residències per tipus i comunitat autònoma (dades obtingudes de envejecimientoenred.es, del CSIC del 2019)",
@@ -170,9 +170,9 @@ $textos = array(
             "en" => "21. Population structure indicators (from 1975 to 2020, data from INE)",
         ),
         "22" => array(
-            "ca" => "22. Defuncions per comunitat autònoma i any (acumulats per any, les dades del 2020 i 2021 són del MoMo i la resta són del INE)",
-            "es" => "22. Defunciones por comunidad autónoma y año (acumulados por año, los datos del 2020 y 2021 son del MoMo y el resto son del INE)",
-            "en" => "22. Deaths by autonomous community and year (accumulated by year, the data for 2020 and 2021 are from the MoMo and the rest are from the INE)",
+            "ca" => "22. Defuncions per comunitat autònoma i any (acumulats per any, les dades >= 2020 són del MoMo i la resta són del INE)",
+            "es" => "22. Defunciones por comunidad autónoma y año (acumulados por año, los datos >= 2020 son del MoMo y el resto son del INE)",
+            "en" => "22. Deaths by autonomous community and year (accumulated by year, the data >= 2020 are from the MoMo and the rest are from the INE)",
         ),
         "23" => array(
             "ca" => "23. Defuncions per any de l'Índex Nacional de Defuncions i de l'Institut Nacional d'Estadística (6545 i 35177)",

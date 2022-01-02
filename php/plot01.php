@@ -6,7 +6,7 @@ if (!file_exists("output/plot01${lang}1.png")) {
     $ine1 = import_file("middle/02001-ok.csv");
     $ine2 = import_file("middle/14819-ok.csv");
     $matrix = array();
-    $years = array(1999,2000,2005,2009,2012,2014,2015,2017,2018,2019,2020,2021);
+    $years = array(1999,2000,2005,2009,2012,2014,2015,2017,2018,2019,2020,2021,2022);
     $months = array(1,2,3,4,5,6,7,8,9,10,11,12);
     foreach ($years as $year) {
         foreach ($months as $month) {
@@ -17,7 +17,7 @@ if (!file_exists("output/plot01${lang}1.png")) {
     $header = array_keys(reset($matrix));
     foreach ($momonew as $key => $val) {
         list($year,$month) = explode("-", $val[0]);
-        if (!in_array($year, array(2020,2021))) {
+        if (!in_array($year, array(2020,2021,2022))) {
             continue;
         }
         if (isset($matrix[$month][$year])) {
@@ -58,7 +58,7 @@ if (!file_exists("output/plot01${lang}1.png")) {
         "set ytics 0,10000,50000",
         "set datafile separator '" . SEPARADOR . "'",
         "set colors classic",
-        "set key maxrows 6",
+        "set key maxrows 7",
         "set output 'output/plot01${lang}1.png'",
         "set xrange [-0.5:5.5]",
         "plot 'middle/plot01${lang}.csv' u 2:xtic(1) ti col,\
@@ -72,7 +72,8 @@ if (!file_exists("output/plot01${lang}1.png")) {
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col",
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col",
         "set output 'output/plot01${lang}2.png'",
         "set xrange [5.5:11.5]",
         "plot 'middle/plot01${lang}.csv' u 2:xtic(1) ti col,\
@@ -86,7 +87,8 @@ if (!file_exists("output/plot01${lang}1.png")) {
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col",
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col",
     )) . "\n";
     file_put_contents("middle/plot01${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot01${lang}.gnu 2>&1");

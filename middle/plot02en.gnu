@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "2. Deaths by year and month of the MoMo and INE between 2018 and 2021"
+set title "2. Deaths by year and month of the MoMo and INE"
 set grid
 set tmargin 3
 set rmargin 6
@@ -31,6 +31,11 @@ plot 'middle/plot02en.csv' u 2:xtic(1) ti col,\
             '' u 4:xtic(1) ti col
 set output 'output/plot02en4.png'
 set xrange [35.5:47.5]
+plot 'middle/plot02en.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col,\
+            '' u 4:xtic(1) ti col
+set output 'output/plot02en5.png'
+set xrange [47.5:59.5]
 plot 'middle/plot02en.csv' u 2:xtic(1) ti col,\
             '' u 3:xtic(1) ti col,\
             '' u 4:xtic(1) ti col

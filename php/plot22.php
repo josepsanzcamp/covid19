@@ -11,7 +11,7 @@ if (!file_exists("output/plot22${lang}1.png")) {
     $ine = import_file("middle/6562-ok2.csv");
     $ine2 = import_file("middle/02002-ok3.csv");
     $matrix = array();
-    $years = array(1999,2000,2005,2009,2012,2014,2015,2017,2018,2020,2021,"XXX");
+    $years = array(1999,2000,2005,2009,2012,2014,2015,2017,2018,2020,2021,2022,"XXX");
     foreach ($years as $year) {
         foreach ($ccaas as $ccaa) {
             $matrix[$ccaa][$year] = 0;
@@ -20,7 +20,7 @@ if (!file_exists("output/plot22${lang}1.png")) {
     $header = array_keys(reset($matrix));
     foreach ($momonew as $key => $val) {
         list($year,$month) = explode("-", $val[0]);
-        if (!in_array($year, array(2020,2021))) {
+        if (!in_array($year, array(2020,2021,2022))) {
             continue;
         }
         if (isset($matrix[$val[1]][$year])) {
@@ -50,6 +50,7 @@ if (!file_exists("output/plot22${lang}1.png")) {
         $matrix["18 Ceuta"][2018] + $matrix["19 Melilla"][2018],
         $matrix["18 Ceuta"][2020] + $matrix["19 Melilla"][2020],
         $matrix["18 Ceuta"][2021] + $matrix["19 Melilla"][2021],
+        $matrix["18 Ceuta"][2022] + $matrix["19 Melilla"][2022],
         $matrix["18 Ceuta"]["XXX"] + $matrix["19 Melilla"]["XXX"],
     );
     unset($matrix["18 Ceuta"]);
@@ -88,7 +89,7 @@ if (!file_exists("output/plot22${lang}1.png")) {
         "set ytics 0,15000,75000",
         "set datafile separator '" . SEPARADOR . "'",
         "set colors classic",
-        "set key maxrows 6",
+        "set key maxrows 7",
         "set output 'output/plot22${lang}1.png'",
         "set xrange [-0.5:5.5]",
         "set label 1 \"XXX = " . $textos["plot22"]["XXX"][$lang] . " \" at 5.5,87000 r tc lt 12",
@@ -104,7 +105,8 @@ if (!file_exists("output/plot22${lang}1.png")) {
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col",
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col",
         "set output 'output/plot22${lang}2.png'",
         "set xrange [5.5:11.5]",
         "set label 1 \"XXX = " . $textos["plot22"]["XXX"][$lang] . " \" at 5.5+6,87000 r tc lt 12",
@@ -120,7 +122,8 @@ if (!file_exists("output/plot22${lang}1.png")) {
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col",
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col",
         "set output 'output/plot22${lang}3.png'",
         "set xrange [11.5:17.5]",
         "set label 1 \"XXX = " . $textos["plot22"]["XXX"][$lang] . " \" at 5.5+12,87000 r tc lt 12",
@@ -136,7 +139,8 @@ if (!file_exists("output/plot22${lang}1.png")) {
             '' u 10:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
-            '' u 13:xtic(1) ti col",
+            '' u 13:xtic(1) ti col,\
+            '' u 14:xtic(1) ti col",
     )) . "\n";
     file_put_contents("middle/plot22${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot22${lang}.gnu 2>&1");

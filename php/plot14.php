@@ -34,6 +34,7 @@ if (!file_exists("output/plot14${lang}.png")) {
         }
     }
     $matrix1 = array(
+        2022 => $matrix1[2022],
         2021 => $matrix1[2021],
         2020 => $matrix1[2020],
     );
@@ -109,7 +110,7 @@ if (!file_exists("output/plot14${lang}.png")) {
         "set style fill solid border -1",
         "set xtic rotate by -45",
         "set style histogram gap 3",
-        "set xrange [1981:2021]",
+        "set xrange [1981:2022]",
         "set yrange [0:600000]",
         "set ytic center rotate by 90",
         "set ytics 0,100000,500000",

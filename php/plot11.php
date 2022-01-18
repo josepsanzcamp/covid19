@@ -52,7 +52,8 @@ if (!file_exists("output/plot11${lang}.png")) {
             '' u 1:5 w lp ti col,\
             '' u 1:6 w lp ti col,\
             '' u 1:7 w lp ti col,\
-            '' u 1:8 w lp ti col",
+            '' u 1:8 w lp ti col,\
+            '' u 1:9 w lp ti col",
     )) . "\n";
     file_put_contents("middle/plot11${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot11${lang}.gnu 2>&1");

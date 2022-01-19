@@ -22,4 +22,5 @@ plot 'middle/plot17es.csv' u 1:2 w lp ti col,\
             '' u 1:4 w lp ti col,\
             '' u 1:5 w lp ti col,\
             '' u 1:6 w lp ti col,\
-            '' u 1:7 w lp ti col
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col

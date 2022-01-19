@@ -4,9 +4,18 @@ if (!file_exists("output/plot17${lang}.png")) {
     console_debug("output/plot17${lang}.png");
     $germany = import_file("middle/sterbefallzahlen.csv");
     foreach ($germany as $key => $val) {
+        unset($val[2]);
+        unset($val[3]);
+        unset($val[4]);
+        unset($val[5]);
+        unset($val[6]);
         unset($val[7]);
         unset($val[8]);
-        $germany[$key] = $val;
+        unset($val[9]);
+        unset($val[14]);
+        unset($val[16]);
+        unset($val[18]);
+        $germany[$key] = array_values($val);
     }
     $header = array_shift($germany);
     foreach ($germany as $key => $val) {
@@ -46,7 +55,8 @@ if (!file_exists("output/plot17${lang}.png")) {
             '' u 1:4 w lp ti col,\
             '' u 1:5 w lp ti col,\
             '' u 1:6 w lp ti col,\
-            '' u 1:7 w lp ti col",
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col",
     )) . "\n";
     file_put_contents("middle/plot17${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot17${lang}.gnu 2>&1");

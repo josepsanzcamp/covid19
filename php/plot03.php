@@ -9,7 +9,7 @@ if (!file_exists("output/plot03${lang}1.png")) {
     for ($i = strtotime("2020-01-01 12:00:00"); $i <= strtotime("2021-01-01 12:00:00"); $i += 86400) {
         $fecha = date("Y-m-d", $i);
         $i = strtotime($fecha . " 12:00:00");
-        $matrix[$fecha] = array($fecha,"","","","","","");
+        $matrix[$fecha] = array($fecha,"","","","","","","");
     }
     foreach ($momoold as $key => $val) {
         if (isset($matrix[$val[0]])) {
@@ -87,7 +87,6 @@ if (!file_exists("output/plot03${lang}1.png")) {
             '' u 1:4 w lp lc 3 pt 3 ti col,\
             '' u 1:5 w lp lc 4 pt 4 ti col,\
             '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:7 w lp lc 5 pt 5 ti col,\
             '' u 1:8 w l lc 6 ti col",
         "set output 'output/plot03${lang}2.png'",
         "set xrange ['2020-03-01':'2020-05-01']",
@@ -96,8 +95,8 @@ if (!file_exists("output/plot03${lang}1.png")) {
             '' u 1:4 w lp lc 3 pt 3 ti col,\
             '' u 1:5 w lp lc 4 pt 4 ti col,\
             '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:7 w lp lc 5 pt 5 ti col,\
-            '' u 1:8 w l lc 6 ti col",
+            '' u 1:8 w l lc 6 ti col,\
+            '' u 1:7 w lp lc 5 pt 5 ti col",
         "set output 'output/plot03${lang}3.png'",
         "set xrange ['2020-05-01':'2020-07-01']",
         "plot 'middle/plot03${lang}.csv' u 1:2 w lp lc 1 pt 1 ti col,\
@@ -105,7 +104,6 @@ if (!file_exists("output/plot03${lang}1.png")) {
             '' u 1:4 w lp lc 3 pt 3 ti col,\
             '' u 1:5 w lp lc 4 pt 4 ti col,\
             '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:7 w lp lc 5 pt 5 ti col,\
             '' u 1:8 w l lc 6 ti col",
         "set output 'output/plot03${lang}4.png'",
         "set xrange ['2020-07-01':'2020-09-01']",
@@ -114,7 +112,6 @@ if (!file_exists("output/plot03${lang}1.png")) {
             '' u 1:4 w lp lc 3 pt 3 ti col,\
             '' u 1:5 w lp lc 4 pt 4 ti col,\
             '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:7 w lp lc 5 pt 5 ti col,\
             '' u 1:8 w l lc 6 ti col",
         "set output 'output/plot03${lang}5.png'",
         "set xrange ['2020-09-01':'2020-11-01']",
@@ -123,7 +120,6 @@ if (!file_exists("output/plot03${lang}1.png")) {
             '' u 1:4 w lp lc 3 pt 3 ti col,\
             '' u 1:5 w lp lc 4 pt 4 ti col,\
             '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:7 w lp lc 5 pt 5 ti col,\
             '' u 1:8 w l lc 6 ti col",
         "set output 'output/plot03${lang}6.png'",
         "set xrange ['2020-11-01':'2021-01-01']",
@@ -132,7 +128,6 @@ if (!file_exists("output/plot03${lang}1.png")) {
             '' u 1:4 w lp lc 3 pt 3 ti col,\
             '' u 1:5 w lp lc 4 pt 4 ti col,\
             '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:7 w lp lc 5 pt 5 ti col,\
             '' u 1:8 w l lc 6 ti col",
      )) . "\n";
     file_put_contents("middle/plot03${lang}.gnu", $gnuplot);

@@ -23,4 +23,5 @@ plot 'middle/plot19en.csv' u 1:2 w lp ti col,\
             '' u 1:5 w lp ti col,\
             '' u 1:6 w lp ti col,\
             '' u 1:7 w lp ti col,\
-            '' u 1:8 w lp ti col
+            '' u 1:8 w lp ti col,\
+            '' u 1:9 w lp ti col

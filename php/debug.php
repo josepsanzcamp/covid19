@@ -36,3 +36,9 @@ function memory_dump()
         memory_get_peak_usage(true) / (1024 ** 2),
     ));
 }
+
+function die2($msg)
+{
+    fwrite(STDERR, $msg);
+    exit(1);
+}

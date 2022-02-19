@@ -393,7 +393,7 @@ if (!file_exists("middle/02002-ok3.csv")) {
         if ($val[0] != "TOTAL ESPAÑA" && $val[1] == "TOTAL EDADES" && $val[2] == "TOTAL" && $val[3] == "Ambos sexos") {
             $key2 = $val[4] . SEPARADOR . $ccaas[$val[0]];
             if (isset($matrix[$key2])) {
-                die("ERROR 11");
+                die2("ERROR 11");
             }
             $matrix[$key2] = str_replace(".", "", $val[5]);
         }

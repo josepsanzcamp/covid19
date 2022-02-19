@@ -10,7 +10,7 @@ if (!file_exists("middle/dados_sico.csv")) {
     $pos2 = strpos($buffer, $key2, $pos1);
     $pos3 = strpos($buffer, $key3, $pos2);
     if ($pos1 === false || $pos2 === false || $pos3 === false) {
-        die("ERROR 5");
+        die2("ERROR 5");
     }
     $len2 = strlen($key2);
     $buffer = substr($buffer, $pos2 + $len2, $pos3 - $pos2 - $len2);

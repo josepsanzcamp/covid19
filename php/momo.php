@@ -16,7 +16,7 @@ if (count(glob("middle/data.????????.csv")) != count(glob("input/momo/data.?????
             if ($val[0] == "nacional" && $val[4] == "all" && $val[6] == "all") {
                 $key2 = $val[8];
                 if (isset($matrix[$key2])) {
-                    die("ERROR 4");
+                    die2("ERROR 4");
                 }
                 $matrix[$key2] = array($key2,str_replace(".", "", $val[9]));
             }

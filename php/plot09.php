@@ -29,7 +29,7 @@ if (!file_exists("output/plot09${lang}01.png")) {
         if ($val[0] == "countries" && $val[2] == "Total" && $val[3] == "zscore") {
             $temp = explode("-", $val[4]);
             if (!isset($matrix[$temp[1]][$val[1] . "-" . $temp[0]])) {
-                die("ERROR 10");
+                die2("ERROR 10");
             }
             $matrix[$temp[1]][$val[1] . "-" . $temp[0]] = $val[5];
         }

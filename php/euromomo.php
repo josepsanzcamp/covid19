@@ -5,11 +5,11 @@ if (!file_exists("middle/component.csv")) {
     $buffer = get_file("input/euromomo/component.js.gz");
     $pos = strrpos($buffer, "JSON.parse");
     if ($pos === false) {
-        die("ERROR 2");
+        die2("ERROR 2");
     }
     $pos = strpos($buffer, "{", $pos);
     if ($pos === false) {
-        die("ERROR 3");
+        die2("ERROR 3");
     }
     $pos2 = strpos($buffer, "}')", $pos);
     $buffer = substr($buffer, $pos, $pos2 - $pos + 1);

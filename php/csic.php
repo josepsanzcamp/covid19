@@ -22,7 +22,7 @@ if (!file_exists("middle/residencias.csv")) {
                     $privada = 1;
                 }
                 if ($publica + $privada != 1) {
-                    die("ERROR 1");
+                    die2("ERROR 1");
                 }
                 $tipo = "";
                 if ($publica) {

@@ -24,7 +24,7 @@ if (!file_exists("output/plot08${lang}1.png")) {
     }
     foreach ($data as $key => $val) {
         if ($matrix[$val[1]][$val[0]] != "") {
-            die("ERROR 9");
+            die2("ERROR 9");
         }
         $matrix[$val[1]][$val[0]] = $val[2];
     }

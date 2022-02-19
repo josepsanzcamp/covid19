@@ -48,7 +48,7 @@ if (!file_exists("output/plot07${lang}1.png")) {
     foreach ($bed as $key => $val) {
         if ($val[1] == "HOSPITALBED" && $val[2] == "TOT" && $val[5] == $years[$val[0]]) {
             if ($matrix[$val[0]][1] != "") {
-                die("ERROR 6");
+                die2("ERROR 6");
             }
             $matrix[$val[0]][1] = $val[6];
             $matrix[$val[0]][2] = $val[5];
@@ -66,7 +66,7 @@ if (!file_exists("output/plot07${lang}1.png")) {
     foreach ($nurse as $key => $val) {
         if ($val[1] == "NURSE" && $val[2] == "TOT" && $val[5] == $years[$val[0]]) {
             if ($matrix[$val[0]][3] != "") {
-                die("ERROR 7");
+                die2("ERROR 7");
             }
             $matrix[$val[0]][3] = $val[6];
             $matrix[$val[0]][4] = $val[5];
@@ -84,7 +84,7 @@ if (!file_exists("output/plot07${lang}1.png")) {
     foreach ($doctor as $key => $val) {
         if ($val[1] == "MEDICALDOC" && $val[2] == "TOT" && $val[5] == $years[$val[0]]) {
             if ($matrix[$val[0]][5] != "") {
-                die("ERROR 8");
+                die2("ERROR 8");
             }
             $matrix[$val[0]][5] = $val[6];
             $matrix[$val[0]][6] = $val[5];

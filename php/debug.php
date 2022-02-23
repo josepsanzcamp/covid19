@@ -18,10 +18,10 @@ function console_debug($file = "")
             $used = round($used * 1000000, 2) . "usec";
         }
         if ($output == "") {
-            echo "ok";
+            echo "\033[32mok\033[0m";
         }
         if ($output != "") {
-            echo "ko";
+            echo "\033[31mko\033[0m";
         }
         echo " (${used})\n";
     }

@@ -70,8 +70,4 @@ set output 'output/plot09es26.png'
 plot 'middle/plot09es.csv' u 1:177 w lp ti col,'' u 1:178 w lp ti col,'' u 1:179 w lp ti col,'' u 1:180 w lp ti col,'' u 1:181 w lp ti col,'' u 1:182 w lp ti col,'' u 1:183 w lp ti col
 set output 'output/plot09es27.png'
 plot 'middle/plot09es.csv' u 1:184 w lp ti col,'' u 1:185 w lp ti col,'' u 1:186 w lp ti col,'' u 1:187 w lp ti col,'' u 1:188 w lp ti col,'' u 1:189 w lp ti col,'' u 1:190 w lp ti col
-set output 'output/plot09es28.png'
-plot 'middle/plot09es.csv' u 1:191 w lp ti col,'' u 1:192 w lp ti col,'' u 1:193 w lp ti col,'' u 1:194 w lp ti col,'' u 1:195 w lp ti col,'' u 1:196 w lp ti col,'' u 1:197 w lp ti col
-set output 'output/plot09es29.png'
-plot 'middle/plot09es.csv' u 1:198 w lp ti col,'' u 1:199 w lp ti col,'' u 1:200 w lp ti col,'' u 1:201 w lp ti col,'' u 1:202 w lp ti col,'' u 1:203 w lp ti col,'' u 1:204 w lp ti col
 

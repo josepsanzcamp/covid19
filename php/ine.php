@@ -514,12 +514,12 @@ if (!file_exists("middle/35177-ok.csv")) {
     $data = import_file("input/ine/35177.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
-        if ($val[0] != "Total Nacional" && $val[1] == "Dato base" && $val[3] != "Total") {
-            $key2 = substr($val[2], 0, 4);
+        if ($val[1] != "" && $val[2] == "Dato base" && $val[4] != "Total") {
+            $key2 = substr($val[3], 0, 4);
             if (!isset($sumas[$key2])) {
                 $sumas[$key2] = array($key2,0);
             }
-            $sumas[$key2][1] += str_replace(".", "", $val[3]);
+            $sumas[$key2][1] += str_replace(".", "", $val[4]);
         }
         unset($data[$key]);
     }
@@ -534,12 +534,12 @@ if (!file_exists("middle/35177-ok2.csv")) {
     $data = import_file("input/ine/35177.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
-        if ($val[0] != "Total Nacional" && $val[1] == "Dato base" && $val[3] != "Total") {
-            $key2 = str_replace("SM", "-", $val[2]);
+        if ($val[1] != "" && $val[2] == "Dato base" && $val[4] != "Total") {
+            $key2 = str_replace("SM", "-", $val[3]);
             if (!isset($sumas[$key2])) {
                 $sumas[$key2] = array($key2,0);
             }
-            $sumas[$key2][1] += str_replace(".", "", $val[3]);
+            $sumas[$key2][1] += str_replace(".", "", $val[4]);
         }
         unset($data[$key]);
     }
@@ -559,12 +559,12 @@ if (!file_exists("middle/35177-ok3.csv")) {
     $data = import_file("input/ine/35177.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
-        if ($val[0] != "Total Nacional" && $val[1] == "Dato base" && $val[3] != "Total") {
-            $key2 = str_replace("SM", "-", $val[2]) . SEPARADOR . $ccaas[$val[0]];
+        if ($val[1] != "" && $val[2] == "Dato base" && $val[4] != "Total") {
+            $key2 = str_replace("SM", "-", $val[3]) . SEPARADOR . $ccaas[$val[1]];
             if (!isset($sumas[$key2])) {
                 $sumas[$key2] = array($key2,0);
             }
-            $sumas[$key2][1] += str_replace(".", "", $val[3]);
+            $sumas[$key2][1] += str_replace(".", "", $val[4]);
         }
         unset($data[$key]);
     }

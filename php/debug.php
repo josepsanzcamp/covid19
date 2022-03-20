@@ -39,6 +39,6 @@ function memory_dump()
 
 function die2($msg)
 {
-    fwrite(STDERR, $msg);
+    fwrite(STDERR, $msg . "\n");
     exit(1);
 }

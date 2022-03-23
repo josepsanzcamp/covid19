@@ -17,7 +17,7 @@ if (!file_exists("middle/defunciones.csv")) {
         "diciembre" => "12",
     );
     $files = array();
-    for ($i = 13; $i <= 21; $i++) {
+    for ($i = 13; $i <= 22; $i++) {
         $files = array_merge($files, glob("input/indef/Defunciones_20${i}_?.txt"));
         $files = array_merge($files, glob("input/indef/Defunciones_20${i}_0?.txt"));
         $files = array_merge($files, glob("input/indef/Defunciones_20${i}_1?.txt"));

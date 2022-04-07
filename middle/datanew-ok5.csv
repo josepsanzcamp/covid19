@@ -45,8 +45,8 @@
 2021-12,01 Andalucía,7381
 2022-01,01 Andalucía,8198
 2022-02,01 Andalucía,6679
-2022-03,01 Andalucía,6557
-2022-04,01 Andalucía,1056
+2022-03,01 Andalucía,6560
+2022-04,01 Andalucía,1264
 2018-04,02 Aragón,353
 2018-05,02 Aragón,849
 2018-06,02 Aragón,864
@@ -94,8 +94,8 @@
 2021-12,02 Aragón,1125
 2022-01,02 Aragón,1322
 2022-02,02 Aragón,1096
-2022-03,02 Aragón,1025
-2022-04,02 Aragón,152
+2022-03,02 Aragón,1024
+2022-04,02 Aragón,189
 2018-04,03 Principado de Asturias,447
 2018-05,03 Principado de Asturias,1035
 2018-06,03 Principado de Asturias,1015
@@ -143,8 +143,8 @@
 2021-12,03 Principado de Asturias,1322
 2022-01,03 Principado de Asturias,1358
 2022-02,03 Principado de Asturias,1191
-2022-03,03 Principado de Asturias,1117
-2022-04,03 Principado de Asturias,180
+2022-03,03 Principado de Asturias,1127
+2022-04,03 Principado de Asturias,211
 2018-04,04 Illes Balears,248
 2018-05,04 Illes Balears,673
 2018-06,04 Illes Balears,623
@@ -193,7 +193,7 @@
 2022-01,04 Illes Balears,946
 2022-02,04 Illes Balears,808
 2022-03,04 Illes Balears,819
-2022-04,04 Illes Balears,114
+2022-04,04 Illes Balears,139
 2018-04,05 Canarias,509
 2018-05,05 Canarias,1339
 2018-06,05 Canarias,1237
@@ -241,8 +241,8 @@
 2021-12,05 Canarias,1670
 2022-01,05 Canarias,1985
 2022-02,05 Canarias,1563
-2022-03,05 Canarias,1650
-2022-04,05 Canarias,250
+2022-03,05 Canarias,1654
+2022-04,05 Canarias,295
 2018-04,06 Cantabria,146
 2018-05,06 Cantabria,378
 2018-06,06 Cantabria,344
@@ -290,8 +290,8 @@
 2021-12,06 Cantabria,445
 2022-01,06 Cantabria,535
 2022-02,06 Cantabria,459
-2022-03,06 Cantabria,441
-2022-04,06 Cantabria,83
+2022-03,06 Cantabria,444
+2022-04,06 Cantabria,98
 2018-04,07 Castilla y León,744
 2018-05,07 Castilla y León,1811
 2018-06,07 Castilla y León,1709
@@ -339,8 +339,8 @@
 2021-12,07 Castilla y León,2142
 2022-01,07 Castilla y León,2437
 2022-02,07 Castilla y León,1989
-2022-03,07 Castilla y León,1943
-2022-04,07 Castilla y León,335
+2022-03,07 Castilla y León,1950
+2022-04,07 Castilla y León,397
 2018-04,08 Castilla - La Mancha,548
 2018-05,08 Castilla - La Mancha,1484
 2018-06,08 Castilla - La Mancha,1465
@@ -388,8 +388,8 @@
 2021-12,08 Castilla - La Mancha,1711
 2022-01,08 Castilla - La Mancha,1955
 2022-02,08 Castilla - La Mancha,1624
-2022-03,08 Castilla - La Mancha,1519
-2022-04,08 Castilla - La Mancha,280
+2022-03,08 Castilla - La Mancha,1515
+2022-04,08 Castilla - La Mancha,318
 2018-04,09 Cataluña,2039
 2018-05,09 Cataluña,5046
 2018-06,09 Cataluña,4860
@@ -437,8 +437,8 @@
 2021-12,09 Cataluña,6662
 2022-01,09 Cataluña,7407
 2022-02,09 Cataluña,5991
-2022-03,09 Cataluña,6013
-2022-04,09 Cataluña,911
+2022-03,09 Cataluña,6078
+2022-04,09 Cataluña,1095
 2018-04,10 Comunitat Valenciana,1402
 2018-05,10 Comunitat Valenciana,3538
 2018-06,10 Comunitat Valenciana,3331
@@ -485,9 +485,9 @@
 2021-11,10 Comunitat Valenciana,4106
 2021-12,10 Comunitat Valenciana,4628
 2022-01,10 Comunitat Valenciana,4970
-2022-02,10 Comunitat Valenciana,4303
-2022-03,10 Comunitat Valenciana,4024
-2022-04,10 Comunitat Valenciana,628
+2022-02,10 Comunitat Valenciana,4304
+2022-03,10 Comunitat Valenciana,4033
+2022-04,10 Comunitat Valenciana,772
 2018-04,11 Extremadura,329
 2018-05,11 Extremadura,826
 2018-06,11 Extremadura,796
@@ -535,8 +535,8 @@
 2021-12,11 Extremadura,1046
 2022-01,11 Extremadura,1126
 2022-02,11 Extremadura,930
-2022-03,11 Extremadura,921
-2022-04,11 Extremadura,159
+2022-03,11 Extremadura,920
+2022-04,11 Extremadura,189
 2018-04,12 Galicia,1024
 2018-05,12 Galicia,2558
 2018-06,12 Galicia,2435
@@ -584,8 +584,8 @@
 2021-12,12 Galicia,3064
 2022-01,12 Galicia,3167
 2022-02,12 Galicia,2915
-2022-03,12 Galicia,3025
-2022-04,12 Galicia,497
+2022-03,12 Galicia,3027
+2022-04,12 Galicia,567
 2018-04,13 Comunidad de Madrid,1238
 2018-05,13 Comunidad de Madrid,3197
 2018-06,13 Comunidad de Madrid,3225
@@ -628,13 +628,13 @@
 2021-07,13 Comunidad de Madrid,3228
 2021-08,13 Comunidad de Madrid,3687
 2021-09,13 Comunidad de Madrid,3123
-2021-10,13 Comunidad de Madrid,3246
+2021-10,13 Comunidad de Madrid,3247
 2021-11,13 Comunidad de Madrid,3488
 2021-12,13 Comunidad de Madrid,3866
 2022-01,13 Comunidad de Madrid,4635
 2022-02,13 Comunidad de Madrid,3537
-2022-03,13 Comunidad de Madrid,3666
-2022-04,13 Comunidad de Madrid,527
+2022-03,13 Comunidad de Madrid,3642
+2022-04,13 Comunidad de Madrid,668
 2018-04,14 Región de Murcia,346
 2018-05,14 Región de Murcia,823
 2018-06,14 Región de Murcia,825
@@ -683,7 +683,7 @@
 2022-01,14 Región de Murcia,1312
 2022-02,14 Región de Murcia,1090
 2022-03,14 Región de Murcia,1072
-2022-04,14 Región de Murcia,174
+2022-04,14 Región de Murcia,212
 2018-04,15 Comunidad Foral de Navarra,183
 2018-05,15 Comunidad Foral de Navarra,437
 2018-06,15 Comunidad Foral de Navarra,472
@@ -731,8 +731,8 @@
 2021-12,15 Comunidad Foral de Navarra,565
 2022-01,15 Comunidad Foral de Navarra,650
 2022-02,15 Comunidad Foral de Navarra,508
-2022-03,15 Comunidad Foral de Navarra,519
-2022-04,15 Comunidad Foral de Navarra,83
+2022-03,15 Comunidad Foral de Navarra,521
+2022-04,15 Comunidad Foral de Navarra,97
 2018-04,16 País Vasco,656
 2018-05,16 País Vasco,1683
 2018-06,16 País Vasco,1523
@@ -780,8 +780,8 @@
 2021-12,16 País Vasco,2245
 2022-01,16 País Vasco,2351
 2022-02,16 País Vasco,2009
-2022-03,16 País Vasco,1982
-2022-04,16 País Vasco,325
+2022-03,16 País Vasco,1985
+2022-04,16 País Vasco,372
 2018-04,17 La Rioja,96
 2018-05,17 La Rioja,207
 2018-06,17 La Rioja,166
@@ -830,7 +830,7 @@
 2022-01,17 La Rioja,281
 2022-02,17 La Rioja,197
 2022-03,17 La Rioja,219
-2022-04,17 La Rioja,38
+2022-04,17 La Rioja,44
 2018-04,18 Ceuta,16
 2018-05,18 Ceuta,48
 2018-06,18 Ceuta,38
@@ -879,7 +879,7 @@
 2022-01,18 Ceuta,56
 2022-02,18 Ceuta,40
 2022-03,18 Ceuta,38
-2022-04,18 Ceuta,8
+2022-04,18 Ceuta,10
 2018-04,19 Melilla,12
 2018-05,19 Melilla,46
 2018-06,19 Melilla,46
@@ -928,4 +928,4 @@
 2022-01,19 Melilla,49
 2022-02,19 Melilla,40
 2022-03,19 Melilla,29
-2022-04,19 Melilla,4
+2022-04,19 Melilla,5

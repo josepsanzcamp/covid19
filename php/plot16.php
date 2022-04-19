@@ -7,34 +7,42 @@ if (!file_exists("output/plot16${lang}.png")) {
     for ($i = strtotime("2020-01-01 12:00:00"); $i <= strtotime("2021-01-01 12:00:00"); $i += 86400) {
         $fecha = date("Y-m-d", $i);
         $i = strtotime($fecha . " 12:00:00");
-        $matrix[$fecha] = array($fecha,"","","","");
+        $matrix[$fecha] = array($fecha,"","","","","");
     }
     foreach ($france as $key => $val) {
         $year = strtok($val[0], "-");
-        if (isset($matrix[$val[0]])) {
-            $matrix[$val[0]][2] = $val[1];
+        if ($year == 2022) {
+            $val[0] = str_replace(2022, 2020, $val[0]);
+            if (isset($matrix[$val[0]])) {
+                $matrix[$val[0]][1] = $val[1];
+            }
         }
         if ($year == 2021) {
             $val[0] = str_replace(2021, 2020, $val[0]);
             if (isset($matrix[$val[0]])) {
-                $matrix[$val[0]][1] = $val[1];
+                $matrix[$val[0]][2] = $val[1];
+            }
+        }
+        if ($year == 2020) {
+            if (isset($matrix[$val[0]])) {
+                $matrix[$val[0]][3] = $val[1];
             }
         }
         if ($year == 2019) {
             $val[0] = str_replace(2019, 2020, $val[0]);
             if (isset($matrix[$val[0]])) {
-                $matrix[$val[0]][3] = $val[1];
+                $matrix[$val[0]][4] = $val[1];
             }
         }
         if ($year == 2018) {
             $val[0] = str_replace(2018, 2020, $val[0]);
             if (isset($matrix[$val[0]])) {
-                $matrix[$val[0]][4] = $val[1];
+                $matrix[$val[0]][5] = $val[1];
             }
         }
         unset($france[$key]);
     }
-    array_unshift($matrix, array("Fecha",2021,2020,2019,2018));
+    array_unshift($matrix, array("Fecha",2022,2021,2020,2019,2018));
     export_file("middle/plot16${lang}.csv", $matrix);
     $gnuplot = implode("\n", array(
         "set terminal png size 1200,600 enhanced font ',11'",
@@ -56,7 +64,8 @@ if (!file_exists("output/plot16${lang}.png")) {
         "set datafile separator '" . SEPARADOR . "'",
         "set colors classic",
         "set output 'output/plot16${lang}.png'",
-        "plot 'middle/plot16${lang}.csv' u 1:5 w l ti col,\
+        "plot 'middle/plot16${lang}.csv' u 1:6 w l ti col,\
+            '' u 1:5 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:3 w l ti col,\
             '' u 1:2 w l ti col",

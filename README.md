@@ -117,6 +117,8 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - https://www.insee.fr/en/statistiques?debut=0&categorie=5
 - https://www.insee.fr/en/statistiques/4493808?sommaire=4493845
 - wget -O france/$(date +"%Y-%m-%d")_detail.zip https://www.insee.fr/$(wget -q -O - "https://www.insee.fr/en/statistiques/4493808?sommaire=4493845"|tr '"' '\n'|grep _detail.zip)
+- https://www.insee.fr/fr/statistiques/4487988?sommaire=4487854
+- wget -O france/$(date +"%Y-%m-%d")_detail.zip https://www.insee.fr/$(wget -q -O - "https://www.insee.fr/fr/statistiques/4487988?sommaire=4487854"|tr '"' '\n'|grep _detail.zip)
 
 # Alemania
 - https://www.destatis.de/SiteGlobals/Forms/Suche/EN/Servicesuche_Formular.html?nn=23768&resourceId=2376&input_=23768&pageLocale=en&templateQueryString=daily+deaths&submit.x=0&submit.y=0

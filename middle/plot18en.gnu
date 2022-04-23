@@ -82,8 +82,8 @@ set yrange [0:6000]
 set ytics 0,1200,4800
 set output 'output/plot18en17.png'
 plot 'middle/plot18en.csv' u 1:130 w lp ti col,'' u 1:131 w lp ti col,'' u 1:132 w lp ti col,'' u 1:133 w lp ti col,'' u 1:134 w lp ti col,'' u 1:135 w lp ti col,'' u 1:136 w lp ti col,'' u 1:137 w lp ti col
-set yrange [0:70]
-set ytics 0,14,56
+set yrange [0:90]
+set ytics 0,18,72
 set output 'output/plot18en18.png'
 plot 'middle/plot18en.csv' u 1:138 w lp ti col,'' u 1:139 w lp ti col,'' u 1:140 w lp ti col,'' u 1:141 w lp ti col,'' u 1:142 w lp ti col,'' u 1:143 w lp ti col,'' u 1:144 w lp ti col,'' u 1:145 w lp ti col
 set yrange [0:1100]

@@ -10,15 +10,19 @@ if (count(glob("middle/data.????????.csv")) != count(glob("input/momo/data.?????
         if (file_exists("middle/data.${part}.csv")) {
             continue;
         }
-        $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad");
+        if ($part <= "20220425") {
+            $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad");
+        } else {
+            $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad | tac | tail -755");
+        }
         $matrix = array();
         foreach ($data as $key => $val) {
-            if ($val[0] == "nacional" && $val[4] == "all" && $val[6] == "all") {
+            if ($val[0] == "nacional" && $val[4] == "all" && $val[6] == "all" && $val[9] != "") {
                 $key2 = $val[8];
                 if (isset($matrix[$key2])) {
                     die2("ERROR 4");
                 }
-                $matrix[$key2] = array($key2,str_replace(".", "", $val[9]));
+                $matrix[$key2] = array($key2,$val[9]);
             }
             unset($data[$key]);
         }
@@ -51,7 +55,7 @@ if (!file_exists("middle/datanew-ok7.csv")) {
             if (!isset($sumas[$key2])) {
                 $sumas[$key2] = array($key2,0);
             }
-            $sumas[$key2][1] += str_replace(".", "", $val[1]);
+            $sumas[$key2][1] += $val[1];
             unset($data[$key]);
         }
     }

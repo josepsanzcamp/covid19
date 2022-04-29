@@ -1,7 +1,7 @@
 <?php
 
-if (!file_exists("output/plot08${lang}1.png")) {
-    console_debug("output/plot08${lang}1.png");
+if (!file_exists("output/plot08${lang}01.png")) {
+    console_debug("output/plot08${lang}01.png");
     $data = import_file("middle/datanew-ok7.csv");
     $axis0 = array();
     $axis1 = array();
@@ -11,7 +11,7 @@ if (!file_exists("output/plot08${lang}1.png")) {
         }
         //~ if(!isset($axis1[$val[1]])) $axis1[$val[1]]=$val[1];
     }
-    for ($i = strtotime("2018-01-01 12:00:00"); $i <= strtotime("2023-01-01 12:00:00"); $i += 86400) {
+    for ($i = strtotime("2015-01-01 12:00:00"); $i <= strtotime("2023-01-01 12:00:00"); $i += 86400) {
         $fecha = date("Y-m", $i);
         $axis1[$fecha] = $fecha;
     }
@@ -70,36 +70,59 @@ if (!file_exists("output/plot08${lang}1.png")) {
         "set bmargin 3",
         "set lmargin 6",
         "set auto x",
-        "set yrange [0:60000]",
+        "set yrange [0:70000]",
         "set style data histogram",
         "set style fill solid border -1",
         "set style histogram gap 3",
         "set ytic center rotate by 90",
-        "set ytics 0,10000,50000",
+        "set ytics 0,10000,60000",
         "set datafile separator '" . SEPARADOR . "'",
         "set colors classic",
-        "set output 'output/plot08${lang}1.png'",
+        "set output 'output/plot08${lang}01.png'",
         "set xrange [-0.5:11.5]",
         "plot 'middle/plot08${lang}.csv' ${cols2plot1}",
-        "set output 'output/plot08${lang}2.png'",
+        "set output 'output/plot08${lang}02.png'",
         "set xrange [11.5:23.5]",
         "plot 'middle/plot08${lang}.csv' ${cols2plot1}",
-        "set output 'output/plot08${lang}3.png'",
+        "set output 'output/plot08${lang}03.png'",
         "set xrange [23.5:35.5]",
         "plot 'middle/plot08${lang}.csv' ${cols2plot1}",
-        "set output 'output/plot08${lang}4.png'",
+        "set output 'output/plot08${lang}04.png'",
         "set xrange [35.5:47.5]",
         "plot 'middle/plot08${lang}.csv' ${cols2plot1}",
-        "set output 'output/plot08${lang}5.png'",
+        "set output 'output/plot08${lang}05.png'",
         "set xrange [47.5:59.5]",
         "plot 'middle/plot08${lang}.csv' ${cols2plot1}",
-        "set label 1 \"" . $textos["escala"][$lang] . "\" at 15.5,9000 c tc lt 1",
-        "set yrange [0:10000]",
-        "set ytics 0,2000,8000",
-        "set xtic rotate by -45",
-        "set output 'output/plot08${lang}6.png'",
-        "set xrange [3.5:27.5]",
-        "set bmargin 5",
+        "set output 'output/plot08${lang}06.png'",
+        "set xrange [59.5:71.5]",
+        "plot 'middle/plot08${lang}.csv' ${cols2plot1}",
+        "set output 'output/plot08${lang}07.png'",
+        "set xrange [71.5:83.5]",
+        "plot 'middle/plot08${lang}.csv' ${cols2plot1}",
+        "set output 'output/plot08${lang}08.png'",
+        "set xrange [83.5:95.5]",
+        "plot 'middle/plot08${lang}.csv' ${cols2plot1}",
+        "set yrange [0:20000]",
+        "set ytics 0,4000,16000",
+        "set output 'output/plot08${lang}09.png'",
+        "set xrange [35.5:47.5]",
+        "set label 1 \"" . $textos["escala"][$lang] . "\" at 41.5,18000 c tc lt 1",
+        "plot 'middle/plot08${lang}.csv' ${cols2plot2}",
+        "set output 'output/plot08${lang}10.png'",
+        "set xrange [47.5:59.5]",
+        "set label 1 \"" . $textos["escala"][$lang] . "\" at 53.5,18000 c tc lt 1",
+        "plot 'middle/plot08${lang}.csv' ${cols2plot2}",
+        "set output 'output/plot08${lang}11.png'",
+        "set xrange [59.5:71.5]",
+        "set label 1 \"" . $textos["escala"][$lang] . "\" at 65.5,18000 c tc lt 1",
+        "plot 'middle/plot08${lang}.csv' ${cols2plot2}",
+        "set output 'output/plot08${lang}12.png'",
+        "set xrange [71.5:83.5]",
+        "set label 1 \"" . $textos["escala"][$lang] . "\" at 77.5,18000 c tc lt 1",
+        "plot 'middle/plot08${lang}.csv' ${cols2plot2}",
+        "set output 'output/plot08${lang}13.png'",
+        "set xrange [83.5:95.5]",
+        "set label 1 \"" . $textos["escala"][$lang] . "\" at 89.5,18000 c tc lt 1",
         "plot 'middle/plot08${lang}.csv' ${cols2plot2}",
     )) . "\n";
     file_put_contents("middle/plot08${lang}.gnu", $gnuplot);

@@ -13,7 +13,7 @@ if (count(glob("middle/data.????????.csv")) != count(glob("input/momo/data.?????
         if ($part <= "20220425") {
             $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad");
         } else {
-            $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad | tac | tail -755");
+            $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad | tac");
         }
         $matrix = array();
         foreach ($data as $key => $val) {
@@ -40,7 +40,7 @@ if (!file_exists("middle/datanew-ok7.csv")) {
     $last = explode(".", end($files));
     foreach ($files as $key => $val) {
         $temp = explode(".", $val);
-        if (!in_array($temp[1], array(20200507,20200523,20200527,20200530,20210420,20210421,$last[1]))) {
+        if (!in_array($temp[1], array(20200507,20200523,20200527,20200530,20210420,20210421,20220425,20220426,$last[1]))) {
             unset($files[$key]);
         }
     }

@@ -6,12 +6,12 @@ set rmargin 6
 set bmargin 3
 set lmargin 6
 set auto x
-set yrange [0:60000]
+set yrange [0:70000]
 set style data histogram
 set style fill solid border -1
 set style histogram gap 3
 set ytic center rotate by 90
-set ytics 0,10000,50000
+set ytics 0,10000,60000
 set datafile separator ','
 set colors classic
 set output 'output/plot02es1.png'

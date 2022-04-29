@@ -5,47 +5,26 @@ if (!file_exists("middle/datanew.csv")) {
     $temp = import_file("input/csic/prov2ccaa.csv");
     $ccaas = array();
     foreach ($temp as $key => $val) {
-        $ccaas[$val[1]] = ccaa2fix($val[1]);
+        $fix = ccaa2fix($val[1]);
+        if ($val[1] != $fix) {
+            $ccaas[$val[1]] = $fix;
+        }
     }
     $files = glob("input/momo/data.????????.csv.gz");
     sort($files);
-    $last = explode(".", end($files));
-    foreach ($files as $key => $val) {
-        $temp = explode(".", $val);
-        if (!in_array($temp[1], array(20200507,20200530,20210421,$last[1]))) {
-            unset($files[$key]);
-        }
-    }
-    $result = array();
-    foreach ($files as $file) {
-        $data = import_file_with_grep($file, "grep -v -e hombres -e mujeres");
-        foreach ($data as $key => $val) {
-            if (isset($ccaas[$val[3]])) {
-                $val[3] = $ccaas[$val[3]];
-            }
-            $key2 = implode("|", array_slice($val, 0, 8));
-            $key3 = $val[8];
-            $result[$key2][$key3] = array_slice($val, 0, 10);
-            unset($data[$key]);
-        }
-    }
-    $result2 = array();
-    foreach ($result as $key => $val) {
-        $result2 = array_merge($result2, array_values($val));
-        unset($result[$key]);
-    }
-    export_file("middle/datanew.csv", $result2);
+    $file = end($files);
+    passthru("zcat ${file} | grep -v -e hombres -e mujeres -e provincia | tac > middle/datanew.csv");
+    $buffer = file_get_contents("middle/datanew.csv");
+    $buffer = str_replace(array_keys($ccaas),array_values($ccaas),$buffer);
+    file_put_contents("middle/datanew.csv",$buffer);
     unset($temp);
     unset($ccaas);
-    unset($result);
-    unset($data);
-    unset($result2);
     console_debug();
 }
 
 if (!file_exists("middle/datanew-ok.csv")) {
     console_debug("middle/datanew-ok.csv");
-    $data = import_file("middle/datanew.csv");
+    $data = import_file_with_grep("middle/datanew.csv", "grep nacional");
     $sumas = array();
     foreach ($data as $key => $val) {
         if ($val[0] == "nacional" && $val[4] == "all" && $val[6] == "all" && $val[9] != "") {
@@ -65,7 +44,7 @@ if (!file_exists("middle/datanew-ok.csv")) {
 
 if (!file_exists("middle/datanew-ok2.csv")) {
     console_debug("middle/datanew-ok2.csv");
-    $data = import_file("middle/datanew.csv");
+    $data = import_file_with_grep("middle/datanew.csv", "grep nacional");
     $sumas = array();
     foreach ($data as $key => $val) {
         if ($val[0] == "nacional" && $val[4] == "all" && $val[6] == "all" && $val[9] != "") {
@@ -85,10 +64,19 @@ if (!file_exists("middle/datanew-ok2.csv")) {
 
 if (!file_exists("middle/datanew-ok3.csv")) {
     console_debug("middle/datanew-ok3.csv");
-    $data = import_file("middle/datanew.csv");
+    $data = import_file_with_grep("middle/datanew.csv", "grep nacional");
     $sumas = array();
+    $edades = array(
+        "0-14" => "menos_65",
+        "15-44" => "menos_65",
+        "45-64" => "menos_65",
+        "65-74" => "65_74",
+        "75-84" => "mas_74",
+        "+85" => "mas_74",
+    );
     foreach ($data as $key => $val) {
         if ($val[0] == "nacional" && $val[4] == "all" && $val[6] != "all" && $val[9] != "") {
+            $val[6] = $edades[$val[6]];
             $key2 = substr($val[8], 0, 7) . SEPARADOR . $val[6];
             if (!isset($sumas[$key2])) {
                 $sumas[$key2] = array($key2,0);
@@ -100,15 +88,25 @@ if (!file_exists("middle/datanew-ok3.csv")) {
     export_file("middle/datanew-ok3.csv", $sumas);
     unset($data);
     unset($sumas);
+    unset($edades);
     console_debug();
 }
 
 if (!file_exists("middle/datanew-ok4.csv")) {
     console_debug("middle/datanew-ok4.csv");
-    $data = import_file("middle/datanew.csv");
+    $data = import_file_with_grep("middle/datanew.csv", "grep nacional");
     $sumas = array();
+    $edades = array(
+        "0-14" => "menos_65",
+        "15-44" => "menos_65",
+        "45-64" => "menos_65",
+        "65-74" => "65_74",
+        "75-84" => "mas_74",
+        "+85" => "mas_74",
+    );
     foreach ($data as $key => $val) {
         if ($val[0] == "nacional" && $val[4] == "all" && $val[6] != "all" && $val[9] != "") {
+            $val[6] = $edades[$val[6]];
             $key2 = $val[8] . SEPARADOR . $val[6];
             if (!isset($sumas[$key2])) {
                 $sumas[$key2] = array($key2,0);
@@ -120,12 +118,13 @@ if (!file_exists("middle/datanew-ok4.csv")) {
     export_file("middle/datanew-ok4.csv", $sumas);
     unset($data);
     unset($sumas);
+    unset($edades);
     console_debug();
 }
 
 if (!file_exists("middle/datanew-ok5.csv")) {
     console_debug("middle/datanew-ok5.csv");
-    $data = import_file("middle/datanew.csv");
+    $data = import_file_with_grep("middle/datanew.csv", "grep ccaa");
     $sumas = array();
     foreach ($data as $key => $val) {
         if ($val[0] == "ccaa" && $val[4] == "all" && $val[6] == "all" && $val[9] != "") {
@@ -145,10 +144,19 @@ if (!file_exists("middle/datanew-ok5.csv")) {
 
 if (!file_exists("middle/datanew-ok6.csv")) {
     console_debug("middle/datanew-ok6.csv");
-    $data = import_file("middle/datanew.csv");
+    $data = import_file_with_grep("middle/datanew.csv", "grep ccaa");
     $sumas = array();
+    $edades = array(
+        "0-14" => "menos_65",
+        "15-44" => "menos_65",
+        "45-64" => "menos_65",
+        "65-74" => "65_74",
+        "75-84" => "mas_74",
+        "+85" => "mas_74",
+    );
     foreach ($data as $key => $val) {
         if ($val[0] == "ccaa" && $val[4] == "all" && $val[6] != "all" && $val[9] != "") {
+            $val[6] = $edades[$val[6]];
             $key2 = substr($val[8], 0, 7) . SEPARADOR . sprintf("%02d", $val[2]) . " " . $val[3] . SEPARADOR . $val[6];
             if (!isset($sumas[$key2])) {
                 $sumas[$key2] = array($key2,0);
@@ -160,5 +168,6 @@ if (!file_exists("middle/datanew-ok6.csv")) {
     export_file("middle/datanew-ok6.csv", $sumas);
     unset($data);
     unset($sumas);
+    unset($edades);
     console_debug();
 }

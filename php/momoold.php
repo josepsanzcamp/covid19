@@ -44,7 +44,7 @@ if (!file_exists("middle/dataold.csv")) {
 
 if (!file_exists("middle/dataold-ok.csv")) {
     console_debug("middle/dataold-ok.csv");
-    $data = import_file("middle/dataold.csv");
+    $data = import_file_with_grep("middle/dataold.csv", "grep nacional");
     $sumas = array();
     foreach ($data as $key => $val) {
         if ($val[0] == "nacional" && $val[4] == "all" && $val[6] == "all" && $val[9] != "") {
@@ -64,7 +64,7 @@ if (!file_exists("middle/dataold-ok.csv")) {
 
 if (!file_exists("middle/dataold-ok2.csv")) {
     console_debug("middle/dataold-ok2.csv");
-    $data = import_file("middle/dataold.csv");
+    $data = import_file_with_grep("middle/dataold.csv", "grep nacional");
     $sumas = array();
     foreach ($data as $key => $val) {
         if ($val[0] == "nacional" && $val[4] == "all" && $val[6] == "all" && $val[9] != "") {

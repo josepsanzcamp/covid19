@@ -33,6 +33,11 @@ if (!file_exists("output/plot24${lang}1.png")) {
         $matrix1[] = array($date,$diff);
         $momoold = $momonew;
     }
+    // CORRECCIO CANVI FORMAT FITXERS 2022-04-26
+    $temp = array_column($matrix1, "0");
+    $index = array_search("2022-04-26", $temp);
+    $matrix1[$index][1] = ($matrix1[$index-1][1] + $matrix1[$index+1][1]) / 2;
+    // CONTINUAR
     $matrix2 = array();
     foreach ($matrix1 as $key => $val) {
         $week = date("o-W", strtotime($val[0] . " 12:00:00") + 86400 * 3); // PER COMENÇAR LA SETMANA EN DIVENDRES
@@ -73,7 +78,7 @@ if (!file_exists("output/plot24${lang}1.png")) {
         $matrix2[$correccio[0]][1] = $temp;
         $matrix2[$correccio[1]][1] = $temp;
     }
-    // CALCULO DE FECHAS
+    // CALCUL DE DATES
     $fecha1 = $matrix1[0][0];
     $fecha2 = $matrix1[count($matrix1) - 1][0];
     $fecha3 = date("Y-m-d", strtotime("$fecha1 + 1 month"));

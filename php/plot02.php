@@ -2,27 +2,19 @@
 
 if (!file_exists("output/plot02${lang}1.png")) {
     console_debug("output/plot02${lang}1.png");
-    $momoold = import_file("middle/dataold-ok.csv");
     $momonew = import_file("middle/datanew-ok.csv");
     $ine = import_file("middle/02001-ok.csv");
     $matrix = array();
-    $years = array(2018,2019,2020,2021,2022);
+    $years = array(2015,2016,2017,2018,2019,2020,2021,2022);
     $months = array(1,2,3,4,5,6,7,8,9,10,11,12);
     foreach ($years as $year) {
         foreach ($months as $month) {
             $month = sprintf("%02d", $month);
             $matrix[$year . "-" . $month]["INE"] = "";
             $matrix[$year . "-" . $month]["MoMo"] = "";
-            $matrix[$year . "-" . $month]["MoMoOld"] = "";
         }
     }
     $header = array_keys(reset($matrix));
-    foreach ($momoold as $key => $val) {
-        list($year,$month) = explode("-", $val[0]);
-        if (isset($matrix[$year . "-" . $month]["MoMoOld"])) {
-            $matrix[$year . "-" . $month]["MoMoOld"] = $val[1];
-        }
-    }
     foreach ($momonew as $key => $val) {
         list($year,$month) = explode("-", $val[0]);
         if (isset($matrix[$year . "-" . $month]["MoMo"])) {
@@ -61,32 +53,38 @@ if (!file_exists("output/plot02${lang}1.png")) {
         "set output 'output/plot02${lang}1.png'",
         "set xrange [-0.5:11.5]",
         "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col",
+            '' u 3:xtic(1) ti col",
         "set output 'output/plot02${lang}2.png'",
         "set xrange [11.5:23.5]",
         "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col",
+            '' u 3:xtic(1) ti col",
         "set output 'output/plot02${lang}3.png'",
         "set xrange [23.5:35.5]",
         "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col",
+            '' u 3:xtic(1) ti col",
         "set output 'output/plot02${lang}4.png'",
         "set xrange [35.5:47.5]",
         "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col",
+            '' u 3:xtic(1) ti col",
         "set output 'output/plot02${lang}5.png'",
         "set xrange [47.5:59.5]",
         "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col",
+            '' u 3:xtic(1) ti col",
+        "set output 'output/plot02${lang}6.png'",
+        "set xrange [59.5:71.5]",
+        "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col",
+        "set output 'output/plot02${lang}7.png'",
+        "set xrange [71.5:83.5]",
+        "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col",
+        "set output 'output/plot02${lang}8.png'",
+        "set xrange [83.5:95.5]",
+        "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col",
     )) . "\n";
     file_put_contents("middle/plot02${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot02${lang}.gnu 2>&1");
-    unset($momoold);
     unset($momonew);
     unset($ine);
     unset($matrix);

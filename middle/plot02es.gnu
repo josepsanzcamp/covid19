@@ -17,25 +17,32 @@ set colors classic
 set output 'output/plot02es1.png'
 set xrange [-0.5:11.5]
 plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col
+            '' u 3:xtic(1) ti col
 set output 'output/plot02es2.png'
 set xrange [11.5:23.5]
 plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col
+            '' u 3:xtic(1) ti col
 set output 'output/plot02es3.png'
 set xrange [23.5:35.5]
 plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col
+            '' u 3:xtic(1) ti col
 set output 'output/plot02es4.png'
 set xrange [35.5:47.5]
 plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col
+            '' u 3:xtic(1) ti col
 set output 'output/plot02es5.png'
 set xrange [47.5:59.5]
 plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
-            '' u 3:xtic(1) ti col,\
-            '' u 4:xtic(1) ti col
+            '' u 3:xtic(1) ti col
+set output 'output/plot02es6.png'
+set xrange [59.5:71.5]
+plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col
+set output 'output/plot02es7.png'
+set xrange [71.5:83.5]
+plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col
+set output 'output/plot02es8.png'
+set xrange [83.5:95.5]
+plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col

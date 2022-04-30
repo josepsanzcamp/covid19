@@ -2,50 +2,30 @@
 
 if (!file_exists("output/plot03${lang}1.png")) {
     console_debug("output/plot03${lang}1.png");
-    $momoold = import_file("middle/dataold-ok2.csv");
     $momonew = import_file("middle/datanew-ok2.csv");
     $otros = import_file("middle/7947-ok.csv");
     $matrix = array();
     for ($i = strtotime("2020-01-01 12:00:00"); $i <= strtotime("2021-01-01 12:00:00"); $i += 86400) {
         $fecha = date("Y-m-d", $i);
         $i = strtotime($fecha . " 12:00:00");
-        $matrix[$fecha] = array($fecha,"","","","","","","");
+        $matrix[$fecha] = array($fecha,"","","","","","","","","");
     }
-    foreach ($momoold as $key => $val) {
-        if (isset($matrix[$val[0]])) {
-            $matrix[$val[0]][6] = $val[1];
-        }
-        unset($momoold[$key]);
-    }
+    $mapeo = array(
+        2015 => 1,
+        2016 => 2,
+        2017 => 3,
+        2018 => 4,
+        2019 => 5,
+        2020 => 6,
+        2021 => 7,
+        2022 => 8,
+    );
     foreach ($momonew as $key => $val) {
         $year = strtok($val[0], "-");
-        if ($year == 2022) {
-            $val[0] = str_replace(2022, 2020, $val[0]);
+        if (isset($mapeo[$year])) {
+            $val[0] = str_replace($year, 2020, $val[0]);
             if (isset($matrix[$val[0]])) {
-                $matrix[$val[0]][5] = $val[1];
-            }
-        }
-        if ($year == 2021) {
-            $val[0] = str_replace(2021, 2020, $val[0]);
-            if (isset($matrix[$val[0]])) {
-                $matrix[$val[0]][4] = $val[1];
-            }
-        }
-        if ($year == 2020) {
-            if (isset($matrix[$val[0]])) {
-                $matrix[$val[0]][3] = $val[1];
-            }
-        }
-        if ($year == 2019) {
-            $val[0] = str_replace(2019, 2020, $val[0]);
-            if (isset($matrix[$val[0]])) {
-                $matrix[$val[0]][2] = $val[1];
-            }
-        }
-        if ($year == 2018) {
-            $val[0] = str_replace(2018, 2020, $val[0]);
-            if (isset($matrix[$val[0]])) {
-                $matrix[$val[0]][1] = $val[1];
+                $matrix[$val[0]][$mapeo[$year]] = $val[1];
             }
         }
         unset($momonew[$key]);
@@ -57,10 +37,10 @@ if (!file_exists("output/plot03${lang}1.png")) {
         }
         $media = round($val[1] / 365, 0);
         foreach ($matrix as $key2 => $val2) {
-            $matrix[$key2][7] = $media;
+            $matrix[$key2][9] = $media;
         }
     }
-    array_unshift($matrix, array("Fecha","2018","2019","2020","2021","2022","MoMoOld","INE2018"));
+    array_unshift($matrix, array("Fecha","2015","2016","2017","2018","2019","2020","2021","2022","INE2018"));
     export_file("middle/plot03${lang}.csv", $matrix);
     $gnuplot = implode("\n", array(
         "set terminal png size 1200,600 enhanced font ',11'",
@@ -82,57 +62,73 @@ if (!file_exists("output/plot03${lang}1.png")) {
         "set colors classic",
         "set output 'output/plot03${lang}1.png'",
         "set xrange ['2020-01-01':'2020-03-01']",
-        "plot 'middle/plot03${lang}.csv' u 1:2 w lp lc 1 pt 1 ti col,\
-            '' u 1:3 w lp lc 2 pt 2 ti col,\
-            '' u 1:4 w lp lc 3 pt 3 ti col,\
-            '' u 1:5 w lp lc 4 pt 4 ti col,\
-            '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:8 w l lc 6 ti col",
+        "plot 'middle/plot03${lang}.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w lp ti col,\
+            '' u 1:6 w lp ti col,\
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col,\
+            '' u 1:9 w lp ti col,\
+            '' u 1:10 w l ti col",
         "set output 'output/plot03${lang}2.png'",
         "set xrange ['2020-03-01':'2020-05-01']",
-        "plot 'middle/plot03${lang}.csv' u 1:2 w lp lc 1 pt 1 ti col,\
-            '' u 1:3 w lp lc 2 pt 2 ti col,\
-            '' u 1:4 w lp lc 3 pt 3 ti col,\
-            '' u 1:5 w lp lc 4 pt 4 ti col,\
-            '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:8 w l lc 6 ti col,\
-            '' u 1:7 w lp lc 5 pt 5 ti col",
+        "plot 'middle/plot03${lang}.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w lp ti col,\
+            '' u 1:6 w lp ti col,\
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col,\
+            '' u 1:9 w lp ti col,\
+            '' u 1:10 w l ti col",
         "set output 'output/plot03${lang}3.png'",
         "set xrange ['2020-05-01':'2020-07-01']",
-        "plot 'middle/plot03${lang}.csv' u 1:2 w lp lc 1 pt 1 ti col,\
-            '' u 1:3 w lp lc 2 pt 2 ti col,\
-            '' u 1:4 w lp lc 3 pt 3 ti col,\
-            '' u 1:5 w lp lc 4 pt 4 ti col,\
-            '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:8 w l lc 6 ti col",
+        "plot 'middle/plot03${lang}.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w lp ti col,\
+            '' u 1:6 w lp ti col,\
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col,\
+            '' u 1:9 w lp ti col,\
+            '' u 1:10 w l ti col",
         "set output 'output/plot03${lang}4.png'",
         "set xrange ['2020-07-01':'2020-09-01']",
-        "plot 'middle/plot03${lang}.csv' u 1:2 w lp lc 1 pt 1 ti col,\
-            '' u 1:3 w lp lc 2 pt 2 ti col,\
-            '' u 1:4 w lp lc 3 pt 3 ti col,\
-            '' u 1:5 w lp lc 4 pt 4 ti col,\
-            '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:8 w l lc 6 ti col",
+        "plot 'middle/plot03${lang}.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w lp ti col,\
+            '' u 1:6 w lp ti col,\
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col,\
+            '' u 1:9 w lp ti col,\
+            '' u 1:10 w l ti col",
         "set output 'output/plot03${lang}5.png'",
         "set xrange ['2020-09-01':'2020-11-01']",
-        "plot 'middle/plot03${lang}.csv' u 1:2 w lp lc 1 pt 1 ti col,\
-            '' u 1:3 w lp lc 2 pt 2 ti col,\
-            '' u 1:4 w lp lc 3 pt 3 ti col,\
-            '' u 1:5 w lp lc 4 pt 4 ti col,\
-            '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:8 w l lc 6 ti col",
+        "plot 'middle/plot03${lang}.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w lp ti col,\
+            '' u 1:6 w lp ti col,\
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col,\
+            '' u 1:9 w lp ti col,\
+            '' u 1:10 w l ti col",
         "set output 'output/plot03${lang}6.png'",
         "set xrange ['2020-11-01':'2021-01-01']",
-        "plot 'middle/plot03${lang}.csv' u 1:2 w lp lc 1 pt 1 ti col,\
-            '' u 1:3 w lp lc 2 pt 2 ti col,\
-            '' u 1:4 w lp lc 3 pt 3 ti col,\
-            '' u 1:5 w lp lc 4 pt 4 ti col,\
-            '' u 1:6 w lp lc 7 pt 7 ti col,\
-            '' u 1:8 w l lc 6 ti col",
+        "plot 'middle/plot03${lang}.csv' u 1:2 w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w lp ti col,\
+            '' u 1:6 w lp ti col,\
+            '' u 1:7 w lp ti col,\
+            '' u 1:8 w lp ti col,\
+            '' u 1:9 w lp ti col,\
+            '' u 1:10 w l ti col",
      )) . "\n";
     file_put_contents("middle/plot03${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot03${lang}.gnu 2>&1");
-    unset($momoold);
     unset($momonew);
     unset($otros);
     unset($matrix);

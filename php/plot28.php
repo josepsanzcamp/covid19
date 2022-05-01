@@ -43,6 +43,11 @@ if (!file_exists("output/plot28${lang}.png")) {
             $matrix[$val[0]][6] = $val[1];
         }
     }
+    // TREURE DADES INCOMPLETES
+    $matrix[2018][4] = 0;
+    $matrix[2018][5] = 0;
+    $matrix[2020][4] = 0;
+    // CONTINUAR
     array_unshift($matrix, array(
         "Year",
         "INDef",

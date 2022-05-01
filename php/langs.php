@@ -209,6 +209,11 @@ $textos = array(
             "es" => "27. Defunciones por día obtenidos del MoMo (con cortes al 27/05/2020, 26/04/2022 y actual), y la media de 2018",
             "en" => "27. Deaths per day obtained from MoMo (with points at 27/05/2020, 26/04/2022 and current), and the 2018 average",
         ),
+        "28" => array(
+            "ca" => "28. Defuncions per any obtinguts del INDef, INE (INE-6545 + INE-02001, INE-35177) i MoMo (MoMoOld, MoMoOld2, MoMo)",
+            "es" => "28. Defunciones por año obtenidos del INDef, INE (INE-6545 + INE-02001, INE-35177) y MoMo (MoMoOld, MoMoOld2, MoMo)",
+            "en" => "28. Deaths per year obtained from INDef, INE (INE-6545 + INE-02001, INE-35177) and MoMo (MoMoOld, MoMoOld2, MoMo)",
+        ),
     ),
     "meses" => array(
         "ca" => array(

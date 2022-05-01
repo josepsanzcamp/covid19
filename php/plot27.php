@@ -42,9 +42,9 @@ if (!file_exists("output/plot27${lang}1.png")) {
     }
     array_unshift($matrix, array(
         "Fecha",
-        "(MoMoOld) " . $textos["plot27"]["until"][$lang] . " " . "2020-05-27",
-        "(MoMoOld2) " . $textos["plot27"]["until"][$lang] . " " . "2022-04-26",
-        "(MoMo) " . $textos["plot27"]["latest"][$lang],
+        "MoMoOld " . $textos["plot27"]["until"][$lang] . " " . "2020-05-27",
+        "MoMoOld2 " . $textos["plot27"]["until"][$lang] . " " . "2022-04-26",
+        "MoMo " . $textos["plot27"]["latest"][$lang],
         "INE2018"
     ));
     export_file("middle/plot27${lang}.csv", $matrix);

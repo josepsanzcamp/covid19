@@ -30,7 +30,6 @@ if (!file_exists("output/plot27${lang}1.png")) {
         }
         unset($momonew[$key]);
     }
-    $current = $val[0];
     foreach ($otros as $key => $val) {
         $year = $val[0];
         if ($year != 2018) {
@@ -43,9 +42,9 @@ if (!file_exists("output/plot27${lang}1.png")) {
     }
     array_unshift($matrix, array(
         "Fecha",
-        $textos["plot27"]["until"][$lang]." "."2020-05-27",
-        $textos["plot27"]["until"][$lang]." "."2022-04-26",
-        $textos["plot27"]["until"][$lang]." ".$current,
+        "(MoMoOld) " . $textos["plot27"]["until"][$lang] . " " . "2020-05-27",
+        "(MoMoOld2) " . $textos["plot27"]["until"][$lang] . " " . "2022-04-26",
+        "(MoMo) " . $textos["plot27"]["latest"][$lang],
         "INE2018"
     ));
     export_file("middle/plot27${lang}.csv", $matrix);
@@ -66,7 +65,6 @@ if (!file_exists("output/plot27${lang}1.png")) {
         "set ytics 0,500,3000",
         "set datafile separator '" . SEPARADOR . "'",
         "set colors classic",
-
         "set output 'output/plot27${lang}1.png'",
         "set xtics '2015-02-01',86400*30.25,'2015-12-01'",
         "set xrange ['2015-01-01':'2016-01-01']",

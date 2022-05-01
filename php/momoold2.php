@@ -81,4 +81,3 @@ if (!file_exists("middle/dataold2-nacional-per-dia.csv")) {
     unset($sumas);
     console_debug();
 }
-

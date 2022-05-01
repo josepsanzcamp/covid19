@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Generic.Files.LineLength
+
 if (!file_exists("index.${lang}.html")) {
     console_debug("index.${lang}.html");
     $template = get_file("template/index.html");
@@ -10,20 +12,9 @@ if (!file_exists("index.${lang}.html")) {
     );
     $template = explode("<!-- ROWROWROW -->", $template);
     $html = str_replace(
-        array(
-            "__TITLE__",
-            "__ABOUT__",
-            "__FOOTER__",
-            "__LANG__",
-            "__MOMOOLD__"
-        ),
-        array(
-            $textos["title"][$lang],
-            $textos["about"][$lang],
-            $textos["footer"][$lang],
-            $textos["lang"][$lang],
-            $textos["momoold"][$lang]
-        ),
+        array("__TITLE__","__ABOUT__","__FOOTER__","__LANG__","__MOMOOLD__","__MOMOOLD2__"),
+        array($textos["title"][$lang],$textos["about"][$lang],$textos["footer"][$lang],
+            $textos["lang"][$lang],$textos["momoold"][$lang],$textos["momoold2"][$lang]),
         $template[0]
     );
     foreach (array("ca","es","en") as $temp) {

@@ -19,9 +19,14 @@ $textos = array(
         "en" => "All data have been obtained from official sources as MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, or the equivalents to the National Statistics Institute of Sweden, Norway, Portugal, France and Germany",
     ),
     "momoold" => array(
-        "ca" => "Atenció: el 27 de maig del 2020 i el 26 d'abril del 2022 es van corregir i canviar el format de les dades del MoMo, per poder observar aquestes correccions i canvis, he afegit el plot27",
-        "es" => "Atención: el 27 de mayo del 2020 y el 26 de abril del 2022 se corrigieron y cambio el formato de los datos del MoMo, para poder observar estas correcciones y cambios, he añadido el plot27",
-        "en" => "Attention: on May 27, 2020 and April 26, 2022, the format of the MoMo data was corrected and changed, in order to observe these corrections and changes, I have added the plot27",
+        "ca" => "Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció, he anomenat MoMoOld a les dades anteriors a la correcció",
+        "es" => "Atención: el 27 de mayo del año 2020 se corrigieron los datos del MoMo, para poder observar esta corrección, he llamado MoMoOld a los datos anteriores a la corrección",
+        "en" => "Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction, I have used MoMoOld for the previously data to the correction",
+    ),
+    "momoold2" => array(
+        "ca" => "Atenció: el 26 d'abril del 2022 es va canviar el format de les dades del MoMo, per poder observar aquest canvis, he anomenat MoMoOld2 a les dades anteriors al canvi i he afegit el plot27 i plot28",
+        "es" => "Atención: el 26 de abril de 2022 se cambió el formato de los datos de MoMo, para poder observar estos cambios, he llamado MoMoOld2 a los datos anteriores al cambio y he añadido el plot27 y plot28",
+        "en" => "Attention: the format of the MoMo data was changed on April 26, 2022, in order to observe these changes, I have used MoMoOld2 to the previosly data to the change and I have added the plot27 and plot28",
     ),
     "about" => array(
         "ca" => "Envers a",
@@ -465,9 +470,14 @@ $textos = array(
     ),
     "plot27" => array(
         "until" => array(
-            "ca" => "Fent servir fitxers fins",
-            "es" => "Usando ficheros hasta",
-            "en" => "Using files until",
+            "ca" => "fitxers fins",
+            "es" => "ficheros hasta",
+            "en" => "files until",
+        ),
+        "latest" => array(
+            "ca" => "fitxers fins el més actual",
+            "es" => "ficheros hasta el más actual",
+            "en" => "files until the most current",
         ),
     ),
 );

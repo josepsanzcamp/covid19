@@ -15,8 +15,8 @@ if (!file_exists("middle/datanew.csv")) {
     $file = end($files);
     passthru("zcat ${file} | grep -v -e hombres -e mujeres -e provincia | tac > middle/datanew.csv");
     $buffer = file_get_contents("middle/datanew.csv");
-    $buffer = str_replace(array_keys($ccaas),array_values($ccaas),$buffer);
-    file_put_contents("middle/datanew.csv",$buffer);
+    $buffer = str_replace(array_keys($ccaas), array_values($ccaas), $buffer);
+    file_put_contents("middle/datanew.csv", $buffer);
     unset($temp);
     unset($ccaas);
     console_debug();

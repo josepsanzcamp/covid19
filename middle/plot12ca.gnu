@@ -17,8 +17,11 @@ set ytics 0,500,3000
 set datafile separator ','
 set colors classic
 set output 'output/plot12ca.png'
-plot 'middle/plot12ca.csv' u 1:6 w l ti col,\
-            '' u 1:5 w l ti col,\
-            '' u 1:4 w l ti col,\
+plot 'middle/plot12ca.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
-            '' u 1:2 w l ti col
+            '' u 1:4 w l ti col,\
+            '' u 1:5 w l ti col,\
+            '' u 1:6 w l ti col,\
+            '' u 1:7 w l ti col,\
+            '' u 1:8 w l ti col,\
+            '' u 1:9 w l ti col

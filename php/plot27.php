@@ -126,6 +126,8 @@ if (!file_exists("output/plot27${lang}1.png")) {
      )) . "\n";
     file_put_contents("middle/plot27${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot27${lang}.gnu 2>&1");
+    unset($momoold);
+    unset($momoold2);
     unset($momonew);
     unset($otros);
     unset($matrix);

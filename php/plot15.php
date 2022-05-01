@@ -2,7 +2,7 @@
 
 if (!file_exists("output/plot15${lang}.gif")) {
     console_debug("output/plot15${lang}.gif");
-    $momonew = import_file("middle/datanew-ok2.csv");
+    $momoold2 = import_file("middle/dataold2-ok2.csv");
     $files = glob("middle/data.????????.csv");
     foreach ($files as $file) {
         $part = explode(".", $file);
@@ -55,7 +55,7 @@ if (!file_exists("output/plot15${lang}.gif")) {
             }
         }
         // CORRECCIO FALTA DE DADES DEL 2018
-        foreach ($momonew as $key => $val) {
+        foreach ($momoold2 as $key => $val) {
             $year = strtok($val[0], "-");
             if ($year == 2018) {
                 $val[0] = str_replace(2018, 2020, $val[0]);
@@ -97,7 +97,7 @@ if (!file_exists("output/plot15${lang}.gif")) {
         passthru("gnuplot middle/plot15${lang}.${part}.gnu 2>&1");
     }
     passthru("convert -delay 25 -loop 1 output/plot15${lang}.????????.gif output/plot15${lang}.gif 2>&1");
-    unset($momonew);
+    unset($momoold2);
     unset($momo);
     unset($otros);
     unset($matrix);

@@ -35,3 +35,9 @@ wget -O spain/35177.$(date +"%Y%m%d").csv "https://www.ine.es/jaxiT3/files/t/es/
 gzip -nf */*.csv
 gzip -nf */*.js
 
+# INDEF
+wget -q -O - https://www.sanidad.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/IND_TipoDifusion.htm | grep -i "formato pdf" | grep href | head -1 | cut -d'"' -f2 | gawk '{print "https://www.sanidad.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/"$0}' | xargs wget -P indef/
+
+# REMOVE REPEATED FILES
+rm -f indef/*.1
+

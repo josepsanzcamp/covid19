@@ -51,7 +51,7 @@ if (!file_exists("output/plot06${lang}.png")) {
         $matrix[$key] = array_merge(array($ccaa), $val);
     }
     foreach ($header as $key => $val) {
-        $header[$key] = $textos["tipos"][$lang][$val];
+        $header[$key] = $textos["plot06"]["tipos"][$lang][$val];
     }
     array_unshift($matrix, array_merge(array("CCAA"), $header));
     export_file("middle/plot06${lang}.csv", $matrix);

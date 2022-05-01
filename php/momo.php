@@ -10,7 +10,7 @@ if (count(glob("middle/data.????????.csv")) != count(glob("input/momo/data.?????
         if (file_exists("middle/data.${part}.csv")) {
             continue;
         }
-        if ($part <= "20220425") {
+        if ($part <= 20220425) {
             $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad");
         } else {
             $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad | tac");

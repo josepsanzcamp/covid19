@@ -18,6 +18,11 @@ $textos = array(
         "es" => "Todos los datos se han obtenido de fuentes oficiales como MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, o los equivalentes al instituto nacional de estadística de Suecia, Noruega, Portugal, Francia y Alemania",
         "en" => "All data have been obtained from official sources as MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, or the equivalents to the National Statistics Institute of Sweden, Norway, Portugal, France and Germany",
     ),
+    "momoold" => array(
+        "ca" => "Atenció: el 27 de maig del 2020 i el 26 d'abril del 2022 es van corregir i canviar el format de les dades del MoMo, per poder observar aquestes correccions i canvis, he afegit el plot27",
+        "es" => "Atención: el 27 de mayo del 2020 y el 26 de abril del 2022 se corrigieron y cambio el formato de los datos del MoMo, para poder observar estas correcciones y cambios, he añadido el plot27",
+        "en" => "Attention: on May 27, 2020 and April 26, 2022, the format of the MoMo data was corrected and changed, in order to observe these corrections and changes, I have added the plot27",
+    ),
     "about" => array(
         "ca" => "Envers a",
         "es" => "Acerca de",
@@ -194,6 +199,11 @@ $textos = array(
             "es" => "26. Número de líneas de diferencia entre cada fichero del MoMo comparando solo las 365 primeras lineas de datos",
             "en" => "26. Number of difference lines between each MoMo file comparing only the first 365 lines of data",
         ),
+        "27" => array(
+            "ca" => "27. Defuncions per dia obtinguts del MoMo (amb talls al 27/05/2020, 26/04/2022 i actual), i la mitjana del 2018",
+            "es" => "27. Defunciones por día obtenidos del MoMo (con cortes al 27/05/2020, 26/04/2022 y actual), y la media de 2018",
+            "en" => "27. Deaths per day obtained from MoMo (with points at 27/05/2020, 26/04/2022 and current), and the 2018 average",
+        ),
     ),
     "meses" => array(
         "ca" => array(
@@ -259,50 +269,49 @@ $textos = array(
             "total" => "Total all ages"
         ),
     ),
-    "tipos" => array(
-        "ca" => array(
-            "Publica" => "Residències de titularitat pública",
-            "Privada" => "Residències de titularitat privada",
-            "Total" => "Totes les residències",
-            "XXX" => "1/100 de la població de la comunitat autònoma",
-        ),
-        "es" => array(
-            "Publica" => "Residencias de titularidad pública",
-            "Privada" => "Residencias de titularidad privada",
-            "Total" => "Todas las residencias",
-            "XXX" => "1/100 de la población de la comunidad autónoma",
-        ),
-        "en" => array(
-            "Publica" => "Publicly owned residences",
-            "Privada" => "Privately owned residences",
-            "Total" => "All residences",
-            "XXX" => "1/100 of the total population in the autonomous community",
-        ),
-    ),
-    "hospitalbed" => array(
-        "ca" => "% llits d'hospital per cada 1000 habitants",
-        "es" => "% camas de hospital por cada 1000 habitantes",
-        "en" => "% of hospital beds per 1000 inhabitants",
-    ),
-    "nurse" => array(
-        "ca" => "% enfermeres per cada 1000 habitants",
-        "es" => "% enfermeras por cada 1000 habitantes",
-        "en" => "% nurses per 1000 inhabitants",
-    ),
-    "doctor" => array(
-        "ca" => "% metges per cada 1000 habitants",
-        "es" => "% médicos por cada 1000 habitantes",
-        "en" => "% doctors per 1000 inhabitants",
-    ),
-    "momoold" => array(
-        "ca" => "Atenció: el 27 de maig de l'any 2020 es van corregir les dades del MoMo, per poder observar aquesta correcció, he anomenat MoMoOld a les dades anteriors a la correcció",
-        "es" => "Atención: el 27 de mayo del año 2020 se corrigieron los datos del MoMo, para poder observar esta corrección, he llamado MoMoOld a los datos anteriores a la corrección",
-        "en" => "Attention: on May 27, 2020 the MoMo data was corrected, in order to observe this correction, I have used MoMoOld for the previously data to the correction",
-    ),
     "escala" => array(
         "ca" => "Atenció: aquesta gràfica te l'escala diferent que la gràfica anterior del mateix grup",
         "es" => "Atención: esta gráfica tiene la escala diferente que la gráfica anterior del mismo grupo",
         "en" => "Atencion: this plot has a different scale related to the previous plot of the same group",
+    ),
+    "plot06" => array(
+        "tipos" => array(
+            "ca" => array(
+                "Publica" => "Residències de titularitat pública",
+                "Privada" => "Residències de titularitat privada",
+                "Total" => "Totes les residències",
+                "XXX" => "1/100 de la població de la comunitat autònoma",
+            ),
+            "es" => array(
+                "Publica" => "Residencias de titularidad pública",
+                "Privada" => "Residencias de titularidad privada",
+                "Total" => "Todas las residencias",
+                "XXX" => "1/100 de la población de la comunidad autónoma",
+            ),
+            "en" => array(
+                "Publica" => "Publicly owned residences",
+                "Privada" => "Privately owned residences",
+                "Total" => "All residences",
+                "XXX" => "1/100 of the total population in the autonomous community",
+            ),
+        ),
+    ),
+    "plot07" => array(
+        "hospitalbed" => array(
+            "ca" => "% llits d'hospital per cada 1000 habitants",
+            "es" => "% camas de hospital por cada 1000 habitantes",
+            "en" => "% of hospital beds per 1000 inhabitants",
+        ),
+        "nurse" => array(
+            "ca" => "% enfermeres per cada 1000 habitants",
+            "es" => "% enfermeras por cada 1000 habitantes",
+            "en" => "% nurses per 1000 inhabitants",
+        ),
+        "doctor" => array(
+            "ca" => "% metges per cada 1000 habitants",
+            "es" => "% médicos por cada 1000 habitantes",
+            "en" => "% doctors per 1000 inhabitants",
+        ),
     ),
     "plot14" => array(
         0 => array(
@@ -452,6 +461,13 @@ $textos = array(
             "ca" => "Número de línies",
             "es" => "Número de lineas",
             "en" => "Number of lines",
+        ),
+    ),
+    "plot27" => array(
+        "until" => array(
+            "ca" => "Fent servir fitxers fins",
+            "es" => "Usando ficheros hasta",
+            "en" => "Using files until",
         ),
     ),
 );

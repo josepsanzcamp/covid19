@@ -17,7 +17,7 @@ if (!file_exists("middle/dataold2.csv")) {
     }
     $result = array();
     foreach ($files as $file) {
-        $data = import_file_with_grep($file, "grep -v -e hombres -e mujeres");
+        $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad");
         foreach ($data as $key => $val) {
             if (isset($ccaas[$val[3]])) {
                 $val[3] = $ccaas[$val[3]];
@@ -41,3 +41,24 @@ if (!file_exists("middle/dataold2.csv")) {
     unset($result2);
     console_debug();
 }
+
+if (!file_exists("middle/dataold2-ok2.csv")) {
+    console_debug("middle/dataold2-ok2.csv");
+    $data = import_file("middle/dataold2.csv");
+    $sumas = array();
+    foreach ($data as $key => $val) {
+        if ($val[0] == "nacional" && $val[4] == "all" && $val[6] == "all" && $val[9] != "") {
+            $key2 = $val[8];
+            if (!isset($sumas[$key2])) {
+                $sumas[$key2] = array($key2,0);
+            }
+            $sumas[$key2][1] += $val[9];
+        }
+        unset($data[$key]);
+    }
+    export_file("middle/dataold2-ok2.csv", $sumas);
+    unset($data);
+    unset($sumas);
+    console_debug();
+}
+

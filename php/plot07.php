@@ -92,11 +92,11 @@ if (!file_exists("output/plot07${lang}1.png")) {
     }
     array_unshift($matrix, array(
         "Pais",
-        $textos["hospitalbed"][$lang],
+        $textos["plot07"]["hospitalbed"][$lang],
         "Year",
-        $textos["nurse"][$lang],
+        $textos["plot07"]["nurse"][$lang],
         "Year",
-        $textos["doctor"][$lang],
+        $textos["plot07"]["doctor"][$lang],
         "Year"
     ));
     export_file("middle/plot07${lang}.csv", $matrix);

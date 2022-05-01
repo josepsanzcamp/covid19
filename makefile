@@ -45,7 +45,12 @@ index:
 
 momo:
 	@echo make momo
-	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]* output/plot2[2,4,6]*
+	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]* output/plot2[2,4,6,7]*
+	time -p php php/program.php
+
+momoold:
+	@echo make momoold
+	rm -f middle/dataold* output/plot15* output/plot27*
 	time -p php php/program.php
 
 momo2wave:
@@ -53,9 +58,9 @@ momo2wave:
 	rm -f output/plot15??.gif
 	time -p php php/program.php
 
-momo2wave.all:
-	@echo make momo2wave.all
-	rm -f middle/data.* middle/plot15* output/plot15*
+momo2data:
+	@echo make momo2data
+	rm -f middle/data.* middle/plot15* output/plot15* output/plot24*
 	time -p php php/program.php
 
 euromomo:

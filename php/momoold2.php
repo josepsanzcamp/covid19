@@ -42,6 +42,26 @@ if (!file_exists("middle/dataold2.csv")) {
     console_debug();
 }
 
+if (!file_exists("middle/dataold2-ok.csv")) {
+    console_debug("middle/dataold2-ok.csv");
+    $data = import_file("middle/dataold2.csv");
+    $sumas = array();
+    foreach ($data as $key => $val) {
+        if ($val[0] == "nacional" && $val[4] == "all" && $val[6] == "all" && $val[9] != "") {
+            $key2 = substr($val[8], 0, 7);
+            if (!isset($sumas[$key2])) {
+                $sumas[$key2] = array($key2,0);
+            }
+            $sumas[$key2][1] += $val[9];
+        }
+        unset($data[$key]);
+    }
+    export_file("middle/dataold2-ok.csv", $sumas);
+    unset($data);
+    unset($sumas);
+    console_debug();
+}
+
 if (!file_exists("middle/dataold2-ok2.csv")) {
     console_debug("middle/dataold2-ok2.csv");
     $data = import_file("middle/dataold2.csv");

@@ -7,8 +7,8 @@ if (!file_exists("output/plot05${lang}1.png")) {
     foreach ($temp as $key => $val) {
         $ccaas[$val[0]] = $val[0] . " " . ccaa2fix($val[1]);
     }
-    $momonew = import_file("middle/datanew-ok5.csv");
-    $ine = import_file("middle/6562-ok2.csv");
+    $momonew = import_file("middle/datanew-ccaa-per-mes.csv");
+    $ine = import_file("middle/6562-defuncions-anys-1975-2018-per-mes-ccaa.csv");
     $matrix = array();
     $years = array(1999,2000,2005,2009,2012,2014,2015,2017,2018,2020,2021,2022);
     foreach ($years as $year) {

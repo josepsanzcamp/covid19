@@ -42,8 +42,8 @@ if (!file_exists("middle/dataold2.csv")) {
     console_debug();
 }
 
-if (!file_exists("middle/dataold2-ok.csv")) {
-    console_debug("middle/dataold2-ok.csv");
+if (!file_exists("middle/dataold2-nacional-per-mes.csv")) {
+    console_debug("middle/dataold2-nacional-per-mes.csv");
     $data = import_file("middle/dataold2.csv");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -56,14 +56,14 @@ if (!file_exists("middle/dataold2-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/dataold2-ok.csv", $sumas);
+    export_file("middle/dataold2-nacional-per-mes.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/dataold2-ok2.csv")) {
-    console_debug("middle/dataold2-ok2.csv");
+if (!file_exists("middle/dataold2-nacional-per-dia.csv")) {
+    console_debug("middle/dataold2-nacional-per-dia.csv");
     $data = import_file("middle/dataold2.csv");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -76,7 +76,7 @@ if (!file_exists("middle/dataold2-ok2.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/dataold2-ok2.csv", $sumas);
+    export_file("middle/dataold2-nacional-per-dia.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();

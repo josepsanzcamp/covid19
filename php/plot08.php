@@ -2,7 +2,7 @@
 
 if (!file_exists("output/plot08${lang}01.png")) {
     console_debug("output/plot08${lang}01.png");
-    $data = import_file("middle/datanew-ok7.csv");
+    $data = import_file("middle/datanew-nacional-per-mes-fitxer.csv");
     $axis0 = array();
     $axis1 = array();
     foreach ($data as $key => $val) {

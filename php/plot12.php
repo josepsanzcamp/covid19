@@ -2,7 +2,7 @@
 
 if (!file_exists("output/plot12${lang}.png")) {
     console_debug("output/plot12${lang}.png");
-    $momonew = import_file("middle/datanew-ok2.csv");
+    $momonew = import_file("middle/datanew-nacional-per-dia.csv");
     $matrix = array();
     for ($i = strtotime("2020-01-01 12:00:00"); $i <= strtotime("2021-01-01 12:00:00"); $i += 86400) {
         $fecha = date("Y-m-d", $i);

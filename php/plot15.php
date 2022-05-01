@@ -2,7 +2,7 @@
 
 if (!file_exists("output/plot15${lang}.gif")) {
     console_debug("output/plot15${lang}.gif");
-    $momoold2 = import_file("middle/dataold2-ok2.csv");
+    $momoold2 = import_file("middle/dataold2-nacional-per-dia.csv");
     $files = glob("middle/data.????????.csv");
     foreach ($files as $file) {
         $part = explode(".", $file);
@@ -15,7 +15,7 @@ if (!file_exists("output/plot15${lang}.gif")) {
         }
         $momo = import_file($file);
         if (!isset($otros)) {
-            $otros = import_file("middle/7947-ok.csv");
+            $otros = import_file("middle/7947-defuncions-anys-1980-2018-per-any.csv");
         }
         $matrix = array();
         for ($i = strtotime("2020-10-01 12:00:00"); $i <= strtotime("2021-01-01 12:00:00"); $i += 86400) {

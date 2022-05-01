@@ -7,7 +7,7 @@ if (!file_exists("output/plot25${lang}.png")) {
     foreach ($temp as $key => $val) {
         $ccaas[$val[0]] = $val[0] . " " . ccaa2fix($val[1]);
     }
-    $ine = import_file("middle/02002-ok.csv");
+    $ine = import_file("middle/02002-poblacio-anys-1998-2019-per-ccaa-edat.csv");
     $matrix = array();
     foreach ($ine as $key => $val) {
         if ($val[0] != 2019) {

@@ -2,8 +2,8 @@
 
 if (!file_exists("output/plot03${lang}1.png")) {
     console_debug("output/plot03${lang}1.png");
-    $momonew = import_file("middle/datanew-ok2.csv");
-    $otros = import_file("middle/7947-ok.csv");
+    $momonew = import_file("middle/datanew-nacional-per-dia.csv");
+    $otros = import_file("middle/7947-defuncions-anys-1980-2018-per-any.csv");
     $matrix = array();
     for ($i = strtotime("2020-01-01 12:00:00"); $i <= strtotime("2021-01-01 12:00:00"); $i += 86400) {
         $fecha = date("Y-m-d", $i);

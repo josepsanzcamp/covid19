@@ -2,7 +2,7 @@
 
 if (!file_exists("output/plot26${lang}.png")) {
     console_debug("output/plot26${lang}.png");
-    $data = import_file("middle/datanew-ok8.csv");
+    $data = import_file("middle/datanew-diferencies-linies-per-fitxer.csv");
     // CALCULO DE FECHAS
     $fecha1 = $data[0][1];
     $fecha2 = $data[count($data) - 1][1];

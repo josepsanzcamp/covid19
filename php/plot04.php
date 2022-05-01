@@ -2,8 +2,8 @@
 
 if (!file_exists("output/plot04${lang}1.png")) {
     console_debug("output/plot04${lang}1.png");
-    $momonew = import_file("middle/datanew-ok3.csv");
-    $ine = import_file("middle/02001-ok2.csv");
+    $momonew = import_file("middle/datanew-nacional-per-mes-edat.csv");
+    $ine = import_file("middle/02001-defuncions-anys-2018-2019-per-mes-edat.csv");
     $matrix = array();
     $years = array("INE2018","INE2019","MoMo2020","MoMo2021","MoMo2022");
     $edades = array("mas_74","65_74","menos_65");

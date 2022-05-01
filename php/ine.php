@@ -1,7 +1,7 @@
 <?php
 
-if (!file_exists("middle/02001-ok.csv")) {
-    console_debug("middle/02001-ok.csv");
+if (!file_exists("middle/02001-defuncions-anys-2018-2019-per-mes.csv")) {
+    console_debug("middle/02001-defuncions-anys-2018-2019-per-mes.csv");
     $data = import_file("input/ine/02001.csv.gz");
     $meses = array(
         "Enero" => "01",
@@ -29,14 +29,14 @@ if (!file_exists("middle/02001-ok.csv")) {
         unset($data[$key]);
     }
     sort($sumas);
-    export_file("middle/02001-ok.csv", $sumas);
+    export_file("middle/02001-defuncions-anys-2018-2019-per-mes.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/02001-ok2.csv")) {
-    console_debug("middle/02001-ok2.csv");
+if (!file_exists("middle/02001-defuncions-anys-2018-2019-per-mes-edat.csv")) {
+    console_debug("middle/02001-defuncions-anys-2018-2019-per-mes-edat.csv");
     $data = import_file("input/ine/02001.csv.gz");
     $meses = array(
         "Enero" => "01",
@@ -85,7 +85,7 @@ if (!file_exists("middle/02001-ok2.csv")) {
         $val[0] = implode(SEPARADOR, $temp);
         $sumas[$key] = $val;
     }
-    export_file("middle/02001-ok2.csv", $sumas);
+    export_file("middle/02001-defuncions-anys-2018-2019-per-mes-edat.csv", $sumas);
     unset($data);
     unset($meses);
     unset($edades);
@@ -93,8 +93,8 @@ if (!file_exists("middle/02001-ok2.csv")) {
     console_debug();
 }
 
-if (!file_exists("middle/02001-ok3.csv")) {
-    console_debug("middle/02001-ok3.csv");
+if (!file_exists("middle/02001-defuncions-anys-2018-2019-per-any.csv")) {
+    console_debug("middle/02001-defuncions-anys-2018-2019-per-any.csv");
     $data = import_file("input/ine/02001.csv.gz");
     $matrix = array();
     foreach ($data as $key => $val) {
@@ -103,14 +103,14 @@ if (!file_exists("middle/02001-ok3.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/02001-ok3.csv", $matrix);
+    export_file("middle/02001-defuncions-anys-2018-2019-per-any.csv", $matrix);
     unset($data);
     unset($matrix);
     console_debug();
 }
 
-if (!file_exists("middle/14819-ok.csv")) {
-    console_debug("middle/14819-ok.csv");
+if (!file_exists("middle/14819-defuncions-anys-1980-2018-per-mes.csv")) {
+    console_debug("middle/14819-defuncions-anys-1980-2018-per-mes.csv");
     $data = import_file("input/ine/14819.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -123,14 +123,14 @@ if (!file_exists("middle/14819-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/14819-ok.csv", $sumas);
+    export_file("middle/14819-defuncions-anys-1980-2018-per-mes.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/6545-ok.csv")) {
-    console_debug("middle/6545-ok.csv");
+if (!file_exists("middle/6545-defuncions-anys-1975-2018-per-any.csv")) {
+    console_debug("middle/6545-defuncions-anys-1975-2018-per-any.csv");
     $data = import_file("input/ine/6545.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -143,14 +143,14 @@ if (!file_exists("middle/6545-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/6545-ok.csv", $sumas);
+    export_file("middle/6545-defuncions-anys-1975-2018-per-any.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/6548-ok.csv")) {
-    console_debug("middle/6548-ok.csv");
+if (!file_exists("middle/6548-defuncions-anys-1975-2018-per-any.csv")) {
+    console_debug("middle/6548-defuncions-anys-1975-2018-per-any.csv");
     $data = import_file("input/ine/6548.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -163,14 +163,14 @@ if (!file_exists("middle/6548-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/6548-ok.csv", $sumas);
+    export_file("middle/6548-defuncions-anys-1975-2018-per-any.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/6561-ok.csv")) {
-    console_debug("middle/6561-ok.csv");
+if (!file_exists("middle/6561-defuncions-anys-1975-2018-per-mes.csv")) {
+    console_debug("middle/6561-defuncions-anys-1975-2018-per-mes.csv");
     $data = import_file("input/ine/6561.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -183,14 +183,14 @@ if (!file_exists("middle/6561-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/6561-ok.csv", $sumas);
+    export_file("middle/6561-defuncions-anys-1975-2018-per-mes.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/6562-ok.csv")) {
-    console_debug("middle/6562-ok.csv");
+if (!file_exists("middle/6562-defuncions-anys-1975-2018-per-any.csv")) {
+    console_debug("middle/6562-defuncions-anys-1975-2018-per-any.csv");
     $data = import_file("input/ine/6562.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -203,14 +203,14 @@ if (!file_exists("middle/6562-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/6562-ok.csv", $sumas);
+    export_file("middle/6562-defuncions-anys-1975-2018-per-any.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/6562-ok2.csv")) {
-    console_debug("middle/6562-ok2.csv");
+if (!file_exists("middle/6562-defuncions-anys-1975-2018-per-mes-ccaa.csv")) {
+    console_debug("middle/6562-defuncions-anys-1975-2018-per-mes-ccaa.csv");
     $temp = import_file("input/csic/prov2ccaa.csv");
     $ccaas = array();
     foreach ($temp as $key => $val) {
@@ -231,7 +231,7 @@ if (!file_exists("middle/6562-ok2.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/6562-ok2.csv", $sumas);
+    export_file("middle/6562-defuncions-anys-1975-2018-per-mes-ccaa.csv", $sumas);
     unset($temp);
     unset($ccaas);
     unset($data);
@@ -239,8 +239,8 @@ if (!file_exists("middle/6562-ok2.csv")) {
     console_debug();
 }
 
-if (!file_exists("middle/6566-ok.csv")) {
-    console_debug("middle/6566-ok.csv");
+if (!file_exists("middle/6566-defuncions-anys-1992-2018-per-any.csv")) {
+    console_debug("middle/6566-defuncions-anys-1992-2018-per-any.csv");
     $data = import_file("input/ine/6566.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -253,14 +253,14 @@ if (!file_exists("middle/6566-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/6566-ok.csv", $sumas);
+    export_file("middle/6566-defuncions-anys-1992-2018-per-any.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/6580-ok.csv")) {
-    console_debug("middle/6580-ok.csv");
+if (!file_exists("middle/6580-defuncions-anys-1992-2018-per-any.csv")) {
+    console_debug("middle/6580-defuncions-anys-1992-2018-per-any.csv");
     $data = import_file("input/ine/6580.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -273,14 +273,14 @@ if (!file_exists("middle/6580-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/6580-ok.csv", $sumas);
+    export_file("middle/6580-defuncions-anys-1992-2018-per-any.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/7947-ok.csv")) {
-    console_debug("middle/7947-ok.csv");
+if (!file_exists("middle/7947-defuncions-anys-1980-2018-per-any.csv")) {
+    console_debug("middle/7947-defuncions-anys-1980-2018-per-any.csv");
     $data = import_file("input/ine/7947.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -293,14 +293,14 @@ if (!file_exists("middle/7947-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/7947-ok.csv", $sumas);
+    export_file("middle/7947-defuncions-anys-1980-2018-per-any.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/02002-ok.csv")) {
-    console_debug("middle/02002-ok.csv");
+if (!file_exists("middle/02002-poblacio-anys-1998-2019-per-ccaa-edat.csv")) {
+    console_debug("middle/02002-poblacio-anys-1998-2019-per-ccaa-edat.csv");
     $temp = import_file("input/csic/prov2ccaa.csv");
     $ccaas = array();
     foreach ($temp as $key => $val) {
@@ -350,7 +350,7 @@ if (!file_exists("middle/02002-ok.csv")) {
     }
     $temp = "Any" . SEPARADOR . "CCAA" . SEPARADOR . "Edat";
     $sumas = array($temp => array($temp,"Total")) + $sumas;
-    export_file("middle/02002-ok.csv", $sumas);
+    export_file("middle/02002-poblacio-anys-1998-2019-per-ccaa-edat.csv", $sumas);
     unset($temp);
     unset($ccaas);
     unset($data);
@@ -359,8 +359,8 @@ if (!file_exists("middle/02002-ok.csv")) {
     console_debug();
 }
 
-if (!file_exists("middle/02002-ok2.csv")) {
-    console_debug("middle/02002-ok2.csv");
+if (!file_exists("middle/02002-poblacio-anys-1998-2019-per-any.csv")) {
+    console_debug("middle/02002-poblacio-anys-1998-2019-per-any.csv");
     $data = import_file("input/ine/02002.csv.gz");
     $matrix = array();
     foreach ($data as $key => $val) {
@@ -374,14 +374,14 @@ if (!file_exists("middle/02002-ok2.csv")) {
         ;
         $matrix[$key] = array($key,$val);
     }
-    export_file("middle/02002-ok2.csv", $matrix);
+    export_file("middle/02002-poblacio-anys-1998-2019-per-any.csv", $matrix);
     unset($data);
     unset($matrix);
     console_debug();
 }
 
-if (!file_exists("middle/02002-ok3.csv")) {
-    console_debug("middle/02002-ok3.csv");
+if (!file_exists("middle/02002-poblacio-anys-1998-2019-per-ccaa.csv")) {
+    console_debug("middle/02002-poblacio-anys-1998-2019-per-ccaa.csv");
     $temp = import_file("input/csic/prov2ccaa.csv");
     $ccaas = array();
     foreach ($temp as $key => $val) {
@@ -404,7 +404,7 @@ if (!file_exists("middle/02002-ok3.csv")) {
         ;
         $matrix[$key] = array($key,$val);
     }
-    export_file("middle/02002-ok3.csv", $matrix);
+    export_file("middle/02002-poblacio-anys-1998-2019-per-ccaa.csv", $matrix);
     unset($temp);
     unset($ccaas);
     unset($data);
@@ -412,8 +412,8 @@ if (!file_exists("middle/02002-ok3.csv")) {
     console_debug();
 }
 
-if (!file_exists("middle/6548-ok2.csv")) {
-    console_debug("middle/6548-ok2.csv");
+if (!file_exists("middle/6548-defuncions-anys-1975-2018-per-any-ccaa-edat.csv")) {
+    console_debug("middle/6548-defuncions-anys-1975-2018-per-any-ccaa-edat.csv");
     $temp = import_file("input/csic/prov2ccaa.csv");
     $ccaas = array();
     foreach ($temp as $key => $val) {
@@ -442,7 +442,7 @@ if (!file_exists("middle/6548-ok2.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/6548-ok2.csv", $sumas);
+    export_file("middle/6548-defuncions-anys-1975-2018-per-any-ccaa-edat.csv", $sumas);
     unset($temp);
     unset($ccaas);
     unset($data);
@@ -450,8 +450,8 @@ if (!file_exists("middle/6548-ok2.csv")) {
     console_debug();
 }
 
-if (!file_exists("middle/02005-ok.csv")) {
-    console_debug("middle/02005-ok.csv");
+if (!file_exists("middle/02005-todo.csv")) {
+    console_debug("middle/02005-todo.csv");
     $temp = import_file("input/csic/prov2ccaa.csv");
     $ccaas = array();
     foreach ($temp as $key => $val) {
@@ -500,7 +500,7 @@ if (!file_exists("middle/02005-ok.csv")) {
         $val[0] = $edades[$val[0]];
         $sumas[$key] = $val;
     }
-    export_file("middle/02005-ok.csv", $sumas);
+    export_file("middle/02005-todo.csv", $sumas);
     unset($temp);
     unset($ccaas);
     unset($data);
@@ -509,8 +509,8 @@ if (!file_exists("middle/02005-ok.csv")) {
     console_debug();
 }
 
-if (!file_exists("middle/35177-ok.csv")) {
-    console_debug("middle/35177-ok.csv");
+if (!file_exists("middle/35177-defuncions-anys-2000-actual-per-any.csv")) {
+    console_debug("middle/35177-defuncions-anys-2000-actual-per-any.csv");
     $data = import_file("input/ine/35177.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -523,14 +523,14 @@ if (!file_exists("middle/35177-ok.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/35177-ok.csv", $sumas);
+    export_file("middle/35177-defuncions-anys-2000-actual-per-any.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/35177-ok2.csv")) {
-    console_debug("middle/35177-ok2.csv");
+if (!file_exists("middle/35177-defuncions-anys-2000-actual-per-setmana.csv")) {
+    console_debug("middle/35177-defuncions-anys-2000-actual-per-setmana.csv");
     $data = import_file("input/ine/35177.csv.gz");
     $sumas = array();
     foreach ($data as $key => $val) {
@@ -543,14 +543,14 @@ if (!file_exists("middle/35177-ok2.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/35177-ok2.csv", $sumas);
+    export_file("middle/35177-defuncions-anys-2000-actual-per-setmana.csv", $sumas);
     unset($data);
     unset($sumas);
     console_debug();
 }
 
-if (!file_exists("middle/35177-ok3.csv")) {
-    console_debug("middle/35177-ok3.csv");
+if (!file_exists("middle/35177-defuncions-anys-2000-actual-per-setmana-ccaa.csv")) {
+    console_debug("middle/35177-defuncions-anys-2000-actual-per-setmana-ccaa.csv");
     $temp = import_file("input/csic/prov2ccaa.csv");
     $ccaas = array();
     foreach ($temp as $key => $val) {
@@ -568,7 +568,7 @@ if (!file_exists("middle/35177-ok3.csv")) {
         }
         unset($data[$key]);
     }
-    export_file("middle/35177-ok3.csv", $sumas);
+    export_file("middle/35177-defuncions-anys-2000-actual-per-setmana-ccaa.csv", $sumas);
     unset($temp);
     unset($ccaas);
     unset($data);

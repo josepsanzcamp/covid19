@@ -2,10 +2,10 @@
 
 if (!file_exists("output/plot14${lang}.png")) {
     console_debug("output/plot14${lang}.png");
-    $momo = import_file("middle/datanew-ok.csv");
-    $ine1 = import_file("middle/02001-ok.csv");
-    $ine2 = import_file("middle/14819-ok.csv");
-    $ine3 = import_file("middle/02002-ok2.csv");
+    $momo = import_file("middle/datanew-nacional-per-mes.csv");
+    $ine1 = import_file("middle/02001-defuncions-anys-2018-2019-per-mes.csv");
+    $ine2 = import_file("middle/14819-defuncions-anys-1980-2018-per-mes.csv");
+    $ine3 = import_file("middle/02002-poblacio-anys-1998-2019-per-any.csv");
     // CREAR LLISTA AMB LES DADES DEL MOMO PER L'ANY 2020
     // LA IDEA ORIGINAL ERA FENT SERVIR OCTUBRE, NOVEMBRE I DESEMBRE DEL AL ANY ANTERIOR
     // DESPRES VA EVOLUCIONAR PER FER-HO AMB TOTS ELS MESOS DE L'ANY

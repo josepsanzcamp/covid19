@@ -46,7 +46,7 @@ if (!file_exists("output/plot24${lang}1.png")) {
         }
         $matrix2[$week][1] += $val[1];
     }
-    $otros = import_file("middle/7947-ok.csv");
+    $otros = import_file("middle/7947-defuncions-anys-1980-2018-per-any.csv");
     foreach ($otros as $key => $val) {
         $year = $val[0];
         if ($year != 2018) {

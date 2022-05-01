@@ -8,7 +8,7 @@ if (!file_exists("output/plot06${lang}.png")) {
         $ccaas[$val[0]] = $val[0] . " " . ccaa2fix($val[1]);
     }
     $resi = import_file("middle/residencias.csv");
-    $ine2 = import_file("middle/02002-ok3.csv");
+    $ine2 = import_file("middle/02002-poblacio-anys-1998-2019-per-ccaa.csv");
     $matrix = array();
     $tipos = array("Publica","Privada","Total","XXX");
     foreach ($tipos as $tipo) {

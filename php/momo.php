@@ -33,8 +33,8 @@ if (count(glob("middle/data.????????.csv")) != count(glob("input/momo/data.?????
     console_debug();
 }
 
-if (!file_exists("middle/datanew-ok7.csv")) {
-    console_debug("middle/datanew-ok7.csv");
+if (!file_exists("middle/datanew-nacional-per-mes-fitxer.csv")) {
+    console_debug("middle/datanew-nacional-per-mes-fitxer.csv");
     $files = glob("middle/data.????????.csv");
     sort($files);
     $last = explode(".", end($files));
@@ -59,14 +59,14 @@ if (!file_exists("middle/datanew-ok7.csv")) {
             unset($data[$key]);
         }
     }
-    export_file("middle/datanew-ok7.csv", $sumas);
+    export_file("middle/datanew-nacional-per-mes-fitxer.csv", $sumas);
     unset($sumas);
     unset($data);
     console_debug();
 }
 
-if (!file_exists("middle/datanew-ok8.csv")) {
-    console_debug("middle/datanew-ok8.csv");
+if (!file_exists("middle/datanew-diferencies-linies-per-fitxer.csv")) {
+    console_debug("middle/datanew-diferencies-linies-per-fitxer.csv");
     $files = glob("middle/data.????????.csv");
     sort($files);
     $rows = array();
@@ -86,6 +86,6 @@ if (!file_exists("middle/datanew-ok8.csv")) {
         $fecha2 = $fecha2[0] . $fecha2[1] . "-" . $fecha2[2] . "-" . $fecha2[3];
         $rows[] = array($fecha1,$fecha2,$diff);
     }
-    export_file("middle/datanew-ok8.csv", $rows);
+    export_file("middle/datanew-diferencies-linies-per-fitxer.csv", $rows);
     console_debug();
 }

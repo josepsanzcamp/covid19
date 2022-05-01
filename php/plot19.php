@@ -2,7 +2,7 @@
 
 if (!file_exists("output/plot19${lang}.png")) {
     console_debug("output/plot19${lang}.png");
-    $ine = import_file("middle/35177-ok2.csv");
+    $ine = import_file("middle/35177-defuncions-anys-2000-actual-per-setmana.csv");
     $matrix = array();
     for ($i = 1; $i <= 53; $i++) {
         $j = sprintf("%02d", $i);

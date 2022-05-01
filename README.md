@@ -65,6 +65,7 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - for k in $(seq 13 19); do for j in "" 0 1; do for i in $(seq 0 9); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/Defunciones_20${k}_${j}${i}.pdf; done; done; done
 - for k in $(seq 20 21); do for j in "" 0 1; do for i in $(seq 0 9); do wget https://www.mscbs.gob.es/estadEstudios/estadisticas/docs/indNacDefunciones/20${k}_Defunciones_${j}${i}.pdf; done; done; done
 - for i in *.pdf; do pdftotext -layout $i; done
+- wget -q -O - https://www.sanidad.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/IND_TipoDifusion.htm | grep -i "formato pdf" | grep href | head -1 | cut -d'"' -f2 | gawk '{print "https://www.sanidad.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/"$0}' | xargs wget -P indef/
 
 # OECD
 - https://data.oecd.org/spain.htm

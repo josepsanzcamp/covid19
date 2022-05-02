@@ -8,7 +8,7 @@ if (!file_exists("output/plot26${lang}.png")) {
     $fecha2 = $data[count($data) - 1][1];
     $fecha3 = date("Y-m-d", strtotime("$fecha1 + 1 month"));
     $fecha3 = substr($fecha3, 0, -2) . "01";
-    $fecha4 = date("Y-m-d", strtotime("$fecha2 - 1 day"));
+    $fecha4 = date("Y-m-d", strtotime("$fecha2 + 0 day"));
     $fecha4 = substr($fecha4, 0, -2) . "01";
     // CONTINUAR
     array_unshift($data, array(

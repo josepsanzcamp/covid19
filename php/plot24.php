@@ -83,7 +83,7 @@ if (!file_exists("output/plot24${lang}1.png")) {
     $fecha2 = $matrix1[count($matrix1) - 1][0];
     $fecha3 = date("Y-m-d", strtotime("$fecha1 + 1 month"));
     $fecha3 = substr($fecha3, 0, -2) . "01";
-    $fecha4 = date("Y-m-d", strtotime("$fecha2 - 1 day"));
+    $fecha4 = date("Y-m-d", strtotime("$fecha2 + 0 day"));
     $fecha4 = substr($fecha4, 0, -2) . "01";
     // CONTINUAR
     array_unshift($matrix1, array(

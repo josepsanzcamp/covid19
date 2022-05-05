@@ -45,12 +45,12 @@ index:
 
 momo:
 	@echo make momo
-	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]* output/plot2[2,4,6,7]*
+	rm -f middle/datanew* output/plot0[1-5,8]* output/plot1[2,4]* output/plot2[2,4,6,7,8]*
 	time -p php php/program.php
 
 momoold:
 	@echo make momoold
-	rm -f middle/dataold* output/plot15* output/plot27*
+	rm -f middle/dataold* output/plot15* output/plot2[7,8]*
 	time -p php php/program.php
 
 momo2wave:
@@ -105,5 +105,5 @@ spain:
 
 indef:
 	@echo make indef
-	rm -f middle/defunciones.csv output/plot2[0,3]*
+	rm -f middle/defunciones.csv output/plot2[0,3,8]*
 	time -p php php/program.php

@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "26. Number of difference lines between each MoMo file comparing only the first 365 lines of data"
+set title "26. Number of difference lines between each MoMo file comparing all except the last 365 lines of data"
 set grid
 set tmargin 3
 set rmargin 6

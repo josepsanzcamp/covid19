@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "26. Número de línies de diferència entre cada fitxer del MoMo comparant només les 365 primeres línies de dades"
+set title "26. Número de línies de diferència entre cada fitxer del MoMo comparant tot excepte les 365 darreres línies de dades"
 set grid
 set tmargin 3
 set rmargin 6

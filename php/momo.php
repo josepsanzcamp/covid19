@@ -73,12 +73,16 @@ if (!file_exists("middle/datanew-diferencies-linies-per-fitxer.csv")) {
     sort($files);
     $rows = array();
     foreach ($files as $key => $val) {
+        passthru("wc -l $val");
+        $nval = intval(ob_get_clean()) - 365;
+        ob_start();
         if ($key == 0) {
+            $prev = $val;
+            $nprev = $nval;
             continue;
         }
-        $prev = $files[$key - 1];
         ob_start();
-        passthru("bash -c 'diff <(head -n 365 $prev) <(head -n 365 $val)' | grep -e '<' -e '>' | wc -l");
+        passthru("bash -c 'diff <(head -n $nprev $prev) <(head -n $nval $val)' | grep -e '<' -e '>' | wc -l");
         $diff = trim(ob_get_clean());
         $fecha1 = explode(".", $prev);
         $fecha1 = str_split($fecha1[1], 2);
@@ -87,6 +91,8 @@ if (!file_exists("middle/datanew-diferencies-linies-per-fitxer.csv")) {
         $fecha2 = str_split($fecha2[1], 2);
         $fecha2 = $fecha2[0] . $fecha2[1] . "-" . $fecha2[2] . "-" . $fecha2[3];
         $rows[] = array($fecha1,$fecha2,$diff);
+        $prev = $val;
+        $nprev = $nval;
     }
     export_file("middle/datanew-diferencies-linies-per-fitxer.csv", $rows);
     console_debug();

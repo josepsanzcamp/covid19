@@ -200,9 +200,9 @@ $textos = array(
             "en" => "25. Population by age obtained from the INE of year 2019 (the unit is the million people)",
         ),
         "26" => array(
-            "ca" => "26. Número de línies de diferència entre cada fitxer del MoMo comparant només les 365 primeres línies de dades",
-            "es" => "26. Número de líneas de diferencia entre cada fichero del MoMo comparando solo las 365 primeras lineas de datos",
-            "en" => "26. Number of difference lines between each MoMo file comparing only the first 365 lines of data",
+            "ca" => "26. Número de línies de diferència entre cada fitxer del MoMo comparant tot excepte les 365 darreres línies de dades",
+            "es" => "26. Número de líneas de diferencia entre cada fichero del MoMo comparando todo excepto las 365 primeras lineas de datos",
+            "en" => "26. Number of difference lines between each MoMo file comparing all except the last 365 lines of data",
         ),
         "27" => array(
             "ca" => "27. Defuncions per dia obtinguts del MoMo (amb talls al 27/05/2020, 26/04/2022 i actual), i la mitjana del 2018",

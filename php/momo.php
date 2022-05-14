@@ -2,6 +2,40 @@
 
 // phpcs:disable Generic.Files.LineLength
 
+if (count(glob("input/momo/data.????????.csv.gz")) != count(glob("input/momo/data.????????.????????.csv.gz")) + 1) {
+    console_debug("middle/data.????????.csv.gz");
+    $patches = glob("input/momo/data.????????.????????.csv.gz");
+    foreach ($patches as $patch) {
+        $part = explode(".", $patch);
+        $file1 = "input/momo/data.${part[1]}.csv.gz";
+        $file2 = "input/momo/data.${part[2]}.csv";
+        $file3 = "input/momo/data.${part[2]}.csv.gz";
+        if (file_exists($file1) && !file_exists($file3)) {
+            passthru("zcat ${file1} > ${file2}");
+            passthru("zcat ${patch} | patch --quiet ${file2}");
+            passthru("gzip -nf ${file2}");
+        }
+    }
+    $files = glob("input/momo/data.????????.csv.gz");
+    $prev = "";
+    foreach ($files as $file) {
+        $part = explode(".", $file);
+        $part = $part[1];
+        if ($prev == "") {
+            $prev = $part;
+            continue;
+        }
+        $patch = "input/momo/data.${prev}.${part}.csv.gz";
+        if (!file_exists($patch)) {
+            $file1 = "input/momo/data.${prev}.csv.gz";
+            $file2 = "input/momo/data.${part}.csv.gz";
+            passthru("zdiff ${file1} ${file2} | gzip -nf > ${patch}");
+        }
+        $prev = $part;
+    }
+    console_debug();
+}
+
 if (count(glob("middle/data.????????.csv")) != count(glob("input/momo/data.????????.csv.gz"))) {
     console_debug("middle/data.????????.csv");
     $files = glob("input/momo/data.????????.csv.gz");

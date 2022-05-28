@@ -1,5 +1,17 @@
 <?php
 
+if (count(glob("input/indef/*.pdf")) != count(glob("input/indef/*.txt"))) {
+    console_debug("input/indef/*.txt");
+    $files = glob("input/indef/*.pdf");
+    foreach ($files as $file) {
+        $txt = str_replace(".pdf", ".txt", $file);
+        if (!file_exists($txt)) {
+            passthru("pdftotext -layout $file");
+        }
+    }
+    console_debug();
+}
+
 if (!file_exists("middle/defunciones.csv")) {
     console_debug("middle/defunciones.csv");
     $meses = array(
@@ -29,6 +41,12 @@ if (!file_exists("middle/defunciones.csv")) {
     foreach ($files as $file) {
         $lines = file_get_contents($file);
         $lines = explode("\n", $lines);
+        // TRUC PER SOLVENTAR PROBLEMA AMB EL FITXER 2021_Defunciones_4.txt
+        if ($lines[1] == "") {
+            unset($lines[1]);
+            $lines = array_values($lines);
+        }
+        // CONTINUAR
         foreach ($lines as $key => $val) {
             $val = trim($val);
             if ($key == 1) {

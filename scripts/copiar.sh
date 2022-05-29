@@ -4,15 +4,17 @@
 i=euromomo
 file0=$(find $i|sort|tail -2|head -1)
 file1=$(find $i|sort|tail -1)
-file2="../../covid19/input/$file1"
+file2=$(find ../../covid19/input/$i|grep component|sort|tail -1)
 hash0=$(md5sum $file0|cut -d' ' -f1)
 hash1=$(md5sum $file1|cut -d' ' -f1)
+hash2=$(md5sum $file2|cut -d' ' -f1)
 #~ echo $file0
 #~ echo $file1
 #~ echo $file2
 #~ echo $hash0
 #~ echo $hash1
-if [ "$hash0" != "$hash1" -a ! -f "$file2" ]; then
+#~ echo $hash2
+if [ "$hash0" != "$hash1" -a "$hash1" != "$hash2" ]; then
     echo "Copiar $i"
     cp $file1 $file2
 fi
@@ -158,3 +160,12 @@ if [ "$hash0" != "$hash1" -a "$hash1" != "$hash2" ]; then
     cp $file1 $file2
 fi
 
+# indef
+i=indef
+for file1 in $(find $i/*); do
+    file2="../../covid19/input/$file1"
+    if [ ! -f "$file2" ]; then
+        echo "Copiar $file1"
+        cp $file1 $file2
+    fi
+done

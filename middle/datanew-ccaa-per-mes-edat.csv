@@ -4919,7 +4919,7 @@
 2022-03,14 Región de Murcia,65_74,169.41
 2022-03,14 Región de Murcia,menos_65,166.31
 2022-03,13 Comunidad de Madrid,mas_74,2868.68
-2022-03,13 Comunidad de Madrid,65_74,638.78
+2022-03,13 Comunidad de Madrid,65_74,639.93
 2022-03,13 Comunidad de Madrid,menos_65,578.83
 2022-03,12 Galicia,mas_74,2380.59
 2022-03,12 Galicia,65_74,338.84
@@ -4944,7 +4944,7 @@
 2022-03,06 Cantabria,menos_65,70.94
 2022-03,05 Canarias,mas_74,1098.4
 2022-03,05 Canarias,65_74,307.83
-2022-03,05 Canarias,menos_65,319.58
+2022-03,05 Canarias,menos_65,320.63
 2022-03,04 Illes Balears,mas_74,571.9
 2022-03,04 Illes Balears,65_74,121.76
 2022-03,04 Illes Balears,menos_65,149.37
@@ -4954,9 +4954,9 @@
 2022-03,02 Aragón,mas_74,963.35
 2022-03,02 Aragón,65_74,153.5
 2022-03,02 Aragón,menos_65,162.63
-2022-03,01 Andalucía,mas_74,4574.16
+2022-03,01 Andalucía,mas_74,4575.18
 2022-03,01 Andalucía,65_74,1038.2
-2022-03,01 Andalucía,menos_65,1047.25
+2022-03,01 Andalucía,menos_65,1048.27
 2022-04,19 Melilla,mas_74,26.25
 2022-04,19 Melilla,65_74,10.5
 2022-04,19 Melilla,menos_65,4.2
@@ -4975,21 +4975,21 @@
 2022-04,14 Región de Murcia,mas_74,760.73
 2022-04,14 Región de Murcia,65_74,141.67
 2022-04,14 Región de Murcia,menos_65,159.14
-2022-04,13 Comunidad de Madrid,mas_74,2671.55
+2022-04,13 Comunidad de Madrid,mas_74,2672.71
 2022-04,13 Comunidad de Madrid,65_74,511.95
 2022-04,13 Comunidad de Madrid,menos_65,568.44
-2022-04,12 Galicia,mas_74,2258.84
+2022-04,12 Galicia,mas_74,2261.88
 2022-04,12 Galicia,65_74,343.97
-2022-04,12 Galicia,menos_65,333.74
-2022-04,11 Extremadura,mas_74,721.06
+2022-04,12 Galicia,menos_65,335.77
+2022-04,11 Extremadura,mas_74,722.22
 2022-04,11 Extremadura,65_74,140.87
 2022-04,11 Extremadura,menos_65,128.26
-2022-04,10 Comunitat Valenciana,mas_74,2850.79
-2022-04,10 Comunitat Valenciana,65_74,602.42
+2022-04,10 Comunitat Valenciana,mas_74,2851.81
+2022-04,10 Comunitat Valenciana,65_74,604.47
 2022-04,10 Comunitat Valenciana,menos_65,567.88
 2022-04,09 Cataluña,mas_74,4032.95
 2022-04,09 Cataluña,65_74,790.07
-2022-04,09 Cataluña,menos_65,702.35
+2022-04,09 Cataluña,menos_65,703.37
 2022-04,08 Castilla - La Mancha,mas_74,1280.35
 2022-04,08 Castilla - La Mancha,65_74,211.75
 2022-04,08 Castilla - La Mancha,menos_65,221.67
@@ -5013,118 +5013,118 @@
 2022-04,02 Aragón,menos_65,130.49
 2022-04,01 Andalucía,mas_74,4567.59
 2022-04,01 Andalucía,65_74,1018.84
-2022-04,01 Andalucía,menos_65,1014.26
-2022-05,19 Melilla,mas_74,21
+2022-04,01 Andalucía,menos_65,1016.28
+2022-05,19 Melilla,mas_74,24.15
 2022-05,19 Melilla,65_74,5.25
-2022-05,19 Melilla,menos_65,9.45
-2022-05,18 Ceuta,mas_74,18.72
+2022-05,19 Melilla,menos_65,8.4
+2022-05,18 Ceuta,mas_74,21.84
 2022-05,18 Ceuta,65_74,8.32
-2022-05,18 Ceuta,menos_65,6.24
-2022-05,17 La Rioja,mas_74,191.92
-2022-05,17 La Rioja,65_74,46.68
-2022-05,17 La Rioja,menos_65,27.27
-2022-05,16 País Vasco,mas_74,1334.97
-2022-05,16 País Vasco,65_74,237.38
-2022-05,16 País Vasco,menos_65,216.21
-2022-05,15 Comunidad Foral de Navarra,mas_74,351.8
-2022-05,15 Comunidad Foral de Navarra,65_74,54.4
-2022-05,15 Comunidad Foral de Navarra,menos_65,58.53
-2022-05,14 Región de Murcia,mas_74,788.43
-2022-05,14 Región de Murcia,65_74,141.67
-2022-05,14 Región de Murcia,menos_65,141.68
-2022-05,13 Comunidad de Madrid,mas_74,2853.68
-2022-05,13 Comunidad de Madrid,65_74,554.64
-2022-05,13 Comunidad de Madrid,menos_65,509.65
-2022-05,12 Galicia,mas_74,2115.59
-2022-05,12 Galicia,65_74,332.78
-2022-05,12 Galicia,menos_65,287.07
-2022-05,11 Extremadura,mas_74,749.58
-2022-05,11 Extremadura,65_74,115.99
-2022-05,11 Extremadura,menos_65,115.08
-2022-05,10 Comunitat Valenciana,mas_74,2710
-2022-05,10 Comunitat Valenciana,65_74,563.74
-2022-05,10 Comunitat Valenciana,menos_65,562.81
-2022-05,09 Cataluña,mas_74,4169.28
-2022-05,09 Cataluña,65_74,739.13
-2022-05,09 Cataluña,menos_65,797.34
-2022-05,08 Castilla - La Mancha,mas_74,1222.65
-2022-05,08 Castilla - La Mancha,65_74,197.95
-2022-05,08 Castilla - La Mancha,menos_65,176.91
-2022-05,07 Castilla y León,mas_74,1904.69
-2022-05,07 Castilla y León,65_74,269.33
-2022-05,07 Castilla y León,menos_65,249.6
-2022-05,06 Cantabria,mas_74,386.08
-2022-05,06 Cantabria,65_74,73.43
-2022-05,06 Cantabria,menos_65,67.15
-2022-05,05 Canarias,mas_74,893.72
-2022-05,05 Canarias,65_74,224.02
-2022-05,05 Canarias,menos_65,229.31
-2022-05,04 Illes Balears,mas_74,451.14
-2022-05,04 Illes Balears,65_74,96.19
-2022-05,04 Illes Balears,menos_65,123.8
-2022-05,03 Principado de Asturias,mas_74,762.23
-2022-05,03 Principado de Asturias,65_74,148.47
-2022-05,03 Principado de Asturias,menos_65,123.22
-2022-05,02 Aragón,mas_74,890.44
-2022-05,02 Aragón,65_74,140.84
-2022-05,02 Aragón,menos_65,133.13
-2022-05,01 Andalucía,mas_74,4505.69
-2022-05,01 Andalucía,65_74,946.61
-2022-05,01 Andalucía,menos_65,972.05
+2022-05,18 Ceuta,menos_65,7.28
+2022-05,17 La Rioja,mas_74,203.6
+2022-05,17 La Rioja,65_74,47.98
+2022-05,17 La Rioja,menos_65,31.16
+2022-05,16 País Vasco,mas_74,1422.97
+2022-05,16 País Vasco,65_74,257.5
+2022-05,16 País Vasco,menos_65,229.36
+2022-05,15 Comunidad Foral de Navarra,mas_74,388.69
+2022-05,15 Comunidad Foral de Navarra,65_74,58.5
+2022-05,15 Comunidad Foral de Navarra,menos_65,54.41
+2022-05,14 Región de Murcia,mas_74,850.03
+2022-05,14 Región de Murcia,65_74,152.98
+2022-05,14 Región de Murcia,menos_65,151.94
+2022-05,13 Comunidad de Madrid,mas_74,2941.35
+2022-05,13 Comunidad de Madrid,65_74,567.32
+2022-05,13 Comunidad de Madrid,menos_65,525.78
+2022-05,12 Galicia,mas_74,2291.12
+2022-05,12 Galicia,65_74,363.19
+2022-05,12 Galicia,menos_65,304.33
+2022-05,11 Extremadura,mas_74,801.43
+2022-05,11 Extremadura,65_74,127.9
+2022-05,11 Extremadura,menos_65,126.04
+2022-05,10 Comunitat Valenciana,mas_74,2889.17
+2022-05,10 Comunitat Valenciana,65_74,598.38
+2022-05,10 Comunitat Valenciana,menos_65,611.61
+2022-05,09 Cataluña,mas_74,4469.99
+2022-05,09 Cataluña,65_74,770.73
+2022-05,09 Cataluña,menos_65,824.85
+2022-05,08 Castilla - La Mancha,mas_74,1325.32
+2022-05,08 Castilla - La Mancha,65_74,207.5
+2022-05,08 Castilla - La Mancha,menos_65,187.7
+2022-05,07 Castilla y León,mas_74,2027.12
+2022-05,07 Castilla y León,65_74,285.81
+2022-05,07 Castilla y León,menos_65,254.86
+2022-05,06 Cantabria,mas_74,421.51
+2022-05,06 Cantabria,65_74,78.49
+2022-05,06 Cantabria,menos_65,69.69
+2022-05,05 Canarias,mas_74,1027.77
+2022-05,05 Canarias,65_74,263.22
+2022-05,05 Canarias,menos_65,263.39
+2022-05,04 Illes Balears,mas_74,490.01
+2022-05,04 Illes Balears,65_74,107.45
+2022-05,04 Illes Balears,menos_65,127.9
+2022-05,03 Principado de Asturias,mas_74,822.75
+2022-05,03 Principado de Asturias,65_74,167.65
+2022-05,03 Principado de Asturias,menos_65,134.33
+2022-05,02 Aragón,mas_74,969.22
+2022-05,02 Aragón,65_74,151.37
+2022-05,02 Aragón,menos_65,141.37
+2022-05,01 Andalucía,mas_74,4813.46
+2022-05,01 Andalucía,65_74,1029.86
+2022-05,01 Andalucía,menos_65,1049.2
 2022-06,19 Melilla,mas_74,4.2
-2022-06,19 Melilla,65_74,2.1
-2022-06,19 Melilla,menos_65,3.15
+2022-06,19 Melilla,65_74,1.05
+2022-06,19 Melilla,menos_65,4.2
 2022-06,18 Ceuta,mas_74,4.16
 2022-06,18 Ceuta,65_74,2.08
-2022-06,18 Ceuta,menos_65,2.08
-2022-06,17 La Rioja,mas_74,6.48
-2022-06,17 La Rioja,65_74,2.59
-2022-06,17 La Rioja,menos_65,5.18
-2022-06,16 País Vasco,mas_74,39.4
-2022-06,16 País Vasco,65_74,8.12
-2022-06,16 País Vasco,menos_65,13.18
-2022-06,15 Comunidad Foral de Navarra,mas_74,11.28
-2022-06,15 Comunidad Foral de Navarra,65_74,3.08
-2022-06,15 Comunidad Foral de Navarra,menos_65,5.13
-2022-06,14 Región de Murcia,mas_74,15.4
-2022-06,14 Región de Murcia,65_74,3.08
-2022-06,14 Región de Murcia,menos_65,7.18
-2022-06,13 Comunidad de Madrid,mas_74,74.94
-2022-06,13 Comunidad de Madrid,65_74,13.84
-2022-06,13 Comunidad de Madrid,menos_65,21.91
-2022-06,12 Galicia,mas_74,49.73
-2022-06,12 Galicia,65_74,11.16
-2022-06,12 Galicia,menos_65,21.31
-2022-06,11 Extremadura,mas_74,15.28
-2022-06,11 Extremadura,65_74,5.48
-2022-06,11 Extremadura,menos_65,14.34
-2022-06,10 Comunitat Valenciana,mas_74,68.2
-2022-06,10 Comunitat Valenciana,65_74,15.27
-2022-06,10 Comunitat Valenciana,menos_65,27.53
-2022-06,09 Cataluña,mas_74,115.22
-2022-06,09 Cataluña,65_74,23.44
-2022-06,09 Cataluña,menos_65,36.65
-2022-06,08 Castilla - La Mancha,mas_74,37.97
-2022-06,08 Castilla - La Mancha,65_74,9.57
-2022-06,08 Castilla - La Mancha,menos_65,19.04
-2022-06,07 Castilla y León,mas_74,60.35
-2022-06,07 Castilla y León,65_74,23.27
-2022-06,07 Castilla y León,menos_65,36.72
-2022-06,06 Cantabria,mas_74,10.12
+2022-06,18 Ceuta,menos_65,3.12
+2022-06,17 La Rioja,mas_74,12.97
+2022-06,17 La Rioja,65_74,3.89
+2022-06,17 La Rioja,menos_65,5.19
+2022-06,16 País Vasco,mas_74,100.01
+2022-06,16 País Vasco,65_74,16.16
+2022-06,16 País Vasco,menos_65,30.31
+2022-06,15 Comunidad Foral de Navarra,mas_74,20.51
+2022-06,15 Comunidad Foral de Navarra,65_74,5.13
+2022-06,15 Comunidad Foral de Navarra,menos_65,12.31
+2022-06,14 Región de Murcia,mas_74,45.18
+2022-06,14 Región de Murcia,65_74,10.27
+2022-06,14 Región de Murcia,menos_65,12.31
+2022-06,13 Comunidad de Madrid,mas_74,181.03
+2022-06,13 Comunidad de Madrid,65_74,36.89
+2022-06,13 Comunidad de Madrid,menos_65,40.35
+2022-06,12 Galicia,mas_74,126.88
+2022-06,12 Galicia,65_74,24.36
+2022-06,12 Galicia,menos_65,37.55
+2022-06,11 Extremadura,mas_74,56.79
+2022-06,11 Extremadura,65_74,8.74
+2022-06,11 Extremadura,menos_65,19.7
+2022-06,10 Comunitat Valenciana,mas_74,179.06
+2022-06,10 Comunitat Valenciana,65_74,39.69
+2022-06,10 Comunitat Valenciana,menos_65,48.95
+2022-06,09 Cataluña,mas_74,240.62
+2022-06,09 Cataluña,65_74,43.83
+2022-06,09 Cataluña,menos_65,74.36
+2022-06,08 Castilla - La Mancha,mas_74,102.23
+2022-06,08 Castilla - La Mancha,65_74,19.2
+2022-06,08 Castilla - La Mancha,menos_65,36.74
+2022-06,07 Castilla y León,mas_74,149.67
+2022-06,07 Castilla y León,65_74,33.11
+2022-06,07 Castilla y León,menos_65,43.1
+2022-06,06 Cantabria,mas_74,30.38
 2022-06,06 Cantabria,65_74,2.53
-2022-06,06 Cantabria,menos_65,6.33
-2022-06,05 Canarias,mas_74,23.74
-2022-06,05 Canarias,65_74,6.19
-2022-06,05 Canarias,menos_65,14.46
-2022-06,04 Illes Balears,mas_74,13.3
-2022-06,04 Illes Balears,65_74,3.07
-2022-06,04 Illes Balears,menos_65,6.14
-2022-06,03 Principado de Asturias,mas_74,24.23
-2022-06,03 Principado de Asturias,65_74,5.05
-2022-06,03 Principado de Asturias,menos_65,7.07
-2022-06,02 Aragón,mas_74,24.83
-2022-06,02 Aragón,65_74,7.86
-2022-06,02 Aragón,menos_65,15.46
-2022-06,01 Andalucía,mas_74,102.56
-2022-06,01 Andalucía,65_74,28.44
-2022-06,01 Andalucía,menos_65,56.88
+2022-06,06 Cantabria,menos_65,11.4
+2022-06,05 Canarias,mas_74,67.09
+2022-06,05 Canarias,65_74,12.38
+2022-06,05 Canarias,menos_65,25.77
+2022-06,04 Illes Balears,mas_74,25.58
+2022-06,04 Illes Balears,65_74,5.11
+2022-06,04 Illes Balears,menos_65,12.29
+2022-06,03 Principado de Asturias,mas_74,55.51
+2022-06,03 Principado de Asturias,65_74,8.08
+2022-06,03 Principado de Asturias,menos_65,16.16
+2022-06,02 Aragón,mas_74,65
+2022-06,02 Aragón,65_74,14.55
+2022-06,02 Aragón,menos_65,22.07
+2022-06,01 Andalucía,mas_74,285.45
+2022-06,01 Andalucía,65_74,65.03
+2022-06,01 Andalucía,menos_65,113.68

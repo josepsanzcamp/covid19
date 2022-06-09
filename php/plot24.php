@@ -70,6 +70,7 @@ if (!file_exists("output/plot24${lang}1.png")) {
         array("2021-01","2021-02"),
         array("2021-15","2021-16"),
         array("2021-49","2021-50"),
+        array("2022-22","2022-23"),
     );
     foreach ($correccions as $correccio) {
         $matrix2[$correccio[0]][4] = $matrix2[$correccio[0]][1];

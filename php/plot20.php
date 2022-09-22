@@ -31,15 +31,14 @@ if (!file_exists("output/plot20${lang}1.png")) {
         "set ytics 0,100000,400000",
         "set datafile separator '" . SEPARADOR . "'",
         "set colors classic",
-        "set key at '2017-01-01',130000",
-        "set xrange ['2014-01-01':'2017-01-01']",
+        "set key at '2023-01-01',130000",
+        "set xrange ['2020-01-01':'2023-01-01']",
         "set output 'output/plot20${lang}1.png'",
-        "plot 'middle/plot20${lang}.csv' u 1:2:xtic(1) w lp ti col,\
-            '' u 1:3 w lp ti col,\
-            '' u 1:4 w lp ti col,\
-            '' u 1:5 w lp ti col,\
-            '' u 1:6 w lp ti col,\
-            '' u 1:7 w lp ti col",
+        "plot 'middle/plot20${lang}.csv' u 1:8:xtic(1) w lp ti col,\
+            '' u 1:9 w lp ti col,\
+            '' u 1:10 w lp ti col,\
+            '' u 1:11 w lp ti col,\
+            '' u 1:12 w lp ti col",
         "set key at '2020-01-01',130000",
         "set xrange ['2017-01-01':'2020-01-01']",
         "set output 'output/plot20${lang}2.png'",
@@ -49,14 +48,15 @@ if (!file_exists("output/plot20${lang}1.png")) {
             '' u 1:8 w lp ti col,\
             '' u 1:9 w lp ti col,\
             '' u 1:10 w lp ti col",
-        "set key at '2023-01-01',130000",
-        "set xrange ['2020-01-01':'2023-01-01']",
+        "set key at '2017-01-01',130000",
+        "set xrange ['2014-01-01':'2017-01-01']",
         "set output 'output/plot20${lang}3.png'",
-        "plot 'middle/plot20${lang}.csv' u 1:8:xtic(1) w lp ti col,\
-            '' u 1:9 w lp ti col,\
-            '' u 1:10 w lp ti col,\
-            '' u 1:11 w lp ti col,\
-            '' u 1:12 w lp ti col",
+        "plot 'middle/plot20${lang}.csv' u 1:2:xtic(1) w lp ti col,\
+            '' u 1:3 w lp ti col,\
+            '' u 1:4 w lp ti col,\
+            '' u 1:5 w lp ti col,\
+            '' u 1:6 w lp ti col,\
+            '' u 1:7 w lp ti col",
     )) . "\n";
     file_put_contents("middle/plot20${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot20${lang}.gnu 2>&1");

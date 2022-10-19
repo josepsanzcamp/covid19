@@ -23,7 +23,8 @@ plot 'middle/plot20es.csv' u 1:8:xtic(1) w lp ti col,\
             '' u 1:9 w lp ti col,\
             '' u 1:10 w lp ti col,\
             '' u 1:11 w lp ti col,\
-            '' u 1:12 w lp ti col
+            '' u 1:12 w lp ti col,\
+            '' u 1:13 w lp ti col
 set key at '2020-01-01',130000
 set xrange ['2017-01-01':'2020-01-01']
 set output 'output/plot20es2.png'

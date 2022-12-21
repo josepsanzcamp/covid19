@@ -10,10 +10,10 @@ if (!file_exists("middle/datanew.csv")) {
             $ccaas[$val[1]] = $fix;
         }
     }
-    $files = glob("input/momo/data.????????.csv.gz");
+    $files = glob("input/momo/data.????????.csv.bz2");
     sort($files);
     $file = end($files);
-    passthru("zcat ${file} | grep -v -e hombres -e mujeres -e provincia | tac > middle/datanew.csv");
+    passthru("bzcat ${file} | grep -v -e hombres -e mujeres -e provincia -e +65 | tac > middle/datanew.csv");
     $buffer = file_get_contents("middle/datanew.csv");
     $buffer = str_replace(array_keys($ccaas), array_values($ccaas), $buffer);
     file_put_contents("middle/datanew.csv", $buffer);

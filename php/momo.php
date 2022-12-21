@@ -2,21 +2,21 @@
 
 // phpcs:disable Generic.Files.LineLength
 
-if (count(glob("input/momo/data.????????.csv.gz")) != count(glob("input/momo/data.????????.????????.csv.gz")) + 1) {
-    console_debug("input/momo/data.????????.csv.gz");
-    $patches = glob("input/momo/data.????????.????????.csv.gz");
+if (count(glob("input/momo/data.????????.csv.bz2")) != count(glob("input/momo/data.????????.????????.csv.bz2")) + 1) {
+    console_debug("input/momo/data.????????.csv.bz2");
+    $patches = glob("input/momo/data.????????.????????.csv.bz2");
     foreach ($patches as $patch) {
         $part = explode(".", $patch);
-        $file1 = "input/momo/data.${part[1]}.csv.gz";
+        $file1 = "input/momo/data.${part[1]}.csv.bz2";
         $file2 = "input/momo/data.${part[2]}.csv";
-        $file3 = "input/momo/data.${part[2]}.csv.gz";
+        $file3 = "input/momo/data.${part[2]}.csv.bz2";
         if (file_exists($file1) && !file_exists($file3)) {
-            passthru("zcat ${file1} > ${file2}");
-            passthru("zcat ${patch} | patch --quiet ${file2}");
-            passthru("gzip -nf ${file2}");
+            passthru("bzcat ${file1} > ${file2}");
+            passthru("bzcat ${patch} | patch --quiet ${file2}");
+            passthru("bzip2 -f ${file2}");
         }
     }
-    $files = glob("input/momo/data.????????.csv.gz");
+    $files = glob("input/momo/data.????????.csv.bz2");
     $prev = "";
     foreach ($files as $file) {
         $part = explode(".", $file);
@@ -25,20 +25,20 @@ if (count(glob("input/momo/data.????????.csv.gz")) != count(glob("input/momo/dat
             $prev = $part;
             continue;
         }
-        $patch = "input/momo/data.${prev}.${part}.csv.gz";
+        $patch = "input/momo/data.${prev}.${part}.csv.bz2";
         if (!file_exists($patch)) {
-            $file1 = "input/momo/data.${prev}.csv.gz";
-            $file2 = "input/momo/data.${part}.csv.gz";
-            passthru("zdiff ${file1} ${file2} | gzip -nf > ${patch}");
+            $file1 = "input/momo/data.${prev}.csv.bz2";
+            $file2 = "input/momo/data.${part}.csv.bz2";
+            passthru("bzdiff ${file1} ${file2} | bzip2 -f > ${patch}");
         }
         $prev = $part;
     }
     console_debug();
 }
 
-if (count(glob("middle/data.????????.csv")) != count(glob("input/momo/data.????????.csv.gz"))) {
+if (count(glob("middle/data.????????.csv")) != count(glob("input/momo/data.????????.csv.bz2"))) {
     console_debug("middle/data.????????.csv");
-    $files = glob("input/momo/data.????????.csv.gz");
+    $files = glob("input/momo/data.????????.csv.bz2");
     sort($files);
     foreach ($files as $file) {
         $part = explode(".", $file);
@@ -48,8 +48,10 @@ if (count(glob("middle/data.????????.csv")) != count(glob("input/momo/data.?????
         }
         if ($part <= 20220425) {
             $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad");
-        } else {
+        } else if ($part <= 20221202) {
             $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad | tac");
+        } else {
+            $data = import_file_with_grep($file, "grep nacional | grep -v -e hombres -e mujeres -e edad");
         }
         $matrix = array();
         foreach ($data as $key => $val) {

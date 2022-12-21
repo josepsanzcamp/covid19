@@ -7,6 +7,9 @@ function import_file($file)
     if (pathinfo($file, PATHINFO_EXTENSION) == "gz") {
         $file = "compress.zlib://" . $file;
     }
+    if (pathinfo($file, PATHINFO_EXTENSION) == "bz2") {
+        $file = "compress.bzip2://" . $file;
+    }
     $data = file($file, FILE_IGNORE_NEW_LINES);
     $sep = "";
     if ($sep == "" && strpos($data[0], ",") !== false) {
@@ -53,6 +56,9 @@ function get_file($file)
     if (pathinfo($file, PATHINFO_EXTENSION) == "gz") {
         $file = "compress.zlib://" . $file;
     }
+    if (pathinfo($file, PATHINFO_EXTENSION) == "bz2") {
+        $file = "compress.bzip2://" . $file;
+    }
     return file_get_contents($file);
 }
 
@@ -71,7 +77,13 @@ function get_temp_file()
 function import_file_with_grep($file, $grep)
 {
     $temp = get_temp_file();
-    $cat = (pathinfo($file, PATHINFO_EXTENSION) == "gz") ? "zcat" : "cat";
+    $cat = "cat";
+    if (pathinfo($file, PATHINFO_EXTENSION) == "gz") {
+        $cat = "zcat";
+    }
+    if (pathinfo($file, PATHINFO_EXTENSION) == "bz2") {
+        $cat = "bzcat";
+    }
     passthru("$cat $file | $grep > $temp");
     $data = import_file($temp);
     unlink($temp);

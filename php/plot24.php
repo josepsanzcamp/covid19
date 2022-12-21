@@ -37,6 +37,18 @@ if (!file_exists("output/plot24${lang}1.png")) {
     $temp = array_column($matrix1, "0");
     $index = array_search("2022-04-26", $temp);
     $matrix1[$index][1] = ($matrix1[$index - 1][1] + $matrix1[$index + 1][1]) / 2;
+    // CORRECCIO FORAT DADES ENTRE 2022-12-02 I 2022-12-20
+    $temp = array_column($matrix1, "0");
+    $index = array_search("2022-12-20", $temp);
+    $temp = array_splice($matrix1,$index);
+    $valor = $temp[0][1] / 18;
+    unset($temp[0]);
+    for ($i = 3; $i <= 20; $i++) {
+        $fecha = sprintf("2022-12-%02d",$i);
+        $matrix1[] = array($fecha, $valor);
+    }
+    $matrix1 = array_merge($matrix1, $temp);
+    unset($temp);
     // CONTINUAR
     $matrix2 = array();
     foreach ($matrix1 as $key => $val) {
@@ -115,7 +127,7 @@ if (!file_exists("output/plot24${lang}1.png")) {
         "set timefmt '%Y-%m-%d'",
         "set format x '%Y-%m-%d'",
         "set xtics rotate by -45",
-        "set xtics '${fecha3}',86400*30.25,'${fecha4}'",
+        "set xtics '${fecha3}',86400*30.30,'${fecha4}'",
         "set xrange ['${fecha1}':'${fecha2}']",
         "set ytic center rotate by 90",
         "set datafile separator '" . SEPARADOR . "'",

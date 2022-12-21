@@ -7,7 +7,7 @@ if (!file_exists("middle/dataold2.csv")) {
     foreach ($temp as $key => $val) {
         $ccaas[$val[1]] = ccaa2fix($val[1]);
     }
-    $files = glob("input/momo/data.????????.csv.gz");
+    $files = glob("input/momo/data.????????.csv.bz2");
     sort($files);
     foreach ($files as $key => $val) {
         $temp = explode(".", $val);

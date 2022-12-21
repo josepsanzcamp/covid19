@@ -1,3 +1,9 @@
 
-data.????????.csv.gz
-!data.20200507.csv.gz
+data.????????.csv.bz2
+!data.20200507.csv.bz2
+data.20210513.20210514.csv.bz2
+!data.20210514.csv.bz2
+data.20220425.20220426.csv.bz2
+!data.20220426.csv.bz2
+data.20221202.20221220.csv.bz2
+!data.20221220.csv.bz2

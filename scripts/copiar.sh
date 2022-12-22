@@ -78,7 +78,8 @@ fi
 i=momo
 for file1 in $(find $i/*); do
     file2="../../covid19/input/$file1"
-    if [ ! -f "$file2" ]; then
+    file3=$(echo $file2|rev|cut -d. -f2-|rev)".bz2"
+    if [ ! -f "$file2" -a ! -f "$file3" ]; then
         echo "Copiar $file1"
         cp $file1 $file2
     fi

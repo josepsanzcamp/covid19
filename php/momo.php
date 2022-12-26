@@ -2,6 +2,35 @@
 
 // phpcs:disable Generic.Files.LineLength
 
+if (count(glob("input/momo/data.????????.csv.gz")) != 0) {
+    console_debug("input/momo/data.????????.csv.gz");
+    $files = glob("input/momo/data.????????.csv.gz");
+    foreach ($files as $file) {
+        $part = explode(".", $file);
+        $part = $part[1];
+        $file1 = "input/momo/data.${part}.csv.gz";
+        $file2 = "input/momo/data.${part}.csv";
+        $file3 = "input/momo/data.${part}.csv.bz2";
+        // DESCOMPRIMIR
+        if (file_exists($file2)) {
+            die2("ERROR 12");
+        }
+        passthru("gunzip ${file1}");
+        if (!file_exists($file2)) {
+            die2("ERROR 13");
+        }
+        // TORNAR A COMPRIMIR
+        if (file_exists($file3)) {
+            die2("ERROR 14");
+        }
+        passthru("bzip2 $file2");
+        if (!file_exists($file3)) {
+            die2("ERROR 15");
+        }
+    }
+    console_debug();
+}
+
 if (count(glob("input/momo/data.????????.csv.bz2")) != count(glob("input/momo/data.????????.????????.csv.bz2")) + 1) {
     console_debug("input/momo/data.????????.csv.bz2");
     $patches = glob("input/momo/data.????????.????????.csv.bz2");
@@ -17,6 +46,7 @@ if (count(glob("input/momo/data.????????.csv.bz2")) != count(glob("input/momo/da
         }
     }
     $files = glob("input/momo/data.????????.csv.bz2");
+    sort($files);
     $prev = "";
     foreach ($files as $file) {
         $part = explode(".", $file);

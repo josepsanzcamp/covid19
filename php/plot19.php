@@ -34,7 +34,7 @@ if (!file_exists("output/plot19${lang}.png")) {
         "set timefmt '%Y-%m-%d'",
         "set format x '%Y-%m-%d'",
         "set xrange ['2020-01-01':'2021-01-01']",
-        "set xtics '2020-02-01',86400*30.25,'2020-12-01'",
+        "set xtics '2020-02-01',86400*30.30,'2020-12-01'",
         "set ytic center rotate by 90",
         "set ytics 0,6000,24000",
         "set datafile separator '" . SEPARADOR . "'",

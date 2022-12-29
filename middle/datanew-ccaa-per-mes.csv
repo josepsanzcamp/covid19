@@ -1,67 +1,67 @@
-2022-12,19 Melilla,28.54
-2022-12,18 Ceuta,48.6
-2022-12,17 La Rioja,247.19
-2022-12,16 País Vasco,1743.62
-2022-12,15 Comunidad Foral de Navarra,435.05
-2022-12,14 Región de Murcia,816.87
-2022-12,13 Comunidad de Madrid,3725.33
-2022-12,12 Galicia,2715.42
-2022-12,11 Extremadura,837.94
-2022-12,10 Comunitat Valenciana,3763.28
-2022-12,09 Cataluña,5226.31
-2022-12,08 Castilla - La Mancha,1374.36
-2022-12,07 Castilla y León,2021.88
-2022-12,06 Cantabria,446.7
-2022-12,05 Canarias,1237.17
-2022-12,04 Illes Balears,593.34
-2022-12,03 Principado de Asturias,959.71
-2022-12,02 Aragón,1234.56
-2022-12,01 Andalucía,5454.78
+2022-12,19 Melilla,33.63
+2022-12,18 Ceuta,52.65
+2022-12,17 La Rioja,298.95
+2022-12,16 País Vasco,1888.63
+2022-12,15 Comunidad Foral de Navarra,501.42
+2022-12,14 Región de Murcia,886.49
+2022-12,13 Comunidad de Madrid,4201.31
+2022-12,12 Galicia,2915.77
+2022-12,11 Extremadura,961.64
+2022-12,10 Comunitat Valenciana,4102.51
+2022-12,09 Cataluña,5733.91
+2022-12,08 Castilla - La Mancha,1569.31
+2022-12,07 Castilla y León,2372.36
+2022-12,06 Cantabria,550.62
+2022-12,05 Canarias,1452.34
+2022-12,04 Illes Balears,664.32
+2022-12,03 Principado de Asturias,1156.69
+2022-12,02 Aragón,1346.27
+2022-12,01 Andalucía,6204.63
 2022-11,19 Melilla,35.65
 2022-11,18 Ceuta,49.67
 2022-11,17 La Rioja,270.48
 2022-11,16 País Vasco,1816.13
 2022-11,15 Comunidad Foral de Navarra,500.39
-2022-11,14 Región de Murcia,924.35
-2022-11,13 Comunidad de Madrid,4030.68
-2022-11,12 Galicia,2781.95
+2022-11,14 Región de Murcia,925.37
+2022-11,13 Comunidad de Madrid,4031.84
+2022-11,12 Galicia,2785.99
 2022-11,11 Extremadura,840.92
-2022-11,10 Comunitat Valenciana,3753.28
-2022-11,09 Cataluña,5559.05
+2022-11,10 Comunitat Valenciana,3754.29
+2022-11,09 Cataluña,5552.02
 2022-11,08 Castilla - La Mancha,1613.63
 2022-11,07 Castilla y León,2446.85
 2022-11,06 Cantabria,511.71
-2022-11,05 Canarias,1535.05
+2022-11,05 Canarias,1538.11
 2022-11,04 Illes Balears,699.85
 2022-11,03 Principado de Asturias,1148.63
 2022-11,02 Aragón,1279.2
-2022-11,01 Andalucía,5860.37
+2022-11,01 Andalucía,5864.41
 2022-10,19 Melilla,30.58
 2022-10,18 Ceuta,54.7
 2022-10,17 La Rioja,288.6
 2022-10,16 País Vasco,1933.39
 2022-10,15 Comunidad Foral de Navarra,497.31
 2022-10,14 Región de Murcia,1067.69
-2022-10,13 Comunidad de Madrid,3969.12
+2022-10,13 Comunidad de Madrid,3967.96
 2022-10,12 Galicia,2730.42
 2022-10,11 Extremadura,887.45
-2022-10,10 Comunitat Valenciana,3854.17
+2022-10,10 Comunitat Valenciana,3855.18
 2022-10,09 Cataluña,5382.7
 2022-10,08 Castilla - La Mancha,1576.4
 2022-10,07 Castilla y León,2417.27
 2022-10,06 Cantabria,531.16
-2022-10,05 Canarias,1514.85
+2022-10,05 Canarias,1516.87
 2022-10,04 Illes Balears,741.45
 2022-10,03 Principado de Asturias,1028.01
 2022-10,02 Aragón,1207.49
-2022-10,01 Andalucía,5810.32
+2022-10,01 Andalucía,5811.33
 2022-09,19 Melilla,35.67
 2022-09,18 Ceuta,40.52
 2022-09,17 La Rioja,243.3
 2022-09,16 País Vasco,1739.64
 2022-09,15 Comunidad Foral de Navarra,443.21
 2022-09,14 Región de Murcia,853.7
-2022-09,13 Comunidad de Madrid,3439.75
+2022-09,13 Comunidad de Madrid,3440.91
 2022-09,12 Galicia,2540.12
 2022-09,11 Extremadura,866.7
 2022-09,10 Comunitat Valenciana,3625.08
@@ -80,7 +80,7 @@
 2022-08,16 País Vasco,1876.62
 2022-08,15 Comunidad Foral de Navarra,531.03
 2022-08,14 Región de Murcia,1097.34
-2022-08,13 Comunidad de Madrid,4082.89
+2022-08,13 Comunidad de Madrid,4084.05
 2022-08,12 Galicia,2729.79
 2022-08,11 Extremadura,1050.45
 2022-08,10 Comunitat Valenciana,4582.07
@@ -194,7 +194,7 @@
 2022-02,16 País Vasco,2023.19
 2022-02,15 Comunidad Foral de Navarra,518.76
 2022-02,14 Región de Murcia,1114.75
-2022-02,13 Comunidad de Madrid,4114.2
+2022-02,13 Comunidad de Madrid,4113.04
 2022-02,12 Galicia,2937.64
 2022-02,11 Extremadura,1020.03
 2022-02,10 Comunitat Valenciana,4348.87

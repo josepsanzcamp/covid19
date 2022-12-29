@@ -31,7 +31,7 @@ if (!file_exists("output/plot26${lang}.png")) {
         "set timefmt '%Y-%m-%d'",
         "set format x '%Y-%m-%d'",
         "set xtics rotate by -45",
-        "set xtics '${fecha3}',86400*30.25,'${fecha4}'",
+        "set xtics '${fecha3}',86400*30.30,'${fecha4}'",
         "set xrange ['${fecha1}':'${fecha2}']",
         "set ytic center rotate by 90",
         "set datafile separator '" . SEPARADOR . "'",

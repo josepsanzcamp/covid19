@@ -5,6 +5,7 @@ cd $HOME/workspace/covid19.download
 
 # MOMO
 wget --spider https://momo.isciii.es/public/momo/data && wget -O momo/data.$(date +"%Y%m%d").csv https://momo.isciii.es/public/momo/data
+find momo/ -name "data.*.csv" -type f -size 1k -delete
 
 # EUROMOMO
 wget -O euromomo/component.$(date +"%Y%m%d").js https://www.euromomo.eu$(wget -q -O - https://www.euromomo.eu/graphs-and-maps | tr '"' '\n' | grep /component---src-templates-graphs-and-maps-js | head -1)

@@ -25,7 +25,8 @@ plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
             '' u 1:7 w lp ti col,\
             '' u 1:8 w lp ti col,\
             '' u 1:9 w lp ti col,\
-            '' u 1:10 w l ti col
+            '' u 1:10 w lp ti col,\
+            '' u 1:11 w l ti col
 set output 'output/plot03ca2.png'
 set xrange ['2020-03-01':'2020-05-01']
 plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
@@ -36,7 +37,8 @@ plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
             '' u 1:7 w lp ti col,\
             '' u 1:8 w lp ti col,\
             '' u 1:9 w lp ti col,\
-            '' u 1:10 w l ti col
+            '' u 1:10 w lp ti col,\
+            '' u 1:11 w l ti col
 set output 'output/plot03ca3.png'
 set xrange ['2020-05-01':'2020-07-01']
 plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
@@ -47,7 +49,8 @@ plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
             '' u 1:7 w lp ti col,\
             '' u 1:8 w lp ti col,\
             '' u 1:9 w lp ti col,\
-            '' u 1:10 w l ti col
+            '' u 1:10 w lp ti col,\
+            '' u 1:11 w l ti col
 set output 'output/plot03ca4.png'
 set xrange ['2020-07-01':'2020-09-01']
 plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
@@ -58,7 +61,8 @@ plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
             '' u 1:7 w lp ti col,\
             '' u 1:8 w lp ti col,\
             '' u 1:9 w lp ti col,\
-            '' u 1:10 w l ti col
+            '' u 1:10 w lp ti col,\
+            '' u 1:11 w l ti col
 set output 'output/plot03ca5.png'
 set xrange ['2020-09-01':'2020-11-01']
 plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
@@ -69,7 +73,8 @@ plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
             '' u 1:7 w lp ti col,\
             '' u 1:8 w lp ti col,\
             '' u 1:9 w lp ti col,\
-            '' u 1:10 w l ti col
+            '' u 1:10 w lp ti col,\
+            '' u 1:11 w l ti col
 set output 'output/plot03ca6.png'
 set xrange ['2020-11-01':'2021-01-01']
 plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
@@ -80,4 +85,5 @@ plot 'middle/plot03ca.csv' u 1:2 w lp ti col,\
             '' u 1:7 w lp ti col,\
             '' u 1:8 w lp ti col,\
             '' u 1:9 w lp ti col,\
-            '' u 1:10 w l ti col
+            '' u 1:10 w lp ti col,\
+            '' u 1:11 w l ti col

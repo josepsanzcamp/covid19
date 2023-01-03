@@ -46,3 +46,7 @@ set output 'output/plot02es8.png'
 set xrange [83.5:95.5]
 plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
             '' u 3:xtic(1) ti col
+set output 'output/plot02es9.png'
+set xrange [95.5:107.5]
+plot 'middle/plot02es.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col

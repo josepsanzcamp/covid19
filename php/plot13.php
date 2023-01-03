@@ -54,7 +54,8 @@ if (!file_exists("output/plot13${lang}.png")) {
             '' u 1:12 w l ti col,\
             '' u 1:13 w l ti col,\
             '' u 1:14 w l ti col,\
-            '' u 1:15 w l ti col",
+            '' u 1:15 w l ti col,\
+            '' u 1:16 w l ti col",
     )) . "\n";
     file_put_contents("middle/plot13${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot13${lang}.gnu 2>&1");

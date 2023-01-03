@@ -29,7 +29,8 @@ plot 'middle/plot01ca.csv' u 2:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
             '' u 13:xtic(1) ti col,\
-            '' u 14:xtic(1) ti col
+            '' u 14:xtic(1) ti col,\
+            '' u 15:xtic(1) ti col
 set output 'output/plot01ca2.png'
 set xrange [5.5:11.5]
 plot 'middle/plot01ca.csv' u 2:xtic(1) ti col,\
@@ -44,4 +45,5 @@ plot 'middle/plot01ca.csv' u 2:xtic(1) ti col,\
             '' u 11:xtic(1) ti col,\
             '' u 12:xtic(1) ti col,\
             '' u 13:xtic(1) ti col,\
-            '' u 14:xtic(1) ti col
+            '' u 14:xtic(1) ti col,\
+            '' u 15:xtic(1) ti col

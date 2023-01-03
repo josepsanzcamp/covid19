@@ -10,7 +10,7 @@ if (!file_exists("output/plot28${lang}.png")) {
     $momoold2 = import_file("middle/dataold2-nacional-per-any.csv");
     $momonew = import_file("middle/datanew-nacional-per-any.csv");
     $matrix = array();
-    for ($i = 2015; $i <= 2022; $i++) {
+    for ($i = 2015; $i <= 2023; $i++) {
         $matrix[$i] = array($i,"","","","","","");
     }
     foreach ($indef as $key => $val) {

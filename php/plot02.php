@@ -5,7 +5,7 @@ if (!file_exists("output/plot02${lang}1.png")) {
     $momonew = import_file("middle/datanew-nacional-per-mes.csv");
     $ine = import_file("middle/02001-defuncions-anys-2018-2019-per-mes.csv");
     $matrix = array();
-    $years = array(2015,2016,2017,2018,2019,2020,2021,2022);
+    $years = array(2015,2016,2017,2018,2019,2020,2021,2022,2023);
     $months = array(1,2,3,4,5,6,7,8,9,10,11,12);
     foreach ($years as $year) {
         foreach ($months as $month) {
@@ -80,6 +80,10 @@ if (!file_exists("output/plot02${lang}1.png")) {
             '' u 3:xtic(1) ti col",
         "set output 'output/plot02${lang}8.png'",
         "set xrange [83.5:95.5]",
+        "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
+            '' u 3:xtic(1) ti col",
+        "set output 'output/plot02${lang}9.png'",
+        "set xrange [95.5:107.5]",
         "plot 'middle/plot02${lang}.csv' u 2:xtic(1) ti col,\
             '' u 3:xtic(1) ti col",
     )) . "\n";

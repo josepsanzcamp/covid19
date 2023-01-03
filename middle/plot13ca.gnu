@@ -24,4 +24,5 @@ plot 'middle/plot13ca.csv' u 1:8 w l ti col,\
             '' u 1:12 w l ti col,\
             '' u 1:13 w l ti col,\
             '' u 1:14 w l ti col,\
-            '' u 1:15 w l ti col
+            '' u 1:15 w l ti col,\
+            '' u 1:16 w l ti col

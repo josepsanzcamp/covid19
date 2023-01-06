@@ -50,4 +50,16 @@ set output 'output/plot09en16.png'
 plot 'middle/plot09en.csv' u 1:92 w lp ti col,'' u 1:93 w lp ti col,'' u 1:94 w lp ti col,'' u 1:95 w lp ti col,'' u 1:96 w lp ti col,'' u 1:97 w lp ti col
 set output 'output/plot09en17.png'
 plot 'middle/plot09en.csv' u 1:98 w lp ti col,'' u 1:99 w lp ti col,'' u 1:100 w lp ti col,'' u 1:101 w lp ti col,'' u 1:102 w lp ti col,'' u 1:103 w lp ti col
+set output 'output/plot09en18.png'
+plot 'middle/plot09en.csv' u 1:104 w lp ti col,'' u 1:105 w lp ti col,'' u 1:106 w lp ti col,'' u 1:107 w lp ti col,'' u 1:108 w lp ti col,'' u 1:109 w lp ti col
+set output 'output/plot09en19.png'
+plot 'middle/plot09en.csv' u 1:110 w lp ti col,'' u 1:111 w lp ti col,'' u 1:112 w lp ti col,'' u 1:113 w lp ti col,'' u 1:114 w lp ti col,'' u 1:115 w lp ti col
+set output 'output/plot09en20.png'
+plot 'middle/plot09en.csv' u 1:116 w lp ti col,'' u 1:117 w lp ti col,'' u 1:118 w lp ti col,'' u 1:119 w lp ti col,'' u 1:120 w lp ti col,'' u 1:121 w lp ti col
+set output 'output/plot09en21.png'
+plot 'middle/plot09en.csv' u 1:122 w lp ti col,'' u 1:123 w lp ti col,'' u 1:124 w lp ti col,'' u 1:125 w lp ti col,'' u 1:126 w lp ti col,'' u 1:127 w lp ti col
+set output 'output/plot09en22.png'
+plot 'middle/plot09en.csv' u 1:128 w lp ti col,'' u 1:129 w lp ti col,'' u 1:130 w lp ti col,'' u 1:131 w lp ti col,'' u 1:132 w lp ti col,'' u 1:133 w lp ti col
+set output 'output/plot09en23.png'
+plot 'middle/plot09en.csv' u 1:134 w lp ti col,'' u 1:135 w lp ti col,'' u 1:136 w lp ti col,'' u 1:137 w lp ti col,'' u 1:138 w lp ti col,'' u 1:139 w lp ti col
 

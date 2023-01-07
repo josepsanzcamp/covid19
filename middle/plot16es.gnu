@@ -17,8 +17,8 @@ set ytics 0,500,3000
 set datafile separator ','
 set colors classic
 set output 'output/plot16es.png'
-plot 'middle/plot16es.csv' u 1:6 w l ti col,\
-            '' u 1:5 w l ti col,\
-            '' u 1:4 w l ti col,\
+plot 'middle/plot16es.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
-            '' u 1:2 w l ti col
+            '' u 1:4 w l ti col,\
+            '' u 1:5 w l ti col,\
+            '' u 1:6 w l ti col

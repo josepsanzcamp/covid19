@@ -23,7 +23,7 @@ if (count(glob("input/momo/data.????????.csv.gz")) != 0) {
         if (file_exists($file3)) {
             die2("ERROR 14");
         }
-        passthru("bzip2 $file2");
+        passthru("lbzip2 $file2");
         if (!file_exists($file3)) {
             die2("ERROR 15");
         }
@@ -40,9 +40,9 @@ if (count(glob("input/momo/data.????????.csv.bz2")) != count(glob("input/momo/da
         $file2 = "input/momo/data.${part[2]}.csv";
         $file3 = "input/momo/data.${part[2]}.csv.bz2";
         if (file_exists($file1) && !file_exists($file3)) {
-            passthru("bzcat ${file1} > ${file2}");
-            passthru("bzcat ${patch} | patch --quiet ${file2}");
-            passthru("bzip2 -f ${file2}");
+            passthru("lbzcat ${file1} > ${file2}");
+            passthru("lbzcat ${patch} | patch --quiet ${file2}");
+            passthru("lbzip2 -f ${file2}");
         }
     }
     $files = glob("input/momo/data.????????.csv.bz2");
@@ -59,7 +59,13 @@ if (count(glob("input/momo/data.????????.csv.bz2")) != count(glob("input/momo/da
         if (!file_exists($patch)) {
             $file1 = "input/momo/data.${prev}.csv.bz2";
             $file2 = "input/momo/data.${part}.csv.bz2";
-            passthru("bzdiff ${file1} ${file2} | bzip2 -f > ${patch}");
+            $file3 = get_temp_file();
+            passthru("lbzcat ${file1} > ${file3}");
+            $file4 = get_temp_file();
+            passthru("lbzcat ${file2} > ${file4}");
+            passthru("diff ${file3} ${file4} | lbzip2 -f > ${patch}");
+            unlink($file3);
+            unlink($file4);
         }
         $prev = $part;
     }

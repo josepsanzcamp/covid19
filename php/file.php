@@ -82,7 +82,7 @@ function import_file_with_grep($file, $grep)
         $cat = "zcat";
     }
     if (pathinfo($file, PATHINFO_EXTENSION) == "bz2") {
-        $cat = "bzcat";
+        $cat = "lbzcat";
     }
     passthru("$cat $file | $grep > $temp");
     $data = import_file($temp);

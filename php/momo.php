@@ -15,7 +15,7 @@ if (count(glob("input/momo/data.????????.csv.gz")) != 0) {
         if (file_exists($file2)) {
             die2("ERROR 12");
         }
-        passthru("gunzip ${file1}");
+        passthru("unpigz ${file1}"); // parallel gunzip
         if (!file_exists($file2)) {
             die2("ERROR 13");
         }
@@ -23,7 +23,7 @@ if (count(glob("input/momo/data.????????.csv.gz")) != 0) {
         if (file_exists($file3)) {
             die2("ERROR 14");
         }
-        passthru("lbzip2 $file2");
+        passthru("lbzip2 $file2"); // parallel bzip2
         if (!file_exists($file3)) {
             die2("ERROR 15");
         }

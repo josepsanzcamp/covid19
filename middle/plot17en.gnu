@@ -16,6 +16,7 @@ set ytic center rotate by 90
 set ytics 0,5000,30000
 set datafile separator ','
 set colors classic
+set key maxrows 4
 set output 'output/plot17en.png'
 plot 'middle/plot17en.csv' u 1:2 w lp ti col,\
             '' u 1:3 w lp ti col,\

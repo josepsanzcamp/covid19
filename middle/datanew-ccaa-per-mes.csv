@@ -1,22 +1,22 @@
-2023-01,19 Melilla,26.5
-2023-01,18 Ceuta,34.45
-2023-01,17 La Rioja,253.67
-2023-01,16 País Vasco,1355.77
-2023-01,15 Comunidad Foral de Navarra,411.55
-2023-01,14 Región de Murcia,888.52
-2023-01,13 Comunidad de Madrid,3478.07
-2023-01,12 Galicia,2356.04
-2023-01,11 Extremadura,816.23
-2023-01,10 Comunitat Valenciana,3187
-2023-01,09 Cataluña,4368.46
-2023-01,08 Castilla - La Mancha,1356.56
-2023-01,07 Castilla y León,1952.68
-2023-01,06 Cantabria,420.78
-2023-01,05 Canarias,1221.59
-2023-01,04 Illes Balears,588.3
-2023-01,03 Principado de Asturias,909.45
-2023-01,02 Aragón,1019.26
-2023-01,01 Andalucía,5233.01
+2023-01,19 Melilla,35.66
+2023-01,18 Ceuta,41.55
+2023-01,17 La Rioja,278.25
+2023-01,16 País Vasco,1511.51
+2023-01,15 Comunidad Foral de Navarra,442.18
+2023-01,14 Región de Murcia,947.89
+2023-01,13 Comunidad de Madrid,3765.95
+2023-01,12 Galicia,2493.03
+2023-01,11 Extremadura,852.88
+2023-01,10 Comunitat Valenciana,3389.91
+2023-01,09 Cataluña,4730
+2023-01,08 Castilla - La Mancha,1400.48
+2023-01,07 Castilla y León,2111.43
+2023-01,06 Cantabria,471.45
+2023-01,05 Canarias,1306.57
+2023-01,04 Illes Balears,619.72
+2023-01,03 Principado de Asturias,1002.92
+2023-01,02 Aragón,1067.58
+2023-01,01 Andalucía,5544.82
 2022-12,19 Melilla,38.72
 2022-12,18 Ceuta,59.74
 2022-12,17 La Rioja,344.25
@@ -24,18 +24,18 @@
 2022-12,15 Comunidad Foral de Navarra,580.05
 2022-12,14 Región de Murcia,1139.32
 2022-12,13 Comunidad de Madrid,4870
-2022-12,12 Galicia,3302.41
-2022-12,11 Extremadura,1092.38
-2022-12,10 Comunitat Valenciana,4592.1
-2022-12,09 Cataluña,6869.85
+2022-12,12 Galicia,3303.42
+2022-12,11 Extremadura,1093.44
+2022-12,10 Comunitat Valenciana,4593.11
+2022-12,09 Cataluña,6866.77
 2022-12,08 Castilla - La Mancha,1818.82
 2022-12,07 Castilla y León,2702.84
 2022-12,06 Cantabria,594.79
 2022-12,05 Canarias,1688.16
 2022-12,04 Illes Balears,768.8
-2022-12,03 Principado de Asturias,1288.34
+2022-12,03 Principado de Asturias,1289.35
 2022-12,02 Aragón,1525.41
-2022-12,01 Andalucía,7109.1
+2022-12,01 Andalucía,7111.12
 2022-11,19 Melilla,35.65
 2022-11,18 Ceuta,49.67
 2022-11,17 La Rioja,270.48
@@ -45,8 +45,8 @@
 2022-11,13 Comunidad de Madrid,4034.16
 2022-11,12 Galicia,2785.99
 2022-11,11 Extremadura,840.92
-2022-11,10 Comunitat Valenciana,3763.38
-2022-11,09 Cataluña,5572.17
+2022-11,10 Comunitat Valenciana,3764.39
+2022-11,09 Cataluña,5572.14
 2022-11,08 Castilla - La Mancha,1616.73
 2022-11,07 Castilla y León,2442.43
 2022-11,06 Cantabria,511.71
@@ -65,7 +65,7 @@
 2022-10,12 Galicia,2731.42
 2022-10,11 Extremadura,888.61
 2022-10,10 Comunitat Valenciana,3858.21
-2022-10,09 Cataluña,5382.7
+2022-10,09 Cataluña,5382.66
 2022-10,08 Castilla - La Mancha,1576.4
 2022-10,07 Castilla y León,2417.27
 2022-10,06 Cantabria,531.16
@@ -84,7 +84,7 @@
 2022-09,12 Galicia,2540.12
 2022-09,11 Extremadura,866.7
 2022-09,10 Comunitat Valenciana,3625.08
-2022-09,09 Cataluña,4829.09
+2022-09,09 Cataluña,4829.06
 2022-09,08 Castilla - La Mancha,1376.95
 2022-09,07 Castilla y León,2190.74
 2022-09,06 Cantabria,490.93
@@ -103,7 +103,7 @@
 2022-08,12 Galicia,2729.79
 2022-08,11 Extremadura,1050.45
 2022-08,10 Comunitat Valenciana,4582.07
-2022-08,09 Cataluña,5868.45
+2022-08,09 Cataluña,5868.39
 2022-08,08 Castilla - La Mancha,1792.97
 2022-08,07 Castilla y León,2773.31
 2022-08,06 Cantabria,583.1
@@ -122,7 +122,7 @@
 2022-07,12 Galicia,3440.41
 2022-07,11 Extremadura,1249.55
 2022-07,10 Comunitat Valenciana,4670.82
-2022-07,09 Cataluña,6471.35
+2022-07,09 Cataluña,6471.27
 2022-07,08 Castilla - La Mancha,2206.05
 2022-07,07 Castilla y León,3429.36
 2022-07,06 Cantabria,693.51
@@ -141,7 +141,7 @@
 2022-06,12 Galicia,2545.19
 2022-06,11 Extremadura,1032.62
 2022-06,10 Comunitat Valenciana,3881.48
-2022-06,09 Cataluña,5634.88
+2022-06,09 Cataluña,5634.8
 2022-06,08 Castilla - La Mancha,1789.72
 2022-06,07 Castilla y León,2587.7
 2022-06,06 Cantabria,480.51
@@ -160,7 +160,7 @@
 2022-05,12 Galicia,2971.1
 2022-05,11 Extremadura,1064.71
 2022-05,10 Comunitat Valenciana,4104.55
-2022-05,09 Cataluña,5562.24
+2022-05,09 Cataluña,5562.19
 2022-05,08 Castilla - La Mancha,1733.01
 2022-05,07 Castilla y León,2573.72
 2022-05,06 Cantabria,589.64
@@ -179,7 +179,7 @@
 2022-04,12 Galicia,2918.67
 2022-04,11 Extremadura,994.88
 2022-04,10 Comunitat Valenciana,3996.6
-2022-04,09 Cataluña,5468.64
+2022-04,09 Cataluña,5468.55
 2022-04,08 Castilla - La Mancha,1697.92
 2022-04,07 Castilla y León,2485.81
 2022-04,06 Cantabria,551.96
@@ -198,7 +198,7 @@
 2022-03,12 Galicia,3065.1
 2022-03,11 Extremadura,1046.81
 2022-03,10 Comunitat Valenciana,4077.24
-2022-03,09 Cataluña,5667.8
+2022-03,09 Cataluña,5667.77
 2022-03,08 Castilla - La Mancha,1553.02
 2022-03,07 Castilla y León,2500.71
 2022-03,06 Cantabria,580.52
@@ -217,7 +217,7 @@
 2022-02,12 Galicia,2937.64
 2022-02,11 Extremadura,1020.03
 2022-02,10 Comunitat Valenciana,4348.87
-2022-02,09 Cataluña,6043.33
+2022-02,09 Cataluña,6043.27
 2022-02,08 Castilla - La Mancha,1697.42
 2022-02,07 Castilla y León,2546.71
 2022-02,06 Cantabria,597.39
@@ -236,7 +236,7 @@
 2022-01,12 Galicia,3188.64
 2022-01,11 Extremadura,1228.6
 2022-01,10 Comunitat Valenciana,5016.12
-2022-01,09 Cataluña,7459.19
+2022-01,09 Cataluña,7459.13
 2022-01,08 Castilla - La Mancha,2036.59
 2022-01,07 Castilla y León,3145.17
 2022-01,06 Cantabria,694.8

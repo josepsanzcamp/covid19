@@ -7,7 +7,7 @@ first:
 all: clean continue
 
 clean:
-	@echo make continue
+	@echo make clean
 	rm -f middle/* output/* index.*
 
 continue:
@@ -63,7 +63,9 @@ momo2data:
 	rm -f middle/data.* middle/plot15* output/plot15* output/plot24*
 	time -p php php/program.php
 
-euromomo:
+euromomo: _euromomo index
+
+_euromomo:
 	@echo make euromomo
 	rm -f middle/component.* middle/plot09* output/plot09*
 	time -p php php/program.php
@@ -93,7 +95,9 @@ germany:
 	rm -f middle/sterbefallzahlen.csv output/plot17*
 	time -p php php/program.php
 
-eurostat:
+eurostat: _eurostat index
+
+_eurostat:
 	@echo make eurostat
 	rm -f middle/demo_r_mwk_ts.csv output/plot18*
 	time -p php php/program.php

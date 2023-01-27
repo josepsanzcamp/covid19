@@ -63,11 +63,11 @@ momo2data:
 	rm -f middle/data.* middle/plot15* output/plot15* output/plot24*
 	time -p php php/program.php
 
-euromomo: _euromomo index
-
-_euromomo:
+euromomo:
 	@echo make euromomo
 	rm -f middle/component.* middle/plot09* output/plot09*
+	time -p php php/program.php
+	rm -f index.*
 	time -p php php/program.php
 
 sweden:
@@ -95,11 +95,11 @@ germany:
 	rm -f middle/sterbefallzahlen.csv output/plot17*
 	time -p php php/program.php
 
-eurostat: _eurostat index
-
-_eurostat:
+eurostat:
 	@echo make eurostat
 	rm -f middle/demo_r_mwk_ts.csv output/plot18*
+	time -p php php/program.php
+	rm -f index.*
 	time -p php php/program.php
 
 spain:

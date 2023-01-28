@@ -14,6 +14,7 @@ if (!file_exists("output/plot16${lang}.png")) {
             2020 => "",
             2021 => "",
             2022 => "",
+            2023 => "",
         );
     }
     foreach ($france as $key => $val) {
@@ -24,7 +25,7 @@ if (!file_exists("output/plot16${lang}.png")) {
         }
         unset($france[$key]);
     }
-    array_unshift($matrix, array("Fecha",2018,2019,2020,2021,2022));
+    array_unshift($matrix, array("Fecha",2018,2019,2020,2021,2022,2023));
     export_file("middle/plot16${lang}.csv", $matrix);
     $gnuplot = implode("\n", array(
         "set terminal png size 1200,600 enhanced font ',11'",
@@ -50,7 +51,8 @@ if (!file_exists("output/plot16${lang}.png")) {
             '' u 1:3 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:5 w l ti col,\
-            '' u 1:6 w l ti col",
+            '' u 1:6 w l ti col,\
+            '' u 1:7 w l ti col",
     )) . "\n";
     file_put_contents("middle/plot16${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot16${lang}.gnu 2>&1");

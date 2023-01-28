@@ -21,4 +21,5 @@ plot 'middle/plot16es.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:5 w l ti col,\
-            '' u 1:6 w l ti col
+            '' u 1:6 w l ti col,\
+            '' u 1:7 w l ti col

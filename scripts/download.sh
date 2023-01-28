@@ -27,7 +27,8 @@ wget -O portugal/Dados_SICO_$(date +"%Y-%m-%d").js "https://evm.min-saude.pt/tab
 # FRANCE
 #~ wget -O france/$(date +"%Y-%m-%d")_detail.zip https://www.insee.fr/$(wget -q -O - "https://www.insee.fr/en/statistiques/4493808?sommaire=4493845"|tr '"' '\n'|grep _detail.zip)
 #~ wget -O france/$(date +"%Y-%m-%d")_detail.zip https://www.insee.fr/$(wget -q -O - "https://www.insee.fr/fr/statistiques/4487988?sommaire=4487854"|tr '"' '\n'|grep _detail.zip)
-wget --no-check-certificate -O france/$(date +"%Y-%m-%d")_detail.zip https://www.insee.fr/$(wget --no-check-certificate -q -O - "https://www.insee.fr/fr/statistiques/4487988?sommaire=4487854"|tr '"' '\n'|grep _detail.zip)
+#~ wget --no-check-certificate -O france/$(date +"%Y-%m-%d")_detail.zip https://www.insee.fr/$(wget --no-check-certificate -q -O - "https://www.insee.fr/fr/statistiques/4487988?sommaire=4487854"|tr '"' '\n'|grep _detail.zip)
+wget --no-check-certificate -O france/$(date +"%Y-%m-%d")_detail.zip https://www.insee.fr/$(wget --no-check-certificate -q -O - "https://www.insee.fr/en/statistiques/4493808"|tr '"' '\n'|grep _detail.zip)
 
 # GERMANY
 wget -O germany/sterbefallzahlen.$(date +"%Y%m%d").js "https://www.destatis.de/EN/Themes/Cross-Section/Corona/_Graphic/_Interactive/deaths-weekly-years.html?nn=23768&cms_showChartData=1"

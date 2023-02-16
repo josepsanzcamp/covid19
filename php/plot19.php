@@ -18,7 +18,7 @@ if (!file_exists("output/plot19${lang}.png")) {
         }
         unset($ine[$key]);
     }
-    array_unshift($matrix, array("Fecha",2015,2016,2017,2018,2019,2020,2021,2022));
+    array_unshift($matrix, array("Fecha",2015,2016,2017,2018,2019,2020,2021,2022,2023));
     export_file("middle/plot19${lang}.csv", $matrix);
     $gnuplot = implode("\n", array(
         "set terminal png size 1200,600 enhanced font ',11'",
@@ -47,7 +47,8 @@ if (!file_exists("output/plot19${lang}.png")) {
             '' u 1:6 w lp ti col,\
             '' u 1:7 w lp ti col,\
             '' u 1:8 w lp ti col,\
-            '' u 1:9 w lp ti col",
+            '' u 1:9 w lp ti col,\
+            '' u 1:10 w lp ti col",
     )) . "\n";
     file_put_contents("middle/plot19${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot19${lang}.gnu 2>&1");

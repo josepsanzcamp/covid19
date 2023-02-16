@@ -6,7 +6,7 @@ if (!file_exists("output/plot23${lang}.png")) {
     $ine1 = import_file("middle/6545-defuncions-anys-1975-2018-per-any.csv");
     $ine2 = import_file("middle/35177-defuncions-anys-2000-actual-per-any.csv");
     $matrix = array(array("Year","INDef","INE-6545","INE-35177"));
-    for ($i = 1990; $i <= 2022; $i++) {
+    for ($i = 1990; $i <= 2023; $i++) {
         $matrix[$i] = array($i,"","","");
     }
     foreach ($indef as $key => $val) {

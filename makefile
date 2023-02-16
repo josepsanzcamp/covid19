@@ -104,7 +104,7 @@ eurostat:
 
 spain:
 	@echo make spain
-	rm -f middle/35177* output/plot19* output/plot23*
+	rm -f middle/35177* output/plot19* output/plot2[3,8]*
 	time -p php php/program.php
 
 indef:

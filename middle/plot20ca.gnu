@@ -22,7 +22,8 @@ set output 'output/plot20ca1.png'
 plot 'middle/plot20ca.csv' u 1:11:xtic(1) w lp ti col,\
             '' u 1:12 w lp ti col,\
             '' u 1:13 w lp ti col,\
-            '' u 1:14 w lp ti col
+            '' u 1:14 w lp ti col,\
+            '' u 1:15 w lp ti col
 set key at '2022-01-01',130000
 set xrange ['2019-01-01':'2022-01-01']
 set output 'output/plot20ca2.png'

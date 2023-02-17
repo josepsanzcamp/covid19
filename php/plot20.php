@@ -5,7 +5,7 @@ if (!file_exists("output/plot20${lang}1.png")) {
     $indef = import_file("middle/defunciones.csv");
     $matrix = array();
     foreach ($indef as $key => $val) {
-        if (in_array($val[0], array("Fecha",2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022))) {
+        if (in_array($val[0], array("Fecha",2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023))) {
             foreach ($val as $key2 => $val2) {
                 $matrix[$key2][$key] = $val2;
             }
@@ -37,7 +37,8 @@ if (!file_exists("output/plot20${lang}1.png")) {
         "plot 'middle/plot20${lang}.csv' u 1:11:xtic(1) w lp ti col,\
             '' u 1:12 w lp ti col,\
             '' u 1:13 w lp ti col,\
-            '' u 1:14 w lp ti col",
+            '' u 1:14 w lp ti col,\
+            '' u 1:15 w lp ti col",
         "set key at '2022-01-01',130000",
         "set xrange ['2019-01-01':'2022-01-01']",
         "set output 'output/plot20${lang}2.png'",

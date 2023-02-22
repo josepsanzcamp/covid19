@@ -50,7 +50,7 @@ if (!file_exists("output/plot10${lang}.png")) {
         "set ytics 0,100,400",
         "set datafile separator '" . SEPARADOR . "'",
         "set colors classic",
-        "set key maxrows 4",
+        "set key maxrows 5",
         "set output 'output/plot10${lang}.png'",
         "plot 'middle/plot10${lang}.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
@@ -59,7 +59,8 @@ if (!file_exists("output/plot10${lang}.png")) {
             '' u 1:6 w l ti col,\
             '' u 1:7 w l ti col,\
             '' u 1:8 w l ti col,\
-            '' u 1:9 w l ti col",
+            '' u 1:9 w l ti col,\
+            '' u 1:10 w l ti col",
     )) . "\n";
     file_put_contents("middle/plot10${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot10${lang}.gnu 2>&1");

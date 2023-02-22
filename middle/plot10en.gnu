@@ -16,7 +16,7 @@ set ytic center rotate by 90
 set ytics 0,100,400
 set datafile separator ','
 set colors classic
-set key maxrows 4
+set key maxrows 5
 set output 'output/plot10en.png'
 plot 'middle/plot10en.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
@@ -25,4 +25,5 @@ plot 'middle/plot10en.csv' u 1:2 w l ti col,\
             '' u 1:6 w l ti col,\
             '' u 1:7 w l ti col,\
             '' u 1:8 w l ti col,\
-            '' u 1:9 w l ti col
+            '' u 1:9 w l ti col,\
+            '' u 1:10 w l ti col

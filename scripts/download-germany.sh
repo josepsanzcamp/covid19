@@ -1,4 +1,4 @@
 #!/bin/bash
 
-grep -e sterbefallzahlen -e gzip download.sh | sh
+grep sterbefallzahlen download.sh | sh
 

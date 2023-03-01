@@ -1,4 +1,4 @@
 #!/bin/bash
 
-grep -e portugal -e gzip download.sh | sh
+grep portugal download.sh | sh
 

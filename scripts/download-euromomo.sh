@@ -1,4 +1,4 @@
 #!/bin/bash
 
-grep -e euromomo -e gzip download.sh | sh
+grep euromomo download.sh | sh
 

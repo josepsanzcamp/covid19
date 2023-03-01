@@ -1,4 +1,4 @@
 #!/bin/bash
 
-grep -e sweden download.sh | sh
+grep sweden download.sh | sh
 

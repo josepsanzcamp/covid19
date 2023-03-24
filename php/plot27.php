@@ -66,56 +66,56 @@ if (!file_exists("output/plot27${lang}1.png")) {
         "set datafile separator '" . SEPARADOR . "'",
         "set colors classic",
         "set output 'output/plot27${lang}1.png'",
-        "set xtics '2015-02-01',86400*30.30,'2015-12-01'",
+        "set xtics '2015-02-01',86400*30.41,'2015-12-01'",
         "set xrange ['2015-01-01':'2016-01-01']",
         "plot 'middle/plot27${lang}.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:5 w l ti col",
         "set output 'output/plot27${lang}2.png'",
-        "set xtics '2016-02-01',86400*30.30,'2016-12-01'",
+        "set xtics '2016-02-01',86400*30.41,'2016-12-01'",
         "set xrange ['2016-01-01':'2017-01-01']",
         "plot 'middle/plot27${lang}.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:5 w l ti col",
         "set output 'output/plot27${lang}3.png'",
-        "set xtics '2017-02-01',86400*30.30,'2017-12-01'",
+        "set xtics '2017-02-01',86400*30.41,'2017-12-01'",
         "set xrange ['2017-01-01':'2018-01-01']",
         "plot 'middle/plot27${lang}.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:5 w l ti col",
         "set output 'output/plot27${lang}4.png'",
-        "set xtics '2018-02-01',86400*30.30,'2018-12-01'",
+        "set xtics '2018-02-01',86400*30.41,'2018-12-01'",
         "set xrange ['2018-01-01':'2019-01-01']",
         "plot 'middle/plot27${lang}.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:5 w l ti col",
         "set output 'output/plot27${lang}5.png'",
-        "set xtics '2019-02-01',86400*30.30,'2019-12-01'",
+        "set xtics '2019-02-01',86400*30.41,'2019-12-01'",
         "set xrange ['2019-01-01':'2020-01-01']",
         "plot 'middle/plot27${lang}.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:5 w l ti col",
         "set output 'output/plot27${lang}6.png'",
-        "set xtics '2020-02-01',86400*30.30,'2020-12-01'",
+        "set xtics '2020-02-01',86400*30.41,'2020-12-01'",
         "set xrange ['2020-01-01':'2021-01-01']",
         "plot 'middle/plot27${lang}.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:5 w l ti col",
         "set output 'output/plot27${lang}7.png'",
-        "set xtics '2021-02-01',86400*30.30,'2021-12-01'",
+        "set xtics '2021-02-01',86400*30.41,'2021-12-01'",
         "set xrange ['2021-01-01':'2022-01-01']",
         "plot 'middle/plot27${lang}.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\
             '' u 1:4 w l ti col,\
             '' u 1:5 w l ti col",
         "set output 'output/plot27${lang}8.png'",
-        "set xtics '2022-02-01',86400*30.30,'2022-12-01'",
+        "set xtics '2022-02-01',86400*30.41,'2022-12-01'",
         "set xrange ['2022-01-01':'2023-01-01']",
         "plot 'middle/plot27${lang}.csv' u 1:2 w l ti col,\
             '' u 1:3 w l ti col,\

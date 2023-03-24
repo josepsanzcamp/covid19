@@ -97,7 +97,7 @@ if (!file_exists("output/plot24${lang}1.png")) {
     $fecha3 = date("Y-m-d", strtotime("$fecha1 + 1 month"));
     $fecha3 = substr($fecha3, 0, -2) . "01";
     $fecha4 = date("Y-m-d", strtotime("$fecha2 + 0 day"));
-    $fecha4 = substr($fecha4, 0, -2) . "01";
+    $fecha4 = substr($fecha4, 0, -2) . "02";
     // CONTINUAR
     array_unshift($matrix1, array(
         $textos["plot24"]["fecha"][$lang],
@@ -127,7 +127,7 @@ if (!file_exists("output/plot24${lang}1.png")) {
         "set timefmt '%Y-%m-%d'",
         "set format x '%Y-%m-%d'",
         "set xtics rotate by -45",
-        "set xtics '${fecha3}',86400*30.30,'${fecha4}'",
+        "set xtics '${fecha3}',86400*30.41,'${fecha4}'",
         "set xrange ['${fecha1}':'${fecha2}']",
         "set ytic center rotate by 90",
         "set datafile separator '" . SEPARADOR . "'",

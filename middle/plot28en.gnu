@@ -1,5 +1,5 @@
 set terminal png size 1200,600 enhanced font ',11'
-set title "28. Deaths per year obtained from INDef, INE (INE-6545 + INE-02001, INE-35177) and MoMo (MoMoOld, MoMoOld2, MoMo)"
+set title "28. Deaths per year obtained from INDef, INE (INE-6545 + INE-02001, INE-35177) and MoMo (MoMoOld, MoMoOld2, MoMoOld3, MoMo)"
 set grid
 set tmargin 3
 set rmargin 6
@@ -20,4 +20,5 @@ plot 'middle/plot28en.csv' u 2:xtic(1) ti col,\
             '' u 4:xtic(1) ti col,\
             '' u 5:xtic(1) ti col,\
             '' u 6:xtic(1) ti col,\
-            '' u 7:xtic(1) ti col
+            '' u 7:xtic(1) ti col,\
+            '' u 8:xtic(1) ti col

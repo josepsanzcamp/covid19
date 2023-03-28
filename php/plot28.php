@@ -8,10 +8,11 @@ if (!file_exists("output/plot28${lang}.png")) {
     $inelast = import_file("middle/35177-defuncions-anys-2000-actual-per-any.csv");
     $momoold = import_file("middle/dataold-nacional-per-any.csv");
     $momoold2 = import_file("middle/dataold2-nacional-per-any.csv");
+    $momoold3 = import_file("middle/dataold3-nacional-per-any.csv");
     $momonew = import_file("middle/datanew-nacional-per-any.csv");
     $matrix = array();
     for ($i = 2015; $i <= 2023; $i++) {
-        $matrix[$i] = array($i,"","","","","","");
+        $matrix[$i] = array($i,"","","","","","","");
     }
     foreach ($indef as $key => $val) {
         if (isset($matrix[$val[0]])) {
@@ -38,9 +39,14 @@ if (!file_exists("output/plot28${lang}.png")) {
             $matrix[$val[0]][5] = $val[1];
         }
     }
-    foreach ($momonew as $key => $val) {
+    foreach ($momoold3 as $key => $val) {
         if (isset($matrix[$val[0]])) {
             $matrix[$val[0]][6] = $val[1];
+        }
+    }
+    foreach ($momonew as $key => $val) {
+        if (isset($matrix[$val[0]])) {
+            $matrix[$val[0]][7] = $val[1];
         }
     }
     // TREURE DADES INCOMPLETES
@@ -55,6 +61,7 @@ if (!file_exists("output/plot28${lang}.png")) {
         "INE-35177",
         "MoMoOld " . $textos["plot27"]["until"][$lang] . " " . "2020-05-27",
         "MoMoOld2 " . $textos["plot27"]["until"][$lang] . " " . "2022-04-26",
+        "MoMoOld3 " . $textos["plot27"]["until"][$lang] . " " . "2022-12-20",
         "MoMo " . $textos["plot27"]["latest"][$lang],
         "INE2018"
     ));
@@ -82,7 +89,8 @@ if (!file_exists("output/plot28${lang}.png")) {
             '' u 4:xtic(1) ti col,\
             '' u 5:xtic(1) ti col,\
             '' u 6:xtic(1) ti col,\
-            '' u 7:xtic(1) ti col",
+            '' u 7:xtic(1) ti col,\
+            '' u 8:xtic(1) ti col",
     )) . "\n";
     file_put_contents("middle/plot28${lang}.gnu", $gnuplot);
     passthru("gnuplot middle/plot28${lang}.gnu 2>&1");

@@ -13,6 +13,7 @@ include("php/csic.php");
 include("php/momo.php");
 include("php/momoold.php");
 include("php/momoold2.php");
+include("php/momoold3.php");
 include("php/momonew.php");
 include("php/euromomo.php");
 include("php/eurostat.php");

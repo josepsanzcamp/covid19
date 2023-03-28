@@ -28,6 +28,11 @@ $textos = array(
         "es" => "Atención: el 26 de abril de 2022 se cambió el formato de los datos de MoMo, para poder observar estos cambios, he llamado MoMoOld2 a los datos anteriores al cambio y he añadido el plot27 y plot28",
         "en" => "Attention: the format of the MoMo data was changed on April 26, 2022, in order to observe these changes, I have used MoMoOld2 to the previosly data to the change and I have added the plot27 and plot28",
     ),
+    "momoold3" => array(
+        "ca" => "Atenció: el 20 de desembre del 2022 es va canviar el format de les dades del MoMo, per poder observar aquest canvis, he anomenat MoMoOld3 a les dades anteriors al canvi i ho he afegit al plot27 i plot28",
+        "es" => "Atención: el 20 de diciembre de 2022 se cambió el formato de los datos de MoMo, para poder observar estos cambios, he llamado MoMoOld3 a los datos anteriores al cambio y los he añadido al plot27 y plot28",
+        "en" => "Attention: the format of the MoMo data was changed on December 20, 2022, in order to observe these changes, I have used MoMoOld3 to the previosly data to the change and I have added it to the plot27 and plot28",
+    ),
     "about" => array(
         "ca" => "Envers a",
         "es" => "Acerca de",
@@ -205,14 +210,14 @@ $textos = array(
             "en" => "26. Number of difference lines between each MoMo file comparing all except the last 365 lines of data",
         ),
         "27" => array(
-            "ca" => "27. Defuncions per dia obtinguts del MoMo (amb talls al 27/05/2020, 26/04/2022 i actual), i la mitjana del 2018",
-            "es" => "27. Defunciones por día obtenidos del MoMo (con cortes al 27/05/2020, 26/04/2022 y actual), y la media de 2018",
-            "en" => "27. Deaths per day obtained from MoMo (with points at 27/05/2020, 26/04/2022 and current), and the 2018 average",
+            "ca" => "27. Defuncions per dia obtinguts del MoMo (amb talls al 27/05/2020, 26/04/2022, 20/12/2022 i actual), i la mitjana del 2018",
+            "es" => "27. Defunciones por día obtenidos del MoMo (con cortes al 27/05/2020, 26/04/2022, 20/12/2022 y actual), y la media de 2018",
+            "en" => "27. Deaths per day obtained from MoMo (with points at 27/05/2020, 26/04/2022, 20/12/2022 and current), and the 2018 average",
         ),
         "28" => array(
-            "ca" => "28. Defuncions per any obtinguts del INDef, INE (INE-6545 + INE-02001, INE-35177) i MoMo (MoMoOld, MoMoOld2, MoMo)",
-            "es" => "28. Defunciones por año obtenidos del INDef, INE (INE-6545 + INE-02001, INE-35177) y MoMo (MoMoOld, MoMoOld2, MoMo)",
-            "en" => "28. Deaths per year obtained from INDef, INE (INE-6545 + INE-02001, INE-35177) and MoMo (MoMoOld, MoMoOld2, MoMo)",
+            "ca" => "28. Defuncions per any obtinguts del INDef, INE (INE-6545 + INE-02001, INE-35177) i MoMo (MoMoOld, MoMoOld2, MoMoOld3, MoMo)",
+            "es" => "28. Defunciones por año obtenidos del INDef, INE (INE-6545 + INE-02001, INE-35177) y MoMo (MoMoOld, MoMoOld2, MoMoOld3, MoMo)",
+            "en" => "28. Deaths per year obtained from INDef, INE (INE-6545 + INE-02001, INE-35177) and MoMo (MoMoOld, MoMoOld2, MoMoOld3, MoMo)",
         ),
     ),
     "meses" => array(

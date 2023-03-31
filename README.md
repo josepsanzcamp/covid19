@@ -1,5 +1,8 @@
 # covid19
 Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
+
+![](https://raw.githubusercontent.com/josepsanzcamp/covid19/master/img/screenshot.png)
+
 - Vigilancia de la Mortalidad Diaria (MoMo) => He obtenido los datos de mortalidad del 2020
 - Instituto Nacional de Estadística (INE) => He obtenido los datos de defunciones de los registros civiles
 - Envejecimiento en red (CSIC) => He obtenido los listados de resicencias

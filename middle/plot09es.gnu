@@ -64,4 +64,6 @@ set output 'output/plot09es23.png'
 plot 'middle/plot09es.csv' u 1:156 w lp ti col,'' u 1:157 w lp ti col,'' u 1:158 w lp ti col,'' u 1:159 w lp ti col,'' u 1:160 w lp ti col,'' u 1:161 w lp ti col,'' u 1:162 w lp ti col
 set output 'output/plot09es24.png'
 plot 'middle/plot09es.csv' u 1:163 w lp ti col,'' u 1:164 w lp ti col,'' u 1:165 w lp ti col,'' u 1:166 w lp ti col,'' u 1:167 w lp ti col,'' u 1:168 w lp ti col,'' u 1:169 w lp ti col
+set output 'output/plot09es25.png'
+plot 'middle/plot09es.csv' u 1:170 w lp ti col,'' u 1:171 w lp ti col,'' u 1:172 w lp ti col,'' u 1:173 w lp ti col,'' u 1:174 w lp ti col,'' u 1:175 w lp ti col,'' u 1:176 w lp ti col
 

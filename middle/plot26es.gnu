@@ -12,7 +12,7 @@ set timefmt '%Y-%m-%d'
 set format x '%Y-%m-%d'
 set xtics rotate by -45
 set xtics '2020-06-01',86400*30.41,'2023-04-02'
-set xrange ['2020-05-23':'2023-04-25']
+set xrange ['2020-05-23':'2023-04-26']
 set ytic center rotate by 90
 set datafile separator ','
 set colors classic

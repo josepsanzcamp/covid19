@@ -11,6 +11,15 @@ Plots para mostrar los datos del MoMo, INE, CSIC, OECD, EuroMoMo, Eurostat, ...
 - Eurostat => Idem que lo anterior, pero con datos reales en lugar de la estimación que hace EuroMoMo
 - Además, he obtenidos datos de Suecia, Noruega, Portugal, Francia y Alemania de sus respectivo instituto nacional de estadística
 
+**Atención**
+- El 27 de mayo del año 2020 se corrigieron los datos del MoMo, para poder observar esta corrección, he llamado MoMoOld a los datos anteriores a la corrección
+- El 26 de abril de 2022 se cambió el formato de los datos de MoMo, para poder observar estos cambios, he llamado MoMoOld2 a los datos anteriores al cambio y he añadido el plot27 y plot28
+- El 20 de diciembre de 2022 se cambió el formato de los datos de MoMo, para poder observar estos cambios, he llamado MoMoOld3 a los datos anteriores al cambio y los he añadido al plot27 y plot28
+
+**Actualización del 2023-06-23**
+- A partir de hoy finalizo la monitorización de la mortalidad de las diferentes fuentes a las cuales estoy suscrito, dejaré de procesar los datos diarios que se descargaba el sistema automático que programé hace tres años puesto que ya tengo toda la información que necesitaba para la toma de decisiones.
+- Como conclusión rápida, es interesante comparar los primeros meses de la pandemia donde la mortalidad difiere mucho entre España y Portugal, en España se vivió un exceso de mortalidad entre marzo y abril del 2020 mientras que en Portugal se vivió un exceso de mortalidad entre enero y febrero del 2021, también es interesante observar como han cambiado la forma de cocinar los números por parte del Instituto de Salud Carlos III, proveedor de los datos del MoMo.
+
 # MoMo
 - https://www.isciii.es/QueHacemos/Servicios/VigilanciaSaludPublicaRENAVE/EnfermedadesTransmisibles/MoMo/Paginas/MoMo.aspx => pagina principal de MoMo
 - https://cnecovid.isciii.es/covid19/ => COVID-19
